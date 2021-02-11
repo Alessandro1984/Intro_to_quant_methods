@@ -2,4 +2,8 @@
 
 Here some math.
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+```{r, fig.cap = "Picture 1"}
+library(knitr)
+knitr::include_graphics("images/abb_1_6.pdf")
+
+```
