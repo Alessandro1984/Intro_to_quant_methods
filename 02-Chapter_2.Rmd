@@ -1,4 +1,4 @@
-# Statistics {#Chapter2}
+# Subsetting {#chapter2}
 
 Here some descriptive statistics.
 

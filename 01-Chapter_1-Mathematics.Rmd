@@ -1,9 +1,0 @@
-# Mathematics {#Chapter1}
-
-Here some math.
-
-```{r, fig.cap = "Picture 1"}
-library(knitr)
-knitr::include_graphics("images/abb_1_6.pdf")
-
-```
