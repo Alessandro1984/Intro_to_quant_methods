@@ -1,1 +1,2 @@
-# Intro_to_quant_methods
+# Introduction to quantitative methods for economists
+
