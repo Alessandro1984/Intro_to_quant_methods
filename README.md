@@ -7,3 +7,5 @@ This repository contains the script for the course Quantitative Methods for Econ
 - A review of maths and statistics with some basic exercises and simulations in R
 - Fundamental concepts in econometrics with a focus on the linear regression
 - Application of regression analysis to macroeconomic questions (e.g. estimation of the Keynesian consumption function, estimation of the Okun coefficient, ...)
+
+The online script is developed using [*RStudio*](https://www.rstudio.com/) and the [*bookdown*](https://bookdown.org/) package.
