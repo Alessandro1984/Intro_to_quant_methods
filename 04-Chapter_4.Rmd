@@ -1,1 +1,3 @@
-# Inference {#chapter4}
+# (PART) Review of math and statistics {-}
+
+# Math {#chapter4}

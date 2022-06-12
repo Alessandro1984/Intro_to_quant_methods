@@ -1,0 +1,3 @@
+# (PART) Linear Regression {-}
+
+# Econometrics 1 {#chapter7}

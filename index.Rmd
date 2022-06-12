@@ -4,64 +4,26 @@ author: "Alessandro Bramucci"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: book.bib
 biblio-style: apalike
 link-citations: yes
 description: "This online introductory textbook offers the essential quantitative skills to students in economics and social sciences in general."
 ---
 
-# About this book {- #about}
+# About this book {.unnumbered}
 
-This book brings together a collection of notes, exercises and practical applications that I have used for my lectures at the at the Berlin School of Economics and Law in Berlin (Germany) in the course "Quantitative Methods for Economists".
+This book brings together a collection of notes, exercises and practical applications that I have used over the years for my lectures in the course "Quantitative Methods for Economists"at the at the Berlin School of Economics and Law (HWR Berlin) in Berlin, Germany.
+
+## Idea {.unnumbered}
+
+## Thanks {.unnumbered}
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
-# Table of contents {- #toc}
-
-[About this book](#about)
-
-**Part I - A first guide to R syntax**
-
-[1. Language essentials](#chapter1)
-
-[2. Subsetting](#chapter2)
-
-[3. Loops and functions](#chapter3)
-
-**Part II - A review of mathematics and statistics**
-
-[4. Mathematics](#chapter4)
-
-[5. Statistics](#chapter5)
-
-[6. Propability](#chapter6)
-
-**Part III - Simple econometrics**
-
-[7. The linear regression model](#chapter7)
-
-[8. Multiple regression analysis](#chapter8)
-
-[9. Inference](#chapter9)
-
-[10. Including qualitative information](#chapter10)
-
-**Part IV - Advanced econometrics**
-
-[11. System of equations](#chapter11)
-
-[12. Maximum likelihood estimation](#chapter12)
-
-[13. Models of qualitative choice](#chapter13)
-
-[14. Models of qualitative choice](#chapter14)
-
-[Appendix](#appendix)
-
-```{r include = FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+<!-- # ```{r include = FALSE} -->
+<!-- # # automatically create a bib database for R packages -->
+<!-- # knitr::write_bib(c( -->
+<!-- #   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
+<!-- # ), 'packages.bib') -->
+<!-- # ``` -->
 

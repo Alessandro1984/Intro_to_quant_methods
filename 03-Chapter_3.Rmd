@@ -1,3 +1,1 @@
-# Probability {#chapter3}
-
-Here some statistical distribution.
+# Code 3 {#chapter3}
