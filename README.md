@@ -6,4 +6,6 @@ This repository contains the script for the course Quantitative Methods for Econ
 - Introduction to *rmarkdown* and the *tidyverse* (*ggplot2*, *dplyr* and *tydr* package in particular) with applications using macroeconomic data
 - A review of maths and statistics with some basic exercises and simulations in R
 - Fundamental concepts in econometrics with a focus on the linear regression
-- Application of regression analysis to macroeconomic questions (e.g. estimation of the Keynesian consumption function, estimation of the Okun coefficient, ...)
+- Application of regression analysis to macroeconomic questions (e.g. estimation of the Keynesian consumption function, estimation of the Okun's coefficient, ...)
+
+The online script is developed using [*RStudio*](https://www.rstudio.com/) and the [*bookdown*](https://bookdown.org/) package.
