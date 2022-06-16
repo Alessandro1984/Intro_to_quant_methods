@@ -1,3 +1,126 @@
 # (PART) Review of math and statistics {-}
 
 # Math {#chapter4}
+
+## Derivative rules
+
+**The rules for sums and differences**
+
+Given $ f(x) = g(x) \pm h(x) $, where $g(x)$ and $h(x)$ are both differentiable functions, the derivative of a sum or difference of two functions is given by:
+
+\begin{equation}
+f'(x) = g'(x) \pm h'(x)
+\end{equation}
+
+**The product rule**
+
+Given $f(x) = g(x) \cdot h(x)$, where $g(x)$ and $h(x)$ are both differentiable functions, the derivative is given by:  
+
+\begin{equation}
+f'(x) =  h(x) \cdot g'(x) + h'(x) \cdot g(x)
+\end{equation}
+
+**The quotient rule** 
+
+Given $f(x) = \frac{g(x)}{h(x)}$, where $g(x)$ and $h(x)$ are both differentiable functions and $h(x)\neq0$, the derivative is given by:  
+
+\begin{equation}
+f'(x) =  \dfrac{h(x) \cdot g'(x) - h'(x) \cdot g(x)}{[h(x)]^2}
+\end{equation}
+
+**The generalized power function rule**
+
+Given $f(x) = [g(x)]^n$, where $g(x)$ is a differentiable functions and n is any real number, the derivative is given by: 
+
+\begin{equation}
+f'(x) =  n[g(x)]^{n-1} \cdot g'(x)
+\end{equation}
+
+**The chain rule**
+
+Given $f(x) = h(g(x))$, where $f$ is a function of a function where $h$ is in turn function of \textit{g}, the derivative is given by:
+
+\begin{equation}
+f'(x) = h'(g(x)) \cdot g'(x)
+\end{equation}
+
+**Additional rules**
+
+Given $f(x) = e^x$, the derivative is given by:
+
+\begin{equation}
+f'(x) = e^x
+\end{equation}
+
+Given $f(x) = ln(x)$, the derivative is given by:
+
+\begin{equation}
+f'(x) = \frac{1}{x}
+\end{equation}
+
+Given $f(x) = sin(x)$, the derivative is given by:
+
+\begin{equation}
+f'(x) = cos(x)
+\end{equation}
+
+Given $f(x) = cos(x)$, the derivative is given by:
+
+\begin{equation}
+f'(x) = -sin(x)
+\end{equation}
+
+## Matrix operations
+
+R can perform standard matrix algebra operations. We can use matrix algebra functions in R to solve our problem from class.
+
+$$
+7x + 5y - 3z = 16 \\
+3x -5y +2z	= -8 \\
+5x +3y -7z = 0
+$$
+
+First, we rewrite the system using matrix and vector notation:
+
+$$
+\mathbf{A} = \left[\begin{array}
+{rrr}
+7 & 5 & -3 \\
+3 & -5 & 2 \\
+5 & 3 & -7 \\
+\end{array}\right]
+\mathbf{b} = \left[\begin{array}
+{rrr}
+x \\
+y \\
+z \\
+\end{array}\right]
+\mathbf{r} = \left[\begin{array}
+{rrr}
+16 \\
+-8 \\
+0 \\
+\end{array}\right]
+$$
+
+In order to obtain the result vector *b*, we have to rearrange the model performing some simple matrix algebra operations.
+
+$$
+\mathbf{A}^{-1}\mathbf{A}\mathbf{b} = \mathbf{A}^{-1}\mathbf{r} \\
+\text{remember that} \space \mathbf{A}^{-1}\mathbf{A} = \mathbf{I} \\
+\mathbf{b} = \mathbf{A}^{-1}\mathbf{r}
+$$ 
+
+We are now ready to solve our system of equations using R:
+
+```{r}
+data <- c(7, 5, -3, 3, -5, 2, 5, 3, -7)
+
+A <- matrix(data, nrow = 3, ncol = 3, byrow = TRUE)
+
+r <- c(16, -8, 0)
+
+b <- solve(A) %*% r
+
+b
+```
