@@ -28,3 +28,10 @@ the-t-test-in-the-regression
 f-statistic-for-overall-significance-of-a-regression
 the-f-test
 chapter9
+linear-growth-model
+data-description
+level-level-model
+log-level-model
+quadratic-regression-model-level-level
+quadratic-regression-model-log-level
+estimation-of-the-keynesian-consumption-function
