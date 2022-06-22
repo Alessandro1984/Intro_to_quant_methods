@@ -1,7 +1,7 @@
 --- 
 title: "Introduction to quantitative methods for economists"
 author: "Alessandro Bramucci"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %b %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: book.bib
@@ -31,9 +31,7 @@ knitr::opts_chunk$set(
 
 # About this book {.unnumbered}
 
-This book brings together a collection of notes, exercises and practical applications that I have used over the years for my lectures in the course "Quantitative Methods for Economists"at the at the Berlin School of Economics and Law (HWR Berlin) in Berlin, Germany.
-
-## Idea {.unnumbered}
+This book brings together a collection of notes, exercises and practical applications that I have used over the years for my lectures in "Quantitative Methods for Economists" at the at the Berlin School of Economics and Law (HWR) in Berlin, Germany.
 
 ## Thanks {.unnumbered}
 

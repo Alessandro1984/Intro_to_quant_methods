@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-06-16" />
+<meta name="date" content="2022-06-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,17 +74,14 @@
 <li class="divider"></li>
 <li><a href="index.html#about-this-book">About this book<span></span></a>
 <ul>
-<li><a href="index.html#idea">Idea<span></span></a></li>
 <li><a href="index.html#thanks">Thanks<span></span></a></li>
 </ul></li>
 <li class="part"><span><b>I Introduction to R<span></span></b></span></li>
-<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a></li>
+<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Data extraction and manipulation using base R<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#loading-and-managing-data"><i class="fa fa-check"></i><b>1.1</b> Loading and managing data<span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#data-manipulation-using-base-r"><i class="fa fa-check"></i><b>1.2</b> Data manipulation using base R<span></span></a></li>
-<li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#conditional-selection"><i class="fa fa-check"></i><b>1.3</b> Conditional selection<span></span></a></li>
+<li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Code 2<span></span></a></li>
 <li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Code 3<span></span></a></li>
 <li class="part"><span><b>II Review of math and statistics<span></span></b></span></li>
 <li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Math<span></span></a>
@@ -110,7 +107,10 @@
 <li class="chapter" data-level="8" data-path="the-standard-normal-distribution.html"><a href="the-standard-normal-distribution.html"><i class="fa fa-check"></i><b>8</b> The standard normal distribution<span></span></a></li>
 <li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises<span></span></a></li>
 <li class="part"><span><b>III Linear Regression<span></span></b></span></li>
-<li class="chapter" data-level="10" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>10</b> Econometrics 1<span></span></a></li>
+<li class="chapter" data-level="10" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>10</b> Econometrics 1<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chapter7.html"><a href="chapter7.html#the-linear-regression-model"><i class="fa fa-check"></i><b>10.1</b> The linear regression model<span></span></a></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>11</b> Econometrics 2<span></span></a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="chapter8.html"><a href="chapter8.html#the-basics-of-hypothesis-testing"><i class="fa fa-check"></i><b>11.1</b> The basics of hypothesis testing<span></span></a></li>
@@ -121,7 +121,17 @@
 <li class="chapter" data-level="13.1" data-path="the-t-test-in-the-regression.html"><a href="the-t-test-in-the-regression.html#f-statistic-for-overall-significance-of-a-regression"><i class="fa fa-check"></i><b>13.1</b> F statistic for overall significance of a regression<span></span></a></li>
 <li class="chapter" data-level="13.2" data-path="the-t-test-in-the-regression.html"><a href="the-t-test-in-the-regression.html#the-f-test"><i class="fa fa-check"></i><b>13.2</b> The <em>F</em> test<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>14</b> Econometrics 3<span></span></a></li>
+<li class="chapter" data-level="14" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>14</b> Econometrics 3<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chapter9.html"><a href="chapter9.html#linear-growth-model"><i class="fa fa-check"></i><b>14.1</b> Linear growth model<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="chapter9.html"><a href="chapter9.html#level-level-model"><i class="fa fa-check"></i><b>14.1.1</b> Level-level model<span></span></a></li>
+<li class="chapter" data-level="14.1.2" data-path="chapter9.html"><a href="chapter9.html#log-level-model"><i class="fa fa-check"></i><b>14.1.2</b> Log-level model<span></span></a></li>
+<li class="chapter" data-level="14.1.3" data-path="chapter9.html"><a href="chapter9.html#quadratic-regression-model-level-level"><i class="fa fa-check"></i><b>14.1.3</b> Quadratic regression model (level-level)<span></span></a></li>
+<li class="chapter" data-level="14.1.4" data-path="chapter9.html"><a href="chapter9.html#quadratic-regression-model-log-level"><i class="fa fa-check"></i><b>14.1.4</b> Quadratic regression model (log-level)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="chapter9.html"><a href="chapter9.html#the-consumption-function"><i class="fa fa-check"></i><b>14.2</b> The consumption function<span></span></a></li>
+</ul></li>
 <li><a href="references.html#references">References<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/Alessandro1984/Intro_to_quant_methods" target="blank">GitHub repository</a></li>
@@ -149,7 +159,9 @@
 </div>
 <div id="chapter7" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">Chapter 10</span> Econometrics 1<a href="chapter7.html#chapter7" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The linear regression model - Part 1<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+<div id="the-linear-regression-model" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> The linear regression model<a href="chapter7.html#the-linear-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Part 1<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
 <p>We are given the following set of values:</p>
 <!-- \begin{figure}[h] -->
 <!--    \centering -->
@@ -172,7 +184,7 @@ f(\hat{\beta_0}, \hat{\beta_1}) = \sum_{n=1}^{3} \hat{u_i}^2 = \sum_{n=1}^{3} (y
 \dfrac{\partial f(\hat{\beta_0}, \hat{\beta_1})}{\partial \hat{\beta_0}} &amp; = -2\sum_{n=1}^{3} (y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0 \\
 \dfrac{\partial f(\hat{\beta_0}, \hat{\beta_1})}{\partial \hat{\beta_1}} &amp; = -2\sum_{n=1}^{3} x_i (y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0
 \end{align}\]</span></p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-31-1.png" width="80%" height="30%" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-38-1.png" width="80%" height="30%" /></p>
 <pre><code>## [1] 5.5 4.0 3.5</code></pre>
 <pre><code>## [1] -0.5  2.0 -1.5</code></pre>
 <pre><code>## [1] 6.5</code></pre>
@@ -182,24 +194,120 @@ f(\hat{\beta_0}, \hat{\beta_1}) = \sum_{n=1}^{3} \hat{u_i}^2 = \sum_{n=1}^{3} (y
 <pre><code>## [1] 0.25</code></pre>
 <pre><code>## [1] 0.25</code></pre>
 <pre><code>## [1] 2.54951</code></pre>
-<pre><code>## 
-## ===============================================
-##                         Dependent variable:    
-##                     ---------------------------
-##                                  y             
-## -----------------------------------------------
-## x                             -0.250           
-##                               (0.433)          
-##                                                
-## Constant                       4.750           
-##                               (1.639)          
-##                                                
-## -----------------------------------------------
-## Observations                     3             
-## R2                             0.250           
-## Residual Std. Error       2.550 (df = 1)       
-## ===============================================
-## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<center>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+y
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+x
+</td>
+<td>
+-0.250
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.433)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+4.750
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.639)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.250
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+2.550 (df = 1)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</center>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x + I(x^2))
@@ -207,31 +315,184 @@ f(\hat{\beta_0}, \hat{\beta_1}) = \sum_{n=1}^{3} \hat{u_i}^2 = \sum_{n=1}^{3} (y
 ## Coefficients:
 ## (Intercept)            x       I(x^2)  
 ##      7.9375       0.1667      -0.2708</code></pre>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-33-1.png" width="80%" height="30%" /><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-33-2.png" width="80%" height="30%" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-40-1.png" width="80%" height="30%" /><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-40-2.png" width="80%" height="30%" /></p>
 <p>Which model has the largest <span class="math inline">\(R^2\)</span>?</p>
-<pre><code>## 
-## ===================================================
-##                           Dependent variable:      
-##                     -------------------------------
-##                                  vary              
-##                           (1)             (2)      
-## ---------------------------------------------------
-## varx                     0.162          0.162*     
-##                         (0.360)         (0.080)    
-##                                                    
-## I(varx2)                               -0.284***   
-##                                         (0.015)    
-##                                                    
-## Constant                -2.140         8.281***    
-##                         (2.182)         (0.724)    
-##                                                    
-## ---------------------------------------------------
-## Observations              21              21       
-## R2                       0.010           0.954     
-## Residual Std. Error 9.999 (df = 19) 2.208 (df = 18)
-## ===================================================
-## Note:                   *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+y
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+x
+</td>
+<td>
+0.162
+</td>
+<td>
+0.162<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.360)
+</td>
+<td>
+(0.080)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+x
+</td>
+<td>
+</td>
+<td>
+-0.284<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.015)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-2.140
+</td>
+<td>
+8.281<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(2.182)
+</td>
+<td>
+(0.724)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+21
+</td>
+<td>
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.010
+</td>
+<td>
+0.954
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+9.999 (df = 19)
+</td>
+<td>
+2.208 (df = 18)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
 
+</div>
 </div>
 <div class="footnotes">
 <hr />

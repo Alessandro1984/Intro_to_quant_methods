@@ -2,7 +2,9 @@
 
 # Econometrics 1 {#chapter7}
 
-The linear regression model - Part 1^[Text and the derivation above rely on the suggested literature: Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 2) and Dougherty, C. Introduction to Econometrics (Chapter 1).]
+## The linear regression model
+
+Part 1^[Text and the derivation above rely on the suggested literature: Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 2) and Dougherty, C. Introduction to Econometrics (Chapter 1).]
 
 We are given the following set of values:
 
@@ -127,11 +129,18 @@ RMSE
 model1 <- lm(y ~ x)
 ```
 
-
-```{r}
-stargazer(model1, type = "text", keep.stat = c("n", "rsq", "ser"))
+<center>
+```{r, results = 'asis'}
+stargazer(model1,
+          type = "html",
+          dep.var.labels = c("y"),
+          #column.labels = c(""),
+          covariate.labels = c("x"),
+          colnames = FALSE,
+          model.numbers = FALSE,
+          keep.stat = c("n", "rsq", "ser"))
 ```
-
+</center>
 
 ```{r}
 x <- c(-3, 3, 5) # Variable x
@@ -188,8 +197,14 @@ abline(model4)
 
 Which model has the largest $R^2$?
 
-```{r}
-library(stargazer)
-
-stargazer(model4, model3, type = "text", keep.stat = c("n", "rsq", "ser"))
+```{r, results = 'asis'}
+stargazer(model4,
+          model3,
+          type = "html",
+          dep.var.labels = c("y"),
+          column.labels = c("1", "2"),
+          covariate.labels = c("x", "x"),
+          colnames = FALSE,
+          model.numbers = FALSE,
+          keep.stat = c("n", "rsq", "ser"))
 ```
