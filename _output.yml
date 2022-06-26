@@ -5,7 +5,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Introduction to quantitative methods <br> for economists</a></li>
+        <li class="toc-logo"><a href="./"><img src="images/logo.png"></a></li>
       after: |
         <li><a href="https://github.com/Alessandro1984/Intro_to_quant_methods" target="blank">GitHub repository</a></li>
     download: "pdf"

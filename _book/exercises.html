@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Exercises | Introduction to quantitative methods for economists</title>
+  <meta name="description" content="This online introductory textbook offers the essential coding and quantitative skills to students in economics and social sciences in general." />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Exercises | Introduction to quantitative methods for economists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This online introductory textbook offers the essential coding and quantitative skills to students in economics and social sciences in general." />
+  <meta name="github-repo" content="Alessandro1984/Intro_to_quant_methods" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Exercises | Introduction to quantitative methods for economists" />
+  
+  <meta name="twitter:description" content="This online introductory textbook offers the essential coding and quantitative skills to students in economics and social sciences in general." />
+  
+
+<meta name="author" content="Alessandro Bramucci" />
+
+
+<meta name="date" content="2022-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-standard-normal-distribution.html"/>
+<link rel="next" href="chapter7.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/logo.png"></a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#about-this-book">About this book<span></span></a>
+<ul>
+<li><a href="index.html#thanks">Thanks<span></span></a></li>
+</ul></li>
+<li class="part"><span><b>I Introduction to R<span></span></b></span></li>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a></li>
+<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Data extraction and manipulation using base R<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Code 3<span></span></a></li>
+<li class="part"><span><b>II Review of math and statistics<span></span></b></span></li>
+<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Math<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chapter4.html"><a href="chapter4.html#derivative-rules"><i class="fa fa-check"></i><b>4.1</b> Derivative rules<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="chapter4.html"><a href="chapter4.html#matrix-operations"><i class="fa fa-check"></i><b>4.2</b> Matrix operations<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> Stats<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chapter5.html"><a href="chapter5.html#find-mean-and-median"><i class="fa fa-check"></i><b>5.1</b> Find mean and median<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="chapter5.html"><a href="chapter5.html#boxplot"><i class="fa fa-check"></i><b>5.2</b> Boxplot<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="chapter5.html"><a href="chapter5.html#expected-value"><i class="fa fa-check"></i><b>5.3</b> Expected value<span></span></a></li>
+<li class="chapter" data-level="5.4" data-path="chapter5.html"><a href="chapter5.html#variance"><i class="fa fa-check"></i><b>5.4</b> Variance<span></span></a></li>
+<li class="chapter" data-level="5.5" data-path="chapter5.html"><a href="chapter5.html#correlation"><i class="fa fa-check"></i><b>5.5</b> Correlation<span></span></a></li>
+<li class="chapter" data-level="5.6" data-path="chapter5.html"><a href="chapter5.html#covariance"><i class="fa fa-check"></i><b>5.6</b> Covariance<span></span></a></li>
+<li class="chapter" data-level="5.7" data-path="chapter5.html"><a href="chapter5.html#expected-value-variance-and-covariance-rules"><i class="fa fa-check"></i><b>5.7</b> Expected value, variance and covariance rules<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Inference<span></span></a></li>
+<li class="chapter" data-level="7" data-path="example.html"><a href="example.html"><i class="fa fa-check"></i><b>7</b> Example<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="example.html"><a href="example.html#the-normal-distribution"><i class="fa fa-check"></i><b>7.1</b> The normal distribution<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-standard-normal-distribution.html"><a href="the-standard-normal-distribution.html"><i class="fa fa-check"></i><b>8</b> The standard normal distribution<span></span></a></li>
+<li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises<span></span></a></li>
+<li class="part"><span><b>III Linear Regression<span></span></b></span></li>
+<li class="chapter" data-level="10" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>10</b> Econometrics 1<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chapter7.html"><a href="chapter7.html#the-linear-regression-model"><i class="fa fa-check"></i><b>10.1</b> The linear regression model<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>11</b> Econometrics 2<span></span></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chapter8.html"><a href="chapter8.html#the-basics-of-hypothesis-testing"><i class="fa fa-check"></i><b>11.1</b> The basics of hypothesis testing<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="example-1.html"><a href="example-1.html"><i class="fa fa-check"></i><b>12</b> Example<span></span></a></li>
+<li class="chapter" data-level="13" data-path="the-t-test-in-the-regression.html"><a href="the-t-test-in-the-regression.html"><i class="fa fa-check"></i><b>13</b> The <em>t</em> test in the regression<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="the-t-test-in-the-regression.html"><a href="the-t-test-in-the-regression.html#f-statistic-for-overall-significance-of-a-regression"><i class="fa fa-check"></i><b>13.1</b> F statistic for overall significance of a regression<span></span></a></li>
+<li class="chapter" data-level="13.2" data-path="the-t-test-in-the-regression.html"><a href="the-t-test-in-the-regression.html#the-f-test"><i class="fa fa-check"></i><b>13.2</b> The <em>F</em> test<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>14</b> Econometrics 3<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chapter9.html"><a href="chapter9.html#linear-growth-model"><i class="fa fa-check"></i><b>14.1</b> Linear growth model<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="chapter9.html"><a href="chapter9.html#data-description"><i class="fa fa-check"></i><b>14.1.1</b> Data description<span></span></a></li>
+<li class="chapter" data-level="14.1.2" data-path="chapter9.html"><a href="chapter9.html#level-level-model"><i class="fa fa-check"></i><b>14.1.2</b> Level-level model<span></span></a></li>
+<li class="chapter" data-level="14.1.3" data-path="chapter9.html"><a href="chapter9.html#log-level-model"><i class="fa fa-check"></i><b>14.1.3</b> Log-level model<span></span></a></li>
+<li class="chapter" data-level="14.1.4" data-path="chapter9.html"><a href="chapter9.html#quadratic-regression-model-level-level"><i class="fa fa-check"></i><b>14.1.4</b> Quadratic regression model (level-level)<span></span></a></li>
+<li class="chapter" data-level="14.1.5" data-path="chapter9.html"><a href="chapter9.html#quadratic-regression-model-log-level"><i class="fa fa-check"></i><b>14.1.5</b> Quadratic regression model (log-level)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="chapter9.html"><a href="chapter9.html#the-consumption-function"><i class="fa fa-check"></i><b>14.2</b> The consumption function<span></span></a></li>
+<li class="chapter" data-level="14.3" data-path="chapter9.html"><a href="chapter9.html#estimation-of-the-keynesian-consumption-function"><i class="fa fa-check"></i><b>14.3</b> Estimation of the Keynesian consumption function<span></span></a></li>
+</ul></li>
+<li><a href="references.html#references">References<span></span></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/Alessandro1984/Intro_to_quant_methods" target="blank">GitHub repository</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to quantitative methods for economists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<link href="style.css" rel="stylesheet">
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="images/fotohero.jpg">
+</div>
+<div id="exercises" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Exercises<a href="exercises.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ol style="list-style-type: decimal">
+<li>We are given the following set of numbers: <span class="math inline">\(6, 2 , 8, 7, 5\)</span>. Transform the set into standard scores and check that mean and standard deviation of the transformed set are respectively 0 and 1.</li>
+</ol>
+<pre><code>## [1] 1.387779e-16</code></pre>
+<pre><code>## [1] 1</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Let us assume that the random variable <span class="math inline">\(X\)</span> is a normally distributed random variable with mean (<span class="math inline">\(\mu\)</span>) equal to 5 and population standard deviation (<span class="math inline">\(\sigma\)</span>) equal to 4. In short, <span class="math inline">\(Normal ~ (5,4)\)</span>. Calculate the probabilities that our random variable <span class="math inline">\(X\)</span> assume a value smaller than 6, <span class="math inline">\(P(X \leq 6)\)</span>, using the table of the standard normal probabilities or R (much better!).</li>
+</ol>
+<p>If we did not have R available we would have to find the <span class="math inline">\(z\)</span> score corresponding to the value of interest, 6 in this case, and look in the table of standard normal probabilities (the area below the curve) the probability that our random variable assumes a value smaller than that.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
+<pre><code>## [1] 0.25</code></pre>
+<p><span class="math display">\[z = \frac{6 - 5}{4} = 0.25\]</span></p>
+<p>Our <span class="math inline">\(z\)</span> value of interest is 0.25. The probability that the variable <span class="math inline">\(X\)</span> takes on a value less than 6 is given by the area under the normal curve to the left of <span class="math inline">\(z = 0.25\)</span>. This value is equal to:</p>
+<pre><code>## [1] 59.87063</code></pre>
+<p>We can achieve the same result by using the <em>lower.tail = FALSE</em> option. In this case we get the white area in the graph below and will have to subtract this quantity from 1 or 100%, i.e. the whole area under the curve.</p>
+<pre><code>## [1] 59.87063</code></pre>
+<p>In the graph below, the area marked in green indicates the probability that the independent variable <span class="math inline">\(X\)</span> takes on a value less than 6 given mean and population standard deviation of 5 and 4, respectively.</p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-44-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
+<p>If we have software at our disposal we do not have to use tables. In this case there is no need to calculate the <span class="math inline">\(z\)</span> score. The result (and the graph) will be exactly the same with the important difference that now the values reported in the horizontal axis will be the values of <span class="math inline">\(X\)</span> and not the standardized scores.</p>
+<pre><code>## [1] 59.87063</code></pre>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-45-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>The test scores for a class of students (this is the population) are normally distributed with mean (<span class="math inline">\(\mu\)</span>) equal to 75 points and standard deviation (<span class="math inline">\(\sigma\)</span>) equal to 10 points. What is the probability that a students scores above 80 points?</p></li>
+<li><p>Calculate the following probabilities:</p></li>
+</ol>
+<ul>
+<li>Given <span class="math inline">\(X \sim Normal(3,4)\)</span>, find <span class="math inline">\(P(X \leq 1)\)</span></li>
+<li>Given <span class="math inline">\(X \sim Normal(4,0)\)</span>, find <span class="math inline">\(P(2 &lt; X \leq 6)\)</span></li>
+</ul>
+
+</div>
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="8">
+<li id="fn8"><p>Since the normal distribution is continuous, <span class="math inline">\(P(Z &lt; z) = P(Z \leq z)\)</span>.<a href="exercises.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-standard-normal-distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Intro_to_quant_methods.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

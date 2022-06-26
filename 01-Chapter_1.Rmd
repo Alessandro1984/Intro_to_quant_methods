@@ -1,3 +1,117 @@
 # (PART) Introduction to R {-}
 
 # Code 1 {#chapter1}
+
+## A brief history of R
+
+- Great for economists
+
+## R language essentials
+
+R can be used as a calculator
+
+```{r}
+2 + 2
+```
+
+```{r}
+exp(0)
+```
+
+```{r}
+log(1)
+```
+
+Assigning a value to a variable (short cut Alt -)
+
+```{r}
+x <- 15
+```
+
+To remove a variable
+
+```{r}
+rm(x)
+```
+
+R handle data vectors as single objects. We can easily create data vectors
+
+```{r}
+x <- c(1, 2, 3)
+```
+
+We can see the object names that we have already created
+
+```{r}
+ls()
+```
+
+We can easily remove all objects from the current workspace
+It is a good practice to start every new R Session with this line of code
+
+```{r}
+rm(list = ls())
+```
+
+R can easily creates sequences of numbers
+
+```{r}
+a <- 1:10 
+b <- seq(from = 1, to = 10, by = 1)
+```
+
+Generating random numbers from a normal distribution specifying mean and standard deviation. The `set.seed` function allows us to generate the same numbers. This function is essential if we want someone else to be able to replicate the results of our simulations, for example when we want to share our work with colleagues or our  thesis supervisor or when for example when we want to publish a paper.
+
+```{r}
+set.seed(1234)
+
+rnorm(n = 10, mean = 0, sd = 1)
+```
+
+Assigning (a vector of) random numbers to a variable called `y`.
+
+```{r}
+y <- rnorm(10, 0, 1)
+```
+
+Length of the vector
+
+```{r}
+length(y)
+```
+
+Logical Operations. The operator "==" force R to make a "true or false" judgement. Be careful because the sign `=` in R can be used to define a variable, e.g. `x = 5`. This is why I recommend using the assignment operator `<-` to define variables and use the equal sign where you cannot do otherwise.
+
+```{r}
+2 + 2 == 4
+sqrt(25) == 4
+```
+
+R also includes the normal arithmetic and logical operators.
+
+```{r}
+100 >= 100
+99 > 100
+99 != 100
+!(1==1) # One is not equal to one -> FALSE!
+(1==1) | (2==3) # One is equal to one OR two is equal to three -> TRUE!
+(1==1) & (2==3) # One is equal to one AND two is equal to three -> FALSE!
+```
+
+- basic functions (double equal, root, logical operators)
+
+- save object in the env
+
+- dataframes; vectors; lists; matrices
+
+- functions
+
+- loops
+
+- nested loops
+
+- apply familiy
+
+We have already reached the end of the first chapter. I hope you are not bored. In the next chapter, we will take a closer look at how to work with data in a dataframe, such as how to edit data, select variables, create new ones and much more.
+
+

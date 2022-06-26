@@ -1,24 +1,38 @@
 # Data extraction and manipulation using base R {#chapter2}
 
-To begin with, let's see how to install a new package in R. We are going to install the *wooldridge* package which contains all the datasets used in the book *Introductory Econometrics* by Jeffrey M. Wooldridge. Additional information regarding the datasets can be found in the following [document](https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf). 
+In this chapter, we want to learn how to use R, and in particular the functions of what is also called "base R" to work with data (so we do not use any additional packages). To practice we will use a dataset contained in the package *wooldridge*. This R package contains all the databases used in the famous econometrics textbook *Introductory Econometrics: A Modern Approach* by Jeffrey M. Wooldridge -@wool. All information on the datasets available in the package, such as variable names, data sources, etc., can be found in the related [R package documentation](https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf). We start by installing the desired package.
 
 ```{r, eval = FALSE}
-# Install the package
 install.packages("wooldridge")
+```
 
-# Upload the package to the library
+After installing the package, we must load it into the library.
+
+```{r}
 library(wooldridge)
 ```
 
-Now, let us see how to unload a package from the library. The quickest way is to untick the checkbox of the package you want to remove in the *Packages* window. The following code is automatically executed in the console. There is no need to copy it or run it again. Another, perhaps more radical, way to unload all packages is to restart the RStudio session. In this case, the keyboard shortcut *CTRL + SHIFT + F10* can be used.
-
-Unloading a package
+To unload the package from the library, we can use the following code
 
 ```{r, eval = FALSE}
 detach("package:wooldridge", unload = TRUE)
 ```
 
-After loading the dataset, in our case contained in the *wooldridge* package, we can take a look at the data. It is important to take a look at the data, for example after having modified existing variables or having created new ones. The dataset we use in this exercise is *wage1*. We can take a glance at the data using the *View* function.
+
+
+The quickest way is to untick the checkbox of the package you want to remove in the *Packages* window. The following code is automatically executed in the console. There is no need to copy it or run it again.
+
+R is different from Excel in several respects. One in particular is clear. With Excel, one works mainly by looking at the data. In R, on the other hand, one works mainly by looking at the codes. However, it is necessary to look at the data from time to time, for example after having modified existing variables or having created new ones. The dataset we use in this exercise is *wage1*. We can take a glance at the data using the *View* function.
+
+After loading the dataset, in our case contained in the *wooldridge* package, we can take a look at the data. 
+
+Note that in the R chunk (to understand the grey area below where the R code appears) we have included the option *eval = FALSE*. This causes the code not to be executed. We want to continue using the package, of course!
+
+Let us start by seeing how many columns and rows our dataset contains.
+
+```{r}
+dim(wage1)
+```
 
 Indexing when you need to address a particular element into a vector, for example the wage of worker nr. 5
 
@@ -29,73 +43,93 @@ wage1$educ[5]
 If we want data for more than one worker
 
 ```{r}
-wage1$educ[c(2,3,5)]
+#wage1$educ[c(2,3,5)]
 ```
 
 Data from worker one to worker five
 
 ```{r}
-wage1$educ[1:5]
+#wage1$educ[1:5]
 ```
 
 If we want to modify one particular observation
 
 ```{r}
-wage1$educ[5] <- NA
+#wage1$educ[5] <- NA
 ```
 
 Negative indexing allow to show all data except those specified in parenthesis
 
 ```{r}
-wage1$educ[-c(1:520)]
+#wage1$educ[-c(1:520)]
 ```
 
 Negative indexing allow us to drop specified rows and columns. Drop the first row in the dataset
 
 ```{r}
-wage1[-1,]
+#wage1[-1,]
 ```
 
-Drop the last column in the dataset
+Sometimes we may have to delete some variables from our dataset. To delete a column, we must use the negative sign in front of the variable that we wish to delete. In this case, we are eliminating the first column,
 
 ```{r}
-wage1[,-25]
+#wage1[,-1]
 ```
 
-Just check the number of row and col in wage1 with the dim() function
+We can also delete columns using variable names. In this case, we delete the variable containing the years of education (which is the first variable in the dataset).
 
 ```{r}
-dim(wage1)
+#wage1[2]
 ```
 
-Converting dollars to euros and add the new column variable to the dataset
+
+Converting dollars to euros and add the new column variable to the dataset.
 
 ```{r}
 wage1$wage_EUR <- wage1$wage * 0.86
 ```
 
+We can compare the variable wage, originally expressed in dollars, and the new variable `wage_EUR`. Here we take a look at the first five rows.
+
+```{r}
+wage1[1:5, c("wage", "wage_EUR")]
+```
+
 ## Conditional selection
 
+To use when you need to extract some data that satisfy certain criteria Workers that have more than 15 years of education
+
+Workers that have between 15 AND 18 year of education
+
+Workers that have between 15 OR 18 year of education
+
+A more interesting research question is to ask the hourly wage of workers that have 15 or more years of education
+
+Hourly wage of workers with more than 15 years of education and 5 years of experience 
+
+Look at what happens when we type educ>15. We can exploit the fact that TRUE=1 and FALSE=0 to calculate the percentage of workers that have more than 15 years of education
+
 ```{r, eval = FALSE}
-
-# To use when you need to extract some data that satisfy certain criteria
-# Workers that have more than 15 years of education
 educ[educ > 15]
+```
 
-# Workers that have between 15 AND 18 year of education
+```{r, eval = FALSE}
 educ[educ >= 15 & educ <= 18]
+```
 
-# Workers that have between 15 OR 18 year of education
+```{r, eval = FALSE}
 educ[educ >= 17 | educ <= 2]
+```
 
-# A more interesting research question is to ask the hourly wage of workers that have 15 or more years of education
+```{r, eval = FALSE}
 wage[educ >= 15]
+```
 
-# Hourly wage of workers with more than 15 years of education and 5 years of experience 
+```{r, eval = FALSE}
 wage[educ >= 15 & exper >= 5]
+```
 
-# Look at what happens when we type educ>15. We can exploit the fact that TRUE=1 and FALSE=0 to calculate
-# the percentage of workers that have more than 15 years of education
+```{r, eval = FALSE}
 sum(educ > 15) / sum(educ >= 0) * 100
 
 ```

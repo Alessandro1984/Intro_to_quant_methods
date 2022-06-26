@@ -4,9 +4,7 @@
 
 ## The linear regression model
 
-Part 1^[Text and the derivation above rely on the suggested literature: Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 2) and Dougherty, C. Introduction to Econometrics (Chapter 1).]
-
-We are given the following set of values:
+Text and the derivation above rely on the suggested literature: Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 2) and Dougherty, C. Introduction to Econometrics (Chapter 1). We are given the following set of values:
 
 \begin{center}
 	\begin{tabular}{ l c r }
@@ -20,12 +18,7 @@ We are given the following set of values:
 \end{tabular}
 \end{center}
 
-<!-- \begin{figure}[h] -->
-<!-- 	\centering -->
-<!-- \includegraphics[height=4in]{plot} -->
-<!-- \end{figure} -->
-
-\noindent We want to find the line that minimizes the sum of squared residuals, i.e. the squared distance between the observed value and the line. In a simple bivariate case as this one, we have to find a slope ($\hat{\beta_1}$) and an intercept ($\hat{\beta_0}$) for the line so that the sum of squared residuals is as small as possible.
+We want to find the line that minimizes the sum of squared residuals, i.e. the squared distance between the observed value and the line. In a simple bivariate case as this one, we have to find a slope ($\hat{\beta_1}$) and an intercept ($\hat{\beta_0}$) for the line so that the sum of squared residuals is as small as possible.
 
 \begin{align}
 y_i & = \hat{y_i} + \hat{u_i} \\
@@ -50,10 +43,7 @@ We now take the derivative of (6) with respect to $\hat{\beta_0}$ and set it equ
 
 ```{r}
 x <- c(-3, 3, 5) # Variable x
-y <- c(5, 6, 2) # Variabel y
-
-# Save the graph as PDF
-#pdf("plot.pdf")
+y <- c(5, 6, 2) # Variable y
 
 # Plot
 plot(x, y,             # First variable on the h. axis then the variable on the v. axis
@@ -80,52 +70,86 @@ legend("bottomright",                       # Position of the legend
        horiz = TRUE,                        # Option horizontal
        bg = "transparent",                  # Background
        bty = "n")                           # No box around the legend
+```
 
-# Close PDF
-#dev.off()
+Slope coefficient
 
-# Slope coefficient
+```{r}
 beta_1 <- cov(y, x) / var(x)
+```
 
-# Intercept
+Intercept
+
+```{r}
 beta_0 <- mean(y) - beta_1 * mean(x)
+```
 
-# We calculate the fitted values
+We calculate the fitted values
+
+```{r}
 y_hat <- beta_0 + beta_1 * (x)
 y_hat
 
-# We calculate the residuals
-u_hat <- y - y_hat # resid
-u_hat
+```
 
-# We calculate the residual sum of squares (SSR)
+We calculate the residuals
+
+```{r}
+u_hat <- y - y_hat
+u_hat
+```
+
+We calculate the residual sum of squares (SSR)
+
+```{r}
 SSR <- sum(u_hat^2)
 SSR
+```
 
-# We calculate the explained sum of squares (SSE)
+We calculate the explained sum of squares (SSE)
+
+```{r}
 SSE <- sum((y_hat-mean(y))^2)
 SSE
+```
 
-# We can calculate the sum of square total (SST)
+We can calculate the sum of square total (SST)
+
+```{r}
 SST <- SSR + SSE
 SST
+```
 
-# Let's check
+Let's check
+
+```{r}
 var(y)*(length(y)-1)
+```
 
-# We can finally calculate the R2
+We can finally calculate the R2
+
+```{r}
 R2 <- SSE / SST
 R2
+```
 
-# Alternatively
+Alternatively
+
+```{r}
 R2 <- 1 - SSR/SST
 R2
+```
 
-# We can also calculate the root mean squared error (RMSE)
-RMSE <- sqrt(SSR/1) # Degrees of freedom correction = 2
+We can also calculate the root mean squared error (RMSE); Degrees of freedom correction = 2
+
+```{r}
+RMSE <- sqrt(SSR/1) 
 RMSE
+```
 
-# We can now compare our work with the output of the lm() function
+We can now compare our work with the output of the lm() function
+
+```{r}
 model1 <- lm(y ~ x)
 ```
 

@@ -2,14 +2,11 @@
 
 ## Linear growth model
 
-<<<<<<< HEAD
-- Time Series: Real Gross Domestic Product of USA (seasonally not adjusted)
+<<<<<<< HEA- Time Series: Real Gross Domestic Product of USA (seasonally not adjusted)
 - Observations: from 1960 to 2007
 - Units: Billions of dollars
 - Data: https://fred.stlouisfed.org/
 - Source: Gujarati, D. [Econometrics by Example](https://www.macmillanihe.com/page/detail/Econometrics-by-Example/?K=9781137375018)
-=======
-This exercise is taken from the book [Econometrics by Example](https://www.macmillanihe.com/page/detail/Econometrics-by-Example/?K=9781137375018) by Gujarati, D.
 
 ### Data description
 
@@ -17,12 +14,11 @@ This exercise is taken from the book [Econometrics by Example](https://www.macmi
 - Observations: from 1960 to 2007
 - Units: Billions of dollars
 - Data: https://fred.stlouisfed.org/series/GDPCA
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
 
 ### Level-level model
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
-<<<<<<< HEAD
+
 # Loading the data
 RGDP <- read.csv("GDPCA.csv", sep= ";", header = TRUE)
 
@@ -32,7 +28,7 @@ head(RGDP, 5L)
 # The model
 linear_trend <- lm(RGDP$GDPCA ~ RGDP$TIME)
 
-=======
+
 library(stargazer)
 # Loading the data
 library(readr)
@@ -42,7 +38,7 @@ RGDP <- read_delim("C:/Users/bramucci/Documents/Intro_to_quant_methods/GDPCA.csv
 head(RGDP, 5L)
 # The model
 linear_trend <- lm(RGDP$GDPCA ~ RGDP$TIME)
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
+
 # Plot
 plot(RGDP$TIME, RGDP$GDPCA,
      type = "l",
@@ -54,10 +50,7 @@ plot(RGDP$TIME, RGDP$GDPCA,
      xaxs = "i", 
      yaxs = "i")
 abline(lm(RGDP$GDPCA ~ RGDP$TIME))
-<<<<<<< HEAD
 
-=======
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
 ```
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
@@ -81,16 +74,15 @@ Now letting $\beta_0 = ln(RGDP_{1960})$ and $\beta_1 = ln(1 + r)$ we can rewrite
 $$ln(RGDP_t)  = \beta_0 + \beta_1*t + u_t$$
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
-<<<<<<< HEAD
 
 RGDP$lnGDPCA <- log(RGDP$GDPCA)
 
 log_linear_trend <- lm(RGDP$lnGDPCA ~ RGDP$TIME)
 
-=======
+
 RGDP$lnGDPCA <- log(RGDP$GDPCA)
 log_linear_trend <- lm(RGDP$lnGDPCA ~ RGDP$TIME)
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
+
 plot(RGDP$TIME, RGDP$lnGDPCA,
      type = "l",
      col = "red",
@@ -100,10 +92,7 @@ plot(RGDP$TIME, RGDP$lnGDPCA,
      xaxs = "i", 
      yaxs = "i")
 abline(lm(RGDP$lnGDPCA ~ RGDP$TIME))
-<<<<<<< HEAD
 
-=======
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
 ```
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
@@ -132,13 +121,12 @@ $$ RGDP_t  = \beta_0 + \beta_1*t + \beta_2*t^2 + u_t $$
 The fact that $t$ and $t^2$ are correlated does not raise the problem of collinearity. One of the assumption of the multiple linear regression model is that there is no perfect linear relationship between the regressors. This is because the two variables are not a linear function of each other but rather a quadratic function.
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
-<<<<<<< HEAD
 
 quadratic_trend <- lm(RGDP$GDPCA ~ RGDP$TIME + I(RGDP$TIME^2))
 
-=======
+
 quadratic_trend <- lm(RGDP$GDPCA ~ RGDP$TIME + I(RGDP$TIME^2))
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
+
 plot(RGDP$TIME, RGDP$GDPCA,
      type = "l",
      col = "black",
@@ -148,10 +136,7 @@ plot(RGDP$TIME, RGDP$GDPCA,
      xaxs = "i", 
      yaxs = "i")
 lines(RGDP$TIME, quadratic_trend$fitted.values, col = "green")
-<<<<<<< HEAD
 
-=======
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
 ```
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
@@ -173,13 +158,13 @@ We can now consider the same model as before, but with the log of real GDP:
 $$ ln(RGDP_t)  = \beta_0 + \beta_1*t + \beta_2*t^2 + u_t $$
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
-<<<<<<< HEAD
+
 
 quadratic_log_trend <- lm(RGDP$lnGDPCA ~ RGDP$TIME + I(RGDP$TIME^2))
 
-=======
+
 quadratic_log_trend <- lm(RGDP$lnGDPCA ~ RGDP$TIME + I(RGDP$TIME^2))
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
+
 plot(RGDP$TIME, RGDP$lnGDPCA,
      type = "l",
      col = "black",
@@ -189,10 +174,8 @@ plot(RGDP$TIME, RGDP$lnGDPCA,
      xaxs = "i", 
      yaxs = "i")
 lines(RGDP$TIME, quadratic_log_trend$fitted.values, col = "purple")
-<<<<<<< HEAD
 
-=======
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
+
 ```
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
@@ -207,11 +190,10 @@ $$ \frac{d ln(RGDP)}{dt} = 0.036 - 2 * 0.00007736 * t$$
 
 On the left hand side of the derivative, we have the rate of growth in real GDP. From the estimated coefficients we see that real GDP is increasing at a decreasing rate.
 
-<<<<<<< HEAD
+
 ## The consumption function
-=======
+
 ## Estimation of the Keynesian consumption function
->>>>>>> 92d56e9fe99470bddfaf99c2ace4351b06a90da8
 
 In this brief exercise we are going to estimate a Keynesian aggregate consumption function for the United States from 1960 to 2019. We will regress private consumption (at constant prices) on real GDP. The slope of the regression will be what in the economic literature is called the marginal propensity to consume (MPC for short). What is MPC? MPC is that value that tells us how much consumption will increase as income increases. Theory tells us that the MPC is a value between 0 and 1. When income increases by 1\$, consumption will increase by a value less than the initial increase of 1\$ but greater than 0.
 

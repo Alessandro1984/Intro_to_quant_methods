@@ -1,2 +1,5 @@
 # Code 3 {#chapter3}
 
+- dplyr
+- ggplot2
+- growth contributions
