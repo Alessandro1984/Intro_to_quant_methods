@@ -1,4 +1,8 @@
+fig:image1
+fig:image2
 chapter1
+a-brief-history-of-r
+r-language-essentials
 chapter2
 conditional-selection
 chapter3

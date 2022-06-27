@@ -25,7 +25,8 @@ knitr::opts_chunk$set(
 	message = FALSE,
 	warning = FALSE,
 	out.width = '80%',
-	out.height = '30%'
+	out.height = '30%',
+	fig.align = 'center'
 )
 
 ```

@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-06-26" />
+<meta name="date" content="2022-06-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -99,7 +163,11 @@ div.csl-indent {
 <li><a href="index.html#thanks">Thanks<span></span></a></li>
 </ul></li>
 <li class="part"><span><b>I Introduction to R<span></span></b></span></li>
-<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a></li>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#a-brief-history-of-r"><i class="fa fa-check"></i><b>1.1</b> A brief history of R<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#r-language-essentials"><i class="fa fa-check"></i><b>1.2</b> R language essentials<span></span></a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Data extraction and manipulation using base R<span></span></a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection<span></span></a></li>
@@ -193,7 +261,7 @@ div.csl-indent {
 <p><span class="math display">\[|z_{test}| &gt; z_{crit}\]</span></p>
 <pre><code>## [1] TRUE</code></pre>
 <p>We can reject <span class="math inline">\(H_0\)</span> at the 5% significance level. In the following graph, in green we can see the rejection region (the two green shaded areas add up to 5%) while with the yellow line it is indicated the value of our <span class="math inline">\(z\)</span> test in both tails of the distribution. As we said, since the value of our <span class="math inline">\(z\)</span> test falls within the rejection region, we can reject <span class="math inline">\(H_0\)</span> at the 5% significance level.</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-34-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-49-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
 <p>What do we see highlighted in black in the graph above? The sum of the two black areas represent our p-value for the <em>z</em> score that we have just calculated. We can think of the p-value as the smallest significance level at which we still reject the null hypothesis (or the largest significance level at which the null hypothesis cannot be rejected). How large is the p-value for our <em>z</em> test?</p>
 <pre><code>## [1] 1.241933</code></pre>
 <p>How can we interpret the p-value? In our exercise, the p-value of 1.24% represents the probability that a mean lifetime of less than 1570 or more than 1630 hours would occur by chance if <span class="math inline">\(H_0\)</span> were actually true. A rather small probability. How did we obtain the values 1570 and 1630? We have used (half) of the p-value to calculate the quantiles of a normal distribution with mean <span class="math inline">\(mu = 1600\)</span> and standard deviation <span class="math inline">\(120/\sqrt{100}\)</span>.</p>
@@ -211,10 +279,10 @@ div.csl-indent {
 <p>The normal distribution is a common probability distribution in statistics and econometrics (it is just one of many distributions). The normal distribution fits a number of natural and social phenomena. When a phenomenon (a random variable) has a normal distribution, its <strong>probability density function</strong> (for short, PDF) assumes the well-known bell-shaped curve. The normal distribution is sometimes called the Gaussian distribution or the Gauss curve in honor of the famous mathematician Carl-Friedrich Gauss.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Shape and position of the normal distribution are entirely determined by mean (<span class="math inline">\(\mu\)</span>) and standard deviation (<span class="math inline">\(\sigma\)</span>) of the normally distributed random variable. This is written as:</p>
 <p><span class="math display">\[X \sim Normal(\mu, \sigma)\]</span></p>
 <p>For example, we see that the two normal distributions shown in the following graph have the same mean but different standard deviations.</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-38-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-53-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
 <p>The mean determines the location of the normal distribution in the horizontal axis. The majority of the body is located around the mean to which correspond the peak in the distribution. The standard deviation determines the shape of the curve. In practice, it determines how far the values of the variable are from the mean. This means that a higher mean shifts the curve to the right without changing its shape. Similarly, a higher standard deviation widens the body of the curve without shifting its position on the horizontal axis.</p>
 <p>The normal distribution has a number of interesting and useful properties. First of all, it is symmetrical with respect to the mean, from which it follows that half of the values are distributed half to the right and half to the left of the mean. Knowing the mean and standard deviation of a certain event or random variable, the normal distribution allows us to calculate the probability that the event will assume a certain value or range of values. Roughly speaking, this correspond to the area below the curve. In reality, this is done using the <strong>cumulative distribution function</strong> (CDF) which is nothing more than the integral of the PDF. The following figure shows the relationship between PDF (left) and CDF (right) of a normally distributed random variable with mean 0 and standard deviation 1.</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-39-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-54-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div class="footnotes">

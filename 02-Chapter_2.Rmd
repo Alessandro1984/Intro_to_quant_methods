@@ -1,32 +1,40 @@
 # Data extraction and manipulation using base R {#chapter2}
 
-In this chapter, we want to learn how to use R, and in particular the functions of what is also called "base R" to work with data (so we do not use any additional packages). To practice we will use a dataset contained in the package *wooldridge*. This R package contains all the databases used in the famous econometrics textbook *Introductory Econometrics: A Modern Approach* by Jeffrey M. Wooldridge -@wool. All information on the datasets available in the package, such as variable names, data sources, etc., can be found in the related [R package documentation](https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf). We start by installing the desired package.
+In this chapter, we want to learn how to use R, and in particular the functions of what is also called "base R" to work with data^[So we do not use any additional functions from packages like *dplyr*]. To practice we will use a dataset contained in the package *wooldridge*. This R package contains all the databases used in the famous econometrics textbook *Introductory Econometrics: A Modern Approach* by Jeffrey M. @wool. All information on the datasets available in the package, such as variable names, data sources, etc., can be found in the related [R package documentation](https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf). We start by installing the desired package.
 
-```{r, eval = FALSE}
+```{r,  echo = TRUE, eval = FALSE}
 install.packages("wooldridge")
 ```
 
-After installing the package, we must load it into the library.
+After having installed the package, we must load it into the library.
 
-```{r}
+```{r, echo = TRUE}
 library(wooldridge)
 ```
 
-To unload the package from the library, we can use the following code
+To unload the package from the library, we can use the following code. We don't need this now. We want to continue using the package, of course!
 
-```{r, eval = FALSE}
+```{r, echo = TRUE, eval = FALSE}
 detach("package:wooldridge", unload = TRUE)
 ```
 
+In RStudio this procedure is even easier. To install a package, simply select the desired package from the drop-down menu, which is accessed from the `Packages` tab in the panel that is (usually) located in the bottom right-hand corner. This (very simple) procedure is summarised in figure \@ref(fig:image1).
 
+```{r image1, fig.cap = "How to install a package in RStudio."}
+knitr::include_graphics("images/image1.png")
+```
 
-The quickest way is to untick the checkbox of the package you want to remove in the *Packages* window. The following code is automatically executed in the console. There is no need to copy it or run it again.
+Once the package is installed, we have to load it into the library. In this case, we simply check the box of the desired package just as shown in figure \@ref(fig:image2).
 
-R is different from Excel in several respects. One in particular is clear. With Excel, one works mainly by looking at the data. In R, on the other hand, one works mainly by looking at the codes. However, it is necessary to look at the data from time to time, for example after having modified existing variables or having created new ones. The dataset we use in this exercise is *wage1*. We can take a glance at the data using the *View* function.
+```{r image2, fig.cap = "Load the package to the library from RStudio."}
+knitr::include_graphics("images/image2.png")
+```
 
-After loading the dataset, in our case contained in the *wooldridge* package, we can take a look at the data. 
+R is different from Excel in several respects. One in particular is clear. With Excel, one works mainly by looking at the data. In R, on the other hand, one works mainly by looking at the codes. However, it is necessary to look at the data from time to time, for example after having modified existing variables or having created new ones. The dataset we use in this exercise is called *wage1*. We can take a glance at the data using the *View* function.
 
-Note that in the R chunk (to understand the grey area below where the R code appears) we have included the option *eval = FALSE*. This causes the code not to be executed. We want to continue using the package, of course!
+```{r, echo = TRUE, eval = FALSE}
+View(wage1)
+```
 
 Let us start by seeing how many columns and rows our dataset contains.
 
@@ -109,28 +117,28 @@ Hourly wage of workers with more than 15 years of education and 5 years of exper
 
 Look at what happens when we type educ>15. We can exploit the fact that TRUE=1 and FALSE=0 to calculate the percentage of workers that have more than 15 years of education
 
-```{r, eval = FALSE}
-educ[educ > 15]
+```{r, echo = TRUE, eval = FALSE}
+wage1$educ[wage1$educ > 17]
 ```
 
-```{r, eval = FALSE}
-educ[educ >= 15 & educ <= 18]
+```{r, echo = TRUE, eval = FALSE}
+wage1$educ[wage1$educ >= 15 & wage1$educ <= 18]
 ```
 
-```{r, eval = FALSE}
-educ[educ >= 17 | educ <= 2]
+```{r, echo = TRUE, eval = FALSE}
+wage1$educ[wage1$educ >= 17 | wage1$educ <= 2]
 ```
 
-```{r, eval = FALSE}
-wage[educ >= 15]
+```{r, echo = TRUE, eval = FALSE}
+wage1$wage[wage1$educ >= 15]
 ```
 
-```{r, eval = FALSE}
-wage[educ >= 15 & exper >= 5]
+```{r, echo = TRUE, eval = FALSE}
+wage1$wage[wage1$educ >= 15 & wage1$exper >= 5]
 ```
 
-```{r, eval = FALSE}
-sum(educ > 15) / sum(educ >= 0) * 100
+```{r, echo = TRUE, eval = FALSE}
+sum(wage1$educ > 15) / sum(wage1$educ >= 0) * 100
 
 ```
 

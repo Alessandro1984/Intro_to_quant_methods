@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-06-26" />
+<meta name="date" content="2022-06-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -99,7 +163,11 @@ div.csl-indent {
 <li><a href="index.html#thanks">Thanks<span></span></a></li>
 </ul></li>
 <li class="part"><span><b>I Introduction to R<span></span></b></span></li>
-<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a></li>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#a-brief-history-of-r"><i class="fa fa-check"></i><b>1.1</b> A brief history of R<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#r-language-essentials"><i class="fa fa-check"></i><b>1.2</b> R language essentials<span></span></a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Data extraction and manipulation using base R<span></span></a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection<span></span></a></li>
@@ -183,13 +251,27 @@ div.csl-indent {
 </div>
 <div id="chapter2" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Data extraction and manipulation using base R<a href="chapter2.html#chapter2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this chapter, we want to learn how to use R, and in particular the functions of what is also called “base R” to work with data (so we do not use any additional packages). To practice we will use a dataset contained in the package <em>wooldridge</em>. This R package contains all the databases used in the famous econometrics textbook <em>Introductory Econometrics: A Modern Approach</em> by Jeffrey M. Wooldridge -<span class="citation">Wooldridge (<a href="#ref-wool" role="doc-biblioref">2013</a>)</span>. All information on the datasets available in the package, such as variable names, data sources, etc., can be found in the related <a href="https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf">R package documentation</a>. We start by installing the desired package.</p>
-<p>After installing the package, we must load it into the library.</p>
-<p>To unload the package from the library, we can use the following code</p>
-<p>The quickest way is to untick the checkbox of the package you want to remove in the <em>Packages</em> window. The following code is automatically executed in the console. There is no need to copy it or run it again.</p>
-<p>R is different from Excel in several respects. One in particular is clear. With Excel, one works mainly by looking at the data. In R, on the other hand, one works mainly by looking at the codes. However, it is necessary to look at the data from time to time, for example after having modified existing variables or having created new ones. The dataset we use in this exercise is <em>wage1</em>. We can take a glance at the data using the <em>View</em> function.</p>
-<p>After loading the dataset, in our case contained in the <em>wooldridge</em> package, we can take a look at the data.</p>
-<p>Note that in the R chunk (to understand the grey area below where the R code appears) we have included the option <em>eval = FALSE</em>. This causes the code not to be executed. We want to continue using the package, of course!</p>
+<p>In this chapter, we want to learn how to use R, and in particular the functions of what is also called “base R” to work with data1[So we do not use any additional functions from packages like <em>dplyr</em>]. To practice we will use a dataset contained in the package <em>wooldridge</em>. This R package contains all the databases used in the famous econometrics textbook <em>Introductory Econometrics: A Modern Approach</em> by Jeffrey M. <span class="citation">Wooldridge (<a href="#ref-wool" role="doc-biblioref">2013</a>)</span>. All information on the datasets available in the package, such as variable names, data sources, etc., can be found in the related <a href="https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf">R package documentation</a>. We start by installing the desired package.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="chapter2.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wooldridge&quot;</span>)</span></code></pre></div>
+<p>After having installed the package, we must load it into the library.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chapter2.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wooldridge)</span></code></pre></div>
+<p>To unload the package from the library, we can use the following code. Note that in the R chunk (to understand the grey area below where the R code appears) we have included the option <code>eval = FALSE</code>. This causes the code not to be executed. We want to continue using the package, of course!</p>
+<p>In RStudio this procedure is even easier. To install a package, simply select the desired package from the drop-down menu, which is accessed from the <code>Packages</code> tab in the panel that is (usually) located in the bottom right-hand corner. This (very simple) procedure is summarised in figure <a href="chapter2.html#fig:image1">2.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image1"></span>
+<img src="images/image1.png" alt="How to install a package in RStudio." width="80%" height="30%" />
+<p class="caption">
+Figure 2.1: How to install a package in RStudio.
+</p>
+</div>
+<p>Once the package is installed, we have to load it into the library. In this case, we simply check the box of the desired package just as shown in figure <a href="chapter2.html#fig:image2">2.2</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image2"></span>
+<img src="images/image2.png" alt="Load the package to the library from RStudio." width="80%" height="30%" />
+<p class="caption">
+Figure 2.2: Load the package to the library from RStudio.
+</p>
+</div>
+<p>R is different from Excel in several respects. One in particular is clear. With Excel, one works mainly by looking at the data. In R, on the other hand, one works mainly by looking at the codes. However, it is necessary to look at the data from time to time, for example after having modified existing variables or having created new ones. The dataset we use in this exercise is called <em>wage1</em>. We can take a glance at the data using the <em>View</em> function.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="chapter2.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(wage1)</span></code></pre></div>
 <p>Let us start by seeing how many columns and rows our dataset contains.</p>
 <pre><code>## [1] 526  24</code></pre>
 <p>Indexing when you need to address a particular element into a vector, for example the wage of worker nr. 5</p>
@@ -217,13 +299,19 @@ div.csl-indent {
 <p>A more interesting research question is to ask the hourly wage of workers that have 15 or more years of education</p>
 <p>Hourly wage of workers with more than 15 years of education and 5 years of experience</p>
 <p>Look at what happens when we type educ&gt;15. We can exploit the fact that TRUE=1 and FALSE=0 to calculate the percentage of workers that have more than 15 years of education</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chapter2.html#cb21-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;</span> <span class="dv">17</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="chapter2.html#cb22-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> wage1<span class="sc">$</span>educ <span class="sc">&lt;=</span> <span class="dv">18</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chapter2.html#cb23-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">17</span> <span class="sc">|</span> wage1<span class="sc">$</span>educ <span class="sc">&lt;=</span> <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="chapter2.html#cb24-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>wage[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chapter2.html#cb25-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>wage[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> wage1<span class="sc">$</span>exper <span class="sc">&gt;=</span> <span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="chapter2.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(wage1<span class="sc">$</span>educ <span class="sc">&gt;</span> <span class="dv">15</span>) <span class="sc">/</span> <span class="fu">sum</span>(wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">0</span>) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
 
 </div>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-wool" class="csl-entry">
-Wooldridge, J. M. 2013. <em>Introductory Econometrics: A Modern Approach</em>. 5. ed. Boca Raton, Florida: South-Western Cengage Learning.
+Wooldridge, J. M. 2013. <em>Introductory Econometrics: A Modern Approach</em>. 5. ed. South-Western Cengage Learning.
 </div>
 </div>
             </section>

@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-06-26" />
+<meta name="date" content="2022-06-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -99,7 +163,11 @@ div.csl-indent {
 <li><a href="index.html#thanks">Thanks<span></span></a></li>
 </ul></li>
 <li class="part"><span><b>I Introduction to R<span></span></b></span></li>
-<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a></li>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Code 1<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#a-brief-history-of-r"><i class="fa fa-check"></i><b>1.1</b> A brief history of R<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#r-language-essentials"><i class="fa fa-check"></i><b>1.2</b> R language essentials<span></span></a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Data extraction and manipulation using base R<span></span></a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection<span></span></a></li>
@@ -215,7 +283,7 @@ div.csl-indent {
 ## 3  1962     3 3383.
 ## 4  1963     4 3530.
 ## 5  1964     5 3734.</code></pre>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-87-1.png" width="80%" height="30%" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-102-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 <pre><code>## 
 ## ========================================
 ##                  Dependent variable:    
@@ -243,7 +311,7 @@ div.csl-indent {
 <p><span class="math display">\[ln(RGDP_t)  = ln(RGDP_{1960}) + ln(1 + r)*t\]</span></p>
 <p>Now letting <span class="math inline">\(\beta_0 = ln(RGDP_{1960})\)</span> and <span class="math inline">\(\beta_1 = ln(1 + r)\)</span> we can rewrite the model as:</p>
 <p><span class="math display">\[ln(RGDP_t)  = \beta_0 + \beta_1*t + u_t\]</span></p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-89-1.png" width="80%" height="30%" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-104-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 <pre><code>## 
 ## ========================================
 ##                  Dependent variable:    
@@ -275,7 +343,7 @@ div.csl-indent {
 <p>We can now consider the following polynomial (i.e. quadratic) model:</p>
 <p><span class="math display">\[ RGDP_t  = \beta_0 + \beta_1*t + \beta_2*t^2 + u_t \]</span></p>
 <p>The fact that <span class="math inline">\(t\)</span> and <span class="math inline">\(t^2\)</span> are correlated does not raise the problem of collinearity. One of the assumption of the multiple linear regression model is that there is no perfect linear relationship between the regressors. This is because the two variables are not a linear function of each other but rather a quadratic function.</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-93-1.png" width="80%" height="30%" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-108-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 <pre><code>## 
 ## ========================================
 ##                  Dependent variable:    
@@ -305,7 +373,7 @@ div.csl-indent {
 <h3><span class="header-section-number">14.1.5</span> Quadratic regression model (log-level)<a href="chapter9.html#quadratic-regression-model-log-level" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can now consider the same model as before, but with the log of real GDP:</p>
 <p><span class="math display">\[ ln(RGDP_t)  = \beta_0 + \beta_1*t + \beta_2*t^2 + u_t \]</span></p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-95-1.png" width="80%" height="30%" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-110-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 <pre><code>## 
 ## ========================================
 ##                  Dependent variable:    
@@ -341,22 +409,22 @@ div.csl-indent {
 <p>From our Macroeconomics lessons we remember that the Keynesian consumption function is represented by the following equation, where <span class="math inline">\(C\)</span> indicates the aggregate household consumption, <span class="math inline">\(Y\)</span> the national income (both expressed in billions of constant dollars), <span class="math inline">\(c_Y\)</span> is the MPC and <span class="math inline">\(c_{aut}\)</span>, autonomous consumption, i.e. the part of consumption that does not depend on income.</p>
 <p><span class="math display">\[C = c_{aut} + c_Y Y\]</span></p>
 <p>We first get the data using the <em>rdbnomics</em> package and then we will produce a graph of the time series from 1960 to 2019 with the <em>ggplot2</em> package. Both time series are expressed in billions of 2015 dollars.</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-98-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-113-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
 <p>We are now ready to perform the linear regression. We will also produce the scatter plot of the data to get the graphical intuition of the regression.</p>
-<img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-99-1.png" width="70%" height="30%" style="display: block; margin: auto;" />
+<img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-114-1.png" width="70%" height="30%" style="display: block; margin: auto;" />
 <p>From the linear regression, we obtained the MPC. If income increases by 1$, consumption will increase by approximately 70 cents on average. Once the MPC is obtained, we can calculate the value of the Keynesian multiplier (<span class="math inline">\(m\)</span>) as learned in Macroeconomics classes.</p>
 <p><span class="math display">\[m = \frac{1}{1 - c_Y} = \frac{1}{1 - 0.7} = 3.33\]</span>
 However, this regression has a number of problems from an econometric perspective.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> The two series have a tendency to grow over time and the variables might seem highly correlated to us because they both have the same tendency to increase with time. This could lead to the conclusion that there is a correlation when in fact there is not (not the case here). This problem is known as <strong>spurious regression</strong>. We need to see if the independent variable is correlated with the error term. This is certainly an undesirable behavior. The residuals must be completely random and contain no predictive power.</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-100-1.png" width="60%" height="30%" style="display: block; margin: auto;" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-115-1.png" width="60%" height="30%" style="display: block; margin: auto;" /></p>
 <p>We can observe a clear pattern between residuals and income. Our coefficients are biased. If we were in a cross-sectional context, we would have to figure out which variable is missing from the model and where possible include it. Or it could be that the model is misspecified. To get to the point, econometricians would say that our two series follow a <strong>unit root process</strong>. The series are highly persistent over time and contain a, in our case positive, time trend.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> Wanting to simplify a lot we can say that our time series are not stationary and must be transformed before being used in a regression. A quick fix that works is to use logarithmic differences.<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a></p>
-<img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-101-1.png" width="70%" height="30%" style="display: block; margin: auto;" />
+<img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-116-1.png" width="70%" height="30%" style="display: block; margin: auto;" />
 <p>We can see that the estimate in the slope has changed slightly. This time it is somewhat higher at 0.77. However, the interpretation of the model has changed. This time we estimated an elasticity. How can we calculate the MPC having estimated the elasticity of consumption with respect to income? From courses in Microeconomics we remind that elasticity is nothing more than the ratio of two percentage rates and that on the demand curve elasticity varies depending on where you measure it.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> In our case, our elasticity parameter (just called <span class="math inline">\(\epsilon_Y\)</span> for simplicity) is given by:</p>
 <p><span class="math display">\[ \epsilon_Y = \frac{\frac{\partial C}{C}}{\frac{\partial Y}{Y}} = \frac{\partial C}{\partial Y} \frac{Y}{C}\]</span></p>
 <p>Rearranging the terms, we get:</p>
 <p><span class="math display">\[\frac{\partial C}{\partial Y} = \epsilon_Y \frac{C}{Y} \]</span></p>
 <p>The elasticity parameter is equal to 0.77 while the C/Y term that we will calculate as the average over the entire period from 1960 to 2019 is equal to 0.64. The marginal effect, the MPC, calculated on the avare over the entire period is therefore 0.4928.</p>
 <p>How do the residuals perform this time?</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-102-1.png" width="60%" height="30%" style="display: block; margin: auto;" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-117-1.png" width="60%" height="30%" style="display: block; margin: auto;" /></p>
 <p>There are actually a whole host of econometric issues that we have left out but that need to be properly addressed when estimating a model. Is there serial correlation in the residuals and if so what is the consequence? Is there heteroschedasticity in the residuals and if so what problems could it cause? There are tests appropriately developed by statisticians to identify these problems and solutions to fix them. All of these things will be the subject of the course in the following semester.</p>
 
 </div>
