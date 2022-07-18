@@ -39,3 +39,6 @@ quadratic-regression-model-level-level
 quadratic-regression-model-log-level
 the-consumption-function
 estimation-of-the-keynesian-consumption-function
+for-loops
+functions
+the-apply-family

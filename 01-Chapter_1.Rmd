@@ -4,7 +4,7 @@
 
 ## A brief history of R
 
-- Great for economists
+
 
 ## R language essentials
 
@@ -22,7 +22,7 @@ exp(0)
 log(1)
 ```
 
-Assigning a value to a variable (short cut Alt -)
+Assigning a value to a variable (short cut Alt -). The object `x` is saved in the environment.
 
 ```{r}
 x <- 15
@@ -68,13 +68,13 @@ set.seed(1234)
 rnorm(n = 10, mean = 0, sd = 1)
 ```
 
-Assigning (a vector of) random numbers to a variable called `y`.
+Assigning (a vector of) random numbers to a variable called `y`. The object `y` is now saved in the environment. 
 
 ```{r}
 y <- rnorm(10, 0, 1)
 ```
 
-Length of the vector
+A very important function in R that we must absolutely know is the `length` function. The `length` function tells us the number of elements in a vector (but also other types of objects). We apply the `length` function to the `y` object that we created a moment ago. The result is obviously `10`.
 
 ```{r}
 length(y)
@@ -100,18 +100,87 @@ R also includes the normal arithmetic and logical operators.
 
 - basic functions (double equal, root, logical operators)
 
-- save object in the env
+## Vectors, matrices, dataframes, and lists
 
-- dataframes; vectors; lists; matrices
+## For loops
 
-- functions
+```{r}
 
-- loops
+```
 
-- nested loops
+## Nested loops
 
-- apply familiy
+```{r}
+
+data_interests <- matrix(nrow = 100, ncol = 3, byrow = TRUE)
+
+interests <- c(0.01, 0.02, 0.03) 
+
+data_interests[1,1] <- 1
+data_interests[1,2] <- 1
+data_interests[1,3] <- 1
+
+for (t in 2:nrow(data_interests)) {
+  
+  for (s in 1:ncol(data_interests)) {
+    
+    data_interests[t,s] <- data_interests[t-1,s] * (1 + interests[s])
+    
+  }
+  
+}
+
+```
+
+```{r}
+
+plot(NULL, 
+     xlim = c(1, nrow(data_interests)), 
+     ylim = c(0, max(data_interests)),
+     main = "Investments", 
+     xlab = "Year", 
+     ylab = "Euro")
+
+for (l in 1:ncol(data_interests)) {
+lines(data_interests[,l], type = "l", col = l)
+}
+```
+
+## Simple functions
+
+## The apply family
+
+The apply "family" of functions.
+
 
 We have already reached the end of the first chapter. I hope you are not bored. In the next chapter, we will take a closer look at how to work with data in a dataframe, such as how to edit data, select variables, create new ones and much more.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
