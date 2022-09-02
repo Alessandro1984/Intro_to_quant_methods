@@ -2,20 +2,20 @@
 
 ## Linear growth model
 
-<<<<<<< HEA- Time Series: Real Gross Domestic Product of USA (seasonally not adjusted)
+Time Series: Real Gross Domestic Product of USA (seasonally not adjusted)
 - Observations: from 1960 to 2007
 - Units: Billions of dollars
 - Data: https://fred.stlouisfed.org/
 - Source: Gujarati, D. [Econometrics by Example](https://www.macmillanihe.com/page/detail/Econometrics-by-Example/?K=9781137375018)
 
-### Data description
+Data description
 
 - Time Series: Real Gross Domestic Product of USA (seasonally not adjusted)
 - Observations: from 1960 to 2007
 - Units: Billions of dollars
 - Data: https://fred.stlouisfed.org/series/GDPCA
 
-### Level-level model
+Level-level model
 
 ```{r, collapse = TRUE, message = FALSE, warning = FALSE}
 
@@ -59,7 +59,7 @@ stargazer(linear_trend, type = "text", keep.stat = c("n", "rsq"))
 
 The slope coefficient gives us absolute change in real GDP per unit of time (year). These results show that over the period 1960–2007, real GDP in the USA increased on average by about $243 billion per year.
 
-### Log-level model
+Log-level model
 
 We can also estimate the rate of growth of real GDP using logs. We know that:
 
@@ -112,7 +112,7 @@ The coefficient $\beta_2$ gives us the instantaneous rate of growth. We can also
 (exp(0.0322421) - 1)*100
 ```
 
-### Quadratic regression model (level-level)
+Quadratic regression model (level-level)
 
 We can now consider the following polynomial (i.e. quadratic) model:
 
@@ -151,7 +151,7 @@ $$ \frac{dRGDP}{dt} = 72.9873 + 2 * 3.4676 * t $$
 
 We have obtained the rate of change in real GDP with respect to time. The rate of change in real GDP with respect to time is a positive function of time. As time increases, real GDP is increasing at an increasing rate. We can also notice that the rate of change in real GDP depends on time at which the rate of change is measured as opposed to the linear level-level model from above.
 
-### Quadratic regression model (log-level)
+Quadratic regression model (log-level)
 
 We can now consider the same model as before, but with the log of real GDP:
 
@@ -193,7 +193,7 @@ On the left hand side of the derivative, we have the rate of growth in real GDP.
 
 ## The consumption function
 
-## Estimation of the Keynesian consumption function
+Estimation of the Keynesian consumption function
 
 In this brief exercise we are going to estimate a Keynesian aggregate consumption function for the United States from 1960 to 2019. We will regress private consumption (at constant prices) on real GDP. The slope of the regression will be what in the economic literature is called the marginal propensity to consume (MPC for short). What is MPC? MPC is that value that tells us how much consumption will increase as income increases. Theory tells us that the MPC is a value between 0 and 1. When income increases by 1\$, consumption will increase by a value less than the initial increase of 1\$ but greater than 0.
 

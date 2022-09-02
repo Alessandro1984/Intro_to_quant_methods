@@ -1,6 +1,6 @@
-# Inference {#chapter6}
+# Introduction to statistical inference {#chapter6}
 
- The basics of hypothesis testing^[The discussion presented here is based on Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 4 and Appendix C) and Dougherty, C. Introduction to Econometrics (Review chapter).]
+The basics of hypothesis testing^[The discussion presented here is based on Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 4 and Appendix C) and Dougherty, C. Introduction to Econometrics (Review chapter).]
 
 In **descriptive statistics**, we work with a sample of data obtained from a larger population and we are interested in understanding the characteristics of the sample. In **inferential statistics**, we use the sample to try to obtain conclusions (more precisely said, to make inference) regarding the characteristics of the population from which the sample is obtained. For example, having a sample available we might be interested in inferring whether the sample mean (sample statistics, $\bar{x}$) is representative of the population mean (population parameter, $\mu$). That is, we are interested in generalising the information obtained from the sample to the entire population. Of course it is easy to imagine that our conclusion will be subject to error as we only have one sample available. With only one sample available, it is very unlikely that the sample mean will be identical to the population mean. So in our inference process we have to take this sampling error into account.
 
@@ -14,7 +14,7 @@ How do we decide between the null hypothesis and the alternative hypothesis? We 
 
 There are two kinds of mistakes that can be made. A **Type I error** and a **Type II error**. When we reject a hypothesis that is actually true, we are committing a Type I error. When we are not rejecting (or "accepting", but this is not the right terminology) a hypothesis that should be rejected, we are committing a Type II error. Since we are basing our decision on a sample, and there is always uncertainty in the sampling process, we are more or less sure that there is some uncertainty attached to our test conclusion. In hypothesis testing we decide in advance what kind of error we want to make. The procedure is to decide in advance to commit to a certain Type I error, e.g. we decide in advance to tolerate a Type I error in 5\% of the cases. This value is called **significance level** and is traditionally indicated with the greek letter $\alpha$.^[Again, $\alpha$ is the probability of rejecting a true null hypothesis. Traditionally in econometrics, we use three levels of significance 10\%, 5\% and 1\%.]
 
-# Example
+**Example**
 
 The mean lifetime of a sample of 100 light bulbs is computed to be 1570 hours with a standard deviation of 120 hours. If $\mu$ is the mean lifetime of all the light bulbs produced, test the hypothesis that the population mean is $\mu = 1600$ hours against the alternative that $\mu \neq 1600$ using a significance level of 5\%. Find the p-value of the test and build a 95\% confidence interval.
 
@@ -203,7 +203,7 @@ p
 
 ```
 
-# The standard normal distribution
+## The standard normal distribution
 
 A special case of normal distribution is the standard normal distribution where the mean is equal to 0 and the standard deviation is equal to 1 (this is actually what we used in the previous exercise but we had not yet used this term). Let us now see how it is possible to "standardise a variable". This is a very important procedure that we will see again later when we talk about hypothesis testing. In the following section we will instead use it to calculate the so-called $z$ scores.
 
@@ -217,7 +217,7 @@ $$Var(Z) = a^2Var(X) = (\sigma^2/\sigma^2) = 1$$
 
 What does that mean? It means that if we subtract the mean from a variable ($X$) and divide it by the standard deviation we will have a standardised variable ($Z$) that has a mean of zero and standard deviation of 1.
 
-# Exercises
+**Exercises**
 
 1) We are given the following set of numbers: $6, 2 , 8, 7, 5$. Transform the set into standard scores and check that mean and standard deviation of the transformed set are respectively 0 and 1.
 

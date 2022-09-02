@@ -1,6 +1,6 @@
-# Stats {#chapter5}
+# Fundamental concepts in statistics {#chapter5}
 
-## Find mean and median
+## Mean and median
 
 ```{r}
 x <- c(3,5,2,6,5,9,5,2,8,5)
@@ -227,7 +227,6 @@ cor(a, b)
 cor.test(a, b)
 
 ```
-
 
 Programming challenge. Program a function that takes two inputs, x and y, and returns the correlation coefficient between x and y.
 

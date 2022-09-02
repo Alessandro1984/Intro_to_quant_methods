@@ -1,6 +1,6 @@
 # (PART) Review of math and statistics {-}
 
-# Math {#chapter4}
+# Basic math elements {#chapter4}
 
 ## Derivative rules
 

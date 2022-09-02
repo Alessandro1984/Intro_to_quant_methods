@@ -1,4 +1,4 @@
-# Data extraction and manipulation using base R {#chapter2}
+# Data extraction and manipulation {#chapter2}
 
 In this chapter, we want to learn how to use R, and in particular the functions of what is also called "base R" to work with data^[So we do not use any additional functions from packages like *dplyr*]. To practice we will use a dataset contained in the package *wooldridge*. This R package contains all the databases used in the famous econometrics textbook *Introductory Econometrics: A Modern Approach* by Jeffrey M. @wool. All information on the datasets available in the package, such as variable names, data sources, etc., can be found in the related [R package documentation](https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf). We start by installing the desired package.
 

@@ -1,12 +1,12 @@
 # (PART) Introduction to R {-}
 
-# Code 1 {#chapter1}
+# Language essentials {#chapter1}
 
-## A brief history of R
+## Why R?
 
+R is an open-source statistical programming language used worldwide for statistical analysis and data science in a vast variety of fields. The R project was released to the public in 2000 and since then *The R Foundation* and the *R Development Core Team* take care of development of the language and of the release of new versions.^[For an interesting but a bit technical presentation of the R language see the article "R: A language for data analysis and graphics" written by two of R's main developers, Ross Ihaka and Robert Gentleman [@Ihaka].] Unlike many other computer programs for statistical and data analysis, in R you don't perform your operations by clicking. In R you work with a script, basically a text where the user write functions to perform the desired operations, such as computing averages, transforming data and so on. Although at first this seems very difficult especially for those who do not have experience with code based work, writing your own operations as if it were normal text has many advantages. This allows you not only to think carefully about the operations you are performing (rather than just clicking left and right) but also to ensure the reproducibility of your work as the academic and scientific work demand. Another very good reason for using R is the large availability of R packages. R packages are collections of functions, data and other code that extend the capabilities of "base" R. Nowadays there are many R packages available to perform a wide variety of tasks, from data visualization, simple and sophisticated econometric analysis, web application development and much more. Not least, R's ability to visualize data with publication quality graphs and to write data-driven texts make it an ideal choice for economists. RStudio
 
-
-## R language essentials
+## Basic operations
 
 R can be used as a calculator
 
@@ -100,7 +100,11 @@ R also includes the normal arithmetic and logical operators.
 
 - basic functions (double equal, root, logical operators)
 
-## Vectors, matrices, dataframes, and lists
+## 
+
+## Basic data structures
+
+Vector, Matrix, Dataframe, List
 
 ## For loops
 

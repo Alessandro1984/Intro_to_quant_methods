@@ -33,9 +33,25 @@ knitr::opts_chunk$set(
 
 # About this book {.unnumbered}
 
-This book brings together a collection of notes, exercises and practical applications that I have used over the years for my lectures in "Quantitative Methods for Economists" at the at the Berlin School of Economics and Law (HWR) in Berlin, Germany.
+This book brings together a collection of notes, exercises and practical applications that I have used over the years for my lectures in "Quantitative Methods for Economists" at the Department of Business and Economics of the Berlin School of Economics and Law (HWR) in Berlin, Germany. The course offers an introduction to basic econometrics to Master students in two study programs at the [Institute for International Political Economy (IPE)](https://www.ipe-berlin.org/en/), "International Economics" and "Political Economy of European Integration".
 
-## Thanks {.unnumbered}
+This book is an attempt to systematize the contents discussed in class but also to make the materials freely available. The text is designed for all those who are approaching these topics for the first time (or after a long break) and in particular for those do not have a strong quantitative background. My hope is however that even advanced students may find the text interesting and instructive. Before getting into the heart of the presentation of econometrics topics for economists, the book takes a rather long tour that starts with an introduction to the statistical programming language R to then move on to the review of fundamental mathematical and statistical concepts. My personal impression from the classes taught in the past is that a good review of statistics and mathematics is always welcome by students.
+
+The text is divided into three parts. The first part introduces the basics of the R language for manipulating data and making graphs. The examples proposed seek to be of interest to economics students. Part two covers basic mathematical and statistical concepts, like basic algebra (with some brief mentions of linear algebra), calculus and simple optimization problems, descriptive and inferential statistics. Where possible, R is used to discuss examples and solve exercises. The third and final part gets into the heart of the discussion presenting the least squares technique and regression analysis. Also here examples will be primarily based on economic data and models. Once again R will be our main working tool.
+
+This book is developed in my spare time. If you have advice or see mistakes please feel free to contact me via email **bramucci[AT]hwr-berlin[DOT]de** or to drop me a message on Twitter [\@AleBramucci](https://twitter.com/AleBramucci). I will be happy to hear from you `r emo::ji("smile")`!
+
+For some information regarding my projects, professional activities and recent publications you may also want to visit my personal webpage [www.alessandrobramucci.com](https://www.alessandrobramucci.com/).
+
+Have fun reading the book!
+
+---
+
+**A few words of thanks**
+
+I want to thank all the colleagues I have worked with over the years at the HWR Berlin and in particular at the IPE, but especially all the students in my "Quantitative Methods" classes. Thanks to them (and their patience) I was able to improve the course contents and to correct inaccuracies. Any remaining errors are my sole responsibility, of course.
+
+---
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
@@ -45,4 +61,3 @@ This book brings together a collection of notes, exercises and practical applica
 <!-- #   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
 <!-- # ), 'packages.bib') -->
 <!-- # ``` -->
-
