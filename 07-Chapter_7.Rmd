@@ -1,8 +1,8 @@
-# (PART) Linear Regression {-}
+# (PART) The linear regression {-}
 
-# Econometrics 1 {#chapter7}
+# Regression analysis {#chapter7}
 
-## The linear regression model
+## Simple regression model
 
 Text and the derivation above rely on the suggested literature: Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 2) and Dougherty, C. Introduction to Econometrics (Chapter 1). We are given the following set of values:
 
@@ -232,3 +232,10 @@ stargazer(model4,
           model.numbers = FALSE,
           keep.stat = c("n", "rsq", "ser"))
 ```
+
+## Multiple regression model
+
+## Regression assumptions
+
+
+

@@ -1,10 +1,12 @@
+fig:imageRStudio
 fig:image1
 fig:image2
 chapter1
 why-r
+r-and-rstudio
 basic-operations
-section
 basic-data-structures
+if-conditions
 for-loops
 nested-loops
 simple-functions
@@ -27,7 +29,9 @@ chapter6
 the-normal-distribution
 the-standard-normal-distribution
 chapter7
-the-linear-regression-model
+simple-regression-model
+multiple-regression-model
+regression-assumptions
 chapter8
 the-basics-of-hypothesis-testing
 the-t-test-in-the-regression

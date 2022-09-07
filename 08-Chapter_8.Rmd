@@ -1,6 +1,6 @@
-# Econometrics 2 {#chapter8}
+# Inference {#chapter8}
 
-##  The basics of hypothesis testing^[The discussion presented here is based on Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 4 and Appendix C) and Dougherty, C. Introduction to Econometrics (Review chapter).]
+## The basics of hypothesis testing^[The discussion presented here is based on Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 4 and Appendix C) and Dougherty, C. Introduction to Econometrics (Review chapter).]
 
 In **descriptive statistics**, we work with a sample of data obtained from a larger population and we are interested in understanding the characteristics of the sample. In **inferential statistics**, we use the sample to try to obtain conclusions (more precisely said, to make inference) regarding the characteristics of the population from which the sample is obtained. For example, having a sample available we might be interested in inferring whether the sample mean (sample statistics, $\bar{x}$) is representative of the population mean (population parameter, $\mu$). That is, we are interested in generalising the information obtained from the sample to the entire population. Of course it is easy to imagine that our conclusion will be subject to error as we only have one sample available. With only one sample available, it is very unlikely that the sample mean will be identical to the population mean. So in our inference process we have to take this sampling error into account.
 
