@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-07" />
+<meta name="date" content="2022-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,11 +166,10 @@ div.csl-indent {
 <li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#r-and-rstudio"><i class="fa fa-check"></i><b>1.2</b> R and RStudio</a></li>
 <li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#basic-operations"><i class="fa fa-check"></i><b>1.3</b> Basic operations</a></li>
 <li class="chapter" data-level="1.4" data-path="chapter1.html"><a href="chapter1.html#basic-data-structures"><i class="fa fa-check"></i><b>1.4</b> Basic data structures</a></li>
-<li class="chapter" data-level="1.5" data-path="chapter1.html"><a href="chapter1.html#if-conditions"><i class="fa fa-check"></i><b>1.5</b> If conditions</a></li>
+<li class="chapter" data-level="1.5" data-path="chapter1.html"><a href="chapter1.html#if-else-statement"><i class="fa fa-check"></i><b>1.5</b> if else statement</a></li>
 <li class="chapter" data-level="1.6" data-path="chapter1.html"><a href="chapter1.html#for-loops"><i class="fa fa-check"></i><b>1.6</b> For loops</a></li>
 <li class="chapter" data-level="1.7" data-path="chapter1.html"><a href="chapter1.html#nested-loops"><i class="fa fa-check"></i><b>1.7</b> Nested loops</a></li>
 <li class="chapter" data-level="1.8" data-path="chapter1.html"><a href="chapter1.html#simple-functions"><i class="fa fa-check"></i><b>1.8</b> Simple functions</a></li>
-<li class="chapter" data-level="1.9" data-path="chapter1.html"><a href="chapter1.html#the-apply-family"><i class="fa fa-check"></i><b>1.9</b> The apply family</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Data extraction and manipulation</a>
 <ul>
@@ -324,15 +323,15 @@ z \\
 \mathbf{b} = \mathbf{A}^{-1}\mathbf{r}
 \]</span></p>
 <p>We are now ready to solve our system of equations using R:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="chapter4.html#cb67-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span>
-<span id="cb67-2"><a href="chapter4.html#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-3"><a href="chapter4.html#cb67-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(data, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb67-4"><a href="chapter4.html#cb67-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-5"><a href="chapter4.html#cb67-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="dv">0</span>)</span>
-<span id="cb67-6"><a href="chapter4.html#cb67-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-7"><a href="chapter4.html#cb67-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">solve</span>(A) <span class="sc">%*%</span> r</span>
-<span id="cb67-8"><a href="chapter4.html#cb67-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-9"><a href="chapter4.html#cb67-9" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="chapter4.html#cb87-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span>
+<span id="cb87-2"><a href="chapter4.html#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="chapter4.html#cb87-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(data, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb87-4"><a href="chapter4.html#cb87-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-5"><a href="chapter4.html#cb87-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="dv">0</span>)</span>
+<span id="cb87-6"><a href="chapter4.html#cb87-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-7"><a href="chapter4.html#cb87-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">solve</span>(A) <span class="sc">%*%</span> r</span>
+<span id="cb87-8"><a href="chapter4.html#cb87-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-9"><a href="chapter4.html#cb87-9" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    1
 ## [2,]    3

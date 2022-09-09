@@ -6,11 +6,10 @@ why-r
 r-and-rstudio
 basic-operations
 basic-data-structures
-if-conditions
+if-else-statement
 for-loops
 nested-loops
 simple-functions
-the-apply-family
 chapter2
 conditional-selection
 chapter3

@@ -48,7 +48,7 @@ Have fun reading the book!
 
 **Few words of thanks**
 
-I want to thank all the colleagues with whom I have worked during my years at the HWR Berlin and in particular my colleagues at the IPE institute. A special thanks goes to all my previous students in the course "Quantitative Methods for Economists". Thanks to them (and to their patience) I was able to improve the materials of the course and correct imprecisions. Of course, any remaining error is my sole responsibility.
+I want to thank all the colleagues with whom I have worked during my years at the HWR Berlin and in particular my colleagues at the IPE institute. A special thanks goes to all my previous students in the course "Quantitative Methods for Economists". Thanks to them (and to their patience) I was able to improve the materials of the course and correct imprecisions. Of course, any remaining errors are my sole responsibility.
 
 ---
 
