@@ -142,8 +142,6 @@ E_pays_lottery
 Simulation of the expected value of the fair die/dice. This exercise is taken from the book Hands-On Programming with R by Garrett Grolemund.
 
 ```{r}
-library(ggplot2)
-
 roll_function <- function(nr_of_die) {
   die <- 1:6
   roll <- sample(die, 

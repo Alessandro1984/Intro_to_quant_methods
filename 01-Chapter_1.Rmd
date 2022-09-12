@@ -4,11 +4,11 @@
 
 ## Why R?
 
-R is an open-source statistical programming language used worldwide for statistical analysis and data science in a vast variety of fields. The R project was released to the public in 2000 and since then *The R Foundation* and the *R Development Core Team* take care of development of the R language and of the release of new versions.^[For an interesting but a bit technical presentation of the R language see the article "R: A language for data analysis and graphics" written by the two founders of R, Ross Ihaka and Robert Gentleman [@Ihaka].] Unlike many other computer programs for statistical and data analysis, in R you don't perform your operations by clicking. In R you work with a script, basically a text where the user write functions to perform the desired operations, such as computing averages, transforming data and so on. Although at first this seems very difficult especially for those who do not have experience with code based work, writing your own operations as if it were normal text has many advantages. This allows you not only to think carefully about the operations you are performing (rather than just clicking left and right) but also to ensure the reproducibility of your work as academic and scientific work demand. Another very good reason for using R is the large availability of R packages. R packages are collections of functions, data and other code that extend the capabilities of "base" R. Nowadays there are many R packages available to perform a wide variety of tasks, from data visualization, simple and sophisticated econometric analysis, web application development and much more. Not least, R's ability to visualize data with publication quality graphs and to write data-driven texts make it (in my opinion) an ideal choice for economists. This does not mean that R is better than other programming languages widely used in statistical analysis like Python or Julia. From what I know, R is very popular among economists and for our introductory quantitative methods course R is undoubtedly the right tool.
+R is an open-source statistical programming language used worldwide for statistical analysis and data science in a vast variety of fields. The R project was released to the public in 2000 and since then *The R Foundation* and the *R Development Core Team* take care of development of the R language and of the release of new versions.^[For an interesting but a bit technical presentation of the R language see the article "R: A language for data analysis and graphics" written by the two founders of R, Ross Ihaka and Robert Gentleman [@Ihaka].] Unlike many other computer programs for statistical and data analysis, in R you don't perform your operations by clicking. In R you work with a script, basically a text where the user write functions to perform the desired operations, such as computing averages, transforming data and so on. Although at first this seems very difficult especially for those who do not have experience with code based work, writing your own operations as if it were normal text has many advantages. This allows you not only to think carefully about the operations you are performing (rather than just clicking left and right) but also to ensure the reproducibility of your work as academic and scientific work demand. Another very good reason for using R is the large availability of R packages. R packages are collections of functions, data and other code that extend the capabilities of "base" R. Nowadays, there are many R packages available to perform a wide variety of tasks, from data visualization, simple and sophisticated econometric analysis, web application development and much more. Not least, R's ability to visualize data with publication quality graphs and to write data-driven texts make it (in my opinion) an ideal choice for economists. This does not mean that R is better than other programming languages widely used in statistical analysis like Python or Julia. From what I know, R is very popular among economists and for our introductory quantitative methods course R is undoubtedly the right tool.
 
 ## R and RStudio
 
-Nowadays people do not work directly in R but use what is called an Integrated Development Environment (IDE, for short). An IDE is a software that allows to work with the programming language using a user-friendly and nice interface together with several additional features that make the coding faster and more enjoyable. RStudio is by far (again, in my opinion) the best IDE for R.^[I personally have only used RStudio Desktop Open Source Edition.] It is simple to use and very intuitive. The RStudio Team has also developed a number of amazing and useful packages like the package [rmarkdown](https://rmarkdown.rstudio.com/index.html) and the package [shiny](https://shiny.rstudio.com/).^[In this text we do not have time to introduce to these two great R packages. However, I highly recommend seeing what they are all about.] This book for example is written entirely in RStudio using the powerful package [bookdown](https://bookdown.org/).
+Nowadays, people do not work directly in R but use what is called an Integrated Development Environment (IDE, for short). An IDE is a software that allows to work with the programming language using a user-friendly and nice interface together with several additional features that make the coding faster and more enjoyable. RStudio is by far (again, in my opinion) the best IDE for R.^[I personally have only used RStudio Desktop Open Source Edition.] It is simple to use and very intuitive. The RStudio Team has also developed a number of amazing and useful packages like the package [rmarkdown](https://rmarkdown.rstudio.com/index.html) and the package [shiny](https://shiny.rstudio.com/).^[In this text we do not have time to introduce to these two great R packages. However, I highly recommend seeing what they are all about.] This book for example is written entirely in RStudio using the powerful package [bookdown](https://bookdown.org/).
 
 We are now going to describe very briefly the interface of RStudio. As you can see from Figure \@ref(fig:imageRStudio), RStudio is composed of 4 panes.^[Note that from now on we will use the term R for simplicity but we are actually talking about using R within RStudio.]
 
@@ -16,14 +16,14 @@ We are now going to describe very briefly the interface of RStudio. As you can s
 knitr::include_graphics("images/imageRStudio.png")
 ```
 
-In pane 1 we can see the R script (but it could also be another file, like an R Markdown file or a Python script). This is were we will type our code. From the script we can then execute the code. The output of our code will be printed in the console. In Figure \@ref(fig:imageRStudio) the console is shown in pane 2. You can perform operations directly from the console. The result will be displayed immediately in the console itself. This can be useful on certain occasions, such as when you need to calculate something on fly that does not necessarily has to be included in your main work. In all other occasions it is recommended to write the code in the script.^[The interface of RStudio is very flexible. It can be modified easily, such as changing the order of panes or excluding some of them. So the order of the panes that you see here can be changed quite simply.] In pane 3 we can see different tabs. In the environment tab is where you will see variables, functions and databases saved during the working session. In the history tab, you will see the list of all operations performed during the working session and from there you can execute your code again. Your code is automatically stored by RStudio and saved in a separate file (although this function can be also deactivated). We omit talking about the two remaining tabs. In pane 4 we can observe different tabs again. The files tab shows basically the files contained in your computer directories, like for example your project directory if you are working with an RStudio project.^[Take a look 
-[here](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects) to know more about *projects* in RStudio.] From there you can create new files, rename files, delete files and so on. In the plot pane you will see your graphs printed (like scatter plots, bar charts, etc.). In the help pane as you can easily guess you can get some very useful information about R and RStudio and the R language in general and in the Viewer tab more complex things are visualized, like [plotly](https://plotly.com/r/) graphs.^[*Plotly* is an R package named after the company Plotly to make some very cool and nice looking interactive charts. Some of the graphs in this book are made using this package.]
+In pane 1, we can see the R script (but it could also be another file, like an R Markdown file or a Python script). This is were we will type our code. From the script, we can then execute the code. The output of our code will be printed in the console. In Figure \@ref(fig:imageRStudio), the console is shown in pane 2. You can perform operations directly from the console. The result will be displayed immediately in the console itself. This can be useful on certain occasions, such as when you need to calculate something on fly that does not necessarily has to be included in your main work. In all other occasions it is recommended to write the code in the script.^[The interface of RStudio is very flexible. It can be modified easily, such as changing the order of panes or excluding some of them. So the order of the panes that you see here can be changed quite simply.] In pane 3, we can see different tabs. In the environment tab is where you will see variables, functions and databases saved during the working session. In the history tab, you will see the list of all operations performed during the working session and from there you can execute your code again.^[you can also re-execute your code from the console using the un and down arrows of the keyboard.] Your history is automatically stored by RStudio and saved in a separate file (although this function can be also deactivated).^[We omit talking about the two remaining tabs.] In pane 4, we have again different tabs. The files tab shows basically the files contained in your computer directories, like for example your project directory if you are working with an RStudio project.^[Take a look 
+[here](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects) to know more about *projects* in RStudio.] From there you can create new files, rename files, delete files and so on. In the plot pane you will see your graphs printed (like scatter plots, bar charts, etc.). In the help pane, as you can easily guess, you can get some very useful information about R and RStudio and the R language in general and in the Viewer tab more complex things are visualized, like for example [plotly](https://plotly.com/r/) graphs.^[*Plotly* is an R package named after the company Plotly that allows to make some very cool interactive charts. Some of the graphs in this book are made using this package.]
 
 How to execute code?
 
 ## Basic operations
 
-We now start by looking at some very simple operations that can be performed in R. To begin with, R can be used to solve arithmetic operations just like a normal calculator.
+We now start by looking at some very simple operations that can be performed in R. To begin with, R can be used to solve arithmetic operations, just like a normal calculator.
 
 ```{r}
 2 + 2
@@ -43,10 +43,11 @@ exp(0)
 log(1)
 ```
 
-With a left pointing arrow (a "small than" sign followed by a minus sign) `<-` we can assign a value to a variable. Here, for example, we assign the value 15 to the variable `x`. In this case, the variable `x` is saved in the environment (pane 4 in Figure \@ref(fig:imageRStudio).
+With a left pointing arrow (a "small than" sign followed by a minus sign), `<-`, we can assign a value to a variable. Here, for example, we assign the value 15 to the object `x`. In this case, the variable `x` is saved in the environment (pane 4 in Figure \@ref(fig:imageRStudio)).
 
 ```{r}
 x <- 15
+x
 ```
 
 To remove any variable from the environment, we can use the function `rm()` with the name of the variable that we wish to delete. Here, we delete the variable `x` that we have created above.
@@ -55,10 +56,12 @@ To remove any variable from the environment, we can use the function `rm()` with
 rm(x)
 ```
 
-With the function `c()` we can assign a series of value to a variable. The letter `c` stands for something like "concatenate".
+With the function `c()`, we can assign a series of value to a variable. The letter `c` stands for something like "concatenate". The result is a vector.
 
 ```{r}
 x <- c(1, 2, 3)
+x
+is.vector(x)
 ```
 
 With the function `ls`, we can print in the console the list of the variables that we have so far created.
@@ -67,7 +70,7 @@ With the function `ls`, we can print in the console the list of the variables th
 ls()
 ```
 
-It is a good practice to start a new working session in R with an empty environment. This short piece of code remove all variables saved in the environment so far (not many in our case!). You could put something like this at the beginning of your R script so that each time you run the script previously created variables and functions are automatically deleted. Of course, it is up to you to figure out when it is appropriate to use such a function and when not.
+It is a good practice to start every new working session in R with an empty environment. This short piece of code remove all variables that we have so fare saved in the environment (not many in our case!). You could put something like this at the beginning of your R script so that each time you run the script previously created variables but also other objects like data and functions get deleted. Of course, it is up to you to figure out when it is appropriate to use such a function and when not.
 
 ```{r}
 rm(list = ls())
@@ -76,13 +79,15 @@ rm(list = ls())
 R can also easily creates sequences of numbers. There are two ways. The first is by using the colon operator `:`. In the following example, we are creating a series of integers from 1 to 10.
 
 ```{r}
-a <- 1:10 
+a <- 1:10
+a
 ```
 
-The second way is by using the `seq` function. With the `seq` function you can specify the beginning (`from`), the end (`to`) and the increment (`by`) of the sequence of numbers.^[If you want to know more about an R function and its arguments, use the help menu in the bottom-right pane (pane 4 in Figure \@ref(fig:imageRStudio)) or simply type in the console `?` followed by the name of the function, e.g. `?seq`. This will open the help menu at the right page.]
+The second way is by using the `seq` function. With the `seq` function, you can specify the beginning (`from`), the end (`to`) and the increment (`by`) of the sequence of numbers.^[If you want to know more about an R function and its arguments, use the help menu in the bottom-right pane (pane 4 in Figure \@ref(fig:imageRStudio)) or simply type in the console `?` followed by the name of the function, e.g. `?seq`. This will open the help menu at the right page.]
 
 ```{r}
 b <- seq(from = 1, to = 10, by = 1)
+b
 ```
 
 We can also generate random numbers from a normal distribution specifying mean and standard deviation (more on the normal distribution in Part II). The `set.seed` function allows us to generate the same numbers. This means that if you and I have the same seed, we will generate the same set of random numbers.^[This function is essential if we want someone else to be able to replicate the results of our simulations. This might be the case when we want to share our work with our fellow students and colleagues or with our thesis supervisor or when we want to publish a paper presenting some simulation work.]
@@ -115,13 +120,13 @@ Relational operators are used to compare values. They are kind of making a quest
 99 > 100
 ```
 
-With the double equal operator `==` we are asking R if two expressions are equal to each other.^[Be careful when using the double equal operator because the single equal sign `=` in R can be used as an assignment operator, e.g. `x = 5`. This is why I recommend using the assignment operator `<-` rather than `=`.]
+With the double equal operator `==`, we are asking R if two expressions are equal to each other.^[Be careful when using the double equal operator because the single equal sign `=` in R can be used as an assignment operator, e.g. `x = 5`. This is why I recommend using the assignment operator `<-` rather than `=`.]
 
 ```{r}
 2 + 2 == 4
 ```
 
-The operator `!` is the negation operator in R. It can be read as **NOT**. With the following expression we are asking R if 99 is **NOT** equal to 100.
+The operator `!` is the negation operator. It can be read as **NOT**. With the following expression, we are asking R if 99 is **NOT** equal to 100.
 
 ```{r}
 99 != 100
@@ -133,19 +138,19 @@ Here, we are asking if 1 is **NOT** equal to 1.
 !(1==1) 
 ```
 
-In R we also find the classical logical operators, like `&` and `|`. The operator `|` asks if at least one of the two expressions is true. The operator `|` can be read as **OR**. The following expression asks if 1 is equal to 1 **OR** 2 is equal to 3. It will return true if at least one of the two expressions is correct.
+In R we also find the classical logical operators, like `&` and `|`. The operator `|` asks if at least one expressions is true. The operator `|` can be read as **OR**. The following expression asks if 1 is equal to 1 **OR** 2 is equal to 3. It will return true if at least one of the two expressions is correct.
 
 ```{r}
 (1==1) | (2==3) 
 ```
 
-The operator `&` (read **AND**) returns true when both expressions are true. The following expression asks if 1 is equal to 1 *AND* 2 is equal to 3.
+The operator `&` (read **AND**) returns true when all expressions are true. The following expression asks if 1 is equal to 1 **AND** 2 is equal to 3.
 
 ```{r}
-(1==1) & (2==3)  
+(1==1) & (2==3) & TRUE == FALSE
 ```
 
-Before concluding this section we want to briefly discuss what in R is called the **recycling rule**. This could help avoiding some bad surprises when working in R. What happens when we add two vectors together? If the two vectors have the same length, R will simply perform an the element-by-element sum. If the two vectors are a multiple of each other, the elements of the shorter vector will be "recycled" to match the length of the longer vector.
+Before concluding this section, we need to discuss briefly what in R is called the "recycling rule". This could help avoiding some bad surprises when working in R. What happens when we add two vectors together? If the two vectors have the same length, R will simply perform an the element-by-element sum. If the two vectors are a multiple of each other, the elements of the shorter vector will be "recycled" to match the length of the longer vector.
 
 ```{r}
 a <- c(1, 2)  
@@ -154,7 +159,7 @@ b <- c(1, 2, 3, 4, 5, 6)
 a + b
 ```
 
-As you can see from the output above, R does not give us any warning messages about the **recycling rule**. On the contrary, when we sum two vectors where the shorter vector is not a multiple of the longer vector, R will give us a warning message but the recycling rule will be applied anyway.
+As you can see from the output above, R does not give us any warning messages about the recycling rule. On the contrary, when we sum two vectors where the shorter vector is not a multiple of the longer vector, R will give us a warning message but the recycling rule will be applied anyway.
 
 ```{r}
 a <- c(1, 2)  
@@ -196,7 +201,7 @@ ifelse(x <= 0, "x is smaller or equal zero", "x is larger than zero")
 
 ## For loops
 
-To make it as short as possible, a loop is a piece of code that repeat operations over and over again, just as the name suggests. A `for loop` is a piece of code that tells the computer to perform a certain operation for every value or element in a variable [@Grolemund].^[You may want to look at the chapter on loops in the excellent book titled *Hands-On Programming with R* by Garret Grolemund [@Grolemund], author of a series of amazing books about R and Data Scientist at RStudio. You can access the chapter [here](https://rstudio-education.github.io/hopr/loops.html). In the book, the author also describes other types of loops such as `while` and `repeat` loops something that we do not have time to cover here.] An example is very much needed right now.
+To make it as short as possible, a loop is a piece of code that repeat operations over and over again, just as the name suggests. A `for loop` is a piece of code that tells the computer to perform a certain operation for every value or element in a variable [@Grolemund].^[You may want to look at the chapter on loops in the excellent book titled *Hands-On Programming with R* by Garret Grolemund [@Grolemund], author of a series of amazing books about R and Data Scientist at RStudio. You can access the chapter [here](https://rstudio-education.github.io/hopr/loops.html). In the book, the author also describes other types of loops such as `while` and `repeat` loops something that we do not have time to cover here.] An example is very much needed.
 
 ```{r}
 
@@ -210,7 +215,7 @@ for (i in x) {
 
 ```
 
-What happened? The for loop has printed the word `"Hello"` five times. First of all, we have defined the variable `x` which is a sequence of integer numbers between 1 and 5. Then we tell R to print the word `"Hello"` for every `i` (i.e. every element) in `x` which is just a sequence of numbers of five elements. The same operations is then repeated five times. We could have done the same thing by looping over a character vector with five elements, like for example the first five days of the week. The results would have been the same.
+What happened? The for loop has printed the word `"Hello"` five times. First of all, we have defined the variable `x` which is a sequence of integer numbers between 1 and 5. Then, we have told R to print the word `"Hello"` for every `i` (i.e. every element) in `x`, which is just a sequence of numbers of five elements. The same operations is repeated five times. We could have done the same thing by looping over a character vector with five elements, like for example the first five days of the week. The results would have been the same.
 
 ```{r}
 
@@ -224,7 +229,7 @@ for (i in x) {
 
 ```
 
-R will automatically assign the numbers or character values to the index `i` in each run of the loop. This is very useful. The index `i` can then be used as a normal variable within the body of the loop to perform any type of operations, as math calculations and vector indexing. Here we raise every `i` from 1 to 5 to the second power.
+R will automatically assign the numbers or character values to the index `i` in each run of the loop. This is very useful. The index `i` can be used as a normal variable within the body of the loop to perform any type of operations, as math calculations and vector indexing. Here, we raise every `i` from 1 to 5 to the second power.
 
 ```{r}
 
@@ -238,7 +243,7 @@ for (i in x) {
 
 ```
 
-In the next example, we loop over the character vector containing the names of the first five days of the week. We now want R to combine the sentence "Today is" with every day of the week stored in the vector. We use the function `paste()` to combine our sentence "Today is" (which is the same all the time) with each single value of the index `i`. The index `i` assumes in turn each single element of the character vector `x`.
+In the next example, we loop over the character vector containing the names of the first five days of the week. We now want R to combine the sentence "Today is" with every element, i.e. the names of the first five days of the week, stored in the vector `x`. We use the function `paste()` to combine our sentence "Today is" (which is the same all the time) with each single value that the index `i` will assume. The index `i` assumes in turn each single element of the character vector `x`.
 
 ```{r}
 
@@ -252,37 +257,45 @@ for (i in x) {
 
 ```
 
-So far the output of the loop is printed in the console. It is much more useful instead if the results were saved for later use in some sort of database or placeholder. Let us use an example from the financial world.
+So far the output of the loop is printed in the console. However, it would be much more useful if the results were saved for later use in some sort of placeholder variable. How to do this? We now make an example from the financial world. Assume that we deposit 1\€ in a bank account that promises to pay 1\% interest per year. Thanks to the the mechanism of compound interest the value of our deposit will grow exponentially. In the following formula, $A$ is the amount that we will calculate using the `for loop`, $P$ is the principal, i.e. the initial deposit of 1\€, $r$ the interest rate, and $t$ the number of years.
 
-- compounding interest
+$$A = P (1 + r)^t$$
+We now want to calculate how the value of our initial deposit of 1\€ evolves over time and then store the results to plot them later. First, we create our placeholder variable. This is the object called `A`, in the code below. We create this using the function `numeric`. We must also specify the length of our placeholder. In this case, it will have 100 elements, i.e. the 100 years of our financial investment. We must also define the interest rate and the principle. $r$ is going to be 1\% and the principal $P$ is going to be 1\€. Notice how within the body of the loop we have essentially repeated the formula that we have given above. However, there is a fundamental difference with the loops that we have seen until now. With every run of the loop we are filling the vector `A` with the result of the formula `P * (1 + r)^t` for every `t` from 1 to 100.
 
-- preallocating space
+`A[1] <- P * (1 + r)^1` \\
+`A[2] <- P * (1 + r)^2` \\
+$...$ \\
+`A[100] <- P * (1 + r)^100` \\
 
 ```{r}
 
-data_interests <- numeric(100)
+years <- 100
 
-interests <- 0.01
+A <- numeric(years)
 
-data_interests[1] <- 1
+r <- 0.01
 
-for (t in 2:length(data_interests)) {
+P <- 1
+
+for (t in 1:years) {
     
-    data_interests[t] <- data_interests[t-1] * (1 + interests)
+    A[t] <- P * (1 + r)^t
   
 }
 
 ```
 
+All is left to do is to plot the data using the `plot()` function. The arguments of the `plot()` function are almost self-explanatory. Input `x` and `y` take a series of numerical values (of equal length) for the horizontal and vertical axis, respectively. With `xlim` and `ylim`, we set the range of the axis. We can see that the x-axis will go from 1 to 100, i.e. from 1 to `years` and that the y-axis will go from 1 to the largest value of the vector `A` found using the function `max()`. The argument `type` will set the type of plot desired. Here, `l` stands for "line". The argument `col` will determine the color of the line, the argument `main` the title of the plot, and finally the arguments `xlab` and `ylab` the labels of the horizontal and vertical axis.^[To see the complete list of arguments of the `plot()` function, type `?plot()` in the console.]
+
 ```{r}
 
-plot(x = 1:100,
-     y = data_interests,
-     xlim = c(1, length(data_interests)), 
-     ylim = c(1, max(data_interests)),
+plot(x = 1:years,
+     y = A,
+     xlim = c(1, years), 
+     ylim = c(1, max(A)),
      type = "l", 
      col = "black",
-     main = "Investments", 
+     main = "Compound interest", 
      xlab = "Year", 
      ylab = "Euro")
 
@@ -290,23 +303,23 @@ plot(x = 1:100,
 
 ## Nested loops
 
-We can nest loops within other loops. Here we expand the previous example creating some alternative scenarios with different interest rates. The first for loop (index `t`) deals with repetitions over time, just as in the previous example. The second for loop, on the other hand, allows us to simulate different scenarios with different assumptions about the interest rate. As you can see, we have created a vector `interest` with three different rates of interest (1\%, 2\% and 3\%). This time we will save our data in a matrix. Why? Because matrices have tow dimensions, as we have seen above. Our placeholder matrix is called `data_interests`.
+We can nest loops within other loops. Here, we expand the previous example creating some alternative scenarios with different interest rates. The first `for loop` (index `t`) deals with repetitions over time, just as in the previous example. The second `for loop`, allows us to simulate different scenarios using different assumptions about the interest rate. As you can see, we have created a vector `r` with three different rates of interest (1\%, 2\% and 3\%). This time, we will save our data in a matrix called `A`. Why in a matrix and not in a vector? Because matrices have tow dimensions, columns and rows, as we have seen above. The rows of the matrix will be the time dimensions of the simulation while the columns will correspond to the scenarios.
 
 ```{r}
 
-data_interests <- matrix(nrow = 100, ncol = 3, byrow = TRUE)
+years <- 100
 
-interests <- c(0.01, 0.02, 0.03) 
+r <- c(0.01, 0.02, 0.03)
 
-data_interests[1,1] <- 1
-data_interests[1,2] <- 1
-data_interests[1,3] <- 1
+A <- matrix(nrow = years, ncol = length(r), byrow = TRUE)
 
-for (t in 2:nrow(data_interests)) {
+P <- 1
+
+for (t in 1:years) {
   
-  for (s in 1:ncol(data_interests)) {
+  for (s in 1:length(r)) {
     
-    data_interests[t,s] <- data_interests[t-1,s] * (1 + interests[s])
+    A[t,s] <- P * (1 + r[s])^t
     
   }
   
@@ -315,26 +328,26 @@ for (t in 2:nrow(data_interests)) {
 ```
 
 To make the code more elegant and concise, we can use a simple loop to include the three scenarios in the plot. First, we must open a plot without the inputs for the variable `x` and `y`. As you can see, we have included the word `NULL` instead of `x` and `y`.^[`NULL` is a special object in R that stands for "nothing exists". See this 
-[post](https://www.r-bloggers.com/2018/07/r-null-values-null-na-nan-inf/) from *r-bloggers.com*.] We then code the rest of the plot as we did above. What would be the alternative? The alternative would be to repeat the `lines` function three times, each time using the desired scenario as input, e.g. `data_interests[,1]` and so on (or to include the first scenario directly in the plot and then use two times the `lines` function). Note that the color will also depend on the index of the loop (`l`) and therefore on the scenario as we want a different color for each scenario (see `col = l`). In this case, the colors will picked by following the default order of colors palette in the `plot()` function.^[Alternatively, you can create your own vector of colors. This is left to the reader as an exercise.]
+[post](https://www.r-bloggers.com/2018/07/r-null-values-null-na-nan-inf/) from *r-bloggers.com*.] We then code the rest of the plot as we did above. What would be the alternative? The alternative would be to repeat the `lines` function three times, each time using the desired scenario as input, e.g. `A[,1]` and so on (or to include the first scenario directly in the plot and then use two times the `lines` function). Note that the color will also depend on the index of the loop (`l`) and therefore on the scenario as we want a different color for each scenario (see `col = l`). In this case, the colors will picked by following the default order of colors palette in the `plot()` function.^[Alternatively, you can create your own vector of colors. This is left to the reader as an exercise.]
 
 ```{r}
 
 plot(NULL, 
-     xlim = c(1, nrow(data_interests)), 
-     ylim = c(1, max(data_interests)),
-     main = "Investments", 
+     xlim = c(1, nrow(A)), 
+     ylim = c(1, max(A)),
+     main = "Compound interest", 
      xlab = "Year", 
      ylab = "Euro")
 
-for (l in 1:ncol(data_interests)) {
-  lines(data_interests[,l], type = "l", col = l)
+for (l in 1:ncol(A)) {
+  lines(A[,l], type = "l", col = l)
 }
 
 ```
 
 ## Simple functions
 
-Small but important digression. The word `function` is a reserved word. A reserved word is a word that you cannot use to give names to your objects. You may find a list of reserved words in the R Documentation. Take a look [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) if you want.^[Short story. One time my model was giving strange results and I couldn't understand why. Then I realized that I was using the word `pi` to name the inflation variable. Try to type `pi` in the console. It is the mathematical constant $\pi$. The tricky thing here is that you can temporarily assign other values to the object `pi` because it is not a reserved word, strictly speaking. It is rather a pre-stored constant. But you should never use name that are already assigned to other things for your own variables, e.g. never use `T` or `F`.]
+Small but important digression. The word `function` is a reserved word. A reserved word is a word that you cannot use to give names to your objects. You may find a list of reserved words in the R Documentation. Take a look [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) if you want.^[Short story. One time my model was giving strange results and I couldn't understand why. Then I realized that I was using the word `pi` to name the inflation variable. Try to type `pi` in the console. It is the mathematical constant $\pi$. The tricky thing here is that you can temporarily assign other values to the object `pi` because it is not a reserved word, strictly speaking. It is rather a pre-stored constant. But you should never use name that are already assigned to name your own variables, e.g. never use `T` or `F`!]
 
 ```{r}
 my_fun <- function(x, y) x^y 
@@ -348,36 +361,33 @@ Let us now try to write a function that put together all the things we did in th
 
 ```{r}
 
-my_fun <- function(time, scenario1, scenario2, scenario3) {
+my_fun <- function(time, scenarios) {
   
-  data_interests <- matrix(nrow = time, ncol = 3, byrow = TRUE)
-
-  # Here we put the inputs of our function
-  interests <- c(scenario1, scenario2, scenario3) 
-
-  data_interests[1,1] <- 1
-  data_interests[1,2] <- 1
-  data_interests[1,3] <- 1
-
-  for (t in 2:nrow(data_interests)) {
+  r <- scenarios
   
-    for (s in 1:ncol(data_interests)) {
+  A <- matrix(nrow = time, ncol = length(r), byrow = TRUE)
+  
+  P <- 1
+
+  for (t in 1:time) {
+  
+    for (s in 1:length(r)) {
     
-      data_interests[t,s] <- data_interests[t-1,s] * (1 + interests[s])
+      A[t,s] <- P * (1 + r[s])^t
     
     }
   
   }
 
   plot(NULL, 
-     xlim = c(1, nrow(data_interests)), 
-     ylim = c(1, max(data_interests)),
-     main = "Investments", 
+     xlim = c(1, nrow(A)), 
+     ylim = c(1, max(A)),
+     main = "Compound interest", 
      xlab = "Year", 
      ylab = "Euro")
 
- for (l in 1:ncol(data_interests)) {
-  lines(data_interests[,l], type = "l", col = l)
+ for (l in 1:ncol(A)) {
+  lines(A[,l], type = "l", col = l)
  }
   
 }
@@ -388,7 +398,7 @@ my_fun <- function(time, scenario1, scenario2, scenario3) {
 
 ```{r}
 
-my_fun(time = 5, scenario1 = 0.01, scenario2 = 0.02, scenario3 = 0.03)
+my_fun(time = 10, scenarios = seq(0.1, 0.5, 0.1))
 
 ```
 

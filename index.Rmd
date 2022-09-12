@@ -17,6 +17,7 @@ library(rdbnomics)
 library(stargazer)
 library(ggplot2)
 library(ggpubr)
+library(readr)
 library(dplyr)
 library(tidyr)
 
@@ -34,7 +35,7 @@ knitr::opts_chunk$set(
 
 This book brings together a collection of notes, exercises and practical applications that I have used over the years for my lectures in "Quantitative Methods for Economists" at the Department of Business and Economics of the Berlin School of Economics and Law (HWR) in Berlin, Germany. The course offers an introduction to basic econometrics to Master students in two study programs at the [Institute for International Political Economy (IPE)](https://www.ipe-berlin.org/en/), "International Economics" and "Political Economy of European Integration".
 
-This book is an attempt to systematize the contents discussed in class but also to make the materials freely available. The text is designed for all those who are approaching these topics for the first time (or after a long break) and in particular for those do not have a strong quantitative background. My hope is however that even advanced students may find the text interesting and instructive. Before getting into the heart of the presentation of the course contents (i.e. econometrics and the linear regression technique), the book takes a rather long tour that starts with an introduction to the statistical programming language R to then move on to the review of fundamental mathematical and statistical concepts. My personal impression from the classes taught in the past is that a good review of statistics and mathematics is always welcome by students.
+This book is an attempt to systematize the contents discussed in class but also to make the materials freely available. The text is designed for those students who are approaching these topics for the first time (or after a long break) and in particular for those do not have a strong quantitative background. My hope is however that even advanced students may find the text interesting and instructive. Before getting into the heart of the presentation of the course contents (i.e. econometrics and the linear regression technique), the book takes a rather long tour that starts with an introduction to the statistical programming language R to then move on to the review of fundamental mathematical and statistical concepts. My personal impression from the classes taught in the past is that a good review of statistics and mathematics is always welcome by students.
 
 The text is divided into three parts. Part I, called **Introduction to R**, introduces the basics of the R language in particular for manipulating and cleaning data, creating graphs and writing simple functions. The examples proposed aim to be of interest to economics students. Part II, named **Review of math and statistics**, covers basic mathematical and statistical concepts, like basic algebra (with some brief mentions of linear algebra), calculus and simple optimization problems, descriptive and inferential statistics. Where possible, R is used to discuss examples and solve exercises. Part III, **The linear regression**, gets into the heart of the discussion presenting the least squares technique and regression analysis. Also here examples will be primarily based on economic data and models. Once again R will be our main working tool.
 

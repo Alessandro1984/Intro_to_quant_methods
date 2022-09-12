@@ -145,7 +145,7 @@ reg1 <- lm(wage ~ educ, data = wage1)
 sum_reg1 <- summary(reg1)
 
 stargazer(reg1, 
-          type = "latex", 
+          type = "html",
           keep.stat = c("n", "rsq"),
           header = FALSE,
           title = "$wage = \\beta_0 + \\beta_1 educ + u$")
@@ -243,7 +243,6 @@ Since the value of 0 is not contained in the confidence interval, we reject $H_0
 confint(reg1, parm = 2, level = 0.95)
 ```
 
-
 ## F statistic for overall significance of a regression
 
 The *F* test is used to test whether a group of variables has no effect on the dependent variable. In this sense, the test allows to test if the parameters of a set (or at the limit all) the independent variables are **jointly significance**. Obviously it is the theory or intuition that tells us to operate such a test on a given group of variables. It is often the case that the *F* test is performed on all independent variables in a model. It is then said that the test is for the overall significance of the regression. In this exercise, to understand how the *F* test works in practice, we will replicate the *F* test provided by the regression function in R (as by any other statistical software packages). This is precisely a test for overall joint significance of the regression. We estimate the following model:
@@ -290,7 +289,7 @@ We report the results in a single table created using the *stargazer* package.
 
 ```{r, results="asis"}
 stargazer(reg1, reg2, 
-          type = "latex",
+          type = "html",
           header = FALSE,
           title = "F test for the overall significance of the regression.",
           keep.stat = c("n", "rsq", "f"))

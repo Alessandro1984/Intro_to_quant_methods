@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-09" />
+<meta name="date" content="2022-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -243,124 +243,231 @@ div.csl-indent {
 <div id="chapter8" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Inference<a href="chapter8.html#chapter8" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="the-basics-of-hypothesis-testing" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> The basics of hypothesis testing<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a><a href="chapter8.html#the-basics-of-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">8.1</span> The basics of hypothesis testing<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a><a href="chapter8.html#the-basics-of-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In <strong>descriptive statistics</strong>, we work with a sample of data obtained from a larger population and we are interested in understanding the characteristics of the sample. In <strong>inferential statistics</strong>, we use the sample to try to obtain conclusions (more precisely said, to make inference) regarding the characteristics of the population from which the sample is obtained. For example, having a sample available we might be interested in inferring whether the sample mean (sample statistics, <span class="math inline">\(\bar{x}\)</span>) is representative of the population mean (population parameter, <span class="math inline">\(\mu\)</span>). That is, we are interested in generalising the information obtained from the sample to the entire population. Of course it is easy to imagine that our conclusion will be subject to error as we only have one sample available. With only one sample available, it is very unlikely that the sample mean will be identical to the population mean. So in our inference process we have to take this sampling error into account.</p>
-<p>Hypothesis testing is a widely used statistical procedure for making inference from a sample to a population.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a> The test starts with two statements. The <strong>null hypothesis</strong>, denoted <span class="math inline">\(H_0\)</span>. The null hypothesis describes the condition that is assumed to be true at the time. It is often compared to the situation in court where an accused person is assumed to be innocent until there is enough evidence to find him guilty. The second statement is the <strong>alternative hypothesis</strong>, denote <span class="math inline">\(H_1\)</span>. The null hypothesis and the alternative hypothesis are mutually exclusive. The alternative hypothesis is the one that is favoured if enough evidence is found. Many times we have a theory that suggests which values to specify for the null hypothesis and the alternative hypothesis. Hypothesis testing is a means of testing the statistical (not practical) validity of our theory.</p>
+<p>Hypothesis testing is a widely used statistical procedure for making inference from a sample to a population.<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a> The test starts with two statements. The <strong>null hypothesis</strong>, denoted <span class="math inline">\(H_0\)</span>. The null hypothesis describes the condition that is assumed to be true at the time. It is often compared to the situation in court where an accused person is assumed to be innocent until there is enough evidence to find him guilty. The second statement is the <strong>alternative hypothesis</strong>, denote <span class="math inline">\(H_1\)</span>. The null hypothesis and the alternative hypothesis are mutually exclusive. The alternative hypothesis is the one that is favoured if enough evidence is found. Many times we have a theory that suggests which values to specify for the null hypothesis and the alternative hypothesis. Hypothesis testing is a means of testing the statistical (not practical) validity of our theory.</p>
 <p><span class="math display">\[H_0: \mu = \mu_0\]</span></p>
 <p><span class="math display">\[H_1: \mu \neq \mu_0\]</span></p>
 <p>How do we decide between the null hypothesis and the alternative hypothesis? We assume that we have a normally distributed random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. Let us further assume that the population mean <span class="math inline">\(\mu\)</span> (which we do not know) is a value equal to <span class="math inline">\(\mu_0\)</span> (maybe because theory or experience tells us so). In a first sample obtained from our random variable <span class="math inline">\(X\)</span>, we compute the mean (<span class="math inline">\(\bar{x}\)</span>) and obtain a value close to the hypothesized value <span class="math inline">\(\mu_0\)</span>. Since we know that data are obtained from a normally distributed <span class="math inline">\(X\)</span>, we know that the probability of obtaining a value close to the mean is actually quite high. In a second sample, a much larger value of <span class="math inline">\(\bar{x}\)</span> is obtained. In this case, we know that obtaining values much larger than the mean is less probable (in other words, we are in the tales of the distribution). What should we conclude with such a high value now? Does the sample results confirm or contradict the null hypothesis, i.e. the hypothesized value for the mean of the population? We can continue to believe that the null hypothesis is correct and that we have just an unlucky sample from which we have obtained a very high mean but we are somehow convinced that the hypothesized value is still correct (<span class="math inline">\(H_0: \mu = \mu_0\)</span>) and the sample was just a bit off. Or we can convince ourselves that the sample result contradicts the assumed value <span class="math inline">\(\mu_0\)</span> and that we were wrong with the null hypothesis (therefore, <span class="math inline">\(H_1: \mu \neq \mu_0\)</span>). In the rule, the null hypothesis is rejected if the probability of obtaining such an extreme value is smaller than an arbitrarily defined probability.</p>
-<p>There are two kinds of mistakes that can be made. A <strong>Type I error</strong> and a <strong>Type II error</strong>. When we reject a hypothesis that is actually true, we are committing a Type I error. When we are not rejecting (or “accepting”, but this is not the right terminology) a hypothesis that should be rejected, we are committing a Type II error. Since we are basing our decision on a sample, and there is always uncertainty in the sampling process, we are more or less sure that there is some uncertainty attached to our test conclusion. In hypothesis testing we decide in advance what kind of error we want to make. The procedure is to decide in advance to commit to a certain Type I error, e.g. we decide in advance to tolerate a Type I error in 5% of the cases. This value is called <strong>significance level</strong> and is traditionally indicated with the greek letter <span class="math inline">\(\alpha\)</span>.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
+<p>There are two kinds of mistakes that can be made. A <strong>Type I error</strong> and a <strong>Type II error</strong>. When we reject a hypothesis that is actually true, we are committing a Type I error. When we are not rejecting (or “accepting”, but this is not the right terminology) a hypothesis that should be rejected, we are committing a Type II error. Since we are basing our decision on a sample, and there is always uncertainty in the sampling process, we are more or less sure that there is some uncertainty attached to our test conclusion. In hypothesis testing we decide in advance what kind of error we want to make. The procedure is to decide in advance to commit to a certain Type I error, e.g. we decide in advance to tolerate a Type I error in 5% of the cases. This value is called <strong>significance level</strong> and is traditionally indicated with the greek letter <span class="math inline">\(\alpha\)</span>.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a></p>
 <p><strong>Example</strong></p>
 <p>The mean lifetime of a sample of 100 light bulbs is computed to be 1570 hours with a standard deviation of 120 hours. If <span class="math inline">\(\mu\)</span> is the mean lifetime of all the light bulbs produced, test the hypothesis that the population mean is <span class="math inline">\(\mu = 1600\)</span> hours against the alternative that <span class="math inline">\(\mu \neq 1600\)</span> using a significance level of 5%. Find the p-value of the test and build a 95% confidence interval.</p>
 <p><span class="math display">\[H_0: \mu = 1600\]</span></p>
 <p><span class="math display">\[H_1: \mu \neq \space 1600\]</span></p>
 <p>We need to construct our test statistic to perform the test. In practice, wee need to transform the computed mean obtained from the sample of light bulbs into a statistic that follow a standard normal distribution with zero mean and unit variance.</p>
 <p><span class="math display">\[z_{test} = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}} = \frac{1570 - 1600}{12} = -2.5\]</span></p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="chapter8.html#cb210-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb210-2"><a href="chapter8.html#cb210-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-3"><a href="chapter8.html#cb210-3" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="ot">&lt;-</span> <span class="dv">1570</span></span>
-<span id="cb210-4"><a href="chapter8.html#cb210-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-5"><a href="chapter8.html#cb210-5" aria-hidden="true" tabindex="-1"></a>sample_sigma <span class="ot">&lt;-</span> <span class="dv">120</span></span>
-<span id="cb210-6"><a href="chapter8.html#cb210-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb210-7"><a href="chapter8.html#cb210-7" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">1600</span></span>
-<span id="cb210-8"><a href="chapter8.html#cb210-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-9"><a href="chapter8.html#cb210-9" aria-hidden="true" tabindex="-1"></a>alpha5p <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb210-10"><a href="chapter8.html#cb210-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-11"><a href="chapter8.html#cb210-11" aria-hidden="true" tabindex="-1"></a>z_test <span class="ot">&lt;-</span> <span class="fu">abs</span>((sample_mean <span class="sc">-</span> mu) <span class="sc">/</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)))</span>
-<span id="cb210-12"><a href="chapter8.html#cb210-12" aria-hidden="true" tabindex="-1"></a>z_test</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="chapter8.html#cb216-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb216-2"><a href="chapter8.html#cb216-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="chapter8.html#cb216-3" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="ot">&lt;-</span> <span class="dv">1570</span></span>
+<span id="cb216-4"><a href="chapter8.html#cb216-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-5"><a href="chapter8.html#cb216-5" aria-hidden="true" tabindex="-1"></a>sample_sigma <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb216-6"><a href="chapter8.html#cb216-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb216-7"><a href="chapter8.html#cb216-7" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">1600</span></span>
+<span id="cb216-8"><a href="chapter8.html#cb216-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-9"><a href="chapter8.html#cb216-9" aria-hidden="true" tabindex="-1"></a>alpha5p <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb216-10"><a href="chapter8.html#cb216-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-11"><a href="chapter8.html#cb216-11" aria-hidden="true" tabindex="-1"></a>z_test <span class="ot">&lt;-</span> <span class="fu">abs</span>((sample_mean <span class="sc">-</span> mu) <span class="sc">/</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)))</span>
+<span id="cb216-12"><a href="chapter8.html#cb216-12" aria-hidden="true" tabindex="-1"></a>z_test</span></code></pre></div>
 <pre><code>## [1] 2.5</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="chapter8.html#cb212-1" aria-hidden="true" tabindex="-1"></a>z_crit_5p <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha5p<span class="sc">/</span><span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="chapter8.html#cb218-1" aria-hidden="true" tabindex="-1"></a>z_crit_5p <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha5p<span class="sc">/</span><span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Since in this exercise we are interested in performing a two-sided test (look a the formulation of the null and alternative hypothesis), we take the absolute value of our <span class="math inline">\(z\)</span> test. We can reject <span class="math inline">\(H_0\)</span> at the 5% significance level (<span class="math inline">\(\alpha\)</span> = 5%) if,</p>
 <p><span class="math display">\[|z_{test}| &gt; z_{crit}\]</span></p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="chapter8.html#cb213-1" aria-hidden="true" tabindex="-1"></a>z_test <span class="sc">&gt;</span> z_crit_5p</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="chapter8.html#cb219-1" aria-hidden="true" tabindex="-1"></a>z_test <span class="sc">&gt;</span> z_crit_5p</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>We can reject <span class="math inline">\(H_0\)</span> at the 5% significance level. In the following graph, in green we can see the rejection region (the two green shaded areas add up to 5%) while with the yellow line it is indicated the value of our <span class="math inline">\(z\)</span> test in both tails of the distribution. As we said, since the value of our <span class="math inline">\(z\)</span> test falls within the rejection region, we can reject <span class="math inline">\(H_0\)</span> at the 5% significance level.</p>
 <p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-101-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
 <p>What do we see highlighted in black in the graph above? The sum of the two black areas represent our p-value for the <em>z</em> score that we have just calculated. We can think of the p-value as the smallest significance level at which we still reject the null hypothesis (or the largest significance level at which the null hypothesis cannot be rejected). How large is the p-value for our <em>z</em> test?</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="chapter8.html#cb215-1" aria-hidden="true" tabindex="-1"></a>pvalue <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z_test, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb215-2"><a href="chapter8.html#cb215-2" aria-hidden="true" tabindex="-1"></a>pvalue<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="chapter8.html#cb221-1" aria-hidden="true" tabindex="-1"></a>pvalue <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z_test, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb221-2"><a href="chapter8.html#cb221-2" aria-hidden="true" tabindex="-1"></a>pvalue<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] 1.241933</code></pre>
 <p>How can we interpret the p-value? In our exercise, the p-value of 1.24% represents the probability that a mean lifetime of less than 1570 or more than 1630 hours would occur by chance if <span class="math inline">\(H_0\)</span> were actually true. A rather small probability. How did we obtain the values 1570 and 1630? We have used (half) of the p-value to calculate the quantiles of a normal distribution with mean <span class="math inline">\(mu = 1600\)</span> and standard deviation <span class="math inline">\(120/\sqrt{100}\)</span>.</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="chapter8.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(pvalue<span class="sc">/</span><span class="dv">2</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)), <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="chapter8.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(pvalue<span class="sc">/</span><span class="dv">2</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)), <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
 <pre><code>## [1] 1630</code></pre>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="chapter8.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(pvalue<span class="sc">/</span><span class="dv">2</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)), <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="chapter8.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(pvalue<span class="sc">/</span><span class="dv">2</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)), <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1570</code></pre>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="chapter8.html#cb221-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">pnorm</span>(<span class="dv">1570</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)), <span class="at">lower.tail =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb221-2"><a href="chapter8.html#cb221-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1630</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)), <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="chapter8.html#cb227-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">pnorm</span>(<span class="dv">1570</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)), <span class="at">lower.tail =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb227-2"><a href="chapter8.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1630</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)), <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] 1.241933</code></pre>
-<p>Since we see that the p-value is larger than 1%, we already know that we will fail to reject the null hypothesis at the 1% significance level (<span class="math inline">\(\alpha\)</span> = 1%) . Shouldn’t we have used a <em>t</em> test rather than a <span class="math inline">\(z\)</span> test as suggested by professional statisticians? Probably yes. Since we do not know the population standard deviation (the standard deviation of all light bulbs), a <em>t</em> test sounds more appropriate. However, since our sample is relatively large (<span class="math inline">\(n = 100\)</span>), much larger than the commonly suggested rule of thumb (<span class="math inline">\(n &gt; 30\)</span>), we will practically obtain (almost) the same result using the normal distribution and the <em>t</em> distribution.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a> To conclude, we need to construct the 95% confidence interval (<span class="math inline">\(100 - \alpha\)</span>, where <span class="math inline">\(\alpha\)</span> = 5%).</p>
+<p>Since we see that the p-value is larger than 1%, we already know that we will fail to reject the null hypothesis at the 1% significance level (<span class="math inline">\(\alpha\)</span> = 1%) . Shouldn’t we have used a <em>t</em> test rather than a <span class="math inline">\(z\)</span> test as suggested by professional statisticians? Probably yes. Since we do not know the population standard deviation (the standard deviation of all light bulbs), a <em>t</em> test sounds more appropriate. However, since our sample is relatively large (<span class="math inline">\(n = 100\)</span>), much larger than the commonly suggested rule of thumb (<span class="math inline">\(n &gt; 30\)</span>), we will practically obtain (almost) the same result using the normal distribution and the <em>t</em> distribution.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> To conclude, we need to construct the 95% confidence interval (<span class="math inline">\(100 - \alpha\)</span>, where <span class="math inline">\(\alpha\)</span> = 5%).</p>
 <p><span class="math display">\[(\bar{x} + z_{\alpha / 2} \cdot \frac{\sigma}{\sqrt{n}}; \bar{x} + z_{1 - \alpha / 2} \cdot \frac{\sigma}{\sqrt{n}})\]</span></p>
 <p>We must be careful with the signs in the formula above. Once we look up the critical value <span class="math inline">\(z_{\alpha / 2}\)</span> (or we compute it using R) we will see that the quantity is actually negative. If we include the negative sign in the formula for the confidence interval, it would not be wrong, but it can create some confusion. This is why it is better to use the formula below. In this case, we have to include the negative sign in the formula because <span class="math inline">\(z_{1 - \alpha / 2}\)</span> is going to be a positive number and this is the version that we are going to implement in R.</p>
 <p><span class="math display">\[(\bar{x} - z_{1 - \alpha / 2} \cdot \frac{\sigma}{\sqrt{n}}; \bar{x} + z_{1 - \alpha / 2} \cdot \frac{\sigma}{\sqrt{n}})\]</span></p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="chapter8.html#cb223-1" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">+</span><span class="dv">1</span>) <span class="sc">*</span> z_crit_5p <span class="sc">*</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)) </span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="chapter8.html#cb229-1" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">+</span><span class="dv">1</span>) <span class="sc">*</span> z_crit_5p <span class="sc">*</span> (sample_sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)) </span></code></pre></div>
 <pre><code>## [1] 1546.48 1593.52</code></pre>
-<p>The hypothesized value for the mean lifetime of all the bulbs produced was 1600 working hours. Since this particular value falls outside the confidence interval constructed around the sample mean, we can reject <span class="math inline">\(H_0\)</span>. With the confidence interval test the null hypothesis is rejected if and only if the hypothesized value falls outside the confidence interval. The <span class="math inline">\(z\)</span> test (or <span class="math inline">\(t\)</span> test) and the confidence interval test are basically an elaboration of one another and provides always the same test decision.<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a></p>
+<p>The hypothesized value for the mean lifetime of all the bulbs produced was 1600 working hours. Since this particular value falls outside the confidence interval constructed around the sample mean, we can reject <span class="math inline">\(H_0\)</span>. With the confidence interval test the null hypothesis is rejected if and only if the hypothesized value falls outside the confidence interval. The <span class="math inline">\(z\)</span> test (or <span class="math inline">\(t\)</span> test) and the confidence interval test are basically an elaboration of one another and provides always the same test decision.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a></p>
 </div>
 <div id="the-t-test-in-the-regression" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> The <em>t</em> test in the regression<a href="chapter8.html#the-t-test-in-the-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We are now going to perform the test of the hypothesis on the population parameters of a simple bivariate linear regression model. The good news is that this procedure is done automatically by all statistical packages that run regressions. In our case, we are going to replicate the results provided with the output of the <span class="math inline">\(lm\)</span> function in R.</p>
+<table style="text-align:center">
+<caption>
+<strong>wage = + educ + u</strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+wage
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+educ
+</td>
+<td>
+0.541<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.053)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-0.905
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.685)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+526
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.165
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
 <p>First, we perform a two-sided <em>t</em> test for the intercept parameter (<span class="math inline">\(\beta_0\)</span>). We want to test the null hypothesis (<span class="math inline">\(H_0\)</span>) that <span class="math inline">\(\beta_0 = 0\)</span> against the alternative hypothesis (<span class="math inline">\(H_1\)</span>) that <span class="math inline">\(\beta_0 \neq 0\)</span>. This is the kind of hypothesis test that is usually performed by linear regression function in software packages. Since we are interested in a two-sided test, we will take the absolute value of our <span class="math inline">\(t\)</span> statistic. We want to perform the test at the 5% significance level. We need to find the critical value for a 5% significance level with 524 degrees of freedom. We reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t_{\hat{\beta}_0}| &gt; t_{crit}\)</span> otherwise we will fail to reject <span class="math inline">\(H_0\)</span>.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="chapter8.html#cb225-1" aria-hidden="true" tabindex="-1"></a>alpha5p <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb225-2"><a href="chapter8.html#cb225-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-3"><a href="chapter8.html#cb225-3" aria-hidden="true" tabindex="-1"></a>t_stat_beta_0 <span class="ot">&lt;-</span> <span class="fu">abs</span>(sum_reg1<span class="sc">$</span>coefficients[<span class="dv">1</span>,<span class="dv">3</span>])</span>
-<span id="cb225-4"><a href="chapter8.html#cb225-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-5"><a href="chapter8.html#cb225-5" aria-hidden="true" tabindex="-1"></a>t_crit_5p <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha5p<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> reg1<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb225-6"><a href="chapter8.html#cb225-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-7"><a href="chapter8.html#cb225-7" aria-hidden="true" tabindex="-1"></a>t_stat_beta_0 <span class="sc">&gt;</span> t_crit_5p</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="chapter8.html#cb231-1" aria-hidden="true" tabindex="-1"></a>alpha5p <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb231-2"><a href="chapter8.html#cb231-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-3"><a href="chapter8.html#cb231-3" aria-hidden="true" tabindex="-1"></a>t_stat_beta_0 <span class="ot">&lt;-</span> <span class="fu">abs</span>(sum_reg1<span class="sc">$</span>coefficients[<span class="dv">1</span>,<span class="dv">3</span>])</span>
+<span id="cb231-4"><a href="chapter8.html#cb231-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-5"><a href="chapter8.html#cb231-5" aria-hidden="true" tabindex="-1"></a>t_crit_5p <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha5p<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> reg1<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb231-6"><a href="chapter8.html#cb231-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb231-7"><a href="chapter8.html#cb231-7" aria-hidden="true" tabindex="-1"></a>t_stat_beta_0 <span class="sc">&gt;</span> t_crit_5p</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<p>We fail to reject <span class="math inline">\(H_0\)</span> at the 5% significance level. Consequently, we will fail to reject the <span class="math inline">\(H_0\)</span> for every significance level smaller than 5%. Which one is the smallest significance level at which we still reject <span class="math inline">\(H_0\)</span>? We need to calculate the (in)famous p-value. In this case, it is given by <span class="math inline">\(P(|T| &gt; |t_{\hat{\beta}_0}|)\)</span>.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> We can use the function <em>pt</em> to calculate the area below the <em>t</em> distribution at the right of our <span class="math inline">\(t_{\hat{\beta}_0}\)</span>. Don’t forget to multiply this quantity by two as we need the p-value for a two-sided test.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="chapter8.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(t_stat_beta_0, <span class="at">df =</span> reg1<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
+<p>We fail to reject <span class="math inline">\(H_0\)</span> at the 5% significance level. Consequently, we will fail to reject the <span class="math inline">\(H_0\)</span> for every significance level smaller than 5%. Which one is the smallest significance level at which we still reject <span class="math inline">\(H_0\)</span>? We need to calculate the (in)famous p-value. In this case, it is given by <span class="math inline">\(P(|T| &gt; |t_{\hat{\beta}_0}|)\)</span>.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> We can use the function <em>pt</em> to calculate the area below the <em>t</em> distribution at the right of our <span class="math inline">\(t_{\hat{\beta}_0}\)</span>. Don’t forget to multiply this quantity by two as we need the p-value for a two-sided test.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="chapter8.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(t_stat_beta_0, <span class="at">df =</span> reg1<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] 18.70735</code></pre>
 <p>We have a relatively large sample. We know that the <em>t</em> distribution converges to the standard normal distribution as the number of observation in the sample approaches infinity (meaning that the quantiles of the <em>t</em> distribution and the standard normal distribution are the same). Therefore, we can obtain (almost) the same result using the function <em>pnorm</em>.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="chapter8.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(t_stat_beta_0, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="chapter8.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(t_stat_beta_0, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] 18.64969</code></pre>
-<p>We can check that we will actually reject <span class="math inline">\(H_0\)</span> for a significance level larger than our p-value. Let’s try to see what’s happening when the significance level is 20%.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> As before, we reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t_{\hat{\beta}_0}| &gt; t_{crit}\)</span> otherwise we will fail to reject <span class="math inline">\(H_0\)</span>.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="chapter8.html#cb231-1" aria-hidden="true" tabindex="-1"></a>alpha20p <span class="ot">&lt;-</span> <span class="fl">0.20</span></span>
-<span id="cb231-2"><a href="chapter8.html#cb231-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb231-3"><a href="chapter8.html#cb231-3" aria-hidden="true" tabindex="-1"></a>t_crit_20p <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha20p<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> reg1<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb231-4"><a href="chapter8.html#cb231-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb231-5"><a href="chapter8.html#cb231-5" aria-hidden="true" tabindex="-1"></a>t_stat_beta_0 <span class="sc">&gt;</span> t_crit_20p</span></code></pre></div>
+<p>We can check that we will actually reject <span class="math inline">\(H_0\)</span> for a significance level larger than our p-value. Let’s try to see what’s happening when the significance level is 20%.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> As before, we reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t_{\hat{\beta}_0}| &gt; t_{crit}\)</span> otherwise we will fail to reject <span class="math inline">\(H_0\)</span>.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="chapter8.html#cb237-1" aria-hidden="true" tabindex="-1"></a>alpha20p <span class="ot">&lt;-</span> <span class="fl">0.20</span></span>
+<span id="cb237-2"><a href="chapter8.html#cb237-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb237-3"><a href="chapter8.html#cb237-3" aria-hidden="true" tabindex="-1"></a>t_crit_20p <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha20p<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> reg1<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb237-4"><a href="chapter8.html#cb237-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb237-5"><a href="chapter8.html#cb237-5" aria-hidden="true" tabindex="-1"></a>t_stat_beta_0 <span class="sc">&gt;</span> t_crit_20p</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>Given the result of the test, we reject <span class="math inline">\(H_0\)</span> at the 20% significance level. We can also build a 95% confidence interval for the intercept:<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a></p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="chapter8.html#cb233-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> sum_reg1<span class="sc">$</span>coefficients[<span class="dv">1</span>,<span class="dv">1</span>]</span>
-<span id="cb233-2"><a href="chapter8.html#cb233-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-3"><a href="chapter8.html#cb233-3" aria-hidden="true" tabindex="-1"></a>se_beta_0 <span class="ot">&lt;-</span> sum_reg1<span class="sc">$</span>coefficients[<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb233-4"><a href="chapter8.html#cb233-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-5"><a href="chapter8.html#cb233-5" aria-hidden="true" tabindex="-1"></a>ci_lower <span class="ot">&lt;-</span> beta_0 <span class="sc">-</span> t_crit_5p <span class="sc">*</span> se_beta_0</span>
-<span id="cb233-6"><a href="chapter8.html#cb233-6" aria-hidden="true" tabindex="-1"></a>ci_lower</span></code></pre></div>
+<p>Given the result of the test, we reject <span class="math inline">\(H_0\)</span> at the 20% significance level. We can also build a 95% confidence interval for the intercept:<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a></p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="chapter8.html#cb239-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> sum_reg1<span class="sc">$</span>coefficients[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb239-2"><a href="chapter8.html#cb239-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-3"><a href="chapter8.html#cb239-3" aria-hidden="true" tabindex="-1"></a>se_beta_0 <span class="ot">&lt;-</span> sum_reg1<span class="sc">$</span>coefficients[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb239-4"><a href="chapter8.html#cb239-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-5"><a href="chapter8.html#cb239-5" aria-hidden="true" tabindex="-1"></a>ci_lower <span class="ot">&lt;-</span> beta_0 <span class="sc">-</span> t_crit_5p <span class="sc">*</span> se_beta_0</span>
+<span id="cb239-6"><a href="chapter8.html#cb239-6" aria-hidden="true" tabindex="-1"></a>ci_lower</span></code></pre></div>
 <pre><code>## [1] -2.250472</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="chapter8.html#cb235-1" aria-hidden="true" tabindex="-1"></a>ci_upper <span class="ot">&lt;-</span> beta_0 <span class="sc">+</span> t_crit_5p <span class="sc">*</span> se_beta_0</span>
-<span id="cb235-2"><a href="chapter8.html#cb235-2" aria-hidden="true" tabindex="-1"></a>ci_upper</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="chapter8.html#cb241-1" aria-hidden="true" tabindex="-1"></a>ci_upper <span class="ot">&lt;-</span> beta_0 <span class="sc">+</span> t_crit_5p <span class="sc">*</span> se_beta_0</span>
+<span id="cb241-2"><a href="chapter8.html#cb241-2" aria-hidden="true" tabindex="-1"></a>ci_upper</span></code></pre></div>
 <pre><code>## [1] 0.4407687</code></pre>
 <p>Since the value of 0 is contained in the confidence interval, we fail to reject <span class="math inline">\(H_0\)</span> at 5% significance level. The <span class="math inline">\(H_0\)</span> is rejected if and only if the value 0 is not contained in the 95% confidence interval. There is no need to repeat all these steps above every time. The <em>confint</em> function allows us to quickly calculate the confidence interval.</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="chapter8.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(reg1, <span class="at">parm =</span> <span class="dv">1</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="chapter8.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(reg1, <span class="at">parm =</span> <span class="dv">1</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##                 2.5 %    97.5 %
 ## (Intercept) -2.250472 0.4407687</code></pre>
 <p>Now, we perform a two-sided <em>t</em> test for the slope parameter. We want to test the null hypothesis (<span class="math inline">\(H_0\)</span>) that <span class="math inline">\(\beta_1 = 0\)</span> against the alternative hypothesis (<span class="math inline">\(H_1\)</span>) <span class="math inline">\(\beta_1 \neq 0\)</span>. Since we are interested in a two-sided test, we will take the absolute value of our <em>t</em> statistic. As we know, we reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t_{\hat{\beta}_1}| &gt; t_{crit}\)</span>, otherwise, we fail to reject <span class="math inline">\(H_0\)</span>.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="chapter8.html#cb239-1" aria-hidden="true" tabindex="-1"></a>t_stat_beta_1 <span class="ot">&lt;-</span> <span class="fu">abs</span>(sum_reg1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">3</span>])</span>
-<span id="cb239-2"><a href="chapter8.html#cb239-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb239-3"><a href="chapter8.html#cb239-3" aria-hidden="true" tabindex="-1"></a>t_stat_beta_1 <span class="sc">&gt;</span> t_crit_5p</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="chapter8.html#cb245-1" aria-hidden="true" tabindex="-1"></a>t_stat_beta_1 <span class="ot">&lt;-</span> <span class="fu">abs</span>(sum_reg1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb245-2"><a href="chapter8.html#cb245-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-3"><a href="chapter8.html#cb245-3" aria-hidden="true" tabindex="-1"></a>t_stat_beta_1 <span class="sc">&gt;</span> t_crit_5p</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>What is the conclusion of the test? We can reject <span class="math inline">\(H_0\)</span> that <span class="math inline">\(\beta_1 = 0\)</span> at the 5% significance level. Can we reject <span class="math inline">\(H_0\)</span> also at the 1% significance level? We must first calculate the critical value for a 1% significance level with 524 degrees of freedom.</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="chapter8.html#cb241-1" aria-hidden="true" tabindex="-1"></a>alpha1p <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
-<span id="cb241-2"><a href="chapter8.html#cb241-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-3"><a href="chapter8.html#cb241-3" aria-hidden="true" tabindex="-1"></a>t_crit_1p <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha1p<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> reg1<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb241-4"><a href="chapter8.html#cb241-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-5"><a href="chapter8.html#cb241-5" aria-hidden="true" tabindex="-1"></a>t_stat_beta_1 <span class="sc">&gt;</span> t_crit_1p</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="chapter8.html#cb247-1" aria-hidden="true" tabindex="-1"></a>alpha1p <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb247-2"><a href="chapter8.html#cb247-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-3"><a href="chapter8.html#cb247-3" aria-hidden="true" tabindex="-1"></a>t_crit_1p <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha1p<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> reg1<span class="sc">$</span>df.residual, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb247-4"><a href="chapter8.html#cb247-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-5"><a href="chapter8.html#cb247-5" aria-hidden="true" tabindex="-1"></a>t_stat_beta_1 <span class="sc">&gt;</span> t_crit_1p</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>We can reject <span class="math inline">\(H_0\)</span> that <span class="math inline">\(\beta_1 = 0\)</span> also at the 1% significance level. We can also build a 95% confidence interval for the slope parameter.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="chapter8.html#cb243-1" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> sum_reg1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>]</span>
-<span id="cb243-2"><a href="chapter8.html#cb243-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-3"><a href="chapter8.html#cb243-3" aria-hidden="true" tabindex="-1"></a>se_beta_1 <span class="ot">&lt;-</span> sum_reg1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">2</span>]</span>
-<span id="cb243-4"><a href="chapter8.html#cb243-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-5"><a href="chapter8.html#cb243-5" aria-hidden="true" tabindex="-1"></a>ci_lower <span class="ot">&lt;-</span> beta_1 <span class="sc">-</span> t_crit_5p <span class="sc">*</span> se_beta_1</span>
-<span id="cb243-6"><a href="chapter8.html#cb243-6" aria-hidden="true" tabindex="-1"></a>ci_lower</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="chapter8.html#cb249-1" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> sum_reg1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb249-2"><a href="chapter8.html#cb249-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-3"><a href="chapter8.html#cb249-3" aria-hidden="true" tabindex="-1"></a>se_beta_1 <span class="ot">&lt;-</span> sum_reg1<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">2</span>]</span>
+<span id="cb249-4"><a href="chapter8.html#cb249-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-5"><a href="chapter8.html#cb249-5" aria-hidden="true" tabindex="-1"></a>ci_lower <span class="ot">&lt;-</span> beta_1 <span class="sc">-</span> t_crit_5p <span class="sc">*</span> se_beta_1</span>
+<span id="cb249-6"><a href="chapter8.html#cb249-6" aria-hidden="true" tabindex="-1"></a>ci_lower</span></code></pre></div>
 <pre><code>## [1] 0.4367534</code></pre>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="chapter8.html#cb245-1" aria-hidden="true" tabindex="-1"></a>ci_upper <span class="ot">&lt;-</span> beta_1 <span class="sc">+</span> t_crit_5p <span class="sc">*</span> se_beta_1</span>
-<span id="cb245-2"><a href="chapter8.html#cb245-2" aria-hidden="true" tabindex="-1"></a>ci_upper</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="chapter8.html#cb251-1" aria-hidden="true" tabindex="-1"></a>ci_upper <span class="ot">&lt;-</span> beta_1 <span class="sc">+</span> t_crit_5p <span class="sc">*</span> se_beta_1</span>
+<span id="cb251-2"><a href="chapter8.html#cb251-2" aria-hidden="true" tabindex="-1"></a>ci_upper</span></code></pre></div>
 <pre><code>## [1] 0.6459651</code></pre>
 <p>Since the value of 0 is not contained in the confidence interval, we reject <span class="math inline">\(H_0\)</span> at 5% significance level. Also here we can check our result using the <em>confint</em> function.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="chapter8.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(reg1, <span class="at">parm =</span> <span class="dv">2</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="chapter8.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(reg1, <span class="at">parm =</span> <span class="dv">2</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##          2.5 %    97.5 %
 ## educ 0.4367534 0.6459651</code></pre>
 </div>
@@ -372,37 +479,238 @@ div.csl-indent {
 <p><span class="math display">\[H_0 : \beta_1 = \beta_2 = \beta_3 = 0\]</span></p>
 <p>The alternative hypothesis (<span class="math inline">\(H_1\)</span>) is:</p>
 <p><span class="math display">\[H_1 : H_0 \space \text{is not true}\]</span></p>
-<p>The formula for the <em>F</em> statistic (or <em>F</em> ratio), where <span class="math inline">\(q\)</span> is the number of restrictions (in this example we are imposing three restrictions), and <span class="math inline">\(n-k-1\)</span> is the number of degrees of freedom of the unrestricted model, is defined by:<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a></p>
+<p>The formula for the <em>F</em> statistic (or <em>F</em> ratio), where <span class="math inline">\(q\)</span> is the number of restrictions (in this example we are imposing three restrictions), and <span class="math inline">\(n-k-1\)</span> is the number of degrees of freedom of the unrestricted model, is defined by:<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a></p>
 <p><span class="math display">\[F = \frac{SSR_r - SSR_{ur}}{SSR_{ur}} * \frac{(n-k-1)}{q}\]</span></p>
 <p>First, we estimate the <em>unrestricted</em> model. With this term, we mean the entire or complete model:</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="chapter8.html#cb249-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage1<span class="sc">$</span>wage <span class="sc">~</span> wage1<span class="sc">$</span>educ <span class="sc">+</span> wage1<span class="sc">$</span>exper <span class="sc">+</span> wage1<span class="sc">$</span>tenure)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="chapter8.html#cb255-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage1<span class="sc">$</span>wage <span class="sc">~</span> wage1<span class="sc">$</span>educ <span class="sc">+</span> wage1<span class="sc">$</span>exper <span class="sc">+</span> wage1<span class="sc">$</span>tenure)</span></code></pre></div>
 <p>We can now calculate the sum of squared residual (SSR) of the unrestricted model:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="chapter8.html#cb250-1" aria-hidden="true" tabindex="-1"></a>SSR_ur <span class="ot">&lt;-</span> <span class="fu">sum</span>(reg1<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="chapter8.html#cb256-1" aria-hidden="true" tabindex="-1"></a>SSR_ur <span class="ot">&lt;-</span> <span class="fu">sum</span>(reg1<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <p>We then estimate the <em>restricted</em> model. The restricted model has clearly less parameters than the unrestricted model. Since we are performing an <em>F</em> test for the overall significance of the regression, we must regress the dependent variable <em>wage</em> on just an intercept. In R, this is done by including only a “1” after the <em>tilde</em> sign in the <em>lm</em> function.</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="chapter8.html#cb251-1" aria-hidden="true" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage1<span class="sc">$</span>wage <span class="sc">~</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="chapter8.html#cb257-1" aria-hidden="true" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage1<span class="sc">$</span>wage <span class="sc">~</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>We can now calculate the SSR of the restricted model.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="chapter8.html#cb252-1" aria-hidden="true" tabindex="-1"></a>SSR_r <span class="ot">&lt;-</span> <span class="fu">sum</span>(reg2<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="chapter8.html#cb258-1" aria-hidden="true" tabindex="-1"></a>SSR_r <span class="ot">&lt;-</span> <span class="fu">sum</span>(reg2<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <p>We report the results in a single table created using the <em>stargazer</em> package.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="chapter8.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg1, reg2, </span>
-<span id="cb253-2"><a href="chapter8.html#cb253-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;latex&quot;</span>,</span>
-<span id="cb253-3"><a href="chapter8.html#cb253-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">header =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb253-4"><a href="chapter8.html#cb253-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">&quot;F test for the overall significance of the regression.&quot;</span>,</span>
-<span id="cb253-5"><a href="chapter8.html#cb253-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>, <span class="st">&quot;f&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="chapter8.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg1, reg2, </span>
+<span id="cb259-2"><a href="chapter8.html#cb259-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb259-3"><a href="chapter8.html#cb259-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">header =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb259-4"><a href="chapter8.html#cb259-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">&quot;F test for the overall significance of the regression.&quot;</span>,</span>
+<span id="cb259-5"><a href="chapter8.html#cb259-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>, <span class="st">&quot;f&quot;</span>))</span></code></pre></div>
+<table style="text-align:center">
+<caption>
+<strong>F test for the overall significance of the regression.</strong>
+</caption>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+wage
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+educ
+</td>
+<td>
+0.599<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.051)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+exper
+</td>
+<td>
+0.022<sup>*</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.012)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+tenure
+</td>
+<td>
+0.169<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.022)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-2.873<sup>***</sup>
+</td>
+<td>
+5.896<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.729)
+</td>
+<td>
+(0.161)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+526
+</td>
+<td>
+526
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.306
+</td>
+<td>
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+76.873<sup>***</sup> (df = 3; 522)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
 <p>Finally, we can calculate the <em>F</em> statistic and its corresponding p-value. We compare the value of our <em>F</em> statistic (and its p-value) with the value provided by R (see the last row of the first column in the table above).</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="chapter8.html#cb254-1" aria-hidden="true" tabindex="-1"></a>df_ur <span class="ot">&lt;-</span> reg1<span class="sc">$</span>df.residual <span class="co"># 522</span></span>
-<span id="cb254-2"><a href="chapter8.html#cb254-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb254-3"><a href="chapter8.html#cb254-3" aria-hidden="true" tabindex="-1"></a>df_r <span class="ot">&lt;-</span> reg2<span class="sc">$</span>df.residual <span class="co"># 525</span></span>
-<span id="cb254-4"><a href="chapter8.html#cb254-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb254-5"><a href="chapter8.html#cb254-5" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> df_r <span class="sc">-</span> df_ur <span class="co"># 3</span></span>
-<span id="cb254-6"><a href="chapter8.html#cb254-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb254-7"><a href="chapter8.html#cb254-7" aria-hidden="true" tabindex="-1"></a>F_test <span class="ot">&lt;-</span> (SSR_r <span class="sc">-</span> SSR_ur) <span class="sc">/</span> SSR_ur <span class="sc">*</span> df_ur <span class="sc">/</span> q</span>
-<span id="cb254-8"><a href="chapter8.html#cb254-8" aria-hidden="true" tabindex="-1"></a>F_test</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="chapter8.html#cb260-1" aria-hidden="true" tabindex="-1"></a>df_ur <span class="ot">&lt;-</span> reg1<span class="sc">$</span>df.residual <span class="co"># 522</span></span>
+<span id="cb260-2"><a href="chapter8.html#cb260-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb260-3"><a href="chapter8.html#cb260-3" aria-hidden="true" tabindex="-1"></a>df_r <span class="ot">&lt;-</span> reg2<span class="sc">$</span>df.residual <span class="co"># 525</span></span>
+<span id="cb260-4"><a href="chapter8.html#cb260-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb260-5"><a href="chapter8.html#cb260-5" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> df_r <span class="sc">-</span> df_ur <span class="co"># 3</span></span>
+<span id="cb260-6"><a href="chapter8.html#cb260-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb260-7"><a href="chapter8.html#cb260-7" aria-hidden="true" tabindex="-1"></a>F_test <span class="ot">&lt;-</span> (SSR_r <span class="sc">-</span> SSR_ur) <span class="sc">/</span> SSR_ur <span class="sc">*</span> df_ur <span class="sc">/</span> q</span>
+<span id="cb260-8"><a href="chapter8.html#cb260-8" aria-hidden="true" tabindex="-1"></a>F_test</span></code></pre></div>
 <pre><code>## [1] 76.87317</code></pre>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="chapter8.html#cb256-1" aria-hidden="true" tabindex="-1"></a>pval <span class="ot">&lt;-</span> <span class="fu">pf</span>(F_test, q, df_ur, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb256-2"><a href="chapter8.html#cb256-2" aria-hidden="true" tabindex="-1"></a>pval</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="chapter8.html#cb262-1" aria-hidden="true" tabindex="-1"></a>pval <span class="ot">&lt;-</span> <span class="fu">pf</span>(F_test, q, df_ur, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb262-2"><a href="chapter8.html#cb262-2" aria-hidden="true" tabindex="-1"></a>pval</span></code></pre></div>
 <pre><code>## [1] 3.405862e-41</code></pre>
 <p>We choose a significance level (<span class="math inline">\(\alpha\)</span>) of 1% and calculate the corresponding critical value in the <em>F</em> distribution.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="chapter8.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.01</span>, <span class="at">df =</span> <span class="dv">3</span>, <span class="at">df2 =</span> <span class="dv">522</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="chapter8.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.01</span>, <span class="at">df =</span> <span class="dv">3</span>, <span class="at">df2 =</span> <span class="dv">522</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 3.819327</code></pre>
 <p>What is the conclusion of the test? We can observe that our <em>F</em> value is clearly larger the critical value for the chosen significance level of 1%. Our p-value is also very very small, certainly smaller than the significance level of 1%. We can therefore soundly reject the null hypothesis that the variables are not jointly significant. We can also create the graph of the <em>F</em> distribution. In green we mark the rejection region for the significance level that we have choosen.</p>
 <p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-123-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
@@ -411,18 +719,18 @@ div.csl-indent {
 </div>
 <div class="footnotes">
 <hr />
-<ol start="27">
-<li id="fn27"><p>The discussion presented here is based on Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 4 and Appendix C) and Dougherty, C. Introduction to Econometrics (Review chapter).<a href="chapter8.html#fnref27" class="footnote-back">↩︎</a></p></li>
-<li id="fn28"><p>This procedure is part of the branch of statistics called <em>parametric statistics</em>. In fact, it is assumed that the population from which the sample is obtained follows some kind of distribution (<span class="math inline">\(t\)</span> distribution, normal distribution, <span class="math inline">\(F\)</span> distribution) to which reference will be made to compare the plausibility of the sample statistics. Another branch of statistics is called <em>non-parametric</em> and does not assume any kind of distribution.<a href="chapter8.html#fnref28" class="footnote-back">↩︎</a></p></li>
-<li id="fn29"><p>Again, <span class="math inline">\(\alpha\)</span> is the probability of rejecting a true null hypothesis. Traditionally in econometrics, we use three levels of significance 10%, 5% and 1%.<a href="chapter8.html#fnref29" class="footnote-back">↩︎</a></p></li>
-<li id="fn30"><p>
-If we want to see why this is the case, take a look <a href="https://rpsychologist.com/d3/tdist/">here</a>.<a href="chapter8.html#fnref30" class="footnote-back">↩︎</a></p></li>
-<li id="fn31"><p>
-For common misunderstandings about the confidence interval, see <a href="https://en.wikipedia.org/wiki/Confidence_interval">here</a>.<a href="chapter8.html#fnref31" class="footnote-back">↩︎</a></p></li>
-<li id="fn32"><p>See Wooldridge p. 126.<a href="chapter8.html#fnref32" class="footnote-back">↩︎</a></p></li>
-<li id="fn33"><p>Such a large significance level is never used in practice!<a href="chapter8.html#fnref33" class="footnote-back">↩︎</a></p></li>
-<li id="fn34"><p>See Wooldridge p. 130.<a href="chapter8.html#fnref34" class="footnote-back">↩︎</a></p></li>
-<li id="fn35"><p>The number of degrees of freedom of the unrestricted model is given by <span class="math inline">\(n-k-1\)</span> where <span class="math inline">\(n\)</span> is the number of observations, <span class="math inline">\(k\)</span> is the number of independent variables and <span class="math inline">\(1\)</span> stands for the coefficient of the intercept.<a href="chapter8.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<ol start="30">
+<li id="fn30"><p>The discussion presented here is based on Wooldridge, J. Introductory Econometrics: A Modern Approach (Chapter 4 and Appendix C) and Dougherty, C. Introduction to Econometrics (Review chapter).<a href="chapter8.html#fnref30" class="footnote-back">↩︎</a></p></li>
+<li id="fn31"><p>This procedure is part of the branch of statistics called <em>parametric statistics</em>. In fact, it is assumed that the population from which the sample is obtained follows some kind of distribution (<span class="math inline">\(t\)</span> distribution, normal distribution, <span class="math inline">\(F\)</span> distribution) to which reference will be made to compare the plausibility of the sample statistics. Another branch of statistics is called <em>non-parametric</em> and does not assume any kind of distribution.<a href="chapter8.html#fnref31" class="footnote-back">↩︎</a></p></li>
+<li id="fn32"><p>Again, <span class="math inline">\(\alpha\)</span> is the probability of rejecting a true null hypothesis. Traditionally in econometrics, we use three levels of significance 10%, 5% and 1%.<a href="chapter8.html#fnref32" class="footnote-back">↩︎</a></p></li>
+<li id="fn33"><p>
+If we want to see why this is the case, take a look <a href="https://rpsychologist.com/d3/tdist/">here</a>.<a href="chapter8.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<li id="fn34"><p>
+For common misunderstandings about the confidence interval, see <a href="https://en.wikipedia.org/wiki/Confidence_interval">here</a>.<a href="chapter8.html#fnref34" class="footnote-back">↩︎</a></p></li>
+<li id="fn35"><p>See Wooldridge p. 126.<a href="chapter8.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<li id="fn36"><p>Such a large significance level is never used in practice!<a href="chapter8.html#fnref36" class="footnote-back">↩︎</a></p></li>
+<li id="fn37"><p>See Wooldridge p. 130.<a href="chapter8.html#fnref37" class="footnote-back">↩︎</a></p></li>
+<li id="fn38"><p>The number of degrees of freedom of the unrestricted model is given by <span class="math inline">\(n-k-1\)</span> where <span class="math inline">\(n\)</span> is the number of observations, <span class="math inline">\(k\)</span> is the number of independent variables and <span class="math inline">\(1\)</span> stands for the coefficient of the intercept.<a href="chapter8.html#fnref38" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

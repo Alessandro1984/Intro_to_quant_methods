@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-09" />
+<meta name="date" content="2022-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -242,14 +242,14 @@ div.csl-indent {
 </div>
 <div id="chapter2" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Data extraction and manipulation<a href="chapter2.html#chapter2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this chapter, we want to learn how to use R, and in particular the functions of what is also called “base R” to work with data<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>. To practice we will use a dataset contained in the package <em>wooldridge</em>. This R package contains all the databases used in the famous econometrics textbook <em>Introductory Econometrics: A Modern Approach</em> by Jeffrey M. <span class="citation">Wooldridge (<a href="#ref-wool" role="doc-biblioref">2013</a>)</span>. All information on the datasets available in the package, such as variable names, data sources, etc., can be found in the related <a href="https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf">R package documentation</a>. We start by installing the desired package.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="chapter2.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wooldridge&quot;</span>)</span></code></pre></div>
+<p>In this chapter, we want to learn how to use R, and in particular the functions of what is also called “base R” to work with data<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>. To practice we will use a dataset contained in the package <em>wooldridge</em>. This R package contains all the databases used in the famous econometrics textbook <em>Introductory Econometrics: A Modern Approach</em> by Jeffrey M. <span class="citation">Wooldridge (<a href="#ref-wool" role="doc-biblioref">2013</a>)</span>. All information on the datasets available in the package, such as variable names, data sources, etc., can be found in the related <a href="https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf">R package documentation</a>. We start by installing the desired package.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="chapter2.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;wooldridge&quot;</span>)</span></code></pre></div>
 <p>After having installed the package, we must load it into the library.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="chapter2.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wooldridge)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="chapter2.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wooldridge)</span></code></pre></div>
 <p>To unload the package from the library, we can use the following code. We don’t need this now. We want to continue using the package, of course!</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="chapter2.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">&quot;package:wooldridge&quot;</span>, <span class="at">unload =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="chapter2.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">&quot;package:wooldridge&quot;</span>, <span class="at">unload =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>In RStudio this procedure is even easier. To install a package, simply select the desired package from the drop-down menu, which is accessed from the <code>Packages</code> tab in the panel that is (usually) located in the bottom right-hand corner. This (very simple) procedure is summarised in figure <a href="chapter2.html#fig:image1">2.1</a>.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="chapter2.html#cb64-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/image1.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="chapter2.html#cb70-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/image1.png&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:image1"></span>
 <img src="images/image1.png" alt="How to install a package in RStudio." width="80%" height="30%" />
 <p class="caption">
@@ -257,7 +257,7 @@ Figure 2.1: How to install a package in RStudio.
 </p>
 </div>
 <p>Once the package is installed, we have to load it into the library. In this case, we simply check the box of the desired package just as shown in figure <a href="chapter2.html#fig:image2">2.2</a>.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="chapter2.html#cb65-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/image2.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="chapter2.html#cb71-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/image2.png&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:image2"></span>
 <img src="images/image2.png" alt="Load the package to the library from RStudio." width="80%" height="30%" />
 <p class="caption">
@@ -265,31 +265,31 @@ Figure 2.2: Load the package to the library from RStudio.
 </p>
 </div>
 <p>R is different from Excel in several respects. One in particular is clear. With Excel, one works mainly by looking at the data. In R, on the other hand, one works mainly by looking at the codes. However, it is necessary to look at the data from time to time, for example after having modified existing variables or having created new ones. The dataset we use in this exercise is called <em>wage1</em>. We can take a glance at the data using the <em>View</em> function.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="chapter2.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(wage1)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="chapter2.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(wage1)</span></code></pre></div>
 <p>Let us start by seeing how many columns and rows our dataset contains.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="chapter2.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(wage1)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="chapter2.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(wage1)</span></code></pre></div>
 <pre><code>## [1] 526  24</code></pre>
 <p>Indexing when you need to address a particular element into a vector, for example the wage of worker nr. 5</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="chapter2.html#cb69-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[<span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="chapter2.html#cb75-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[<span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
 <p>If we want data for more than one worker</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="chapter2.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1$educ[c(2,3,5)]</span></span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="chapter2.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1$educ[c(2,3,5)]</span></span></code></pre></div>
 <p>Data from worker one to worker five</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="chapter2.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1$educ[1:5]</span></span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="chapter2.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1$educ[1:5]</span></span></code></pre></div>
 <p>If we want to modify one particular observation</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="chapter2.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1$educ[5] &lt;- NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="chapter2.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1$educ[5] &lt;- NA</span></span></code></pre></div>
 <p>Negative indexing allow to show all data except those specified in parenthesis</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="chapter2.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1$educ[-c(1:520)]</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="chapter2.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1$educ[-c(1:520)]</span></span></code></pre></div>
 <p>Negative indexing allow us to drop specified rows and columns. Drop the first row in the dataset</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="chapter2.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1[-1,]</span></span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="chapter2.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1[-1,]</span></span></code></pre></div>
 <p>Sometimes we may have to delete some variables from our dataset. To delete a column, we must use the negative sign in front of the variable that we wish to delete. In this case, we are eliminating the first column,</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="chapter2.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1[,-1]</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="chapter2.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1[,-1]</span></span></code></pre></div>
 <p>We can also delete columns using variable names. In this case, we delete the variable containing the years of education (which is the first variable in the dataset).</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="chapter2.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1[2]</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="chapter2.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co">#wage1[2]</span></span></code></pre></div>
 <p>Converting dollars to euros and add the new column variable to the dataset.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="chapter2.html#cb78-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>wage_EUR <span class="ot">&lt;-</span> wage1<span class="sc">$</span>wage <span class="sc">*</span> <span class="fl">0.86</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="chapter2.html#cb84-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>wage_EUR <span class="ot">&lt;-</span> wage1<span class="sc">$</span>wage <span class="sc">*</span> <span class="fl">0.86</span></span></code></pre></div>
 <p>We can compare the variable wage, originally expressed in dollars, and the new variable <code>wage_EUR</code>. Here we take a look at the first five rows.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="chapter2.html#cb79-1" aria-hidden="true" tabindex="-1"></a>wage1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">&quot;wage&quot;</span>, <span class="st">&quot;wage_EUR&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="chapter2.html#cb85-1" aria-hidden="true" tabindex="-1"></a>wage1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">&quot;wage&quot;</span>, <span class="st">&quot;wage_EUR&quot;</span>)]</span></code></pre></div>
 <pre><code>##   wage wage_EUR
 ## 1 3.10   2.6660
 ## 2 3.24   2.7864
@@ -304,12 +304,12 @@ Figure 2.2: Load the package to the library from RStudio.
 <p>A more interesting research question is to ask the hourly wage of workers that have 15 or more years of education</p>
 <p>Hourly wage of workers with more than 15 years of education and 5 years of experience</p>
 <p>Look at what happens when we type educ&gt;15. We can exploit the fact that TRUE=1 and FALSE=0 to calculate the percentage of workers that have more than 15 years of education</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="chapter2.html#cb81-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;</span> <span class="dv">17</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="chapter2.html#cb82-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> wage1<span class="sc">$</span>educ <span class="sc">&lt;=</span> <span class="dv">18</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="chapter2.html#cb83-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">17</span> <span class="sc">|</span> wage1<span class="sc">$</span>educ <span class="sc">&lt;=</span> <span class="dv">2</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="chapter2.html#cb84-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>wage[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="chapter2.html#cb85-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>wage[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> wage1<span class="sc">$</span>exper <span class="sc">&gt;=</span> <span class="dv">5</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="chapter2.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(wage1<span class="sc">$</span>educ <span class="sc">&gt;</span> <span class="dv">15</span>) <span class="sc">/</span> <span class="fu">sum</span>(wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">0</span>) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="chapter2.html#cb87-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;</span> <span class="dv">17</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="chapter2.html#cb88-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> wage1<span class="sc">$</span>educ <span class="sc">&lt;=</span> <span class="dv">18</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="chapter2.html#cb89-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>educ[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">17</span> <span class="sc">|</span> wage1<span class="sc">$</span>educ <span class="sc">&lt;=</span> <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="chapter2.html#cb90-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>wage[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="chapter2.html#cb91-1" aria-hidden="true" tabindex="-1"></a>wage1<span class="sc">$</span>wage[wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> wage1<span class="sc">$</span>exper <span class="sc">&gt;=</span> <span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="chapter2.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(wage1<span class="sc">$</span>educ <span class="sc">&gt;</span> <span class="dv">15</span>) <span class="sc">/</span> <span class="fu">sum</span>(wage1<span class="sc">$</span>educ <span class="sc">&gt;=</span> <span class="dv">0</span>) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
 
 </div>
 </div>
@@ -321,8 +321,8 @@ Wooldridge, J. M. 2013. <em>Introductory Econometrics: A Modern Approach</em>. 5
 </div>
 <div class="footnotes">
 <hr />
-<ol start="18">
-<li id="fn18"><p>So we do not use any additional functions from packages like <em>dplyr</em><a href="chapter2.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<ol start="21">
+<li id="fn21"><p>So we do not use any additional functions from packages like <em>dplyr</em><a href="chapter2.html#fnref21" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
