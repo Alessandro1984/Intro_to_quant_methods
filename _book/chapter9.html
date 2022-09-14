@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-12" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -175,7 +177,14 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Code 3</a></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Application</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#contributions-to-gdp-growth"><i class="fa fa-check"></i><b>3.1</b> Contributions to GDP growth</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#pulling-and-filtering-data"><i class="fa fa-check"></i><b>3.2</b> Pulling and filtering data</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#calculation-of-the-growth-contributions"><i class="fa fa-check"></i><b>3.3</b> Calculation of the growth contributions</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter3.html"><a href="chapter3.html#graph-of-the-growth-contributions-for-germany"><i class="fa fa-check"></i><b>3.4</b> Graph of the growth contributions for Germany</a></li>
+<li class="chapter" data-level="3.5" data-path="chapter3.html"><a href="chapter3.html#average-growth-contributions"><i class="fa fa-check"></i><b>3.5</b> Average growth contributions</a></li>
+</ul></li>
 <li class="part"><span><b>II Review of math and statistics</b></span></li>
 <li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Basic math elements</a>
 <ul>
@@ -257,67 +266,67 @@ div.csl-indent {
 <li>Data: <a href="https://fred.stlouisfed.org/series/GDPCA" class="uri">https://fred.stlouisfed.org/series/GDPCA</a></li>
 </ul>
 <p>Level-level model</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="chapter9.html#cb266-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb266-2"><a href="chapter9.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
-<span id="cb266-3"><a href="chapter9.html#cb266-3" aria-hidden="true" tabindex="-1"></a>RGDP <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;GDPCA.csv&quot;</span>, <span class="at">sep=</span> <span class="st">&quot;;&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb266-4"><a href="chapter9.html#cb266-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb266-5"><a href="chapter9.html#cb266-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspecting the data</span></span>
-<span id="cb266-6"><a href="chapter9.html#cb266-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(RGDP, 5L)</span>
-<span id="cb266-7"><a href="chapter9.html#cb266-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   DATE TIME    GDPCA</span></span>
-<span id="cb266-8"><a href="chapter9.html#cb266-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 1960    1 3108.707</span></span>
-<span id="cb266-9"><a href="chapter9.html#cb266-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 1961    2 3188.123</span></span>
-<span id="cb266-10"><a href="chapter9.html#cb266-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 1962    3 3383.085</span></span>
-<span id="cb266-11"><a href="chapter9.html#cb266-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 1963    4 3530.412</span></span>
-<span id="cb266-12"><a href="chapter9.html#cb266-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 1964    5 3734.043</span></span>
-<span id="cb266-13"><a href="chapter9.html#cb266-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb266-14"><a href="chapter9.html#cb266-14" aria-hidden="true" tabindex="-1"></a><span class="co"># The model</span></span>
-<span id="cb266-15"><a href="chapter9.html#cb266-15" aria-hidden="true" tabindex="-1"></a>linear_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME)</span>
-<span id="cb266-16"><a href="chapter9.html#cb266-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb266-17"><a href="chapter9.html#cb266-17" aria-hidden="true" tabindex="-1"></a>RGDP <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;C:/Users/bramucci/Documents/Intro_to_quant_methods/GDPCA.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, </span>
-<span id="cb266-18"><a href="chapter9.html#cb266-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb266-19"><a href="chapter9.html#cb266-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspecting the data</span></span>
-<span id="cb266-20"><a href="chapter9.html#cb266-20" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(RGDP, 5L)</span>
-<span id="cb266-21"><a href="chapter9.html#cb266-21" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 5 x 3</span></span>
-<span id="cb266-22"><a href="chapter9.html#cb266-22" aria-hidden="true" tabindex="-1"></a><span class="do">##    DATE  TIME GDPCA</span></span>
-<span id="cb266-23"><a href="chapter9.html#cb266-23" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb266-24"><a href="chapter9.html#cb266-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 1  1960     1 3109.</span></span>
-<span id="cb266-25"><a href="chapter9.html#cb266-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  1961     2 3188.</span></span>
-<span id="cb266-26"><a href="chapter9.html#cb266-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  1962     3 3383.</span></span>
-<span id="cb266-27"><a href="chapter9.html#cb266-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  1963     4 3530.</span></span>
-<span id="cb266-28"><a href="chapter9.html#cb266-28" aria-hidden="true" tabindex="-1"></a><span class="do">## 5  1964     5 3734.</span></span>
-<span id="cb266-29"><a href="chapter9.html#cb266-29" aria-hidden="true" tabindex="-1"></a><span class="co"># The model</span></span>
-<span id="cb266-30"><a href="chapter9.html#cb266-30" aria-hidden="true" tabindex="-1"></a>linear_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME)</span>
-<span id="cb266-31"><a href="chapter9.html#cb266-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb266-32"><a href="chapter9.html#cb266-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb266-33"><a href="chapter9.html#cb266-33" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RGDP<span class="sc">$</span>TIME, RGDP<span class="sc">$</span>GDPCA,</span>
-<span id="cb266-34"><a href="chapter9.html#cb266-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb266-35"><a href="chapter9.html#cb266-35" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb266-36"><a href="chapter9.html#cb266-36" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The linear trend model&quot;</span>,</span>
-<span id="cb266-37"><a href="chapter9.html#cb266-37" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
-<span id="cb266-38"><a href="chapter9.html#cb266-38" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Real GDP&quot;</span>,</span>
-<span id="cb266-39"><a href="chapter9.html#cb266-39" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(RGDP<span class="sc">$</span>GDPCA)),</span>
-<span id="cb266-40"><a href="chapter9.html#cb266-40" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, </span>
-<span id="cb266-41"><a href="chapter9.html#cb266-41" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
-<span id="cb266-42"><a href="chapter9.html#cb266-42" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME))</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-124-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="chapter9.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(linear_trend, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>))</span>
-<span id="cb267-2"><a href="chapter9.html#cb267-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb267-3"><a href="chapter9.html#cb267-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
-<span id="cb267-4"><a href="chapter9.html#cb267-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Dependent variable:    </span></span>
-<span id="cb267-5"><a href="chapter9.html#cb267-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              ---------------------------</span></span>
-<span id="cb267-6"><a href="chapter9.html#cb267-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                         GDPCA           </span></span>
-<span id="cb267-7"><a href="chapter9.html#cb267-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
-<span id="cb267-8"><a href="chapter9.html#cb267-8" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME                 242.900***         </span></span>
-<span id="cb267-9"><a href="chapter9.html#cb267-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (6.697)          </span></span>
-<span id="cb267-10"><a href="chapter9.html#cb267-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb267-11"><a href="chapter9.html#cb267-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Constant            1,953.991***        </span></span>
-<span id="cb267-12"><a href="chapter9.html#cb267-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                       (188.490)         </span></span>
-<span id="cb267-13"><a href="chapter9.html#cb267-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb267-14"><a href="chapter9.html#cb267-14" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
-<span id="cb267-15"><a href="chapter9.html#cb267-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Observations             48             </span></span>
-<span id="cb267-16"><a href="chapter9.html#cb267-16" aria-hidden="true" tabindex="-1"></a><span class="do">## R2                      0.966           </span></span>
-<span id="cb267-17"><a href="chapter9.html#cb267-17" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
-<span id="cb267-18"><a href="chapter9.html#cb267-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="chapter9.html#cb279-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-2"><a href="chapter9.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data</span></span>
+<span id="cb279-3"><a href="chapter9.html#cb279-3" aria-hidden="true" tabindex="-1"></a>RGDP <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;GDPCA.csv&quot;</span>, <span class="at">sep=</span> <span class="st">&quot;;&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb279-4"><a href="chapter9.html#cb279-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-5"><a href="chapter9.html#cb279-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspecting the data</span></span>
+<span id="cb279-6"><a href="chapter9.html#cb279-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(RGDP, 5L)</span>
+<span id="cb279-7"><a href="chapter9.html#cb279-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   DATE TIME    GDPCA</span></span>
+<span id="cb279-8"><a href="chapter9.html#cb279-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 1960    1 3108.707</span></span>
+<span id="cb279-9"><a href="chapter9.html#cb279-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 1961    2 3188.123</span></span>
+<span id="cb279-10"><a href="chapter9.html#cb279-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 1962    3 3383.085</span></span>
+<span id="cb279-11"><a href="chapter9.html#cb279-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 1963    4 3530.412</span></span>
+<span id="cb279-12"><a href="chapter9.html#cb279-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 1964    5 3734.043</span></span>
+<span id="cb279-13"><a href="chapter9.html#cb279-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-14"><a href="chapter9.html#cb279-14" aria-hidden="true" tabindex="-1"></a><span class="co"># The model</span></span>
+<span id="cb279-15"><a href="chapter9.html#cb279-15" aria-hidden="true" tabindex="-1"></a>linear_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME)</span>
+<span id="cb279-16"><a href="chapter9.html#cb279-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-17"><a href="chapter9.html#cb279-17" aria-hidden="true" tabindex="-1"></a>RGDP <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;C:/Users/bramucci/Documents/Intro_to_quant_methods/GDPCA.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, </span>
+<span id="cb279-18"><a href="chapter9.html#cb279-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb279-19"><a href="chapter9.html#cb279-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspecting the data</span></span>
+<span id="cb279-20"><a href="chapter9.html#cb279-20" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(RGDP, 5L)</span>
+<span id="cb279-21"><a href="chapter9.html#cb279-21" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 5 x 3</span></span>
+<span id="cb279-22"><a href="chapter9.html#cb279-22" aria-hidden="true" tabindex="-1"></a><span class="do">##    DATE  TIME GDPCA</span></span>
+<span id="cb279-23"><a href="chapter9.html#cb279-23" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb279-24"><a href="chapter9.html#cb279-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 1  1960     1 3109.</span></span>
+<span id="cb279-25"><a href="chapter9.html#cb279-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  1961     2 3188.</span></span>
+<span id="cb279-26"><a href="chapter9.html#cb279-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  1962     3 3383.</span></span>
+<span id="cb279-27"><a href="chapter9.html#cb279-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  1963     4 3530.</span></span>
+<span id="cb279-28"><a href="chapter9.html#cb279-28" aria-hidden="true" tabindex="-1"></a><span class="do">## 5  1964     5 3734.</span></span>
+<span id="cb279-29"><a href="chapter9.html#cb279-29" aria-hidden="true" tabindex="-1"></a><span class="co"># The model</span></span>
+<span id="cb279-30"><a href="chapter9.html#cb279-30" aria-hidden="true" tabindex="-1"></a>linear_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME)</span>
+<span id="cb279-31"><a href="chapter9.html#cb279-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-32"><a href="chapter9.html#cb279-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb279-33"><a href="chapter9.html#cb279-33" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RGDP<span class="sc">$</span>TIME, RGDP<span class="sc">$</span>GDPCA,</span>
+<span id="cb279-34"><a href="chapter9.html#cb279-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb279-35"><a href="chapter9.html#cb279-35" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb279-36"><a href="chapter9.html#cb279-36" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The linear trend model&quot;</span>,</span>
+<span id="cb279-37"><a href="chapter9.html#cb279-37" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb279-38"><a href="chapter9.html#cb279-38" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Real GDP&quot;</span>,</span>
+<span id="cb279-39"><a href="chapter9.html#cb279-39" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(RGDP<span class="sc">$</span>GDPCA)),</span>
+<span id="cb279-40"><a href="chapter9.html#cb279-40" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, </span>
+<span id="cb279-41"><a href="chapter9.html#cb279-41" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
+<span id="cb279-42"><a href="chapter9.html#cb279-42" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME))</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-138-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="chapter9.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(linear_trend, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>))</span>
+<span id="cb280-2"><a href="chapter9.html#cb280-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb280-3"><a href="chapter9.html#cb280-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
+<span id="cb280-4"><a href="chapter9.html#cb280-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Dependent variable:    </span></span>
+<span id="cb280-5"><a href="chapter9.html#cb280-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              ---------------------------</span></span>
+<span id="cb280-6"><a href="chapter9.html#cb280-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                         GDPCA           </span></span>
+<span id="cb280-7"><a href="chapter9.html#cb280-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
+<span id="cb280-8"><a href="chapter9.html#cb280-8" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME                 242.900***         </span></span>
+<span id="cb280-9"><a href="chapter9.html#cb280-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (6.697)          </span></span>
+<span id="cb280-10"><a href="chapter9.html#cb280-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb280-11"><a href="chapter9.html#cb280-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Constant            1,953.991***        </span></span>
+<span id="cb280-12"><a href="chapter9.html#cb280-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                       (188.490)         </span></span>
+<span id="cb280-13"><a href="chapter9.html#cb280-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb280-14"><a href="chapter9.html#cb280-14" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
+<span id="cb280-15"><a href="chapter9.html#cb280-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Observations             48             </span></span>
+<span id="cb280-16"><a href="chapter9.html#cb280-16" aria-hidden="true" tabindex="-1"></a><span class="do">## R2                      0.966           </span></span>
+<span id="cb280-17"><a href="chapter9.html#cb280-17" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
+<span id="cb280-18"><a href="chapter9.html#cb280-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></span></code></pre></div>
 <p>The slope coefficient gives us absolute change in real GDP per unit of time (year). These results show that over the period 1960–2007, real GDP in the USA increased on average by about $243 billion per year.</p>
 <p>Log-level model</p>
 <p>We can also estimate the rate of growth of real GDP using logs. We know that:</p>
@@ -326,95 +335,95 @@ div.csl-indent {
 <p><span class="math display">\[ln(RGDP_t)  = ln(RGDP_{1960}) + ln(1 + r)*t\]</span></p>
 <p>Now letting <span class="math inline">\(\beta_0 = ln(RGDP_{1960})\)</span> and <span class="math inline">\(\beta_1 = ln(1 + r)\)</span> we can rewrite the model as:</p>
 <p><span class="math display">\[ln(RGDP_t)  = \beta_0 + \beta_1*t + u_t\]</span></p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="chapter9.html#cb268-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-2"><a href="chapter9.html#cb268-2" aria-hidden="true" tabindex="-1"></a>RGDP<span class="sc">$</span>lnGDPCA <span class="ot">&lt;-</span> <span class="fu">log</span>(RGDP<span class="sc">$</span>GDPCA)</span>
-<span id="cb268-3"><a href="chapter9.html#cb268-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-4"><a href="chapter9.html#cb268-4" aria-hidden="true" tabindex="-1"></a>log_linear_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME)</span>
-<span id="cb268-5"><a href="chapter9.html#cb268-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-6"><a href="chapter9.html#cb268-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-7"><a href="chapter9.html#cb268-7" aria-hidden="true" tabindex="-1"></a>RGDP<span class="sc">$</span>lnGDPCA <span class="ot">&lt;-</span> <span class="fu">log</span>(RGDP<span class="sc">$</span>GDPCA)</span>
-<span id="cb268-8"><a href="chapter9.html#cb268-8" aria-hidden="true" tabindex="-1"></a>log_linear_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME)</span>
-<span id="cb268-9"><a href="chapter9.html#cb268-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-10"><a href="chapter9.html#cb268-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RGDP<span class="sc">$</span>TIME, RGDP<span class="sc">$</span>lnGDPCA,</span>
-<span id="cb268-11"><a href="chapter9.html#cb268-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb268-12"><a href="chapter9.html#cb268-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb268-13"><a href="chapter9.html#cb268-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The log-linear trend model&quot;</span>,</span>
-<span id="cb268-14"><a href="chapter9.html#cb268-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
-<span id="cb268-15"><a href="chapter9.html#cb268-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Log real GDP&quot;</span>,</span>
-<span id="cb268-16"><a href="chapter9.html#cb268-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, </span>
-<span id="cb268-17"><a href="chapter9.html#cb268-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
-<span id="cb268-18"><a href="chapter9.html#cb268-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME))</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-126-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="chapter9.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(log_linear_trend, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>))</span>
-<span id="cb269-2"><a href="chapter9.html#cb269-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb269-3"><a href="chapter9.html#cb269-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
-<span id="cb269-4"><a href="chapter9.html#cb269-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Dependent variable:    </span></span>
-<span id="cb269-5"><a href="chapter9.html#cb269-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              ---------------------------</span></span>
-<span id="cb269-6"><a href="chapter9.html#cb269-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                        lnGDPCA          </span></span>
-<span id="cb269-7"><a href="chapter9.html#cb269-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
-<span id="cb269-8"><a href="chapter9.html#cb269-8" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME                  0.032***          </span></span>
-<span id="cb269-9"><a href="chapter9.html#cb269-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                       (0.0003)          </span></span>
-<span id="cb269-10"><a href="chapter9.html#cb269-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb269-11"><a href="chapter9.html#cb269-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Constant              8.088***          </span></span>
-<span id="cb269-12"><a href="chapter9.html#cb269-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (0.009)          </span></span>
-<span id="cb269-13"><a href="chapter9.html#cb269-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb269-14"><a href="chapter9.html#cb269-14" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
-<span id="cb269-15"><a href="chapter9.html#cb269-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Observations             48             </span></span>
-<span id="cb269-16"><a href="chapter9.html#cb269-16" aria-hidden="true" tabindex="-1"></a><span class="do">## R2                      0.995           </span></span>
-<span id="cb269-17"><a href="chapter9.html#cb269-17" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
-<span id="cb269-18"><a href="chapter9.html#cb269-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="chapter9.html#cb281-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-2"><a href="chapter9.html#cb281-2" aria-hidden="true" tabindex="-1"></a>RGDP<span class="sc">$</span>lnGDPCA <span class="ot">&lt;-</span> <span class="fu">log</span>(RGDP<span class="sc">$</span>GDPCA)</span>
+<span id="cb281-3"><a href="chapter9.html#cb281-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-4"><a href="chapter9.html#cb281-4" aria-hidden="true" tabindex="-1"></a>log_linear_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME)</span>
+<span id="cb281-5"><a href="chapter9.html#cb281-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-6"><a href="chapter9.html#cb281-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-7"><a href="chapter9.html#cb281-7" aria-hidden="true" tabindex="-1"></a>RGDP<span class="sc">$</span>lnGDPCA <span class="ot">&lt;-</span> <span class="fu">log</span>(RGDP<span class="sc">$</span>GDPCA)</span>
+<span id="cb281-8"><a href="chapter9.html#cb281-8" aria-hidden="true" tabindex="-1"></a>log_linear_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME)</span>
+<span id="cb281-9"><a href="chapter9.html#cb281-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-10"><a href="chapter9.html#cb281-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RGDP<span class="sc">$</span>TIME, RGDP<span class="sc">$</span>lnGDPCA,</span>
+<span id="cb281-11"><a href="chapter9.html#cb281-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb281-12"><a href="chapter9.html#cb281-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb281-13"><a href="chapter9.html#cb281-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The log-linear trend model&quot;</span>,</span>
+<span id="cb281-14"><a href="chapter9.html#cb281-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb281-15"><a href="chapter9.html#cb281-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Log real GDP&quot;</span>,</span>
+<span id="cb281-16"><a href="chapter9.html#cb281-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, </span>
+<span id="cb281-17"><a href="chapter9.html#cb281-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
+<span id="cb281-18"><a href="chapter9.html#cb281-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME))</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-140-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="chapter9.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(log_linear_trend, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>))</span>
+<span id="cb282-2"><a href="chapter9.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb282-3"><a href="chapter9.html#cb282-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
+<span id="cb282-4"><a href="chapter9.html#cb282-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Dependent variable:    </span></span>
+<span id="cb282-5"><a href="chapter9.html#cb282-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              ---------------------------</span></span>
+<span id="cb282-6"><a href="chapter9.html#cb282-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                        lnGDPCA          </span></span>
+<span id="cb282-7"><a href="chapter9.html#cb282-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
+<span id="cb282-8"><a href="chapter9.html#cb282-8" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME                  0.032***          </span></span>
+<span id="cb282-9"><a href="chapter9.html#cb282-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                       (0.0003)          </span></span>
+<span id="cb282-10"><a href="chapter9.html#cb282-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb282-11"><a href="chapter9.html#cb282-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Constant              8.088***          </span></span>
+<span id="cb282-12"><a href="chapter9.html#cb282-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (0.009)          </span></span>
+<span id="cb282-13"><a href="chapter9.html#cb282-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb282-14"><a href="chapter9.html#cb282-14" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
+<span id="cb282-15"><a href="chapter9.html#cb282-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Observations             48             </span></span>
+<span id="cb282-16"><a href="chapter9.html#cb282-16" aria-hidden="true" tabindex="-1"></a><span class="do">## R2                      0.995           </span></span>
+<span id="cb282-17"><a href="chapter9.html#cb282-17" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
+<span id="cb282-18"><a href="chapter9.html#cb282-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></span></code></pre></div>
 <p>Results show that real GDP in the USA has been increasing at a rate of 3.22% per year. If we exponentiate the slope coefficient (<span class="math inline">\(e^{\beta_0}\)</span>) we obtain approximately the value of real GDP at the starting period (1960).</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="chapter9.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">8.0881267</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="chapter9.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">8.0881267</span>)</span></code></pre></div>
 <pre><code>## [1] 3255.583</code></pre>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="chapter9.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(RGDP, 1L)</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="chapter9.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(RGDP, 1L)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##    DATE  TIME GDPCA lnGDPCA
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
 ## 1  1960     1 3109.    8.04</code></pre>
 <p>The coefficient <span class="math inline">\(\beta_2\)</span> gives us the instantaneous rate of growth. We can also calculate the compound rate of growth <span class="math inline">\(r\)</span>.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="chapter9.html#cb274-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">exp</span>(<span class="fl">0.0322421</span>) <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="chapter9.html#cb287-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">exp</span>(<span class="fl">0.0322421</span>) <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] 3.276751</code></pre>
 <p>Quadratic regression model (level-level)</p>
 <p>We can now consider the following polynomial (i.e. quadratic) model:</p>
 <p><span class="math display">\[ RGDP_t  = \beta_0 + \beta_1*t + \beta_2*t^2 + u_t \]</span></p>
 <p>The fact that <span class="math inline">\(t\)</span> and <span class="math inline">\(t^2\)</span> are correlated does not raise the problem of collinearity. One of the assumption of the multiple linear regression model is that there is no perfect linear relationship between the regressors. This is because the two variables are not a linear function of each other but rather a quadratic function.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="chapter9.html#cb276-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb276-2"><a href="chapter9.html#cb276-2" aria-hidden="true" tabindex="-1"></a>quadratic_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME <span class="sc">+</span> <span class="fu">I</span>(RGDP<span class="sc">$</span>TIME<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb276-3"><a href="chapter9.html#cb276-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb276-4"><a href="chapter9.html#cb276-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb276-5"><a href="chapter9.html#cb276-5" aria-hidden="true" tabindex="-1"></a>quadratic_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME <span class="sc">+</span> <span class="fu">I</span>(RGDP<span class="sc">$</span>TIME<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb276-6"><a href="chapter9.html#cb276-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb276-7"><a href="chapter9.html#cb276-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RGDP<span class="sc">$</span>TIME, RGDP<span class="sc">$</span>GDPCA,</span>
-<span id="cb276-8"><a href="chapter9.html#cb276-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb276-9"><a href="chapter9.html#cb276-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>,</span>
-<span id="cb276-10"><a href="chapter9.html#cb276-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The quadratic level-level trend model&quot;</span>,</span>
-<span id="cb276-11"><a href="chapter9.html#cb276-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
-<span id="cb276-12"><a href="chapter9.html#cb276-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Real GDP&quot;</span>,</span>
-<span id="cb276-13"><a href="chapter9.html#cb276-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, </span>
-<span id="cb276-14"><a href="chapter9.html#cb276-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
-<span id="cb276-15"><a href="chapter9.html#cb276-15" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(RGDP<span class="sc">$</span>TIME, quadratic_trend<span class="sc">$</span>fitted.values, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-130-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="chapter9.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(quadratic_trend, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>))</span>
-<span id="cb277-2"><a href="chapter9.html#cb277-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb277-3"><a href="chapter9.html#cb277-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
-<span id="cb277-4"><a href="chapter9.html#cb277-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Dependent variable:    </span></span>
-<span id="cb277-5"><a href="chapter9.html#cb277-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              ---------------------------</span></span>
-<span id="cb277-6"><a href="chapter9.html#cb277-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                         GDPCA           </span></span>
-<span id="cb277-7"><a href="chapter9.html#cb277-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
-<span id="cb277-8"><a href="chapter9.html#cb277-8" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME                  72.987***         </span></span>
-<span id="cb277-9"><a href="chapter9.html#cb277-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (9.011)          </span></span>
-<span id="cb277-10"><a href="chapter9.html#cb277-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb277-11"><a href="chapter9.html#cb277-11" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME2)                3.468***          </span></span>
-<span id="cb277-12"><a href="chapter9.html#cb277-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (0.178)          </span></span>
-<span id="cb277-13"><a href="chapter9.html#cb277-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb277-14"><a href="chapter9.html#cb277-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Constant            3,369.931***        </span></span>
-<span id="cb277-15"><a href="chapter9.html#cb277-15" aria-hidden="true" tabindex="-1"></a><span class="do">##                       (95.719)          </span></span>
-<span id="cb277-16"><a href="chapter9.html#cb277-16" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb277-17"><a href="chapter9.html#cb277-17" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
-<span id="cb277-18"><a href="chapter9.html#cb277-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Observations             48             </span></span>
-<span id="cb277-19"><a href="chapter9.html#cb277-19" aria-hidden="true" tabindex="-1"></a><span class="do">## R2                      0.996           </span></span>
-<span id="cb277-20"><a href="chapter9.html#cb277-20" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
-<span id="cb277-21"><a href="chapter9.html#cb277-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="chapter9.html#cb289-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb289-2"><a href="chapter9.html#cb289-2" aria-hidden="true" tabindex="-1"></a>quadratic_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME <span class="sc">+</span> <span class="fu">I</span>(RGDP<span class="sc">$</span>TIME<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb289-3"><a href="chapter9.html#cb289-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb289-4"><a href="chapter9.html#cb289-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb289-5"><a href="chapter9.html#cb289-5" aria-hidden="true" tabindex="-1"></a>quadratic_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>GDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME <span class="sc">+</span> <span class="fu">I</span>(RGDP<span class="sc">$</span>TIME<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb289-6"><a href="chapter9.html#cb289-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb289-7"><a href="chapter9.html#cb289-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RGDP<span class="sc">$</span>TIME, RGDP<span class="sc">$</span>GDPCA,</span>
+<span id="cb289-8"><a href="chapter9.html#cb289-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb289-9"><a href="chapter9.html#cb289-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb289-10"><a href="chapter9.html#cb289-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The quadratic level-level trend model&quot;</span>,</span>
+<span id="cb289-11"><a href="chapter9.html#cb289-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb289-12"><a href="chapter9.html#cb289-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Real GDP&quot;</span>,</span>
+<span id="cb289-13"><a href="chapter9.html#cb289-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, </span>
+<span id="cb289-14"><a href="chapter9.html#cb289-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
+<span id="cb289-15"><a href="chapter9.html#cb289-15" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(RGDP<span class="sc">$</span>TIME, quadratic_trend<span class="sc">$</span>fitted.values, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-144-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="chapter9.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(quadratic_trend, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>))</span>
+<span id="cb290-2"><a href="chapter9.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb290-3"><a href="chapter9.html#cb290-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
+<span id="cb290-4"><a href="chapter9.html#cb290-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Dependent variable:    </span></span>
+<span id="cb290-5"><a href="chapter9.html#cb290-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              ---------------------------</span></span>
+<span id="cb290-6"><a href="chapter9.html#cb290-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                         GDPCA           </span></span>
+<span id="cb290-7"><a href="chapter9.html#cb290-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
+<span id="cb290-8"><a href="chapter9.html#cb290-8" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME                  72.987***         </span></span>
+<span id="cb290-9"><a href="chapter9.html#cb290-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (9.011)          </span></span>
+<span id="cb290-10"><a href="chapter9.html#cb290-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb290-11"><a href="chapter9.html#cb290-11" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME2)                3.468***          </span></span>
+<span id="cb290-12"><a href="chapter9.html#cb290-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (0.178)          </span></span>
+<span id="cb290-13"><a href="chapter9.html#cb290-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb290-14"><a href="chapter9.html#cb290-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Constant            3,369.931***        </span></span>
+<span id="cb290-15"><a href="chapter9.html#cb290-15" aria-hidden="true" tabindex="-1"></a><span class="do">##                       (95.719)          </span></span>
+<span id="cb290-16"><a href="chapter9.html#cb290-16" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb290-17"><a href="chapter9.html#cb290-17" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
+<span id="cb290-18"><a href="chapter9.html#cb290-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Observations             48             </span></span>
+<span id="cb290-19"><a href="chapter9.html#cb290-19" aria-hidden="true" tabindex="-1"></a><span class="do">## R2                      0.996           </span></span>
+<span id="cb290-20"><a href="chapter9.html#cb290-20" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
+<span id="cb290-21"><a href="chapter9.html#cb290-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></span></code></pre></div>
 <p>How can we interpret these results? In the multiple linear regression context, we interpret the partial effect of one regressor by differentiating the function with respect to that variable. In a linear model in levels, what we usually obtain is the coefficient (one of the betas) that multiply that variable. By doing so we are treating the other variables as constants. In this example, we have to differentiate with respect to <span class="math inline">\(t\)</span> and we cannot treat <span class="math inline">\(t^2\)</span> as a constant.</p>
 <p><span class="math display">\[ \frac{dRGDP}{dt} = \beta_1 + 2 * \beta_2 * t \]</span></p>
 <p><span class="math display">\[ \frac{dRGDP}{dt} = 72.9873 + 2 * 3.4676 * t \]</span></p>
@@ -422,44 +431,44 @@ div.csl-indent {
 <p>Quadratic regression model (log-level)</p>
 <p>We can now consider the same model as before, but with the log of real GDP:</p>
 <p><span class="math display">\[ ln(RGDP_t)  = \beta_0 + \beta_1*t + \beta_2*t^2 + u_t \]</span></p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="chapter9.html#cb278-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb278-2"><a href="chapter9.html#cb278-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb278-3"><a href="chapter9.html#cb278-3" aria-hidden="true" tabindex="-1"></a>quadratic_log_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME <span class="sc">+</span> <span class="fu">I</span>(RGDP<span class="sc">$</span>TIME<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb278-4"><a href="chapter9.html#cb278-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb278-5"><a href="chapter9.html#cb278-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb278-6"><a href="chapter9.html#cb278-6" aria-hidden="true" tabindex="-1"></a>quadratic_log_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME <span class="sc">+</span> <span class="fu">I</span>(RGDP<span class="sc">$</span>TIME<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb278-7"><a href="chapter9.html#cb278-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb278-8"><a href="chapter9.html#cb278-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RGDP<span class="sc">$</span>TIME, RGDP<span class="sc">$</span>lnGDPCA,</span>
-<span id="cb278-9"><a href="chapter9.html#cb278-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb278-10"><a href="chapter9.html#cb278-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>,</span>
-<span id="cb278-11"><a href="chapter9.html#cb278-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The quadratic log-level trend model&quot;</span>,</span>
-<span id="cb278-12"><a href="chapter9.html#cb278-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
-<span id="cb278-13"><a href="chapter9.html#cb278-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Log real GDP&quot;</span>,</span>
-<span id="cb278-14"><a href="chapter9.html#cb278-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, </span>
-<span id="cb278-15"><a href="chapter9.html#cb278-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
-<span id="cb278-16"><a href="chapter9.html#cb278-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(RGDP<span class="sc">$</span>TIME, quadratic_log_trend<span class="sc">$</span>fitted.values, <span class="at">col =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-132-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="chapter9.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(quadratic_log_trend, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>))</span>
-<span id="cb279-2"><a href="chapter9.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb279-3"><a href="chapter9.html#cb279-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
-<span id="cb279-4"><a href="chapter9.html#cb279-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Dependent variable:    </span></span>
-<span id="cb279-5"><a href="chapter9.html#cb279-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              ---------------------------</span></span>
-<span id="cb279-6"><a href="chapter9.html#cb279-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                        lnGDPCA          </span></span>
-<span id="cb279-7"><a href="chapter9.html#cb279-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
-<span id="cb279-8"><a href="chapter9.html#cb279-8" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME                  0.036***          </span></span>
-<span id="cb279-9"><a href="chapter9.html#cb279-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (0.001)          </span></span>
-<span id="cb279-10"><a href="chapter9.html#cb279-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb279-11"><a href="chapter9.html#cb279-11" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME2)               -0.0001***         </span></span>
-<span id="cb279-12"><a href="chapter9.html#cb279-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                       (0.00002)         </span></span>
-<span id="cb279-13"><a href="chapter9.html#cb279-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb279-14"><a href="chapter9.html#cb279-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Constant              8.057***          </span></span>
-<span id="cb279-15"><a href="chapter9.html#cb279-15" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (0.013)          </span></span>
-<span id="cb279-16"><a href="chapter9.html#cb279-16" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
-<span id="cb279-17"><a href="chapter9.html#cb279-17" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
-<span id="cb279-18"><a href="chapter9.html#cb279-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Observations             48             </span></span>
-<span id="cb279-19"><a href="chapter9.html#cb279-19" aria-hidden="true" tabindex="-1"></a><span class="do">## R2                      0.996           </span></span>
-<span id="cb279-20"><a href="chapter9.html#cb279-20" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
-<span id="cb279-21"><a href="chapter9.html#cb279-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="chapter9.html#cb291-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb291-2"><a href="chapter9.html#cb291-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb291-3"><a href="chapter9.html#cb291-3" aria-hidden="true" tabindex="-1"></a>quadratic_log_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME <span class="sc">+</span> <span class="fu">I</span>(RGDP<span class="sc">$</span>TIME<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb291-4"><a href="chapter9.html#cb291-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb291-5"><a href="chapter9.html#cb291-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb291-6"><a href="chapter9.html#cb291-6" aria-hidden="true" tabindex="-1"></a>quadratic_log_trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(RGDP<span class="sc">$</span>lnGDPCA <span class="sc">~</span> RGDP<span class="sc">$</span>TIME <span class="sc">+</span> <span class="fu">I</span>(RGDP<span class="sc">$</span>TIME<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb291-7"><a href="chapter9.html#cb291-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb291-8"><a href="chapter9.html#cb291-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(RGDP<span class="sc">$</span>TIME, RGDP<span class="sc">$</span>lnGDPCA,</span>
+<span id="cb291-9"><a href="chapter9.html#cb291-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb291-10"><a href="chapter9.html#cb291-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb291-11"><a href="chapter9.html#cb291-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;The quadratic log-level trend model&quot;</span>,</span>
+<span id="cb291-12"><a href="chapter9.html#cb291-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb291-13"><a href="chapter9.html#cb291-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Log real GDP&quot;</span>,</span>
+<span id="cb291-14"><a href="chapter9.html#cb291-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxs =</span> <span class="st">&quot;i&quot;</span>, </span>
+<span id="cb291-15"><a href="chapter9.html#cb291-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
+<span id="cb291-16"><a href="chapter9.html#cb291-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(RGDP<span class="sc">$</span>TIME, quadratic_log_trend<span class="sc">$</span>fitted.values, <span class="at">col =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-146-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="chapter9.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(quadratic_log_trend, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>))</span>
+<span id="cb292-2"><a href="chapter9.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb292-3"><a href="chapter9.html#cb292-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
+<span id="cb292-4"><a href="chapter9.html#cb292-4" aria-hidden="true" tabindex="-1"></a><span class="do">##                  Dependent variable:    </span></span>
+<span id="cb292-5"><a href="chapter9.html#cb292-5" aria-hidden="true" tabindex="-1"></a><span class="do">##              ---------------------------</span></span>
+<span id="cb292-6"><a href="chapter9.html#cb292-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                        lnGDPCA          </span></span>
+<span id="cb292-7"><a href="chapter9.html#cb292-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
+<span id="cb292-8"><a href="chapter9.html#cb292-8" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME                  0.036***          </span></span>
+<span id="cb292-9"><a href="chapter9.html#cb292-9" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (0.001)          </span></span>
+<span id="cb292-10"><a href="chapter9.html#cb292-10" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb292-11"><a href="chapter9.html#cb292-11" aria-hidden="true" tabindex="-1"></a><span class="do">## TIME2)               -0.0001***         </span></span>
+<span id="cb292-12"><a href="chapter9.html#cb292-12" aria-hidden="true" tabindex="-1"></a><span class="do">##                       (0.00002)         </span></span>
+<span id="cb292-13"><a href="chapter9.html#cb292-13" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb292-14"><a href="chapter9.html#cb292-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Constant              8.057***          </span></span>
+<span id="cb292-15"><a href="chapter9.html#cb292-15" aria-hidden="true" tabindex="-1"></a><span class="do">##                        (0.013)          </span></span>
+<span id="cb292-16"><a href="chapter9.html#cb292-16" aria-hidden="true" tabindex="-1"></a><span class="do">##                                         </span></span>
+<span id="cb292-17"><a href="chapter9.html#cb292-17" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------</span></span>
+<span id="cb292-18"><a href="chapter9.html#cb292-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Observations             48             </span></span>
+<span id="cb292-19"><a href="chapter9.html#cb292-19" aria-hidden="true" tabindex="-1"></a><span class="do">## R2                      0.996           </span></span>
+<span id="cb292-20"><a href="chapter9.html#cb292-20" aria-hidden="true" tabindex="-1"></a><span class="do">## ========================================</span></span>
+<span id="cb292-21"><a href="chapter9.html#cb292-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span></span></code></pre></div>
 <p>What is the interpretation of what we have just obtained?</p>
 <p><span class="math display">\[ \frac{d ln(RGDP)}{dt} = \beta_1 + 2 * \beta_2 * t\]</span></p>
 <p><span class="math display">\[ \frac{d ln(RGDP)}{dt} = 0.036 - 2 * 0.00007736 * t\]</span></p>
@@ -472,59 +481,59 @@ div.csl-indent {
 <p>From our Macroeconomics lessons we remember that the Keynesian consumption function is represented by the following equation, where <span class="math inline">\(C\)</span> indicates the aggregate household consumption, <span class="math inline">\(Y\)</span> the national income (both expressed in billions of constant dollars), <span class="math inline">\(c_Y\)</span> is the MPC and <span class="math inline">\(c_{aut}\)</span>, autonomous consumption, i.e. the part of consumption that does not depend on income.</p>
 <p><span class="math display">\[C = c_{aut} + c_Y Y\]</span></p>
 <p>We first get the data using the <em>rdbnomics</em> package and then we will produce a graph of the time series from 1960 to 2019 with the <em>ggplot2</em> package. Both time series are expressed in billions of 2015 dollars.</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="chapter9.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Private final consumption expenditure at 2015 prices</span></span>
-<span id="cb280-2"><a href="chapter9.html#cb280-2" aria-hidden="true" tabindex="-1"></a>df_cons <span class="ot">&lt;-</span> <span class="fu">rdb</span>(<span class="at">ids =</span> <span class="st">&quot;AMECO/OCPH/USA.1.1.0.0.OCPH&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb280-3"><a href="chapter9.html#cb280-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(original_period, value) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-4"><a href="chapter9.html#cb280-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> original_period,</span>
-<span id="cb280-5"><a href="chapter9.html#cb280-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">cons =</span> value) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-6"><a href="chapter9.html#cb280-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">1960</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2019</span>)</span>
-<span id="cb280-7"><a href="chapter9.html#cb280-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb280-8"><a href="chapter9.html#cb280-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Gross domestic product at 2015 reference levels [OVGD]</span></span>
-<span id="cb280-9"><a href="chapter9.html#cb280-9" aria-hidden="true" tabindex="-1"></a>df_rGDP <span class="ot">&lt;-</span> <span class="fu">rdb</span>(<span class="at">ids =</span> <span class="st">&quot;AMECO/OVGD/USA.1.1.0.0.OVGD&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb280-10"><a href="chapter9.html#cb280-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(original_period, value) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-11"><a href="chapter9.html#cb280-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> original_period,</span>
-<span id="cb280-12"><a href="chapter9.html#cb280-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">rGDP =</span> value) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-13"><a href="chapter9.html#cb280-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">1960</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2019</span>)</span>
-<span id="cb280-14"><a href="chapter9.html#cb280-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb280-15"><a href="chapter9.html#cb280-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Joining data</span></span>
-<span id="cb280-16"><a href="chapter9.html#cb280-16" aria-hidden="true" tabindex="-1"></a>df_final <span class="ot">&lt;-</span> df_cons <span class="sc">%&gt;%</span> </span>
-<span id="cb280-17"><a href="chapter9.html#cb280-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_rGDP, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-18"><a href="chapter9.html#cb280-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ldcons =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(<span class="fu">log</span>(cons))),</span>
-<span id="cb280-19"><a href="chapter9.html#cb280-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">ldrGDP =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(<span class="fu">log</span>(rGDP))))</span>
-<span id="cb280-20"><a href="chapter9.html#cb280-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb280-21"><a href="chapter9.html#cb280-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparing the data for the graphs</span></span>
-<span id="cb280-22"><a href="chapter9.html#cb280-22" aria-hidden="true" tabindex="-1"></a>df_graph_level <span class="ot">&lt;-</span> df_final <span class="sc">%&gt;%</span> </span>
-<span id="cb280-23"><a href="chapter9.html#cb280-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Year, <span class="at">names_to =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-24"><a href="chapter9.html#cb280-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Variable <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;rGDP&quot;</span>, <span class="st">&quot;cons&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-25"><a href="chapter9.html#cb280-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Variable)</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-135-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="chapter9.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Private final consumption expenditure at 2015 prices</span></span>
+<span id="cb293-2"><a href="chapter9.html#cb293-2" aria-hidden="true" tabindex="-1"></a>df_cons <span class="ot">&lt;-</span> <span class="fu">rdb</span>(<span class="at">ids =</span> <span class="st">&quot;AMECO/OCPH/USA.1.1.0.0.OCPH&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb293-3"><a href="chapter9.html#cb293-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(original_period, value) <span class="sc">%&gt;%</span> </span>
+<span id="cb293-4"><a href="chapter9.html#cb293-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> original_period,</span>
+<span id="cb293-5"><a href="chapter9.html#cb293-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">cons =</span> value) <span class="sc">%&gt;%</span> </span>
+<span id="cb293-6"><a href="chapter9.html#cb293-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">1960</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2019</span>)</span>
+<span id="cb293-7"><a href="chapter9.html#cb293-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-8"><a href="chapter9.html#cb293-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Gross domestic product at 2015 reference levels [OVGD]</span></span>
+<span id="cb293-9"><a href="chapter9.html#cb293-9" aria-hidden="true" tabindex="-1"></a>df_rGDP <span class="ot">&lt;-</span> <span class="fu">rdb</span>(<span class="at">ids =</span> <span class="st">&quot;AMECO/OVGD/USA.1.1.0.0.OVGD&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb293-10"><a href="chapter9.html#cb293-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(original_period, value) <span class="sc">%&gt;%</span> </span>
+<span id="cb293-11"><a href="chapter9.html#cb293-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Year =</span> original_period,</span>
+<span id="cb293-12"><a href="chapter9.html#cb293-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">rGDP =</span> value) <span class="sc">%&gt;%</span> </span>
+<span id="cb293-13"><a href="chapter9.html#cb293-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">1960</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2019</span>)</span>
+<span id="cb293-14"><a href="chapter9.html#cb293-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-15"><a href="chapter9.html#cb293-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Joining data</span></span>
+<span id="cb293-16"><a href="chapter9.html#cb293-16" aria-hidden="true" tabindex="-1"></a>df_final <span class="ot">&lt;-</span> df_cons <span class="sc">%&gt;%</span> </span>
+<span id="cb293-17"><a href="chapter9.html#cb293-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_rGDP, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb293-18"><a href="chapter9.html#cb293-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ldcons =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(<span class="fu">log</span>(cons))),</span>
+<span id="cb293-19"><a href="chapter9.html#cb293-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">ldrGDP =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(<span class="fu">log</span>(rGDP))))</span>
+<span id="cb293-20"><a href="chapter9.html#cb293-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-21"><a href="chapter9.html#cb293-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparing the data for the graphs</span></span>
+<span id="cb293-22"><a href="chapter9.html#cb293-22" aria-hidden="true" tabindex="-1"></a>df_graph_level <span class="ot">&lt;-</span> df_final <span class="sc">%&gt;%</span> </span>
+<span id="cb293-23"><a href="chapter9.html#cb293-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Year, <span class="at">names_to =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb293-24"><a href="chapter9.html#cb293-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Variable <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;rGDP&quot;</span>, <span class="st">&quot;cons&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb293-25"><a href="chapter9.html#cb293-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Variable)</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-149-1.png" width="70%" height="30%" style="display: block; margin: auto;" /></p>
 <p>We are now ready to perform the linear regression. We will also produce the scatter plot of the data to get the graphical intuition of the regression.</p>
-<img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-136-1.png" width="70%" height="30%" style="display: block; margin: auto;" />
+<img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-150-1.png" width="70%" height="30%" style="display: block; margin: auto;" />
 <p>From the linear regression, we obtained the MPC. If income increases by 1$, consumption will increase by approximately 70 cents on average. Once the MPC is obtained, we can calculate the value of the Keynesian multiplier (<span class="math inline">\(m\)</span>) as learned in Macroeconomics classes.</p>
 <p><span class="math display">\[m = \frac{1}{1 - c_Y} = \frac{1}{1 - 0.7} = 3.33\]</span>
-However, this regression has a number of problems from an econometric perspective.<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> The two series have a tendency to grow over time and the variables might seem highly correlated to us because they both have the same tendency to increase with time. This could lead to the conclusion that there is a correlation when in fact there is not (not the case here). This problem is known as <strong>spurious regression</strong>. We need to see if the independent variable is correlated with the error term. This is certainly an undesirable behavior. The residuals must be completely random and contain no predictive power.</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-137-1.png" width="60%" height="30%" style="display: block; margin: auto;" /></p>
-<p>We can observe a clear pattern between residuals and income. Our coefficients are biased. If we were in a cross-sectional context, we would have to figure out which variable is missing from the model and where possible include it. Or it could be that the model is misspecified. To get to the point, econometricians would say that our two series follow a <strong>unit root process</strong>. The series are highly persistent over time and contain a, in our case positive, time trend.<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> Wanting to simplify a lot we can say that our time series are not stationary and must be transformed before being used in a regression. A quick fix that works is to use logarithmic differences.<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a></p>
-<img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-138-1.png" width="70%" height="30%" style="display: block; margin: auto;" />
-<p>We can see that the estimate in the slope has changed slightly. This time it is somewhat higher at 0.77. However, the interpretation of the model has changed. This time we estimated an elasticity. How can we calculate the MPC having estimated the elasticity of consumption with respect to income? From courses in Microeconomics we remind that elasticity is nothing more than the ratio of two percentage rates and that on the demand curve elasticity varies depending on where you measure it.<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> In our case, our elasticity parameter (just called <span class="math inline">\(\epsilon_Y\)</span> for simplicity) is given by:</p>
+However, this regression has a number of problems from an econometric perspective.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a> The two series have a tendency to grow over time and the variables might seem highly correlated to us because they both have the same tendency to increase with time. This could lead to the conclusion that there is a correlation when in fact there is not (not the case here). This problem is known as <strong>spurious regression</strong>. We need to see if the independent variable is correlated with the error term. This is certainly an undesirable behavior. The residuals must be completely random and contain no predictive power.</p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-151-1.png" width="60%" height="30%" style="display: block; margin: auto;" /></p>
+<p>We can observe a clear pattern between residuals and income. Our coefficients are biased. If we were in a cross-sectional context, we would have to figure out which variable is missing from the model and where possible include it. Or it could be that the model is misspecified. To get to the point, econometricians would say that our two series follow a <strong>unit root process</strong>. The series are highly persistent over time and contain a, in our case positive, time trend.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a> Wanting to simplify a lot we can say that our time series are not stationary and must be transformed before being used in a regression. A quick fix that works is to use logarithmic differences.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a></p>
+<img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-152-1.png" width="70%" height="30%" style="display: block; margin: auto;" />
+<p>We can see that the estimate in the slope has changed slightly. This time it is somewhat higher at 0.77. However, the interpretation of the model has changed. This time we estimated an elasticity. How can we calculate the MPC having estimated the elasticity of consumption with respect to income? From courses in Microeconomics we remind that elasticity is nothing more than the ratio of two percentage rates and that on the demand curve elasticity varies depending on where you measure it.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a> In our case, our elasticity parameter (just called <span class="math inline">\(\epsilon_Y\)</span> for simplicity) is given by:</p>
 <p><span class="math display">\[ \epsilon_Y = \frac{\frac{\partial C}{C}}{\frac{\partial Y}{Y}} = \frac{\partial C}{\partial Y} \frac{Y}{C}\]</span></p>
 <p>Rearranging the terms, we get:</p>
 <p><span class="math display">\[\frac{\partial C}{\partial Y} = \epsilon_Y \frac{C}{Y} \]</span></p>
 <p>The elasticity parameter is equal to 0.77 while the C/Y term that we will calculate as the average over the entire period from 1960 to 2019 is equal to 0.64. The marginal effect, the MPC, calculated on the avare over the entire period is therefore 0.4928.</p>
 <p>How do the residuals perform this time?</p>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-139-1.png" width="60%" height="30%" style="display: block; margin: auto;" /></p>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-153-1.png" width="60%" height="30%" style="display: block; margin: auto;" /></p>
 <p>There are actually a whole host of econometric issues that we have left out but that need to be properly addressed when estimating a model. Is there serial correlation in the residuals and if so what is the consequence? Is there heteroschedasticity in the residuals and if so what problems could it cause? There are tests appropriately developed by statisticians to identify these problems and solutions to fix them. All of these things will be the subject of the course in the following semester.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="39">
-<li id="fn39"><p>The value of <span class="math inline">\(R^2\)</span> almost equal to one must immediately raise doubts.<a href="chapter9.html#fnref39" class="footnote-back">↩︎</a></p></li>
-<li id="fn40"><p>The two concepts, trending behaviour and persistent behaviour, should not be confused. Please refer to the Wooldridge textbook (Chapter 11).<a href="chapter9.html#fnref40" class="footnote-back">↩︎</a></p></li>
-<li id="fn41"><p>Differencing will removes the linear trend.<a href="chapter9.html#fnref41" class="footnote-back">↩︎</a></p></li>
-<li id="fn42"><p>For a review of the elasticity concept in economics, see
-<a href="https://en.wikipedia.org/wiki/Elasticity_(economics)">here</a>.<a href="chapter9.html#fnref42" class="footnote-back">↩︎</a></p></li>
+<ol start="44">
+<li id="fn44"><p>The value of <span class="math inline">\(R^2\)</span> almost equal to one must immediately raise doubts.<a href="chapter9.html#fnref44" class="footnote-back">↩︎</a></p></li>
+<li id="fn45"><p>The two concepts, trending behaviour and persistent behaviour, should not be confused. Please refer to the Wooldridge textbook (Chapter 11).<a href="chapter9.html#fnref45" class="footnote-back">↩︎</a></p></li>
+<li id="fn46"><p>Differencing will removes the linear trend.<a href="chapter9.html#fnref46" class="footnote-back">↩︎</a></p></li>
+<li id="fn47"><p>For a review of the elasticity concept in economics, see
+<a href="https://en.wikipedia.org/wiki/Elasticity_(economics)">here</a>.<a href="chapter9.html#fnref47" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

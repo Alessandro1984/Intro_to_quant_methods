@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-12" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -175,7 +177,14 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Code 3</a></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Application</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#contributions-to-gdp-growth"><i class="fa fa-check"></i><b>3.1</b> Contributions to GDP growth</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#pulling-and-filtering-data"><i class="fa fa-check"></i><b>3.2</b> Pulling and filtering data</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#calculation-of-the-growth-contributions"><i class="fa fa-check"></i><b>3.3</b> Calculation of the growth contributions</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter3.html"><a href="chapter3.html#graph-of-the-growth-contributions-for-germany"><i class="fa fa-check"></i><b>3.4</b> Graph of the growth contributions for Germany</a></li>
+<li class="chapter" data-level="3.5" data-path="chapter3.html"><a href="chapter3.html#average-growth-contributions"><i class="fa fa-check"></i><b>3.5</b> Average growth contributions</a></li>
+</ul></li>
 <li class="part"><span><b>II Review of math and statistics</b></span></li>
 <li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Basic math elements</a>
 <ul>
@@ -323,15 +332,15 @@ z \\
 \mathbf{b} = \mathbf{A}^{-1}\mathbf{r}
 \]</span></p>
 <p>We are now ready to solve our system of equations using R:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="chapter4.html#cb93-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span>
-<span id="cb93-2"><a href="chapter4.html#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-3"><a href="chapter4.html#cb93-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(data, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb93-4"><a href="chapter4.html#cb93-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-5"><a href="chapter4.html#cb93-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="dv">0</span>)</span>
-<span id="cb93-6"><a href="chapter4.html#cb93-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-7"><a href="chapter4.html#cb93-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">solve</span>(A) <span class="sc">%*%</span> r</span>
-<span id="cb93-8"><a href="chapter4.html#cb93-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-9"><a href="chapter4.html#cb93-9" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="chapter4.html#cb106-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span>
+<span id="cb106-2"><a href="chapter4.html#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="chapter4.html#cb106-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(data, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb106-4"><a href="chapter4.html#cb106-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-5"><a href="chapter4.html#cb106-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="dv">0</span>)</span>
+<span id="cb106-6"><a href="chapter4.html#cb106-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-7"><a href="chapter4.html#cb106-7" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">solve</span>(A) <span class="sc">%*%</span> r</span>
+<span id="cb106-8"><a href="chapter4.html#cb106-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-9"><a href="chapter4.html#cb106-9" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    1
 ## [2,]    3

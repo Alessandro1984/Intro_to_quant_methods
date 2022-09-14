@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-12" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -175,7 +177,14 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Code 3</a></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Application</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#contributions-to-gdp-growth"><i class="fa fa-check"></i><b>3.1</b> Contributions to GDP growth</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#pulling-and-filtering-data"><i class="fa fa-check"></i><b>3.2</b> Pulling and filtering data</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#calculation-of-the-growth-contributions"><i class="fa fa-check"></i><b>3.3</b> Calculation of the growth contributions</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter3.html"><a href="chapter3.html#graph-of-the-growth-contributions-for-germany"><i class="fa fa-check"></i><b>3.4</b> Graph of the growth contributions for Germany</a></li>
+<li class="chapter" data-level="3.5" data-path="chapter3.html"><a href="chapter3.html#average-growth-contributions"><i class="fa fa-check"></i><b>3.5</b> Average growth contributions</a></li>
+</ul></li>
 <li class="part"><span><b>II Review of math and statistics</b></span></li>
 <li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Basic math elements</a>
 <ul>
@@ -412,6 +421,7 @@ Figure 1.1: The four panes in RStudio.
 ## [1] 9
 ## [1] 16
 ## [1] 25</code></pre>
+<p>Actually, you have to know that the same operations could be performed without using the <code>for loop</code>. Some functions in R are so-called “vectorized”. This means that the function works automatically on all elements of a vector without the need of going through the loop element by element. This makes coding even easier. The previous problem could have been solved with a line of code, <code>print(x^2)</code>. However, the <code>for loop</code> comes in handy on many occasions so it is worth learning how it works.</p>
 <p>In the next example, we loop over the character vector containing the names of the first five days of the week. We now want R to combine the sentence “Today is” with every element, i.e. the names of the first five days of the week, stored in the vector <code>x</code>. We use the function <code>paste()</code> to combine our sentence “Today is” (which is the same all the time) with each single value that the index <code>i</code> will assume. The index <code>i</code> assumes in turn each single element of the character vector <code>x</code>.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="chapter1.html#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Monday&quot;</span>, <span class="st">&quot;Tueasday&quot;</span>, <span class="st">&quot;Wednesday&quot;</span>, <span class="st">&quot;Thursday&quot;</span>, <span class="st">&quot;Friday&quot;</span>)</span>
 <span id="cb57-2"><a href="chapter1.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -428,10 +438,10 @@ Figure 1.1: The four panes in RStudio.
 <p>So far the output of the loop is printed in the console. However, it would be much more useful if the results were saved for later use in some sort of placeholder variable. How to do this? We now make an example from the financial world. Assume that we deposit 1€ in a bank account that promises to pay 1% interest per year. Thanks to the the mechanism of compound interest the value of our deposit will grow exponentially. In the following formula, <span class="math inline">\(A\)</span> is the amount that we will calculate using the <code>for loop</code>, <span class="math inline">\(P\)</span> is the principal, i.e. the initial deposit of 1€, <span class="math inline">\(r\)</span> the interest rate, and <span class="math inline">\(t\)</span> the number of years.</p>
 <p><span class="math display">\[A = P (1 + r)^t\]</span>
 We now want to calculate how the value of our initial deposit of 1€ evolves over time and then store the results to plot them later. First, we create our placeholder variable. This is the object called <code>A</code>, in the code below. We create this using the function <code>numeric</code>. We must also specify the length of our placeholder. In this case, it will have 100 elements, i.e. the 100 years of our financial investment. We must also define the interest rate and the principle. <span class="math inline">\(r\)</span> is going to be 1% and the principal <span class="math inline">\(P\)</span> is going to be 1€. Notice how within the body of the loop we have essentially repeated the formula that we have given above. However, there is a fundamental difference with the loops that we have seen until now. With every run of the loop we are filling the vector <code>A</code> with the result of the formula <code>P * (1 + r)^t</code> for every <code>t</code> from 1 to 100.</p>
-<p><code>A[1] &lt;- P * (1 + r)^1</code> \
-<code>A[2] &lt;- P * (1 + r)^2</code> \
-<span class="math inline">\(...\)</span> \
-<code>A[100] &lt;- P * (1 + r)^100</code> \</p>
+<p><span class="math display">\[A_1 = P  (1 + r)^1\]</span>
+<span class="math display">\[A_2 = P  (1 + r)^2\]</span>
+<span class="math display">\[...\]</span>
+<span class="math display">\[A_{100} = P  (1 + r)^{100}\]</span></p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="chapter1.html#cb59-1" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb59-2"><a href="chapter1.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-3"><a href="chapter1.html#cb59-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">numeric</span>(years)</span>

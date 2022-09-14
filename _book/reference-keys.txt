@@ -1,6 +1,7 @@
 fig:imageRStudio
 fig:image1
 fig:image2
+tab:unnamed-chunk-71
 chapter1
 why-r
 r-and-rstudio
@@ -13,6 +14,11 @@ simple-functions
 chapter2
 conditional-selection
 chapter3
+contributions-to-gdp-growth
+pulling-and-filtering-data
+calculation-of-the-growth-contributions
+graph-of-the-growth-contributions-for-germany
+average-growth-contributions
 chapter4
 derivative-rules
 matrix-operations

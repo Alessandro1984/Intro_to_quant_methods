@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-12" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -175,7 +177,14 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#conditional-selection"><i class="fa fa-check"></i><b>2.1</b> Conditional selection</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Code 3</a></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Application</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#contributions-to-gdp-growth"><i class="fa fa-check"></i><b>3.1</b> Contributions to GDP growth</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#pulling-and-filtering-data"><i class="fa fa-check"></i><b>3.2</b> Pulling and filtering data</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#calculation-of-the-growth-contributions"><i class="fa fa-check"></i><b>3.3</b> Calculation of the growth contributions</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter3.html"><a href="chapter3.html#graph-of-the-growth-contributions-for-germany"><i class="fa fa-check"></i><b>3.4</b> Graph of the growth contributions for Germany</a></li>
+<li class="chapter" data-level="3.5" data-path="chapter3.html"><a href="chapter3.html#average-growth-contributions"><i class="fa fa-check"></i><b>3.5</b> Average growth contributions</a></li>
+</ul></li>
 <li class="part"><span><b>II Review of math and statistics</b></span></li>
 <li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Basic math elements</a>
 <ul>
@@ -262,85 +271,85 @@ f(\hat{\beta_0}, \hat{\beta_1}) = \sum_{n=1}^{3} \hat{u_i}^2 = \sum_{n=1}^{3} (y
 \dfrac{\partial f(\hat{\beta_0}, \hat{\beta_1})}{\partial \hat{\beta_0}} &amp; = -2\sum_{n=1}^{3} (y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0 \\
 \dfrac{\partial f(\hat{\beta_0}, \hat{\beta_1})}{\partial \hat{\beta_1}} &amp; = -2\sum_{n=1}^{3} x_i (y_i - \hat{\beta_0} - \hat{\beta_1}x_i) = 0
 \end{align}\]</span></p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="chapter7.html#cb188-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="co"># Variable x</span></span>
-<span id="cb188-2"><a href="chapter7.html#cb188-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">2</span>) <span class="co"># Variable y</span></span>
-<span id="cb188-3"><a href="chapter7.html#cb188-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-4"><a href="chapter7.html#cb188-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb188-5"><a href="chapter7.html#cb188-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y,             <span class="co"># First variable on the h. axis then the variable on the v. axis</span></span>
-<span id="cb188-6"><a href="chapter7.html#cb188-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">6</span>),     <span class="co"># Length of the x-axis</span></span>
-<span id="cb188-7"><a href="chapter7.html#cb188-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">10</span>))   <span class="co"># Length of the y-axis</span></span>
-<span id="cb188-8"><a href="chapter7.html#cb188-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>)            <span class="co"># Line for the vertical axis</span></span>
-<span id="cb188-9"><a href="chapter7.html#cb188-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>)            <span class="co"># Line for the horizotal axis</span></span>
-<span id="cb188-10"><a href="chapter7.html#cb188-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-11"><a href="chapter7.html#cb188-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting the line to the data</span></span>
-<span id="cb188-12"><a href="chapter7.html#cb188-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x),        <span class="co"># Slope and intercept are calculated automatically using the lm() function</span></span>
-<span id="cb188-13"><a href="chapter7.html#cb188-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)      <span class="co"># Color of the line</span></span>
-<span id="cb188-14"><a href="chapter7.html#cb188-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-15"><a href="chapter7.html#cb188-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Line for the mean of y</span></span>
-<span id="cb188-16"><a href="chapter7.html#cb188-16" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(y),</span>
-<span id="cb188-17"><a href="chapter7.html#cb188-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;green&quot;</span>,</span>
-<span id="cb188-18"><a href="chapter7.html#cb188-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">3</span>)</span>
-<span id="cb188-19"><a href="chapter7.html#cb188-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-20"><a href="chapter7.html#cb188-20" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>,                       <span class="co"># Position of the legend</span></span>
-<span id="cb188-21"><a href="chapter7.html#cb188-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;LEGEND&quot;</span>,                    <span class="co"># Title of the legend</span></span>
-<span id="cb188-22"><a href="chapter7.html#cb188-22" aria-hidden="true" tabindex="-1"></a>       <span class="fu">expression</span>(<span class="fu">hat</span>(y[i]) <span class="sc">==</span> <span class="fu">hat</span>(beta)[<span class="st">&quot;0&quot;</span>] <span class="sc">+</span> <span class="fu">hat</span>(beta)[<span class="st">&quot;1&quot;</span>]<span class="sc">%.%</span>x[i], <span class="fu">bar</span>(y)),          <span class="co"># Names of the variables</span></span>
-<span id="cb188-23"><a href="chapter7.html#cb188-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>),             <span class="co"># Colors of the lines</span></span>
-<span id="cb188-24"><a href="chapter7.html#cb188-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>),                             <span class="co"># Type of lines</span></span>
-<span id="cb188-25"><a href="chapter7.html#cb188-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">1</span>,                             <span class="co"># Dimesions</span></span>
-<span id="cb188-26"><a href="chapter7.html#cb188-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">horiz =</span> <span class="cn">TRUE</span>,                        <span class="co"># Option horizontal</span></span>
-<span id="cb188-27"><a href="chapter7.html#cb188-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">bg =</span> <span class="st">&quot;transparent&quot;</span>,                  <span class="co"># Background</span></span>
-<span id="cb188-28"><a href="chapter7.html#cb188-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)                           <span class="co"># No box around the legend</span></span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-83-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="chapter7.html#cb201-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="co"># Variable x</span></span>
+<span id="cb201-2"><a href="chapter7.html#cb201-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">2</span>) <span class="co"># Variable y</span></span>
+<span id="cb201-3"><a href="chapter7.html#cb201-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-4"><a href="chapter7.html#cb201-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb201-5"><a href="chapter7.html#cb201-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y,             <span class="co"># First variable on the h. axis then the variable on the v. axis</span></span>
+<span id="cb201-6"><a href="chapter7.html#cb201-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">6</span>),     <span class="co"># Length of the x-axis</span></span>
+<span id="cb201-7"><a href="chapter7.html#cb201-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">10</span>))   <span class="co"># Length of the y-axis</span></span>
+<span id="cb201-8"><a href="chapter7.html#cb201-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>)            <span class="co"># Line for the vertical axis</span></span>
+<span id="cb201-9"><a href="chapter7.html#cb201-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>)            <span class="co"># Line for the horizotal axis</span></span>
+<span id="cb201-10"><a href="chapter7.html#cb201-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-11"><a href="chapter7.html#cb201-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting the line to the data</span></span>
+<span id="cb201-12"><a href="chapter7.html#cb201-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x),        <span class="co"># Slope and intercept are calculated automatically using the lm() function</span></span>
+<span id="cb201-13"><a href="chapter7.html#cb201-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)      <span class="co"># Color of the line</span></span>
+<span id="cb201-14"><a href="chapter7.html#cb201-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-15"><a href="chapter7.html#cb201-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Line for the mean of y</span></span>
+<span id="cb201-16"><a href="chapter7.html#cb201-16" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb201-17"><a href="chapter7.html#cb201-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;green&quot;</span>,</span>
+<span id="cb201-18"><a href="chapter7.html#cb201-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb201-19"><a href="chapter7.html#cb201-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-20"><a href="chapter7.html#cb201-20" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>,                       <span class="co"># Position of the legend</span></span>
+<span id="cb201-21"><a href="chapter7.html#cb201-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;LEGEND&quot;</span>,                    <span class="co"># Title of the legend</span></span>
+<span id="cb201-22"><a href="chapter7.html#cb201-22" aria-hidden="true" tabindex="-1"></a>       <span class="fu">expression</span>(<span class="fu">hat</span>(y[i]) <span class="sc">==</span> <span class="fu">hat</span>(beta)[<span class="st">&quot;0&quot;</span>] <span class="sc">+</span> <span class="fu">hat</span>(beta)[<span class="st">&quot;1&quot;</span>]<span class="sc">%.%</span>x[i], <span class="fu">bar</span>(y)),          <span class="co"># Names of the variables</span></span>
+<span id="cb201-23"><a href="chapter7.html#cb201-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>),             <span class="co"># Colors of the lines</span></span>
+<span id="cb201-24"><a href="chapter7.html#cb201-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>),                             <span class="co"># Type of lines</span></span>
+<span id="cb201-25"><a href="chapter7.html#cb201-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">1</span>,                             <span class="co"># Dimesions</span></span>
+<span id="cb201-26"><a href="chapter7.html#cb201-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">horiz =</span> <span class="cn">TRUE</span>,                        <span class="co"># Option horizontal</span></span>
+<span id="cb201-27"><a href="chapter7.html#cb201-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">bg =</span> <span class="st">&quot;transparent&quot;</span>,                  <span class="co"># Background</span></span>
+<span id="cb201-28"><a href="chapter7.html#cb201-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)                           <span class="co"># No box around the legend</span></span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-97-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 <p>Slope coefficient</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="chapter7.html#cb189-1" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="fu">cov</span>(y, x) <span class="sc">/</span> <span class="fu">var</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="chapter7.html#cb202-1" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="fu">cov</span>(y, x) <span class="sc">/</span> <span class="fu">var</span>(x)</span></code></pre></div>
 <p>Intercept</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="chapter7.html#cb190-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(y) <span class="sc">-</span> beta_1 <span class="sc">*</span> <span class="fu">mean</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="chapter7.html#cb203-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(y) <span class="sc">-</span> beta_1 <span class="sc">*</span> <span class="fu">mean</span>(x)</span></code></pre></div>
 <p>We calculate the fitted values</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="chapter7.html#cb191-1" aria-hidden="true" tabindex="-1"></a>y_hat <span class="ot">&lt;-</span> beta_0 <span class="sc">+</span> beta_1 <span class="sc">*</span> (x)</span>
-<span id="cb191-2"><a href="chapter7.html#cb191-2" aria-hidden="true" tabindex="-1"></a>y_hat</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="chapter7.html#cb204-1" aria-hidden="true" tabindex="-1"></a>y_hat <span class="ot">&lt;-</span> beta_0 <span class="sc">+</span> beta_1 <span class="sc">*</span> (x)</span>
+<span id="cb204-2"><a href="chapter7.html#cb204-2" aria-hidden="true" tabindex="-1"></a>y_hat</span></code></pre></div>
 <pre><code>## [1] 5.5 4.0 3.5</code></pre>
 <p>We calculate the residuals</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="chapter7.html#cb193-1" aria-hidden="true" tabindex="-1"></a>u_hat <span class="ot">&lt;-</span> y <span class="sc">-</span> y_hat</span>
-<span id="cb193-2"><a href="chapter7.html#cb193-2" aria-hidden="true" tabindex="-1"></a>u_hat</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="chapter7.html#cb206-1" aria-hidden="true" tabindex="-1"></a>u_hat <span class="ot">&lt;-</span> y <span class="sc">-</span> y_hat</span>
+<span id="cb206-2"><a href="chapter7.html#cb206-2" aria-hidden="true" tabindex="-1"></a>u_hat</span></code></pre></div>
 <pre><code>## [1] -0.5  2.0 -1.5</code></pre>
 <p>We calculate the residual sum of squares (SSR)</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="chapter7.html#cb195-1" aria-hidden="true" tabindex="-1"></a>SSR <span class="ot">&lt;-</span> <span class="fu">sum</span>(u_hat<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb195-2"><a href="chapter7.html#cb195-2" aria-hidden="true" tabindex="-1"></a>SSR</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="chapter7.html#cb208-1" aria-hidden="true" tabindex="-1"></a>SSR <span class="ot">&lt;-</span> <span class="fu">sum</span>(u_hat<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb208-2"><a href="chapter7.html#cb208-2" aria-hidden="true" tabindex="-1"></a>SSR</span></code></pre></div>
 <pre><code>## [1] 6.5</code></pre>
 <p>We calculate the explained sum of squares (SSE)</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="chapter7.html#cb197-1" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="fu">sum</span>((y_hat<span class="sc">-</span><span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb197-2"><a href="chapter7.html#cb197-2" aria-hidden="true" tabindex="-1"></a>SSE</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="chapter7.html#cb210-1" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="fu">sum</span>((y_hat<span class="sc">-</span><span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb210-2"><a href="chapter7.html#cb210-2" aria-hidden="true" tabindex="-1"></a>SSE</span></code></pre></div>
 <pre><code>## [1] 2.166667</code></pre>
 <p>We can calculate the sum of square total (SST)</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="chapter7.html#cb199-1" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> SSR <span class="sc">+</span> SSE</span>
-<span id="cb199-2"><a href="chapter7.html#cb199-2" aria-hidden="true" tabindex="-1"></a>SST</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="chapter7.html#cb212-1" aria-hidden="true" tabindex="-1"></a>SST <span class="ot">&lt;-</span> SSR <span class="sc">+</span> SSE</span>
+<span id="cb212-2"><a href="chapter7.html#cb212-2" aria-hidden="true" tabindex="-1"></a>SST</span></code></pre></div>
 <pre><code>## [1] 8.666667</code></pre>
 <p>Let’s check</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="chapter7.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(y)<span class="sc">*</span>(<span class="fu">length</span>(y)<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="chapter7.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(y)<span class="sc">*</span>(<span class="fu">length</span>(y)<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 8.666667</code></pre>
 <p>We can finally calculate the R2</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="chapter7.html#cb203-1" aria-hidden="true" tabindex="-1"></a>R2 <span class="ot">&lt;-</span> SSE <span class="sc">/</span> SST</span>
-<span id="cb203-2"><a href="chapter7.html#cb203-2" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="chapter7.html#cb216-1" aria-hidden="true" tabindex="-1"></a>R2 <span class="ot">&lt;-</span> SSE <span class="sc">/</span> SST</span>
+<span id="cb216-2"><a href="chapter7.html#cb216-2" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
 <pre><code>## [1] 0.25</code></pre>
 <p>Alternatively</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="chapter7.html#cb205-1" aria-hidden="true" tabindex="-1"></a>R2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> SSR<span class="sc">/</span>SST</span>
-<span id="cb205-2"><a href="chapter7.html#cb205-2" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="chapter7.html#cb218-1" aria-hidden="true" tabindex="-1"></a>R2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> SSR<span class="sc">/</span>SST</span>
+<span id="cb218-2"><a href="chapter7.html#cb218-2" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
 <pre><code>## [1] 0.25</code></pre>
 <p>We can also calculate the root mean squared error (RMSE); Degrees of freedom correction = 2</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="chapter7.html#cb207-1" aria-hidden="true" tabindex="-1"></a>RMSE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(SSR<span class="sc">/</span><span class="dv">1</span>) </span>
-<span id="cb207-2"><a href="chapter7.html#cb207-2" aria-hidden="true" tabindex="-1"></a>RMSE</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="chapter7.html#cb220-1" aria-hidden="true" tabindex="-1"></a>RMSE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(SSR<span class="sc">/</span><span class="dv">1</span>) </span>
+<span id="cb220-2"><a href="chapter7.html#cb220-2" aria-hidden="true" tabindex="-1"></a>RMSE</span></code></pre></div>
 <pre><code>## [1] 2.54951</code></pre>
 <p>We can now compare our work with the output of the lm() function</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="chapter7.html#cb209-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="chapter7.html#cb222-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span></code></pre></div>
 <center>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="chapter7.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(model1,</span>
-<span id="cb210-2"><a href="chapter7.html#cb210-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb210-3"><a href="chapter7.html#cb210-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;y&quot;</span>),</span>
-<span id="cb210-4"><a href="chapter7.html#cb210-4" aria-hidden="true" tabindex="-1"></a>          <span class="co">#column.labels = c(&quot;&quot;),</span></span>
-<span id="cb210-5"><a href="chapter7.html#cb210-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>),</span>
-<span id="cb210-6"><a href="chapter7.html#cb210-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">colnames =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb210-7"><a href="chapter7.html#cb210-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.numbers =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb210-8"><a href="chapter7.html#cb210-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>, <span class="st">&quot;ser&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="chapter7.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(model1,</span>
+<span id="cb223-2"><a href="chapter7.html#cb223-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb223-3"><a href="chapter7.html#cb223-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;y&quot;</span>),</span>
+<span id="cb223-4"><a href="chapter7.html#cb223-4" aria-hidden="true" tabindex="-1"></a>          <span class="co">#column.labels = c(&quot;&quot;),</span></span>
+<span id="cb223-5"><a href="chapter7.html#cb223-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>),</span>
+<span id="cb223-6"><a href="chapter7.html#cb223-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">colnames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb223-7"><a href="chapter7.html#cb223-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.numbers =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb223-8"><a href="chapter7.html#cb223-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>, <span class="st">&quot;ser&quot;</span>))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="2" style="border-bottom: 1px solid black">
@@ -454,12 +463,12 @@ Residual Std. Error
 </tr>
 </table>
 </center>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="chapter7.html#cb211-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="co"># Variable x</span></span>
-<span id="cb211-2"><a href="chapter7.html#cb211-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">2</span>) <span class="co"># Variable y</span></span>
-<span id="cb211-3"><a href="chapter7.html#cb211-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb211-4"><a href="chapter7.html#cb211-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We can fit a quadratic model; remember the general equation of the parabola f(x) = c + b*x + a*x^2</span></span>
-<span id="cb211-5"><a href="chapter7.html#cb211-5" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb211-6"><a href="chapter7.html#cb211-6" aria-hidden="true" tabindex="-1"></a>model2</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="chapter7.html#cb224-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="co"># Variable x</span></span>
+<span id="cb224-2"><a href="chapter7.html#cb224-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">2</span>) <span class="co"># Variable y</span></span>
+<span id="cb224-3"><a href="chapter7.html#cb224-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-4"><a href="chapter7.html#cb224-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We can fit a quadratic model; remember the general equation of the parabola f(x) = c + b*x + a*x^2</span></span>
+<span id="cb224-5"><a href="chapter7.html#cb224-5" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb224-6"><a href="chapter7.html#cb224-6" aria-hidden="true" tabindex="-1"></a>model2</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x + I(x^2))
@@ -467,59 +476,59 @@ Residual Std. Error
 ## Coefficients:
 ## (Intercept)            x       I(x^2)  
 ##      7.9375       0.1667      -0.2708</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="chapter7.html#cb213-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="fu">unname</span>(<span class="fu">coef</span>(model2)[<span class="st">&quot;(Intercept)&quot;</span>])</span>
-<span id="cb213-2"><a href="chapter7.html#cb213-2" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="fu">unname</span>(<span class="fu">coef</span>(model2)[<span class="st">&quot;x&quot;</span>])</span>
-<span id="cb213-3"><a href="chapter7.html#cb213-3" aria-hidden="true" tabindex="-1"></a>beta_2 <span class="ot">&lt;-</span> <span class="fu">unname</span>(<span class="fu">coef</span>(model2)[<span class="st">&quot;I(x^2)&quot;</span>])</span>
-<span id="cb213-4"><a href="chapter7.html#cb213-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-5"><a href="chapter7.html#cb213-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We use the estimated parameters to plot a parabola</span></span>
-<span id="cb213-6"><a href="chapter7.html#cb213-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {x<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> beta_2 <span class="sc">+</span> x <span class="sc">*</span> beta_1 <span class="sc">+</span> beta_0}</span>
-<span id="cb213-7"><a href="chapter7.html#cb213-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-8"><a href="chapter7.html#cb213-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, </span>
-<span id="cb213-9"><a href="chapter7.html#cb213-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>), </span>
-<span id="cb213-10"><a href="chapter7.html#cb213-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
-<span id="cb213-11"><a href="chapter7.html#cb213-11" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(mod, <span class="at">from =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb213-12"><a href="chapter7.html#cb213-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">0</span>)            <span class="co"># Line for the vertical axis</span></span>
-<span id="cb213-13"><a href="chapter7.html#cb213-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>)            <span class="co"># Line for the horizontal axis</span></span>
-<span id="cb213-14"><a href="chapter7.html#cb213-14" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>) <span class="co"># Mark the point in black</span></span>
-<span id="cb213-15"><a href="chapter7.html#cb213-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)   <span class="co"># Mark the point in black</span></span>
-<span id="cb213-16"><a href="chapter7.html#cb213-16" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)   <span class="co"># Mark the point in black</span></span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-97-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="chapter7.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can use the estimated coefficients to simulate some new data and then fit a parabola again</span></span>
-<span id="cb214-2"><a href="chapter7.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and a linear model. We then compare the R2. </span></span>
-<span id="cb214-3"><a href="chapter7.html#cb214-3" aria-hidden="true" tabindex="-1"></a>varx <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb214-4"><a href="chapter7.html#cb214-4" aria-hidden="true" tabindex="-1"></a>vary <span class="ot">&lt;-</span> beta_0 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">21</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="sc">+</span> (varx) <span class="sc">*</span> beta_1 <span class="sc">+</span> (varx)<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> beta_2</span>
-<span id="cb214-5"><a href="chapter7.html#cb214-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb214-6"><a href="chapter7.html#cb214-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimating the new parameters (they are very similar)</span></span>
-<span id="cb214-7"><a href="chapter7.html#cb214-7" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(vary <span class="sc">~</span> varx <span class="sc">+</span> <span class="fu">I</span>(varx<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb214-8"><a href="chapter7.html#cb214-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb214-9"><a href="chapter7.html#cb214-9" aria-hidden="true" tabindex="-1"></a><span class="co"># We calculate the predicted values</span></span>
-<span id="cb214-10"><a href="chapter7.html#cb214-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(varx, vary, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
-<span id="cb214-11"><a href="chapter7.html#cb214-11" aria-hidden="true" tabindex="-1"></a>vary_new <span class="ot">&lt;-</span> <span class="fu">predict</span>(model3)</span>
-<span id="cb214-12"><a href="chapter7.html#cb214-12" aria-hidden="true" tabindex="-1"></a><span class="fu">matlines</span>(varx, vary_new)</span>
-<span id="cb214-13"><a href="chapter7.html#cb214-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span>
-<span id="cb214-14"><a href="chapter7.html#cb214-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span>
-<span id="cb214-15"><a href="chapter7.html#cb214-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb214-16"><a href="chapter7.html#cb214-16" aria-hidden="true" tabindex="-1"></a><span class="co"># We mark the original observations. They are very very close to the fitted model</span></span>
-<span id="cb214-17"><a href="chapter7.html#cb214-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb214-18"><a href="chapter7.html#cb214-18" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb214-19"><a href="chapter7.html#cb214-19" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb214-20"><a href="chapter7.html#cb214-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb214-21"><a href="chapter7.html#cb214-21" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now try to fit a linear model</span></span>
-<span id="cb214-22"><a href="chapter7.html#cb214-22" aria-hidden="true" tabindex="-1"></a>model4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(vary <span class="sc">~</span> varx)</span>
-<span id="cb214-23"><a href="chapter7.html#cb214-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb214-24"><a href="chapter7.html#cb214-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Overlap the linear model to the previous plot</span></span>
-<span id="cb214-25"><a href="chapter7.html#cb214-25" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model4)</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-97-2.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="chapter7.html#cb226-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="fu">unname</span>(<span class="fu">coef</span>(model2)[<span class="st">&quot;(Intercept)&quot;</span>])</span>
+<span id="cb226-2"><a href="chapter7.html#cb226-2" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="fu">unname</span>(<span class="fu">coef</span>(model2)[<span class="st">&quot;x&quot;</span>])</span>
+<span id="cb226-3"><a href="chapter7.html#cb226-3" aria-hidden="true" tabindex="-1"></a>beta_2 <span class="ot">&lt;-</span> <span class="fu">unname</span>(<span class="fu">coef</span>(model2)[<span class="st">&quot;I(x^2)&quot;</span>])</span>
+<span id="cb226-4"><a href="chapter7.html#cb226-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-5"><a href="chapter7.html#cb226-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We use the estimated parameters to plot a parabola</span></span>
+<span id="cb226-6"><a href="chapter7.html#cb226-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {x<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> beta_2 <span class="sc">+</span> x <span class="sc">*</span> beta_1 <span class="sc">+</span> beta_0}</span>
+<span id="cb226-7"><a href="chapter7.html#cb226-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-8"><a href="chapter7.html#cb226-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, </span>
+<span id="cb226-9"><a href="chapter7.html#cb226-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>), </span>
+<span id="cb226-10"><a href="chapter7.html#cb226-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb226-11"><a href="chapter7.html#cb226-11" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(mod, <span class="at">from =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb226-12"><a href="chapter7.html#cb226-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">0</span>)            <span class="co"># Line for the vertical axis</span></span>
+<span id="cb226-13"><a href="chapter7.html#cb226-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>)            <span class="co"># Line for the horizontal axis</span></span>
+<span id="cb226-14"><a href="chapter7.html#cb226-14" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>) <span class="co"># Mark the point in black</span></span>
+<span id="cb226-15"><a href="chapter7.html#cb226-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)   <span class="co"># Mark the point in black</span></span>
+<span id="cb226-16"><a href="chapter7.html#cb226-16" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)   <span class="co"># Mark the point in black</span></span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-111-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="chapter7.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can use the estimated coefficients to simulate some new data and then fit a parabola again</span></span>
+<span id="cb227-2"><a href="chapter7.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and a linear model. We then compare the R2. </span></span>
+<span id="cb227-3"><a href="chapter7.html#cb227-3" aria-hidden="true" tabindex="-1"></a>varx <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb227-4"><a href="chapter7.html#cb227-4" aria-hidden="true" tabindex="-1"></a>vary <span class="ot">&lt;-</span> beta_0 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">21</span>, <span class="dv">0</span>, <span class="dv">2</span>) <span class="sc">+</span> (varx) <span class="sc">*</span> beta_1 <span class="sc">+</span> (varx)<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> beta_2</span>
+<span id="cb227-5"><a href="chapter7.html#cb227-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-6"><a href="chapter7.html#cb227-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimating the new parameters (they are very similar)</span></span>
+<span id="cb227-7"><a href="chapter7.html#cb227-7" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(vary <span class="sc">~</span> varx <span class="sc">+</span> <span class="fu">I</span>(varx<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb227-8"><a href="chapter7.html#cb227-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-9"><a href="chapter7.html#cb227-9" aria-hidden="true" tabindex="-1"></a><span class="co"># We calculate the predicted values</span></span>
+<span id="cb227-10"><a href="chapter7.html#cb227-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(varx, vary, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb227-11"><a href="chapter7.html#cb227-11" aria-hidden="true" tabindex="-1"></a>vary_new <span class="ot">&lt;-</span> <span class="fu">predict</span>(model3)</span>
+<span id="cb227-12"><a href="chapter7.html#cb227-12" aria-hidden="true" tabindex="-1"></a><span class="fu">matlines</span>(varx, vary_new)</span>
+<span id="cb227-13"><a href="chapter7.html#cb227-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb227-14"><a href="chapter7.html#cb227-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb227-15"><a href="chapter7.html#cb227-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-16"><a href="chapter7.html#cb227-16" aria-hidden="true" tabindex="-1"></a><span class="co"># We mark the original observations. They are very very close to the fitted model</span></span>
+<span id="cb227-17"><a href="chapter7.html#cb227-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb227-18"><a href="chapter7.html#cb227-18" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb227-19"><a href="chapter7.html#cb227-19" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb227-20"><a href="chapter7.html#cb227-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-21"><a href="chapter7.html#cb227-21" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now try to fit a linear model</span></span>
+<span id="cb227-22"><a href="chapter7.html#cb227-22" aria-hidden="true" tabindex="-1"></a>model4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(vary <span class="sc">~</span> varx)</span>
+<span id="cb227-23"><a href="chapter7.html#cb227-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-24"><a href="chapter7.html#cb227-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Overlap the linear model to the previous plot</span></span>
+<span id="cb227-25"><a href="chapter7.html#cb227-25" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model4)</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-111-2.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 <p>Which model has the largest <span class="math inline">\(R^2\)</span>?</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="chapter7.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(model4,</span>
-<span id="cb215-2"><a href="chapter7.html#cb215-2" aria-hidden="true" tabindex="-1"></a>          model3,</span>
-<span id="cb215-3"><a href="chapter7.html#cb215-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb215-4"><a href="chapter7.html#cb215-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;y&quot;</span>),</span>
-<span id="cb215-5"><a href="chapter7.html#cb215-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>),</span>
-<span id="cb215-6"><a href="chapter7.html#cb215-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;x&quot;</span>),</span>
-<span id="cb215-7"><a href="chapter7.html#cb215-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">colnames =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb215-8"><a href="chapter7.html#cb215-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.numbers =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb215-9"><a href="chapter7.html#cb215-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>, <span class="st">&quot;ser&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="chapter7.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(model4,</span>
+<span id="cb228-2"><a href="chapter7.html#cb228-2" aria-hidden="true" tabindex="-1"></a>          model3,</span>
+<span id="cb228-3"><a href="chapter7.html#cb228-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb228-4"><a href="chapter7.html#cb228-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;y&quot;</span>),</span>
+<span id="cb228-5"><a href="chapter7.html#cb228-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>),</span>
+<span id="cb228-6"><a href="chapter7.html#cb228-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;x&quot;</span>),</span>
+<span id="cb228-7"><a href="chapter7.html#cb228-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">colnames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb228-8"><a href="chapter7.html#cb228-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.numbers =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb228-9"><a href="chapter7.html#cb228-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;rsq&quot;</span>, <span class="st">&quot;ser&quot;</span>))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="3" style="border-bottom: 1px solid black">

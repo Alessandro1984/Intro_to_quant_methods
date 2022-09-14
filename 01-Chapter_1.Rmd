@@ -242,6 +242,7 @@ for (i in x) {
 }
 
 ```
+Actually, you have to know that the same operations could be performed without using the `for loop`. Some functions in R are so-called "vectorized". This means that the function works automatically on all elements of a vector without the need of going through the loop element by element. This makes coding even easier. The previous problem could have been solved with a line of code, `print(x^2)`. However, the `for loop` comes in handy on many occasions so it is worth learning how it works.
 
 In the next example, we loop over the character vector containing the names of the first five days of the week. We now want R to combine the sentence "Today is" with every element, i.e. the names of the first five days of the week, stored in the vector `x`. We use the function `paste()` to combine our sentence "Today is" (which is the same all the time) with each single value that the index `i` will assume. The index `i` assumes in turn each single element of the character vector `x`.
 
@@ -262,10 +263,10 @@ So far the output of the loop is printed in the console. However, it would be mu
 $$A = P (1 + r)^t$$
 We now want to calculate how the value of our initial deposit of 1\€ evolves over time and then store the results to plot them later. First, we create our placeholder variable. This is the object called `A`, in the code below. We create this using the function `numeric`. We must also specify the length of our placeholder. In this case, it will have 100 elements, i.e. the 100 years of our financial investment. We must also define the interest rate and the principle. $r$ is going to be 1\% and the principal $P$ is going to be 1\€. Notice how within the body of the loop we have essentially repeated the formula that we have given above. However, there is a fundamental difference with the loops that we have seen until now. With every run of the loop we are filling the vector `A` with the result of the formula `P * (1 + r)^t` for every `t` from 1 to 100.
 
-`A[1] <- P * (1 + r)^1` \\
-`A[2] <- P * (1 + r)^2` \\
-$...$ \\
-`A[100] <- P * (1 + r)^100` \\
+$$A_1 = P  (1 + r)^1$$
+$$A_2 = P  (1 + r)^2$$
+$$...$$
+$$A_{100} = P  (1 + r)^{100}$$
 
 ```{r}
 
