@@ -8,22 +8,31 @@ R is an open-source statistical programming language used worldwide for statisti
 
 ## R and RStudio
 
-Nowadays, people do not work directly in R but use what is called an Integrated Development Environment (IDE, for short). An IDE is a software that allows to work with the programming language using a user-friendly and nice interface together with several additional features that make the coding faster and more enjoyable. RStudio is by far (again, in my opinion) the best IDE for R.^[I personally have only used RStudio Desktop Open Source Edition.] It is simple to use and very intuitive. The RStudio Team has also developed a number of amazing and useful packages like the package [rmarkdown](https://rmarkdown.rstudio.com/index.html) and the package [shiny](https://shiny.rstudio.com/).^[In this text we do not have time to introduce to these two great R packages. However, I highly recommend seeing what they are all about.] This book for example is written entirely in RStudio using the powerful package [bookdown](https://bookdown.org/).
+Nowadays, people do not work directly in R but use what is called an Integrated Development Environment (IDE, for short). An IDE is a software that allows to work with the programming language using a user-friendly and nice interface together with several additional features that make coding faster and more enjoyable. RStudio is by far (again, in my opinion) the best IDE for R.^[I personally have only used RStudio Desktop Open Source Edition.] It is simple to use and very intuitive. The RStudio Team has also developed a number of amazing and useful packages like the package [rmarkdown](https://rmarkdown.rstudio.com/index.html) and the package [shiny](https://shiny.rstudio.com/).^[We do not have time to talk about these two packages but I highly recommend you to take a look.] This book for example is written entirely in RStudio using the powerful package [bookdown](https://bookdown.org/).
 
-We are now going to describe very briefly the interface of RStudio. As you can see from Figure \@ref(fig:imageRStudio), RStudio is composed of 4 panes.^[Note that from now on we will use the term R for simplicity but we are actually talking about using R within RStudio.]
+We are now going to describe very briefly the interface of RStudio. As you can see from Figure \@ref(fig:imageRStudio), RStudio is composed of 4 panes.^[From now on, we will use the term R for simplicity but we are actually talking about using R within RStudio.]
 
 ```{r imageRStudio, echo = FALSE, fig.cap = "The four panes in RStudio."}
 knitr::include_graphics("images/imageRStudio.png")
 ```
 
-In pane 1, we can see the R script (but it could also be another file, like an R Markdown file or a Python script). This is were we will type our code. From the script, we can then execute the code. The output of our code will be printed in the console. In Figure \@ref(fig:imageRStudio), the console is shown in pane 2. You can perform operations directly from the console. The result will be displayed immediately in the console itself. This can be useful on certain occasions, such as when you need to calculate something on fly that does not necessarily has to be included in your main work. In all other occasions it is recommended to write the code in the script.^[The interface of RStudio is very flexible. It can be modified easily, such as changing the order of panes or excluding some of them. So the order of the panes that you see here can be changed quite simply.] In pane 3, we can see different tabs. In the environment tab is where you will see variables, functions and databases saved during the working session. In the history tab, you will see the list of all operations performed during the working session and from there you can execute your code again.^[you can also re-execute your code from the console using the un and down arrows of the keyboard.] Your history is automatically stored by RStudio and saved in a separate file (although this function can be also deactivated).^[We omit talking about the two remaining tabs.] In pane 4, we have again different tabs. The files tab shows basically the files contained in your computer directories, like for example your project directory if you are working with an RStudio project.^[Take a look 
+In pane 1, we can see the R script (but it could also be another file, like an R Markdown file or a Python script). This is were we will type our code. From the script, we can then execute the code. The output of our code will be printed in the console. In Figure \@ref(fig:imageRStudio), the console is shown in pane 2. You can perform operations directly from the console. The result will be displayed immediately in the console itself. This can be useful on certain occasions, such as when you need to calculate something on fly that does not necessarily has to be included in your main work. In all other occasions it is recommended to write the code in the script.^[The interface of RStudio is very flexible. It can be modified easily, such as changing the order of panes or excluding some of them. So the order of the panes that you see here can be changed quite simply.] In pane 3, we can see different tabs. In the environment tab is where you will see variables, functions and databases saved during the working session. In the history tab, you will see the list of all operations performed during the working session and from there you can execute your code again.^[You can also navigate through the history directly from the console using the up and down arrows of your keyboard.] Your history is automatically stored by RStudio and saved in a separate file (although this function can be also deactivated).^[We omit talking about the two remaining tabs.] In pane 4, we have again different tabs. The files tab shows basically the files contained in your computer directories, like for example your project directory if you are working with an RStudio project.^[Take a look 
 [here](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects) to know more about *projects* in RStudio.] From there you can create new files, rename files, delete files and so on. In the plot pane you will see your graphs printed (like scatter plots, bar charts, etc.). In the help pane, as you can easily guess, you can get some very useful information about R and RStudio and the R language in general and in the Viewer tab more complex things are visualized, like for example [plotly](https://plotly.com/r/) graphs.^[*Plotly* is an R package named after the company Plotly that allows to make some very cool interactive charts. Some of the graphs in this book are made using this package.]
 
-How to execute code?
+How to execute code in RStudio? If you are working from the console, it is simple. Just type the desired operation in the RStudio console and press enter. If you are working from the script instead there are several options. You can highlight the code you want to execute with the mouse and click the button *Run*.^[The keyboard shortcut for the run button is *Ctrl+Enter*. You can find 
+[here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE) all keyboard shortcuts in RStudio for Windows, Linux and Mac. You can also find the list of shortcuts in the RStudio *Tool* menu.] 
+
+```{r image3, echo = FALSE, fig.cap = "Highlight your code with the mouse and execute it with the Run button."}
+knitr::include_graphics("images/image3.png")
+```
+
+In alternative, if you want to run just one line of code, you can place the cursor at the end of the line that you wish to execute and then press *Run*. If you want to run all the code in a script, you can use the *Source* button. There are two options, *Source* and *Source with Echo*. If you just *Source* your script, you run your entire script but the code and the output of your code will not be printed in the console. If you *Source with Echo*, your code will be executed (just like with *Source*) but this time you will see your code and the output of your code printed in the console. It is up to you to decide when to use one or the other.
 
 ## Basic operations
 
-We now start by looking at some very simple operations that can be performed in R. To begin with, R can be used to solve arithmetic operations, just like a normal calculator.
+We now start by looking at some very simple operations that can be performed in R. Before we begin, however, I would like to make a disclaimer. The list of operations and functions that we are going to see is not complete. When I say not complete I simply mean that what we are going to see in this section are by no means all the functions available in the R language. I have decided to focus our attention on a number of operations and functions that I believe are useful to our quantitative methods course for economists and that build the basis for more complex analysis. For those who want to learn more about R, the literature available nowadays is really large. I will provide some references as we go through the explanations in the various sections.^[A good book to start with the study of R is *The Art of R Programming* by Normal Matloff [@Matloff] but there are many many books available out there without counting other resources like YouTube videos and online courses.] Now back to our script. 
+
+We start with the very basics. R can be used to solve arithmetic operations, just like a normal calculator.
 
 ```{r}
 2 + 2
@@ -43,7 +52,7 @@ exp(0)
 log(1)
 ```
 
-With a left pointing arrow (a "small than" sign followed by a minus sign), `<-`, we can assign a value to a variable. Here, for example, we assign the value 15 to the object `x`. In this case, the variable `x` is saved in the environment (pane 4 in Figure \@ref(fig:imageRStudio)).
+With a left pointing arrow `<-` (a "smaller than" sign followed by a minus sign), we can assign a value to a variable. Here, for example, we assign the value 15 to the object `x`. In this case, the variable `x` is saved in the environment (pane 4 in Figure \@ref(fig:imageRStudio)).
 
 ```{r}
 x <- 15
@@ -56,7 +65,7 @@ To remove any variable from the environment, we can use the function `rm()` with
 rm(x)
 ```
 
-With the function `c()`, we can assign a series of value to a variable. The letter `c` stands for something like "concatenate". The result is a vector.
+With the function `c()`, we can assign a series of value to a variable. The letter `c` stands for something like "concatenate". The result will be a vector.
 
 ```{r}
 x <- c(1, 2, 3)
@@ -70,27 +79,27 @@ With the function `ls`, we can print in the console the list of the variables th
 ls()
 ```
 
-It is a good practice to start every new working session in R with an empty environment. This short piece of code remove all variables that we have so fare saved in the environment (not many in our case!). You could put something like this at the beginning of your R script so that each time you run the script previously created variables but also other objects like data and functions get deleted. Of course, it is up to you to figure out when it is appropriate to use such a function and when not.
+It is a good practice to start every new working session in R with an empty environment. This short piece of code remove all variables that we have so fare saved in the environment (not many in our case!). You could put something like this at the beginning of your R script so that each time you run the script previously created variables, but also other objects like data and functions, are deleted. Of course, it is up to you to figure out when it is appropriate to use such a function and when not.
 
 ```{r}
 rm(list = ls())
 ```
 
-R can also easily creates sequences of numbers. There are two ways. The first is by using the colon operator `:`. In the following example, we are creating a series of integers from 1 to 10.
+In R you can easily creates sequences of numbers. There are two simple ways. The first is by using the colon operator `:`. In the following example, we are creating a series of integers from 1 to 10.
 
 ```{r}
 a <- 1:10
 a
 ```
 
-The second way is by using the `seq` function. With the `seq` function, you can specify the beginning (`from`), the end (`to`) and the increment (`by`) of the sequence of numbers.^[If you want to know more about an R function and its arguments, use the help menu in the bottom-right pane (pane 4 in Figure \@ref(fig:imageRStudio)) or simply type in the console `?` followed by the name of the function, e.g. `?seq`. This will open the help menu at the right page.]
+The second is by using the `seq` function. With the `seq` function, you can specify the beginning (`from`), the end (`to`) and the increment (`by`) of the sequence of numbers.^[If you want to know more about an R function and its arguments, use the help menu in the bottom-right pane (pane 4 in Figure \@ref(fig:imageRStudio)) or simply type in the console `?` followed by the name of the function, e.g. `?seq`. This will open the help menu at the right page.]
 
 ```{r}
 b <- seq(from = 1, to = 10, by = 1)
 b
 ```
 
-We can also generate random numbers from a normal distribution specifying mean and standard deviation (more on the normal distribution in Part II). The `set.seed` function allows us to generate the same numbers. This means that if you and I have the same seed, we will generate the same set of random numbers.^[This function is essential if we want someone else to be able to replicate the results of our simulations. This might be the case when we want to share our work with our fellow students and colleagues or with our thesis supervisor or when we want to publish a paper presenting some simulation work.]
+We can also generate random numbers from a normal distribution specifying mean and standard deviation (more on the normal distribution in Part II). The `set.seed` function allows us to generate the same "random" numbers. This means that if you and I have the same seed, we will generate the same set of random numbers.^[This function is essential if we want someone else to be able to replicate the results of our simulations. This might be the case when we want to share our work with our fellow students or with our thesis supervisor.]
 
 ```{r}
 set.seed(1234)
@@ -104,7 +113,15 @@ A very important function in R is the `length` function. The `length` function c
 length(seq(from = 1, to = 10, by = 0.1))
 ```
 
-R also includes all the fundamental types of operators like arithmetic, relational and logical operators. Arithmetic operators are what we remember from school, like `+ - * /`. Power elevation is done with the `^` sign.^[There are other mathematical operators in R, such as matrix multiplication `%*%`. We do not discuss this at the moment.]
+Two other functions that come in handy on numerous occasions are `min()` and `max()`. As you can guess, the two functions are used to find the minimum and maximum value, respectively, of some input values. Let us look at two very simple examples.
+
+```{r}
+min(rnorm(n = 100, mean = 0, sd = 10))
+
+max(rnorm(n = 100, mean = 0, sd = 10))
+```
+
+R also includes all the fundamental types of operators like arithmetic, relational and logical operators. Arithmetic operators are exactely what we remember from school, like `+ - * /`. Power elevation is done with the `^` sign.^[There are other mathematical operators in R, such as matrix multiplication `%*%`. We do not discuss this at the moment.]
 
 ```{r}
 5^2
@@ -201,7 +218,7 @@ ifelse(x <= 0, "x is smaller or equal zero", "x is larger than zero")
 
 ## For loops
 
-To make it as short as possible, a loop is a piece of code that repeat operations over and over again, just as the name suggests. A `for loop` is a piece of code that tells the computer to perform a certain operation for every value or element in a variable [@Grolemund].^[You may want to look at the chapter on loops in the excellent book titled *Hands-On Programming with R* by Garret Grolemund [@Grolemund], author of a series of amazing books about R and Data Scientist at RStudio. You can access the chapter [here](https://rstudio-education.github.io/hopr/loops.html). In the book, the author also describes other types of loops such as `while` and `repeat` loops something that we do not have time to cover here.] An example is very much needed.
+To make it as short as possible, a loop is a piece of code that repeat operations over and over again, just as the name suggests. A `for loop` is a piece of code that tells the computer to perform a certain operation for every value or element in a variable [@Grolemund].^[You may want to look at the chapter on loops in the book *Hands-On Programming with R* by Garret Grolemund [@Grolemund]. Grolemund is the author of a series of amazing books about R. He is also a Data Scientist at the RStudio company. You can find the chapter [here](https://rstudio-education.github.io/hopr/loops.html). In the book, the author also describes other types of loops such as `while` and `repeat`, something that we do not have time to discuss here.] An example is very much needed.
 
 ```{r}
 
@@ -296,7 +313,7 @@ plot(x = 1:years,
      ylim = c(1, max(A)),
      type = "l", 
      col = "black",
-     main = "Compound interest", 
+     main = "Compound interests", 
      xlab = "Year", 
      ylab = "Euro")
 
@@ -336,7 +353,7 @@ To make the code more elegant and concise, we can use a simple loop to include t
 plot(NULL, 
      xlim = c(1, nrow(A)), 
      ylim = c(1, max(A)),
-     main = "Compound interest", 
+     main = "Compound interests", 
      xlab = "Year", 
      ylab = "Euro")
 
@@ -383,7 +400,7 @@ my_fun <- function(time, scenarios) {
   plot(NULL, 
      xlim = c(1, nrow(A)), 
      ylim = c(1, max(A)),
-     main = "Compound interest", 
+     main = "Compound interests", 
      xlab = "Year", 
      ylab = "Euro")
 

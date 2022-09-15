@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-14" />
+<meta name="date" content="2022-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,7 +257,7 @@ div.csl-indent {
 </div>
 <div id="r-and-rstudio" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> R and RStudio<a href="chapter1.html#r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Nowadays, people do not work directly in R but use what is called an Integrated Development Environment (IDE, for short). An IDE is a software that allows to work with the programming language using a user-friendly and nice interface together with several additional features that make the coding faster and more enjoyable. RStudio is by far (again, in my opinion) the best IDE for R.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> It is simple to use and very intuitive. The RStudio Team has also developed a number of amazing and useful packages like the package <a href="https://rmarkdown.rstudio.com/index.html">rmarkdown</a> and the package <a href="https://shiny.rstudio.com/">shiny</a>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> This book for example is written entirely in RStudio using the powerful package <a href="https://bookdown.org/">bookdown</a>.</p>
+<p>Nowadays, people do not work directly in R but use what is called an Integrated Development Environment (IDE, for short). An IDE is a software that allows to work with the programming language using a user-friendly and nice interface together with several additional features that make coding faster and more enjoyable. RStudio is by far (again, in my opinion) the best IDE for R.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> It is simple to use and very intuitive. The RStudio Team has also developed a number of amazing and useful packages like the package <a href="https://rmarkdown.rstudio.com/index.html">rmarkdown</a> and the package <a href="https://shiny.rstudio.com/">shiny</a>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> This book for example is written entirely in RStudio using the powerful package <a href="https://bookdown.org/">bookdown</a>.</p>
 <p>We are now going to describe very briefly the interface of RStudio. As you can see from Figure <a href="chapter1.html#fig:imageRStudio">1.1</a>, RStudio is composed of 4 panes.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:imageRStudio"></span>
 <img src="images/imageRStudio.png" alt="The four panes in RStudio." width="80%" height="30%" />
@@ -266,11 +266,19 @@ Figure 1.1: The four panes in RStudio.
 </p>
 </div>
 <p>In pane 1, we can see the R script (but it could also be another file, like an R Markdown file or a Python script). This is were we will type our code. From the script, we can then execute the code. The output of our code will be printed in the console. In Figure <a href="chapter1.html#fig:imageRStudio">1.1</a>, the console is shown in pane 2. You can perform operations directly from the console. The result will be displayed immediately in the console itself. This can be useful on certain occasions, such as when you need to calculate something on fly that does not necessarily has to be included in your main work. In all other occasions it is recommended to write the code in the script.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> In pane 3, we can see different tabs. In the environment tab is where you will see variables, functions and databases saved during the working session. In the history tab, you will see the list of all operations performed during the working session and from there you can execute your code again.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Your history is automatically stored by RStudio and saved in a separate file (although this function can be also deactivated).<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> In pane 4, we have again different tabs. The files tab shows basically the files contained in your computer directories, like for example your project directory if you are working with an RStudio project.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> From there you can create new files, rename files, delete files and so on. In the plot pane you will see your graphs printed (like scatter plots, bar charts, etc.). In the help pane, as you can easily guess, you can get some very useful information about R and RStudio and the R language in general and in the Viewer tab more complex things are visualized, like for example <a href="https://plotly.com/r/">plotly</a> graphs.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
-<p>How to execute code?</p>
+<p>How to execute code in RStudio? If you are working from the console, it is simple. Just type the desired operation in the RStudio console and press enter. If you are working from the script instead there are several options. You can highlight the code you want to execute with the mouse and click the button <em>Run</em>.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image3"></span>
+<img src="images/image3.png" alt="Highlight your code with the mouse and execute it with the Run button." width="80%" height="30%" />
+<p class="caption">
+Figure 1.2: Highlight your code with the mouse and execute it with the Run button.
+</p>
+</div>
+<p>In alternative, if you want to run just one line of code, you can place the cursor at the end of the line that you wish to execute and then press <em>Run</em>. If you want to run all the code in a script, you can use the <em>Source</em> button. There are two options, <em>Source</em> and <em>Source with Echo</em>. If you just <em>Source</em> your script, you run your entire script but the code and the output of your code will not be printed in the console. If you <em>Source with Echo</em>, your code will be executed (just like with <em>Source</em>) but this time you will see your code and the output of your code printed in the console. It is up to you to decide when to use one or the other.</p>
 </div>
 <div id="basic-operations" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> Basic operations<a href="chapter1.html#basic-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We now start by looking at some very simple operations that can be performed in R. To begin with, R can be used to solve arithmetic operations, just like a normal calculator.</p>
+<p>We now start by looking at some very simple operations that can be performed in R. Before we begin, however, I would like to make a disclaimer. The list of operations and functions that we are going to see is not complete. When I say not complete I simply mean that what we are going to see in this section are by no means all the functions available in the R language. I have decided to focus our attention on a number of operations and functions that I believe are useful to our quantitative methods course for economists and that build the basis for more complex analysis. For those who want to learn more about R, the literature available nowadays is really large. I will provide some references as we go through the explanations in the various sections.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> Now back to our script.</p>
+<p>We start with the very basics. R can be used to solve arithmetic operations, just like a normal calculator.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chapter1.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>R includes standard mathematical functions such as the square root function, the exponential function and the logarithmic function.</p>
@@ -280,13 +288,13 @@ Figure 1.1: The four panes in RStudio.
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chapter1.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<p>With a left pointing arrow (a “small than” sign followed by a minus sign), <code>&lt;-</code>, we can assign a value to a variable. Here, for example, we assign the value 15 to the object <code>x</code>. In this case, the variable <code>x</code> is saved in the environment (pane 4 in Figure <a href="chapter1.html#fig:imageRStudio">1.1</a>).</p>
+<p>With a left pointing arrow <code>&lt;-</code> (a “smaller than” sign followed by a minus sign), we can assign a value to a variable. Here, for example, we assign the value 15 to the object <code>x</code>. In this case, the variable <code>x</code> is saved in the environment (pane 4 in Figure <a href="chapter1.html#fig:imageRStudio">1.1</a>).</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="chapter1.html#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">15</span></span>
 <span id="cb9-2"><a href="chapter1.html#cb9-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
 <p>To remove any variable from the environment, we can use the function <code>rm()</code> with the name of the variable that we wish to delete. Here, we delete the variable <code>x</code> that we have created above.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="chapter1.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x)</span></code></pre></div>
-<p>With the function <code>c()</code>, we can assign a series of value to a variable. The letter <code>c</code> stands for something like “concatenate”. The result is a vector.</p>
+<p>With the function <code>c()</code>, we can assign a series of value to a variable. The letter <code>c</code> stands for something like “concatenate”. The result will be a vector.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chapter1.html#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb12-2"><a href="chapter1.html#cb12-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
@@ -295,17 +303,17 @@ Figure 1.1: The four panes in RStudio.
 <p>With the function <code>ls</code>, we can print in the console the list of the variables that we have so far created.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chapter1.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;x&quot;</code></pre>
-<p>It is a good practice to start every new working session in R with an empty environment. This short piece of code remove all variables that we have so fare saved in the environment (not many in our case!). You could put something like this at the beginning of your R script so that each time you run the script previously created variables but also other objects like data and functions get deleted. Of course, it is up to you to figure out when it is appropriate to use such a function and when not.</p>
+<p>It is a good practice to start every new working session in R with an empty environment. This short piece of code remove all variables that we have so fare saved in the environment (not many in our case!). You could put something like this at the beginning of your R script so that each time you run the script previously created variables, but also other objects like data and functions, are deleted. Of course, it is up to you to figure out when it is appropriate to use such a function and when not.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="chapter1.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
-<p>R can also easily creates sequences of numbers. There are two ways. The first is by using the colon operator <code>:</code>. In the following example, we are creating a series of integers from 1 to 10.</p>
+<p>In R you can easily creates sequences of numbers. There are two simple ways. The first is by using the colon operator <code>:</code>. In the following example, we are creating a series of integers from 1 to 10.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chapter1.html#cb19-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
 <span id="cb19-2"><a href="chapter1.html#cb19-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>The second way is by using the <code>seq</code> function. With the <code>seq</code> function, you can specify the beginning (<code>from</code>), the end (<code>to</code>) and the increment (<code>by</code>) of the sequence of numbers.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+<p>The second is by using the <code>seq</code> function. With the <code>seq</code> function, you can specify the beginning (<code>from</code>), the end (<code>to</code>) and the increment (<code>by</code>) of the sequence of numbers.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chapter1.html#cb21-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
 <span id="cb21-2"><a href="chapter1.html#cb21-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>We can also generate random numbers from a normal distribution specifying mean and standard deviation (more on the normal distribution in Part II). The <code>set.seed</code> function allows us to generate the same numbers. This means that if you and I have the same seed, we will generate the same set of random numbers.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
+<p>We can also generate random numbers from a normal distribution specifying mean and standard deviation (more on the normal distribution in Part II). The <code>set.seed</code> function allows us to generate the same “random” numbers. This means that if you and I have the same seed, we will generate the same set of random numbers.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chapter1.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb23-2"><a href="chapter1.html#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="chapter1.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code></pre></div>
@@ -314,40 +322,45 @@ Figure 1.1: The four panes in RStudio.
 <p>A very important function in R is the <code>length</code> function. The <code>length</code> function comes in handy in a number of situations. Essentially, it tells us the number of elements in a vector (but also other types of objects). We can now use the <code>length</code> function with a sequence of numbers from 1 to 10 increasing by 0.1 generated using the <code>seq</code> function. How long is this vector?</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chapter1.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="fl">0.1</span>))</span></code></pre></div>
 <pre><code>## [1] 91</code></pre>
-<p>R also includes all the fundamental types of operators like arithmetic, relational and logical operators. Arithmetic operators are what we remember from school, like <code>+ - * /</code>. Power elevation is done with the <code>^</code> sign.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chapter1.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<p>Two other functions that come in handy on numerous occasions are <code>min()</code> and <code>max()</code>. As you can guess, the two functions are used to find the minimum and maximum value, respectively, of some input values. Let us look at two very simple examples.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chapter1.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(<span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">10</span>))</span></code></pre></div>
+<pre><code>## [1] -21.8004</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chapter1.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">10</span>))</span></code></pre></div>
+<pre><code>## [1] 30.43766</code></pre>
+<p>R also includes all the fundamental types of operators like arithmetic, relational and logical operators. Arithmetic operators are exactely what we remember from school, like <code>+ - * /</code>. Power elevation is done with the <code>^</code> sign.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chapter1.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 25</code></pre>
 <p>Relational operators are used to compare values. They are kind of making a question to R where the response will be a “true or false” judgement.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chapter1.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">&gt;=</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chapter1.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">&gt;=</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chapter1.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">99</span> <span class="sc">&gt;</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="chapter1.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dv">99</span> <span class="sc">&gt;</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<p>With the double equal operator <code>==</code>, we are asking R if two expressions are equal to each other.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chapter1.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">4</span></span></code></pre></div>
+<p>With the double equal operator <code>==</code>, we are asking R if two expressions are equal to each other.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="chapter1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">4</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>The operator <code>!</code> is the negation operator. It can be read as <strong>NOT</strong>. With the following expression, we are asking R if 99 is <strong>NOT</strong> equal to 100.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="chapter1.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dv">99</span> <span class="sc">!=</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="chapter1.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dv">99</span> <span class="sc">!=</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Here, we are asking if 1 is <strong>NOT</strong> equal to 1.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="chapter1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(<span class="dv">1</span><span class="sc">==</span><span class="dv">1</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chapter1.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(<span class="dv">1</span><span class="sc">==</span><span class="dv">1</span>) </span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>In R we also find the classical logical operators, like <code>&amp;</code> and <code>|</code>. The operator <code>|</code> asks if at least one expressions is true. The operator <code>|</code> can be read as <strong>OR</strong>. The following expression asks if 1 is equal to 1 <strong>OR</strong> 2 is equal to 3. It will return true if at least one of the two expressions is correct.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="chapter1.html#cb39-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">==</span><span class="dv">1</span>) <span class="sc">|</span> (<span class="dv">2</span><span class="sc">==</span><span class="dv">3</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chapter1.html#cb43-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">==</span><span class="dv">1</span>) <span class="sc">|</span> (<span class="dv">2</span><span class="sc">==</span><span class="dv">3</span>) </span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>The operator <code>&amp;</code> (read <strong>AND</strong>) returns true when all expressions are true. The following expression asks if 1 is equal to 1 <strong>AND</strong> 2 is equal to 3.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chapter1.html#cb41-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">==</span><span class="dv">1</span>) <span class="sc">&amp;</span> (<span class="dv">2</span><span class="sc">==</span><span class="dv">3</span>) <span class="sc">&amp;</span> <span class="cn">TRUE</span> <span class="sc">==</span> <span class="cn">FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="chapter1.html#cb45-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">==</span><span class="dv">1</span>) <span class="sc">&amp;</span> (<span class="dv">2</span><span class="sc">==</span><span class="dv">3</span>) <span class="sc">&amp;</span> <span class="cn">TRUE</span> <span class="sc">==</span> <span class="cn">FALSE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Before concluding this section, we need to discuss briefly what in R is called the “recycling rule”. This could help avoiding some bad surprises when working in R. What happens when we add two vectors together? If the two vectors have the same length, R will simply perform an the element-by-element sum. If the two vectors are a multiple of each other, the elements of the shorter vector will be “recycled” to match the length of the longer vector.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chapter1.html#cb43-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)  </span>
-<span id="cb43-2"><a href="chapter1.html#cb43-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>) </span>
-<span id="cb43-3"><a href="chapter1.html#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="chapter1.html#cb43-4" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="chapter1.html#cb47-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)  </span>
+<span id="cb47-2"><a href="chapter1.html#cb47-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>) </span>
+<span id="cb47-3"><a href="chapter1.html#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="chapter1.html#cb47-4" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
 <pre><code>## [1] 2 4 4 6 6 8</code></pre>
 <p>As you can see from the output above, R does not give us any warning messages about the recycling rule. On the contrary, when we sum two vectors where the shorter vector is not a multiple of the longer vector, R will give us a warning message but the recycling rule will be applied anyway.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="chapter1.html#cb45-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)  </span>
-<span id="cb45-2"><a href="chapter1.html#cb45-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) </span>
-<span id="cb45-3"><a href="chapter1.html#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-4"><a href="chapter1.html#cb45-4" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="chapter1.html#cb49-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)  </span>
+<span id="cb49-2"><a href="chapter1.html#cb49-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) </span>
+<span id="cb49-3"><a href="chapter1.html#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="chapter1.html#cb49-4" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
 <pre><code>## [1] 2 4 4 6 6</code></pre>
 </div>
 <div id="basic-data-structures" class="section level2 hasAnchor" number="1.4">
@@ -356,66 +369,66 @@ Figure 1.1: The four panes in RStudio.
 </div>
 <div id="if-else-statement" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> if else statement<a href="chapter1.html#if-else-statement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The statistical language R includes the traditional <code>if else</code> statement. Let us make a simple example.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> The object <code>x</code> takes the value 10. The object <code>y</code> takes the value 2. If <code>x</code> is smaller or equal <code>y</code>, R prints the sentence <code>"x is smaller or equal y"</code> in the console, otherwise it prints <code>"x is larger than y"</code>. Pretty straightforward.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="chapter1.html#cb47-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb47-2"><a href="chapter1.html#cb47-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb47-3"><a href="chapter1.html#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="chapter1.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;=</span> y) {</span>
-<span id="cb47-5"><a href="chapter1.html#cb47-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-6"><a href="chapter1.html#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is smaller or equal y&quot;</span>)</span>
-<span id="cb47-7"><a href="chapter1.html#cb47-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-8"><a href="chapter1.html#cb47-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb47-9"><a href="chapter1.html#cb47-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb47-10"><a href="chapter1.html#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is larger than y&quot;</span>)</span>
-<span id="cb47-11"><a href="chapter1.html#cb47-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-12"><a href="chapter1.html#cb47-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The statistical language R includes the traditional <code>if else</code> statement. Let us make a simple example.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> The object <code>x</code> takes the value 10. The object <code>y</code> takes the value 2. If <code>x</code> is smaller or equal <code>y</code>, R prints the sentence <code>"x is smaller or equal y"</code> in the console, otherwise it prints <code>"x is larger than y"</code>. Pretty straightforward.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="chapter1.html#cb51-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb51-2"><a href="chapter1.html#cb51-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb51-3"><a href="chapter1.html#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="chapter1.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;=</span> y) {</span>
+<span id="cb51-5"><a href="chapter1.html#cb51-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-6"><a href="chapter1.html#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is smaller or equal y&quot;</span>)</span>
+<span id="cb51-7"><a href="chapter1.html#cb51-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-8"><a href="chapter1.html#cb51-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb51-9"><a href="chapter1.html#cb51-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-10"><a href="chapter1.html#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is larger than y&quot;</span>)</span>
+<span id="cb51-11"><a href="chapter1.html#cb51-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-12"><a href="chapter1.html#cb51-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is larger than y&quot;</code></pre>
-<p>An alternative version of the <code>if else</code> statement is the <code>ifelse()</code> function. It essentially does the same thing but in a vectorised fashion. Here, we apply the <code>ifelse()</code> function to a vector of random numbers created with <code>rnorm</code>. Then, we ask if each element in the vector <code>x</code> is smaller or equal to zero or larger than zero. The vector with the corresponding results will be printed in the console.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a></p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="chapter1.html#cb49-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb49-2"><a href="chapter1.html#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="chapter1.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(x <span class="sc">&lt;=</span> <span class="dv">0</span>, <span class="st">&quot;x is smaller or equal zero&quot;</span>, <span class="st">&quot;x is larger than zero&quot;</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;x is smaller or equal zero&quot; &quot;x is smaller or equal zero&quot;
-##  [3] &quot;x is smaller or equal zero&quot; &quot;x is larger than zero&quot;     
-##  [5] &quot;x is larger than zero&quot;      &quot;x is smaller or equal zero&quot;
+<p>An alternative version of the <code>if else</code> statement is the <code>ifelse()</code> function. It essentially does the same thing but in a vectorised fashion. Here, we apply the <code>ifelse()</code> function to a vector of random numbers created with <code>rnorm</code>. Then, we ask if each element in the vector <code>x</code> is smaller or equal to zero or larger than zero. The vector with the corresponding results will be printed in the console.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="chapter1.html#cb53-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb53-2"><a href="chapter1.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="chapter1.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(x <span class="sc">&lt;=</span> <span class="dv">0</span>, <span class="st">&quot;x is smaller or equal zero&quot;</span>, <span class="st">&quot;x is larger than zero&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;x is larger than zero&quot;      &quot;x is smaller or equal zero&quot;
+##  [3] &quot;x is larger than zero&quot;      &quot;x is smaller or equal zero&quot;
+##  [5] &quot;x is smaller or equal zero&quot; &quot;x is larger than zero&quot;     
 ##  [7] &quot;x is smaller or equal zero&quot; &quot;x is smaller or equal zero&quot;
 ##  [9] &quot;x is smaller or equal zero&quot; &quot;x is larger than zero&quot;</code></pre>
 </div>
 <div id="for-loops" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> For loops<a href="chapter1.html#for-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To make it as short as possible, a loop is a piece of code that repeat operations over and over again, just as the name suggests. A <code>for loop</code> is a piece of code that tells the computer to perform a certain operation for every value or element in a variable <span class="citation">(<a href="#ref-Grolemund" role="doc-biblioref">Grolemund 2014</a>)</span>.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> An example is very much needed.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="chapter1.html#cb51-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb51-2"><a href="chapter1.html#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="chapter1.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
-<span id="cb51-4"><a href="chapter1.html#cb51-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-5"><a href="chapter1.html#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Hello&quot;</span>)</span>
-<span id="cb51-6"><a href="chapter1.html#cb51-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-7"><a href="chapter1.html#cb51-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>To make it as short as possible, a loop is a piece of code that repeat operations over and over again, just as the name suggests. A <code>for loop</code> is a piece of code that tells the computer to perform a certain operation for every value or element in a variable <span class="citation">(<a href="#ref-Grolemund" role="doc-biblioref">Grolemund 2014</a>)</span>.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> An example is very much needed.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="chapter1.html#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb55-2"><a href="chapter1.html#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="chapter1.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb55-4"><a href="chapter1.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb55-5"><a href="chapter1.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Hello&quot;</span>)</span>
+<span id="cb55-6"><a href="chapter1.html#cb55-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb55-7"><a href="chapter1.html#cb55-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Hello&quot;
 ## [1] &quot;Hello&quot;
 ## [1] &quot;Hello&quot;
 ## [1] &quot;Hello&quot;
 ## [1] &quot;Hello&quot;</code></pre>
 <p>What happened? The for loop has printed the word <code>"Hello"</code> five times. First of all, we have defined the variable <code>x</code> which is a sequence of integer numbers between 1 and 5. Then, we have told R to print the word <code>"Hello"</code> for every <code>i</code> (i.e. every element) in <code>x</code>, which is just a sequence of numbers of five elements. The same operations is repeated five times. We could have done the same thing by looping over a character vector with five elements, like for example the first five days of the week. The results would have been the same.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="chapter1.html#cb53-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Monday&quot;</span>, <span class="st">&quot;Tueasday&quot;</span>, <span class="st">&quot;Wednesday&quot;</span>, <span class="st">&quot;Thursday&quot;</span>, <span class="st">&quot;Friday&quot;</span>)</span>
-<span id="cb53-2"><a href="chapter1.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-3"><a href="chapter1.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
-<span id="cb53-4"><a href="chapter1.html#cb53-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb53-5"><a href="chapter1.html#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Hello&quot;</span>)</span>
-<span id="cb53-6"><a href="chapter1.html#cb53-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb53-7"><a href="chapter1.html#cb53-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="chapter1.html#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Monday&quot;</span>, <span class="st">&quot;Tueasday&quot;</span>, <span class="st">&quot;Wednesday&quot;</span>, <span class="st">&quot;Thursday&quot;</span>, <span class="st">&quot;Friday&quot;</span>)</span>
+<span id="cb57-2"><a href="chapter1.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="chapter1.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb57-4"><a href="chapter1.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-5"><a href="chapter1.html#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Hello&quot;</span>)</span>
+<span id="cb57-6"><a href="chapter1.html#cb57-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-7"><a href="chapter1.html#cb57-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Hello&quot;
 ## [1] &quot;Hello&quot;
 ## [1] &quot;Hello&quot;
 ## [1] &quot;Hello&quot;
 ## [1] &quot;Hello&quot;</code></pre>
 <p>R will automatically assign the numbers or character values to the index <code>i</code> in each run of the loop. This is very useful. The index <code>i</code> can be used as a normal variable within the body of the loop to perform any type of operations, as math calculations and vector indexing. Here, we raise every <code>i</code> from 1 to 5 to the second power.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="chapter1.html#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb55-2"><a href="chapter1.html#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-3"><a href="chapter1.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
-<span id="cb55-4"><a href="chapter1.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb55-5"><a href="chapter1.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb55-6"><a href="chapter1.html#cb55-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb55-7"><a href="chapter1.html#cb55-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="chapter1.html#cb59-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb59-2"><a href="chapter1.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="chapter1.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb59-4"><a href="chapter1.html#cb59-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb59-5"><a href="chapter1.html#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb59-6"><a href="chapter1.html#cb59-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb59-7"><a href="chapter1.html#cb59-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 4
 ## [1] 9
@@ -423,13 +436,13 @@ Figure 1.1: The four panes in RStudio.
 ## [1] 25</code></pre>
 <p>Actually, you have to know that the same operations could be performed without using the <code>for loop</code>. Some functions in R are so-called “vectorized”. This means that the function works automatically on all elements of a vector without the need of going through the loop element by element. This makes coding even easier. The previous problem could have been solved with a line of code, <code>print(x^2)</code>. However, the <code>for loop</code> comes in handy on many occasions so it is worth learning how it works.</p>
 <p>In the next example, we loop over the character vector containing the names of the first five days of the week. We now want R to combine the sentence “Today is” with every element, i.e. the names of the first five days of the week, stored in the vector <code>x</code>. We use the function <code>paste()</code> to combine our sentence “Today is” (which is the same all the time) with each single value that the index <code>i</code> will assume. The index <code>i</code> assumes in turn each single element of the character vector <code>x</code>.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="chapter1.html#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Monday&quot;</span>, <span class="st">&quot;Tueasday&quot;</span>, <span class="st">&quot;Wednesday&quot;</span>, <span class="st">&quot;Thursday&quot;</span>, <span class="st">&quot;Friday&quot;</span>)</span>
-<span id="cb57-2"><a href="chapter1.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-3"><a href="chapter1.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
-<span id="cb57-4"><a href="chapter1.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb57-5"><a href="chapter1.html#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Today is&quot;</span>, i))</span>
-<span id="cb57-6"><a href="chapter1.html#cb57-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb57-7"><a href="chapter1.html#cb57-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="chapter1.html#cb61-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Monday&quot;</span>, <span class="st">&quot;Tueasday&quot;</span>, <span class="st">&quot;Wednesday&quot;</span>, <span class="st">&quot;Thursday&quot;</span>, <span class="st">&quot;Friday&quot;</span>)</span>
+<span id="cb61-2"><a href="chapter1.html#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="chapter1.html#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb61-4"><a href="chapter1.html#cb61-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb61-5"><a href="chapter1.html#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Today is&quot;</span>, i))</span>
+<span id="cb61-6"><a href="chapter1.html#cb61-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb61-7"><a href="chapter1.html#cb61-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Today is Monday&quot;
 ## [1] &quot;Today is Tueasday&quot;
 ## [1] &quot;Today is Wednesday&quot;
@@ -442,105 +455,105 @@ We now want to calculate how the value of our initial deposit of 1€ evolves ov
 <span class="math display">\[A_2 = P  (1 + r)^2\]</span>
 <span class="math display">\[...\]</span>
 <span class="math display">\[A_{100} = P  (1 + r)^{100}\]</span></p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="chapter1.html#cb59-1" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb59-2"><a href="chapter1.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="chapter1.html#cb59-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">numeric</span>(years)</span>
-<span id="cb59-4"><a href="chapter1.html#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-5"><a href="chapter1.html#cb59-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
-<span id="cb59-6"><a href="chapter1.html#cb59-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-7"><a href="chapter1.html#cb59-7" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb59-8"><a href="chapter1.html#cb59-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-9"><a href="chapter1.html#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years) {</span>
-<span id="cb59-10"><a href="chapter1.html#cb59-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb59-11"><a href="chapter1.html#cb59-11" aria-hidden="true" tabindex="-1"></a>    A[t] <span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> r)<span class="sc">^</span>t</span>
-<span id="cb59-12"><a href="chapter1.html#cb59-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb59-13"><a href="chapter1.html#cb59-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>All is left to do is to plot the data using the <code>plot()</code> function. The arguments of the <code>plot()</code> function are almost self-explanatory. Input <code>x</code> and <code>y</code> take a series of numerical values (of equal length) for the horizontal and vertical axis, respectively. With <code>xlim</code> and <code>ylim</code>, we set the range of the axis. We can see that the x-axis will go from 1 to 100, i.e. from 1 to <code>years</code> and that the y-axis will go from 1 to the largest value of the vector <code>A</code> found using the function <code>max()</code>. The argument <code>type</code> will set the type of plot desired. Here, <code>l</code> stands for “line”. The argument <code>col</code> will determine the color of the line, the argument <code>main</code> the title of the plot, and finally the arguments <code>xlab</code> and <code>ylab</code> the labels of the horizontal and vertical axis.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="chapter1.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span>years,</span>
-<span id="cb60-2"><a href="chapter1.html#cb60-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> A,</span>
-<span id="cb60-3"><a href="chapter1.html#cb60-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>, years), </span>
-<span id="cb60-4"><a href="chapter1.html#cb60-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">max</span>(A)),</span>
-<span id="cb60-5"><a href="chapter1.html#cb60-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, </span>
-<span id="cb60-6"><a href="chapter1.html#cb60-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>,</span>
-<span id="cb60-7"><a href="chapter1.html#cb60-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Compound interest&quot;</span>, </span>
-<span id="cb60-8"><a href="chapter1.html#cb60-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, </span>
-<span id="cb60-9"><a href="chapter1.html#cb60-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Euro&quot;</span>)</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-31-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="chapter1.html#cb63-1" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb63-2"><a href="chapter1.html#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-3"><a href="chapter1.html#cb63-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">numeric</span>(years)</span>
+<span id="cb63-4"><a href="chapter1.html#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-5"><a href="chapter1.html#cb63-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb63-6"><a href="chapter1.html#cb63-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-7"><a href="chapter1.html#cb63-7" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb63-8"><a href="chapter1.html#cb63-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-9"><a href="chapter1.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years) {</span>
+<span id="cb63-10"><a href="chapter1.html#cb63-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb63-11"><a href="chapter1.html#cb63-11" aria-hidden="true" tabindex="-1"></a>    A[t] <span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> r)<span class="sc">^</span>t</span>
+<span id="cb63-12"><a href="chapter1.html#cb63-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb63-13"><a href="chapter1.html#cb63-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>All is left to do is to plot the data using the <code>plot()</code> function. The arguments of the <code>plot()</code> function are almost self-explanatory. Input <code>x</code> and <code>y</code> take a series of numerical values (of equal length) for the horizontal and vertical axis, respectively. With <code>xlim</code> and <code>ylim</code>, we set the range of the axis. We can see that the x-axis will go from 1 to 100, i.e. from 1 to <code>years</code> and that the y-axis will go from 1 to the largest value of the vector <code>A</code> found using the function <code>max()</code>. The argument <code>type</code> will set the type of plot desired. Here, <code>l</code> stands for “line”. The argument <code>col</code> will determine the color of the line, the argument <code>main</code> the title of the plot, and finally the arguments <code>xlab</code> and <code>ylab</code> the labels of the horizontal and vertical axis.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="chapter1.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span>years,</span>
+<span id="cb64-2"><a href="chapter1.html#cb64-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> A,</span>
+<span id="cb64-3"><a href="chapter1.html#cb64-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>, years), </span>
+<span id="cb64-4"><a href="chapter1.html#cb64-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">max</span>(A)),</span>
+<span id="cb64-5"><a href="chapter1.html#cb64-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, </span>
+<span id="cb64-6"><a href="chapter1.html#cb64-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb64-7"><a href="chapter1.html#cb64-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Compound interests&quot;</span>, </span>
+<span id="cb64-8"><a href="chapter1.html#cb64-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, </span>
+<span id="cb64-9"><a href="chapter1.html#cb64-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Euro&quot;</span>)</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-32-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="nested-loops" class="section level2 hasAnchor" number="1.7">
 <h2><span class="header-section-number">1.7</span> Nested loops<a href="chapter1.html#nested-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can nest loops within other loops. Here, we expand the previous example creating some alternative scenarios with different interest rates. The first <code>for loop</code> (index <code>t</code>) deals with repetitions over time, just as in the previous example. The second <code>for loop</code>, allows us to simulate different scenarios using different assumptions about the interest rate. As you can see, we have created a vector <code>r</code> with three different rates of interest (1%, 2% and 3%). This time, we will save our data in a matrix called <code>A</code>. Why in a matrix and not in a vector? Because matrices have tow dimensions, columns and rows, as we have seen above. The rows of the matrix will be the time dimensions of the simulation while the columns will correspond to the scenarios.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="chapter1.html#cb61-1" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb61-2"><a href="chapter1.html#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-3"><a href="chapter1.html#cb61-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="fl">0.03</span>)</span>
-<span id="cb61-4"><a href="chapter1.html#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-5"><a href="chapter1.html#cb61-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> years, <span class="at">ncol =</span> <span class="fu">length</span>(r), <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb61-6"><a href="chapter1.html#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-7"><a href="chapter1.html#cb61-7" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb61-8"><a href="chapter1.html#cb61-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-9"><a href="chapter1.html#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years) {</span>
-<span id="cb61-10"><a href="chapter1.html#cb61-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb61-11"><a href="chapter1.html#cb61-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(r)) {</span>
-<span id="cb61-12"><a href="chapter1.html#cb61-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb61-13"><a href="chapter1.html#cb61-13" aria-hidden="true" tabindex="-1"></a>    A[t,s] <span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> r[s])<span class="sc">^</span>t</span>
-<span id="cb61-14"><a href="chapter1.html#cb61-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb61-15"><a href="chapter1.html#cb61-15" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb61-16"><a href="chapter1.html#cb61-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb61-17"><a href="chapter1.html#cb61-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>To make the code more elegant and concise, we can use a simple loop to include the three scenarios in the plot. First, we must open a plot without the inputs for the variable <code>x</code> and <code>y</code>. As you can see, we have included the word <code>NULL</code> instead of <code>x</code> and <code>y</code>.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> We then code the rest of the plot as we did above. What would be the alternative? The alternative would be to repeat the <code>lines</code> function three times, each time using the desired scenario as input, e.g. <code>A[,1]</code> and so on (or to include the first scenario directly in the plot and then use two times the <code>lines</code> function). Note that the color will also depend on the index of the loop (<code>l</code>) and therefore on the scenario as we want a different color for each scenario (see <code>col = l</code>). In this case, the colors will picked by following the default order of colors palette in the <code>plot()</code> function.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="chapter1.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NULL</span>, </span>
-<span id="cb62-2"><a href="chapter1.html#cb62-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(A)), </span>
-<span id="cb62-3"><a href="chapter1.html#cb62-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">max</span>(A)),</span>
-<span id="cb62-4"><a href="chapter1.html#cb62-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Compound interest&quot;</span>, </span>
-<span id="cb62-5"><a href="chapter1.html#cb62-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, </span>
-<span id="cb62-6"><a href="chapter1.html#cb62-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Euro&quot;</span>)</span>
-<span id="cb62-7"><a href="chapter1.html#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-8"><a href="chapter1.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (l <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(A)) {</span>
-<span id="cb62-9"><a href="chapter1.html#cb62-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(A[,l], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> l)</span>
-<span id="cb62-10"><a href="chapter1.html#cb62-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-33-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="chapter1.html#cb65-1" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb65-2"><a href="chapter1.html#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="chapter1.html#cb65-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="fl">0.03</span>)</span>
+<span id="cb65-4"><a href="chapter1.html#cb65-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-5"><a href="chapter1.html#cb65-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> years, <span class="at">ncol =</span> <span class="fu">length</span>(r), <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb65-6"><a href="chapter1.html#cb65-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-7"><a href="chapter1.html#cb65-7" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb65-8"><a href="chapter1.html#cb65-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-9"><a href="chapter1.html#cb65-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>years) {</span>
+<span id="cb65-10"><a href="chapter1.html#cb65-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-11"><a href="chapter1.html#cb65-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(r)) {</span>
+<span id="cb65-12"><a href="chapter1.html#cb65-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb65-13"><a href="chapter1.html#cb65-13" aria-hidden="true" tabindex="-1"></a>    A[t,s] <span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> r[s])<span class="sc">^</span>t</span>
+<span id="cb65-14"><a href="chapter1.html#cb65-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb65-15"><a href="chapter1.html#cb65-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb65-16"><a href="chapter1.html#cb65-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-17"><a href="chapter1.html#cb65-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>To make the code more elegant and concise, we can use a simple loop to include the three scenarios in the plot. First, we must open a plot without the inputs for the variable <code>x</code> and <code>y</code>. As you can see, we have included the word <code>NULL</code> instead of <code>x</code> and <code>y</code>.<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a> We then code the rest of the plot as we did above. What would be the alternative? The alternative would be to repeat the <code>lines</code> function three times, each time using the desired scenario as input, e.g. <code>A[,1]</code> and so on (or to include the first scenario directly in the plot and then use two times the <code>lines</code> function). Note that the color will also depend on the index of the loop (<code>l</code>) and therefore on the scenario as we want a different color for each scenario (see <code>col = l</code>). In this case, the colors will picked by following the default order of colors palette in the <code>plot()</code> function.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="chapter1.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NULL</span>, </span>
+<span id="cb66-2"><a href="chapter1.html#cb66-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(A)), </span>
+<span id="cb66-3"><a href="chapter1.html#cb66-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">max</span>(A)),</span>
+<span id="cb66-4"><a href="chapter1.html#cb66-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Compound interests&quot;</span>, </span>
+<span id="cb66-5"><a href="chapter1.html#cb66-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, </span>
+<span id="cb66-6"><a href="chapter1.html#cb66-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Euro&quot;</span>)</span>
+<span id="cb66-7"><a href="chapter1.html#cb66-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-8"><a href="chapter1.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (l <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(A)) {</span>
+<span id="cb66-9"><a href="chapter1.html#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(A[,l], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> l)</span>
+<span id="cb66-10"><a href="chapter1.html#cb66-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-34-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="simple-functions" class="section level2 hasAnchor" number="1.8">
 <h2><span class="header-section-number">1.8</span> Simple functions<a href="chapter1.html#simple-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Small but important digression. The word <code>function</code> is a reserved word. A reserved word is a word that you cannot use to give names to your objects. You may find a list of reserved words in the R Documentation. Take a look <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> if you want.<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="chapter1.html#cb63-1" aria-hidden="true" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) x<span class="sc">^</span>y </span>
-<span id="cb63-2"><a href="chapter1.html#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-3"><a href="chapter1.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p>Small but important digression. The word <code>function</code> is a reserved word. A reserved word is a word that you cannot use to give names to your objects. You may find a list of reserved words in the R Documentation. Take a look <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> if you want.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="chapter1.html#cb67-1" aria-hidden="true" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) x<span class="sc">^</span>y </span>
+<span id="cb67-2"><a href="chapter1.html#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="chapter1.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 25</code></pre>
 <p>Putting everything together</p>
 <p>Let us now try to write a function that put together all the things we did in the previous paragraphs, namely creating the placeholders, running the loop and generating a plot.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="chapter1.html#cb65-1" aria-hidden="true" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(time, scenarios) {</span>
-<span id="cb65-2"><a href="chapter1.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb65-3"><a href="chapter1.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> scenarios</span>
-<span id="cb65-4"><a href="chapter1.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb65-5"><a href="chapter1.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> time, <span class="at">ncol =</span> <span class="fu">length</span>(r), <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb65-6"><a href="chapter1.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb65-7"><a href="chapter1.html#cb65-7" aria-hidden="true" tabindex="-1"></a>  P <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb65-8"><a href="chapter1.html#cb65-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-9"><a href="chapter1.html#cb65-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>time) {</span>
-<span id="cb65-10"><a href="chapter1.html#cb65-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb65-11"><a href="chapter1.html#cb65-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(r)) {</span>
-<span id="cb65-12"><a href="chapter1.html#cb65-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb65-13"><a href="chapter1.html#cb65-13" aria-hidden="true" tabindex="-1"></a>      A[t,s] <span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> r[s])<span class="sc">^</span>t</span>
-<span id="cb65-14"><a href="chapter1.html#cb65-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb65-15"><a href="chapter1.html#cb65-15" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb65-16"><a href="chapter1.html#cb65-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb65-17"><a href="chapter1.html#cb65-17" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb65-18"><a href="chapter1.html#cb65-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-19"><a href="chapter1.html#cb65-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="cn">NULL</span>, </span>
-<span id="cb65-20"><a href="chapter1.html#cb65-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(A)), </span>
-<span id="cb65-21"><a href="chapter1.html#cb65-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">max</span>(A)),</span>
-<span id="cb65-22"><a href="chapter1.html#cb65-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Compound interest&quot;</span>, </span>
-<span id="cb65-23"><a href="chapter1.html#cb65-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, </span>
-<span id="cb65-24"><a href="chapter1.html#cb65-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Euro&quot;</span>)</span>
-<span id="cb65-25"><a href="chapter1.html#cb65-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-26"><a href="chapter1.html#cb65-26" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (l <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(A)) {</span>
-<span id="cb65-27"><a href="chapter1.html#cb65-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(A[,l], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> l)</span>
-<span id="cb65-28"><a href="chapter1.html#cb65-28" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb65-29"><a href="chapter1.html#cb65-29" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb65-30"><a href="chapter1.html#cb65-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="chapter1.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="at">time =</span> <span class="dv">10</span>, <span class="at">scenarios =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.1</span>))</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-36-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="chapter1.html#cb69-1" aria-hidden="true" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(time, scenarios) {</span>
+<span id="cb69-2"><a href="chapter1.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb69-3"><a href="chapter1.html#cb69-3" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> scenarios</span>
+<span id="cb69-4"><a href="chapter1.html#cb69-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb69-5"><a href="chapter1.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> time, <span class="at">ncol =</span> <span class="fu">length</span>(r), <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb69-6"><a href="chapter1.html#cb69-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb69-7"><a href="chapter1.html#cb69-7" aria-hidden="true" tabindex="-1"></a>  P <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb69-8"><a href="chapter1.html#cb69-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-9"><a href="chapter1.html#cb69-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>time) {</span>
+<span id="cb69-10"><a href="chapter1.html#cb69-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb69-11"><a href="chapter1.html#cb69-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(r)) {</span>
+<span id="cb69-12"><a href="chapter1.html#cb69-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb69-13"><a href="chapter1.html#cb69-13" aria-hidden="true" tabindex="-1"></a>      A[t,s] <span class="ot">&lt;-</span> P <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> r[s])<span class="sc">^</span>t</span>
+<span id="cb69-14"><a href="chapter1.html#cb69-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb69-15"><a href="chapter1.html#cb69-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb69-16"><a href="chapter1.html#cb69-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb69-17"><a href="chapter1.html#cb69-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb69-18"><a href="chapter1.html#cb69-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-19"><a href="chapter1.html#cb69-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="cn">NULL</span>, </span>
+<span id="cb69-20"><a href="chapter1.html#cb69-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(A)), </span>
+<span id="cb69-21"><a href="chapter1.html#cb69-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">max</span>(A)),</span>
+<span id="cb69-22"><a href="chapter1.html#cb69-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Compound interests&quot;</span>, </span>
+<span id="cb69-23"><a href="chapter1.html#cb69-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Year&quot;</span>, </span>
+<span id="cb69-24"><a href="chapter1.html#cb69-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Euro&quot;</span>)</span>
+<span id="cb69-25"><a href="chapter1.html#cb69-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-26"><a href="chapter1.html#cb69-26" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (l <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(A)) {</span>
+<span id="cb69-27"><a href="chapter1.html#cb69-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(A[,l], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> l)</span>
+<span id="cb69-28"><a href="chapter1.html#cb69-28" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb69-29"><a href="chapter1.html#cb69-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb69-30"><a href="chapter1.html#cb69-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="chapter1.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_fun</span>(<span class="at">time =</span> <span class="dv">10</span>, <span class="at">scenarios =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.1</span>))</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-37-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 <p>Pretty cool, isn’t it?</p>
 
 </div>
@@ -553,32 +566,38 @@ Grolemund, G. 2014. <em>Hands-on Programming with r</em>. Sebastopol, California
 <div id="ref-Ihaka" class="csl-entry">
 Ihaka, R., and R. Gentleman. 1996. <span>“R: A Language for Data Analysis and Graphics.”</span> <em>Journal of Computational and Graphical Statistics</em> 5 (3): 299–314.
 </div>
+<div id="ref-Matloff" class="csl-entry">
+Matloff, N. 2011. <em>The Art of r Programming : Tour of Statistical Software Design</em>. San Francisco, California: no starch press.
+</div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
 <li id="fn1"><p>For an interesting but a bit technical presentation of the R language see the article “R: A language for data analysis and graphics” written by the two founders of R, Ross Ihaka and Robert Gentleman <span class="citation">(<a href="#ref-Ihaka" role="doc-biblioref">Ihaka and Gentleman 1996</a>)</span>.<a href="chapter1.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>I personally have only used RStudio Desktop Open Source Edition.<a href="chapter1.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>In this text we do not have time to introduce to these two great R packages. However, I highly recommend seeing what they are all about.<a href="chapter1.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Note that from now on we will use the term R for simplicity but we are actually talking about using R within RStudio.<a href="chapter1.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>We do not have time to talk about these two packages but I highly recommend you to take a look.<a href="chapter1.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>From now on, we will use the term R for simplicity but we are actually talking about using R within RStudio.<a href="chapter1.html#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p>The interface of RStudio is very flexible. It can be modified easily, such as changing the order of panes or excluding some of them. So the order of the panes that you see here can be changed quite simply.<a href="chapter1.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>you can also re-execute your code from the console using the un and down arrows of the keyboard.<a href="chapter1.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>You can also navigate through the history directly from the console using the up and down arrows of your keyboard.<a href="chapter1.html#fnref6" class="footnote-back">↩︎</a></p></li>
 <li id="fn7"><p>We omit talking about the two remaining tabs.<a href="chapter1.html#fnref7" class="footnote-back">↩︎</a></p></li>
 <li id="fn8"><p>Take a look
 <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects">here</a> to know more about <em>projects</em> in RStudio.<a href="chapter1.html#fnref8" class="footnote-back">↩︎</a></p></li>
 <li id="fn9"><p><em>Plotly</em> is an R package named after the company Plotly that allows to make some very cool interactive charts. Some of the graphs in this book are made using this package.<a href="chapter1.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>If you want to know more about an R function and its arguments, use the help menu in the bottom-right pane (pane 4 in Figure <a href="chapter1.html#fig:imageRStudio">1.1</a>) or simply type in the console <code>?</code> followed by the name of the function, e.g. <code>?seq</code>. This will open the help menu at the right page.<a href="chapter1.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>This function is essential if we want someone else to be able to replicate the results of our simulations. This might be the case when we want to share our work with our fellow students and colleagues or with our thesis supervisor or when we want to publish a paper presenting some simulation work.<a href="chapter1.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>There are other mathematical operators in R, such as matrix multiplication <code>%*%</code>. We do not discuss this at the moment.<a href="chapter1.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>Be careful when using the double equal operator because the single equal sign <code>=</code> in R can be used as an assignment operator, e.g. <code>x = 5</code>. This is why I recommend using the assignment operator <code>&lt;-</code> rather than <code>=</code>.<a href="chapter1.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>Please note the spacing inside the body of the <code>if else</code> call as well as the placement of the curly brackets. It is important to keep your code tidy following some basic styling rule when coding in R (as in any other programming language). It is also critical that the <code>else</code> function is preceded by the closing curly bracket <code>}</code> otherwise the code will not work.<a href="chapter1.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>We will use this function later on in the text to create so-called dummy variables.<a href="chapter1.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>You may want to look at the chapter on loops in the excellent book titled <em>Hands-On Programming with R</em> by Garret Grolemund <span class="citation">(<a href="#ref-Grolemund" role="doc-biblioref">Grolemund 2014</a>)</span>, author of a series of amazing books about R and Data Scientist at RStudio. You can access the chapter <a href="https://rstudio-education.github.io/hopr/loops.html">here</a>. In the book, the author also describes other types of loops such as <code>while</code> and <code>repeat</code> loops something that we do not have time to cover here.<a href="chapter1.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>To see the complete list of arguments of the <code>plot()</code> function, type <code>?plot()</code> in the console.<a href="chapter1.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p><code>NULL</code> is a special object in R that stands for “nothing exists”. See this
-<a href="https://www.r-bloggers.com/2018/07/r-null-values-null-na-nan-inf/">post</a> from <em>r-bloggers.com</em>.<a href="chapter1.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p>Alternatively, you can create your own vector of colors. This is left to the reader as an exercise.<a href="chapter1.html#fnref19" class="footnote-back">↩︎</a></p></li>
-<li id="fn20"><p>Short story. One time my model was giving strange results and I couldn’t understand why. Then I realized that I was using the word <code>pi</code> to name the inflation variable. Try to type <code>pi</code> in the console. It is the mathematical constant <span class="math inline">\(\pi\)</span>. The tricky thing here is that you can temporarily assign other values to the object <code>pi</code> because it is not a reserved word, strictly speaking. It is rather a pre-stored constant. But you should never use name that are already assigned to name your own variables, e.g. never use <code>T</code> or <code>F</code>!<a href="chapter1.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>The keyboard shortcut for the run button is <em>Ctrl+Enter</em>. You can find
+<a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE">here</a> all keyboard shortcuts in RStudio for Windows, Linux and Mac. You can also find the list of shortcuts in the RStudio <em>Tool</em> menu.<a href="chapter1.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>A good book to start with the study of R is <em>The Art of R Programming</em> by Normal Matloff <span class="citation">(<a href="#ref-Matloff" role="doc-biblioref">Matloff 2011</a>)</span> but there are many many books available out there without counting other resources like YouTube videos and online courses.<a href="chapter1.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>If you want to know more about an R function and its arguments, use the help menu in the bottom-right pane (pane 4 in Figure <a href="chapter1.html#fig:imageRStudio">1.1</a>) or simply type in the console <code>?</code> followed by the name of the function, e.g. <code>?seq</code>. This will open the help menu at the right page.<a href="chapter1.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>This function is essential if we want someone else to be able to replicate the results of our simulations. This might be the case when we want to share our work with our fellow students or with our thesis supervisor.<a href="chapter1.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>There are other mathematical operators in R, such as matrix multiplication <code>%*%</code>. We do not discuss this at the moment.<a href="chapter1.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Be careful when using the double equal operator because the single equal sign <code>=</code> in R can be used as an assignment operator, e.g. <code>x = 5</code>. This is why I recommend using the assignment operator <code>&lt;-</code> rather than <code>=</code>.<a href="chapter1.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>Please note the spacing inside the body of the <code>if else</code> call as well as the placement of the curly brackets. It is important to keep your code tidy following some basic styling rule when coding in R (as in any other programming language). It is also critical that the <code>else</code> function is preceded by the closing curly bracket <code>}</code> otherwise the code will not work.<a href="chapter1.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>We will use this function later on in the text to create so-called dummy variables.<a href="chapter1.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>You may want to look at the chapter on loops in the book <em>Hands-On Programming with R</em> by Garret Grolemund <span class="citation">(<a href="#ref-Grolemund" role="doc-biblioref">Grolemund 2014</a>)</span>. Grolemund is the author of a series of amazing books about R. He is also a Data Scientist at the RStudio company. You can find the chapter <a href="https://rstudio-education.github.io/hopr/loops.html">here</a>. In the book, the author also describes other types of loops such as <code>while</code> and <code>repeat</code>, something that we do not have time to discuss here.<a href="chapter1.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>To see the complete list of arguments of the <code>plot()</code> function, type <code>?plot()</code> in the console.<a href="chapter1.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p><code>NULL</code> is a special object in R that stands for “nothing exists”. See this
+<a href="https://www.r-bloggers.com/2018/07/r-null-values-null-na-nan-inf/">post</a> from <em>r-bloggers.com</em>.<a href="chapter1.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>Alternatively, you can create your own vector of colors. This is left to the reader as an exercise.<a href="chapter1.html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p>Short story. One time my model was giving strange results and I couldn’t understand why. Then I realized that I was using the word <code>pi</code> to name the inflation variable. Try to type <code>pi</code> in the console. It is the mathematical constant <span class="math inline">\(\pi\)</span>. The tricky thing here is that you can temporarily assign other values to the object <code>pi</code> because it is not a reserved word, strictly speaking. It is rather a pre-stored constant. But you should never use name that are already assigned to name your own variables, e.g. never use <code>T</code> or <code>F</code>!<a href="chapter1.html#fnref22" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
