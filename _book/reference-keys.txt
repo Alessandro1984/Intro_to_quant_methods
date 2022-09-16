@@ -1,5 +1,8 @@
 fig:imageRStudio
 fig:image3
+fig:image4
+fig:image5
+eq:eq1
 fig:image1
 fig:image2
 tab:unnamed-chunk-72
