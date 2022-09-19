@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-16" />
+<meta name="date" content="2022-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -265,116 +265,116 @@ div.csl-indent {
 <div id="pulling-and-filtering-data" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Pulling and filtering data<a href="chapter3.html#pulling-and-filtering-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Where can we find the kind of macroeconomic data that we need for this exercise? For this exercise, the ideal choice turns out to be the AMECO database. From the <em>DBnomics</em> database directly into R.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> To do this, we will use of the <em>rdbnomics</em> package. After downloading the data, we should select only the variables we are interested in<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>, filter the years for which we are conducting the exercise, and create additional variables (if needed). To speed up operations, we can program a simple function that allows us to repeat the same operations for each of the demand components.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="chapter3.html#cb97-1" aria-hidden="true" tabindex="-1"></a>filter_function <span class="ot">&lt;-</span> <span class="cf">function</span>(series, <span class="at">name =</span> <span class="st">&quot;variable_name&quot;</span>) {</span>
-<span id="cb97-2"><a href="chapter3.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb97-3"><a href="chapter3.html#cb97-3" aria-hidden="true" tabindex="-1"></a>    df_x <span class="ot">&lt;-</span> <span class="fu">rdb</span>(<span class="at">ids =</span> series) <span class="sc">%&gt;%</span> </span>
-<span id="cb97-4"><a href="chapter3.html#cb97-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="st">&quot;original_period&quot;</span>,</span>
-<span id="cb97-5"><a href="chapter3.html#cb97-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;value&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb97-6"><a href="chapter3.html#cb97-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rename</span>(<span class="at">Year =</span> original_period) <span class="sc">%&gt;%</span> </span>
-<span id="cb97-7"><a href="chapter3.html#cb97-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2000</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb97-8"><a href="chapter3.html#cb97-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(Year, value)</span>
-<span id="cb97-9"><a href="chapter3.html#cb97-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb97-10"><a href="chapter3.html#cb97-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(df_x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>, name)</span>
-<span id="cb97-11"><a href="chapter3.html#cb97-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb97-12"><a href="chapter3.html#cb97-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df_x)</span>
-<span id="cb97-13"><a href="chapter3.html#cb97-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb97-14"><a href="chapter3.html#cb97-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="chapter3.html#cb109-1" aria-hidden="true" tabindex="-1"></a>filter_function <span class="ot">&lt;-</span> <span class="cf">function</span>(series, <span class="at">name =</span> <span class="st">&quot;variable_name&quot;</span>) {</span>
+<span id="cb109-2"><a href="chapter3.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb109-3"><a href="chapter3.html#cb109-3" aria-hidden="true" tabindex="-1"></a>    df_x <span class="ot">&lt;-</span> <span class="fu">rdb</span>(<span class="at">ids =</span> series) <span class="sc">%&gt;%</span> </span>
+<span id="cb109-4"><a href="chapter3.html#cb109-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="st">&quot;original_period&quot;</span>,</span>
+<span id="cb109-5"><a href="chapter3.html#cb109-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;value&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb109-6"><a href="chapter3.html#cb109-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rename</span>(<span class="at">Year =</span> original_period) <span class="sc">%&gt;%</span> </span>
+<span id="cb109-7"><a href="chapter3.html#cb109-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2000</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb109-8"><a href="chapter3.html#cb109-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(Year, value)</span>
+<span id="cb109-9"><a href="chapter3.html#cb109-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb109-10"><a href="chapter3.html#cb109-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(df_x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>, name)</span>
+<span id="cb109-11"><a href="chapter3.html#cb109-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb109-12"><a href="chapter3.html#cb109-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df_x)</span>
+<span id="cb109-13"><a href="chapter3.html#cb109-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb109-14"><a href="chapter3.html#cb109-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Gross domestic product at 2015 reference levels. An object called <code>df_Y</code> with 20 observations and 3 variables should appear in the environment.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="chapter3.html#cb98-1" aria-hidden="true" tabindex="-1"></a>df_Y <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OVGD/DEU.1.1.0.0.OVGD&quot;</span>,</span>
-<span id="cb98-2"><a href="chapter3.html#cb98-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;Y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="chapter3.html#cb110-1" aria-hidden="true" tabindex="-1"></a>df_Y <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OVGD/DEU.1.1.0.0.OVGD&quot;</span>,</span>
+<span id="cb110-2"><a href="chapter3.html#cb110-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;Y&quot;</span>)</span></code></pre></div>
 <p>Private final consumption expenditure at 2015 prices.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="chapter3.html#cb99-1" aria-hidden="true" tabindex="-1"></a>df_C <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OCPH/DEU.1.1.0.0.OCPH&quot;</span>,</span>
-<span id="cb99-2"><a href="chapter3.html#cb99-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;C&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="chapter3.html#cb111-1" aria-hidden="true" tabindex="-1"></a>df_C <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OCPH/DEU.1.1.0.0.OCPH&quot;</span>,</span>
+<span id="cb111-2"><a href="chapter3.html#cb111-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;C&quot;</span>)</span></code></pre></div>
 <p>Final consumption expenditure of general government at 2015 prices.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="chapter3.html#cb100-1" aria-hidden="true" tabindex="-1"></a>df_G <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OCTG/DEU.1.1.0.0.OCTG&quot;</span>,</span>
-<span id="cb100-2"><a href="chapter3.html#cb100-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;G&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="chapter3.html#cb112-1" aria-hidden="true" tabindex="-1"></a>df_G <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OCTG/DEU.1.1.0.0.OCTG&quot;</span>,</span>
+<span id="cb112-2"><a href="chapter3.html#cb112-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;G&quot;</span>)</span></code></pre></div>
 <p>Gross capital formation at 2015 prices: total economy. Investment including stocks.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="chapter3.html#cb101-1" aria-hidden="true" tabindex="-1"></a>df_I <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OITT/DEU.1.1.0.0.OITT&quot;</span>,</span>
-<span id="cb101-2"><a href="chapter3.html#cb101-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">name =</span> <span class="st">&quot;I&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="chapter3.html#cb113-1" aria-hidden="true" tabindex="-1"></a>df_I <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OITT/DEU.1.1.0.0.OITT&quot;</span>,</span>
+<span id="cb113-2"><a href="chapter3.html#cb113-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">name =</span> <span class="st">&quot;I&quot;</span>)</span></code></pre></div>
 <p>Exports of goods and services at 2015 prices.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="chapter3.html#cb102-1" aria-hidden="true" tabindex="-1"></a>df_X <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OXGS/DEU.1.1.0.0.OXGS&quot;</span>,</span>
-<span id="cb102-2"><a href="chapter3.html#cb102-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;X&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="chapter3.html#cb114-1" aria-hidden="true" tabindex="-1"></a>df_X <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OXGS/DEU.1.1.0.0.OXGS&quot;</span>,</span>
+<span id="cb114-2"><a href="chapter3.html#cb114-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;X&quot;</span>)</span></code></pre></div>
 <p>Imports of goods and services at 2015 prices.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="chapter3.html#cb103-1" aria-hidden="true" tabindex="-1"></a>df_M <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OMGS/DEU.1.1.0.0.OMGS&quot;</span>,</span>
-<span id="cb103-2"><a href="chapter3.html#cb103-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;M&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="chapter3.html#cb115-1" aria-hidden="true" tabindex="-1"></a>df_M <span class="ot">&lt;-</span> <span class="fu">filter_function</span>(<span class="at">series =</span> <span class="st">&quot;AMECO/OMGS/DEU.1.1.0.0.OMGS&quot;</span>,</span>
+<span id="cb115-2"><a href="chapter3.html#cb115-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;M&quot;</span>)</span></code></pre></div>
 <p>We finally join the single data sets into a larger one called <code>df</code>.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="chapter3.html#cb104-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_Y <span class="sc">%&gt;%</span></span>
-<span id="cb104-2"><a href="chapter3.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_I, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb104-3"><a href="chapter3.html#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_C, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb104-4"><a href="chapter3.html#cb104-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_G, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb104-5"><a href="chapter3.html#cb104-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_M, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb104-6"><a href="chapter3.html#cb104-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_X, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="chapter3.html#cb116-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_Y <span class="sc">%&gt;%</span></span>
+<span id="cb116-2"><a href="chapter3.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_I, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-3"><a href="chapter3.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_C, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-4"><a href="chapter3.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_G, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-5"><a href="chapter3.html#cb116-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_M, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb116-6"><a href="chapter3.html#cb116-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(df_X, <span class="at">by =</span> <span class="st">&quot;Year&quot;</span>)</span></code></pre></div>
 </div>
 <div id="calculation-of-the-growth-contributions" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Calculation of the growth contributions<a href="chapter3.html#calculation-of-the-growth-contributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We are now ready to calculate the growth contributions. To do this we will use the formula we saw in the initial section, e.g. <span class="math inline">\(\widehat{G}_{t, contr} = \Delta G_t / Y_{t-1}\)</span>.<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a> We now calculate the contributions of the individual components of aggregate demand.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="chapter3.html#cb105-1" aria-hidden="true" tabindex="-1"></a>df_contr <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb105-2"><a href="chapter3.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We now compute the growth contribution of</span></span>
-<span id="cb105-3"><a href="chapter3.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb105-4"><a href="chapter3.html#cb105-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Consumption</span></span>
-<span id="cb105-5"><a href="chapter3.html#cb105-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">C_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(C)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb105-6"><a href="chapter3.html#cb105-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Government spending</span></span>
-<span id="cb105-7"><a href="chapter3.html#cb105-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">G_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(G)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb105-8"><a href="chapter3.html#cb105-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Investment</span></span>
-<span id="cb105-9"><a href="chapter3.html#cb105-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">I_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(I)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb105-10"><a href="chapter3.html#cb105-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Export</span></span>
-<span id="cb105-11"><a href="chapter3.html#cb105-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">X_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(X)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb105-12"><a href="chapter3.html#cb105-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Import</span></span>
-<span id="cb105-13"><a href="chapter3.html#cb105-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">M_contr =</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(M)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb105-14"><a href="chapter3.html#cb105-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We then compute net export</span></span>
-<span id="cb105-15"><a href="chapter3.html#cb105-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">NX =</span> X <span class="sc">-</span> M,</span>
-<span id="cb105-16"><a href="chapter3.html#cb105-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># And the growth contribution of net export</span></span>
-<span id="cb105-17"><a href="chapter3.html#cb105-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">NX_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(NX))<span class="sc">/</span><span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="chapter3.html#cb117-1" aria-hidden="true" tabindex="-1"></a>df_contr <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb117-2"><a href="chapter3.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We now compute the growth contribution of</span></span>
+<span id="cb117-3"><a href="chapter3.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb117-4"><a href="chapter3.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Consumption</span></span>
+<span id="cb117-5"><a href="chapter3.html#cb117-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">C_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(C)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb117-6"><a href="chapter3.html#cb117-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Government spending</span></span>
+<span id="cb117-7"><a href="chapter3.html#cb117-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">G_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(G)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb117-8"><a href="chapter3.html#cb117-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Investment</span></span>
+<span id="cb117-9"><a href="chapter3.html#cb117-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">I_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(I)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb117-10"><a href="chapter3.html#cb117-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Export</span></span>
+<span id="cb117-11"><a href="chapter3.html#cb117-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">X_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(X)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb117-12"><a href="chapter3.html#cb117-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Import</span></span>
+<span id="cb117-13"><a href="chapter3.html#cb117-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">M_contr =</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(M)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb117-14"><a href="chapter3.html#cb117-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We then compute net export</span></span>
+<span id="cb117-15"><a href="chapter3.html#cb117-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">NX =</span> X <span class="sc">-</span> M,</span>
+<span id="cb117-16"><a href="chapter3.html#cb117-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># And the growth contribution of net export</span></span>
+<span id="cb117-17"><a href="chapter3.html#cb117-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">NX_contr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(NX))<span class="sc">/</span><span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div>
 </div>
 <div id="graph-of-the-growth-contributions-for-germany" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Graph of the growth contributions for Germany<a href="chapter3.html#graph-of-the-growth-contributions-for-germany" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can now create the graph to display the contributions to growth in each year (bar graph). In addition, we superimpose the growth rate of real GDP (black line). As above, we must first prepare the data in a format suitable for the chart.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a></p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="chapter3.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparing data for the graph </span></span>
-<span id="cb106-2"><a href="chapter3.html#cb106-2" aria-hidden="true" tabindex="-1"></a>df_graph1 <span class="ot">&lt;-</span> df_contr <span class="sc">%&gt;%</span> </span>
-<span id="cb106-3"><a href="chapter3.html#cb106-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year,</span>
-<span id="cb106-4"><a href="chapter3.html#cb106-4" aria-hidden="true" tabindex="-1"></a>         C_contr,</span>
-<span id="cb106-5"><a href="chapter3.html#cb106-5" aria-hidden="true" tabindex="-1"></a>         G_contr,</span>
-<span id="cb106-6"><a href="chapter3.html#cb106-6" aria-hidden="true" tabindex="-1"></a>         I_contr,</span>
-<span id="cb106-7"><a href="chapter3.html#cb106-7" aria-hidden="true" tabindex="-1"></a>         NX_contr) <span class="sc">%&gt;%</span> </span>
-<span id="cb106-8"><a href="chapter3.html#cb106-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Year, <span class="at">names_to =</span> <span class="st">&quot;Contributions&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="chapter3.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparing data for the graph </span></span>
+<span id="cb118-2"><a href="chapter3.html#cb118-2" aria-hidden="true" tabindex="-1"></a>df_graph1 <span class="ot">&lt;-</span> df_contr <span class="sc">%&gt;%</span> </span>
+<span id="cb118-3"><a href="chapter3.html#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year,</span>
+<span id="cb118-4"><a href="chapter3.html#cb118-4" aria-hidden="true" tabindex="-1"></a>         C_contr,</span>
+<span id="cb118-5"><a href="chapter3.html#cb118-5" aria-hidden="true" tabindex="-1"></a>         G_contr,</span>
+<span id="cb118-6"><a href="chapter3.html#cb118-6" aria-hidden="true" tabindex="-1"></a>         I_contr,</span>
+<span id="cb118-7"><a href="chapter3.html#cb118-7" aria-hidden="true" tabindex="-1"></a>         NX_contr) <span class="sc">%&gt;%</span> </span>
+<span id="cb118-8"><a href="chapter3.html#cb118-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Year, <span class="at">names_to =</span> <span class="st">&quot;Contributions&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
 <p>GDP growth</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="chapter3.html#cb107-1" aria-hidden="true" tabindex="-1"></a>df_graph2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb107-2"><a href="chapter3.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Y_gr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(Y)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb107-3"><a href="chapter3.html#cb107-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, Y_gr) <span class="sc">%&gt;%</span> </span>
-<span id="cb107-4"><a href="chapter3.html#cb107-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Year, <span class="at">names_to =</span> <span class="st">&quot;Contributions&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="chapter3.html#cb108-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb108-2"><a href="chapter3.html#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># These are the bars for growth contributions</span></span>
-<span id="cb108-3"><a href="chapter3.html#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data =</span> df_graph1, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
-<span id="cb108-4"><a href="chapter3.html#cb108-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">y =</span> value, </span>
-<span id="cb108-5"><a href="chapter3.html#cb108-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">fill =</span> Contributions),</span>
-<span id="cb108-6"><a href="chapter3.html#cb108-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb108-7"><a href="chapter3.html#cb108-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This is the line for real GDP growth </span></span>
-<span id="cb108-8"><a href="chapter3.html#cb108-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> df_graph2, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
-<span id="cb108-9"><a href="chapter3.html#cb108-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> value,</span>
-<span id="cb108-10"><a href="chapter3.html#cb108-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb108-11"><a href="chapter3.html#cb108-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This is the dotted line at y=0</span></span>
-<span id="cb108-12"><a href="chapter3.html#cb108-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, </span>
-<span id="cb108-13"><a href="chapter3.html#cb108-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, </span>
-<span id="cb108-14"><a href="chapter3.html#cb108-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb108-15"><a href="chapter3.html#cb108-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We redefine the labels in the legend of the graph</span></span>
-<span id="cb108-16"><a href="chapter3.html#cb108-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Growth contributions&quot;</span>,</span>
-<span id="cb108-17"><a href="chapter3.html#cb108-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">&quot;C_contr&quot;</span>, </span>
-<span id="cb108-18"><a href="chapter3.html#cb108-18" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;G_contr&quot;</span>, </span>
-<span id="cb108-19"><a href="chapter3.html#cb108-19" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;I_contr&quot;</span>,</span>
-<span id="cb108-20"><a href="chapter3.html#cb108-20" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;NX_contr&quot;</span>),</span>
-<span id="cb108-21"><a href="chapter3.html#cb108-21" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Consumption&quot;</span>, </span>
-<span id="cb108-22"><a href="chapter3.html#cb108-22" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Government demand&quot;</span>, </span>
-<span id="cb108-23"><a href="chapter3.html#cb108-23" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Investment&quot;</span>,</span>
-<span id="cb108-24"><a href="chapter3.html#cb108-24" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Net exports&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb108-25"><a href="chapter3.html#cb108-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We also include a title and the labels of the axis</span></span>
-<span id="cb108-26"><a href="chapter3.html#cb108-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;GDP growth contributions&quot;</span>, </span>
-<span id="cb108-27"><a href="chapter3.html#cb108-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, </span>
-<span id="cb108-28"><a href="chapter3.html#cb108-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;%&quot;</span>) <span class="sc">+</span></span>
-<span id="cb108-29"><a href="chapter3.html#cb108-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This option rotate the labels of the x-axis</span></span>
-<span id="cb108-30"><a href="chapter3.html#cb108-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>))</span>
-<span id="cb108-31"><a href="chapter3.html#cb108-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-32"><a href="chapter3.html#cb108-32" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-71-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="chapter3.html#cb119-1" aria-hidden="true" tabindex="-1"></a>df_graph2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb119-2"><a href="chapter3.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Y_gr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(Y)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-3"><a href="chapter3.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Year, Y_gr) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-4"><a href="chapter3.html#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Year, <span class="at">names_to =</span> <span class="st">&quot;Contributions&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="chapter3.html#cb120-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb120-2"><a href="chapter3.html#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># These are the bars for growth contributions</span></span>
+<span id="cb120-3"><a href="chapter3.html#cb120-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data =</span> df_graph1, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
+<span id="cb120-4"><a href="chapter3.html#cb120-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">y =</span> value, </span>
+<span id="cb120-5"><a href="chapter3.html#cb120-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">fill =</span> Contributions),</span>
+<span id="cb120-6"><a href="chapter3.html#cb120-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb120-7"><a href="chapter3.html#cb120-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This is the line for real GDP growth </span></span>
+<span id="cb120-8"><a href="chapter3.html#cb120-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> df_graph2, <span class="fu">aes</span>(<span class="at">x =</span> Year, </span>
+<span id="cb120-9"><a href="chapter3.html#cb120-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> value,</span>
+<span id="cb120-10"><a href="chapter3.html#cb120-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb120-11"><a href="chapter3.html#cb120-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This is the dotted line at y=0</span></span>
+<span id="cb120-12"><a href="chapter3.html#cb120-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, </span>
+<span id="cb120-13"><a href="chapter3.html#cb120-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, </span>
+<span id="cb120-14"><a href="chapter3.html#cb120-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb120-15"><a href="chapter3.html#cb120-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We redefine the labels in the legend of the graph</span></span>
+<span id="cb120-16"><a href="chapter3.html#cb120-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Growth contributions&quot;</span>,</span>
+<span id="cb120-17"><a href="chapter3.html#cb120-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">&quot;C_contr&quot;</span>, </span>
+<span id="cb120-18"><a href="chapter3.html#cb120-18" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;G_contr&quot;</span>, </span>
+<span id="cb120-19"><a href="chapter3.html#cb120-19" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;I_contr&quot;</span>,</span>
+<span id="cb120-20"><a href="chapter3.html#cb120-20" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;NX_contr&quot;</span>),</span>
+<span id="cb120-21"><a href="chapter3.html#cb120-21" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Consumption&quot;</span>, </span>
+<span id="cb120-22"><a href="chapter3.html#cb120-22" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Government demand&quot;</span>, </span>
+<span id="cb120-23"><a href="chapter3.html#cb120-23" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Investment&quot;</span>,</span>
+<span id="cb120-24"><a href="chapter3.html#cb120-24" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;Net exports&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb120-25"><a href="chapter3.html#cb120-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We also include a title and the labels of the axis</span></span>
+<span id="cb120-26"><a href="chapter3.html#cb120-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;GDP growth contributions&quot;</span>, </span>
+<span id="cb120-27"><a href="chapter3.html#cb120-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, </span>
+<span id="cb120-28"><a href="chapter3.html#cb120-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;%&quot;</span>) <span class="sc">+</span></span>
+<span id="cb120-29"><a href="chapter3.html#cb120-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This option rotate the labels of the x-axis</span></span>
+<span id="cb120-30"><a href="chapter3.html#cb120-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>))</span>
+<span id="cb120-31"><a href="chapter3.html#cb120-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-32"><a href="chapter3.html#cb120-32" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-79-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="average-growth-contributions" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Average growth contributions<a href="chapter3.html#average-growth-contributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -387,73 +387,73 @@ div.csl-indent {
 <li>Average growth contribution of net exports</li>
 </ul>
 <p>Report your results in a single R markdown document printed as HTML or PDF file. <strong>Tip:</strong> Use the <em>dplyr</em> and <em>tidyr</em> packages for data analysis and the <em>kableExtra</em> package to create a well formatted table. The end result should be similar to the following table.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="chapter3.html#cb109-1" aria-hidden="true" tabindex="-1"></a>averages_2001_2009 <span class="ot">&lt;-</span> df_contr <span class="sc">%&gt;%</span> </span>
-<span id="cb109-2"><a href="chapter3.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Y_gr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(Y)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-3"><a href="chapter3.html#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select the variable of interest</span></span>
-<span id="cb109-4"><a href="chapter3.html#cb109-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Year,</span>
-<span id="cb109-5"><a href="chapter3.html#cb109-5" aria-hidden="true" tabindex="-1"></a>           Y_gr,</span>
-<span id="cb109-6"><a href="chapter3.html#cb109-6" aria-hidden="true" tabindex="-1"></a>           C_contr,</span>
-<span id="cb109-7"><a href="chapter3.html#cb109-7" aria-hidden="true" tabindex="-1"></a>           G_contr,</span>
-<span id="cb109-8"><a href="chapter3.html#cb109-8" aria-hidden="true" tabindex="-1"></a>           I_contr,</span>
-<span id="cb109-9"><a href="chapter3.html#cb109-9" aria-hidden="true" tabindex="-1"></a>           NX_contr) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-10"><a href="chapter3.html#cb109-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter the data for the desired period</span></span>
-<span id="cb109-11"><a href="chapter3.html#cb109-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2001</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2009</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-12"><a href="chapter3.html#cb109-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the averages</span></span>
-<span id="cb109-13"><a href="chapter3.html#cb109-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_rGDP =</span> <span class="fu">mean</span>(Y_gr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb109-14"><a href="chapter3.html#cb109-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_cons =</span> <span class="fu">mean</span>(C_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb109-15"><a href="chapter3.html#cb109-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_gov =</span> <span class="fu">mean</span>(G_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb109-16"><a href="chapter3.html#cb109-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_inv =</span> <span class="fu">mean</span>(I_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb109-17"><a href="chapter3.html#cb109-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_nx =</span> <span class="fu">mean</span>(NX_contr)) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-18"><a href="chapter3.html#cb109-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Round the values of all columns to 2 digits</span></span>
-<span id="cb109-19"><a href="chapter3.html#cb109-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">everything</span>(), round, <span class="at">digits =</span> <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-20"><a href="chapter3.html#cb109-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We pivot the data</span></span>
-<span id="cb109-21"><a href="chapter3.html#cb109-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), </span>
-<span id="cb109-22"><a href="chapter3.html#cb109-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Indicators&quot;</span>, </span>
-<span id="cb109-23"><a href="chapter3.html#cb109-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;2001-2009&quot;</span>)</span>
-<span id="cb109-24"><a href="chapter3.html#cb109-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-25"><a href="chapter3.html#cb109-25" aria-hidden="true" tabindex="-1"></a>averages_2010_2019 <span class="ot">&lt;-</span> df_contr <span class="sc">%&gt;%</span> </span>
-<span id="cb109-26"><a href="chapter3.html#cb109-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Y_gr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(Y)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-27"><a href="chapter3.html#cb109-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select the variable of interest</span></span>
-<span id="cb109-28"><a href="chapter3.html#cb109-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Year,</span>
-<span id="cb109-29"><a href="chapter3.html#cb109-29" aria-hidden="true" tabindex="-1"></a>           Y_gr,</span>
-<span id="cb109-30"><a href="chapter3.html#cb109-30" aria-hidden="true" tabindex="-1"></a>           C_contr,</span>
-<span id="cb109-31"><a href="chapter3.html#cb109-31" aria-hidden="true" tabindex="-1"></a>           G_contr,</span>
-<span id="cb109-32"><a href="chapter3.html#cb109-32" aria-hidden="true" tabindex="-1"></a>           I_contr,</span>
-<span id="cb109-33"><a href="chapter3.html#cb109-33" aria-hidden="true" tabindex="-1"></a>           NX_contr) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-34"><a href="chapter3.html#cb109-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter the data for the desired period</span></span>
-<span id="cb109-35"><a href="chapter3.html#cb109-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-36"><a href="chapter3.html#cb109-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the averages</span></span>
-<span id="cb109-37"><a href="chapter3.html#cb109-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_rGDP =</span> <span class="fu">mean</span>(Y_gr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb109-38"><a href="chapter3.html#cb109-38" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_cons =</span> <span class="fu">mean</span>(C_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb109-39"><a href="chapter3.html#cb109-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_gov =</span> <span class="fu">mean</span>(G_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb109-40"><a href="chapter3.html#cb109-40" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_inv =</span> <span class="fu">mean</span>(I_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb109-41"><a href="chapter3.html#cb109-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_nx =</span> <span class="fu">mean</span>(NX_contr)) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-42"><a href="chapter3.html#cb109-42" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Round the values of all columns to 2 digits</span></span>
-<span id="cb109-43"><a href="chapter3.html#cb109-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">everything</span>(), round, <span class="at">digits =</span> <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb109-44"><a href="chapter3.html#cb109-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We pivot the data</span></span>
-<span id="cb109-45"><a href="chapter3.html#cb109-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), </span>
-<span id="cb109-46"><a href="chapter3.html#cb109-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Indicators&quot;</span>, </span>
-<span id="cb109-47"><a href="chapter3.html#cb109-47" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;2010-2019&quot;</span>)</span>
-<span id="cb109-48"><a href="chapter3.html#cb109-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-49"><a href="chapter3.html#cb109-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Join data sets</span></span>
-<span id="cb109-50"><a href="chapter3.html#cb109-50" aria-hidden="true" tabindex="-1"></a>df_table <span class="ot">&lt;-</span> averages_2001_2009 <span class="sc">%&gt;%</span> </span>
-<span id="cb109-51"><a href="chapter3.html#cb109-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(averages_2010_2019, <span class="at">by =</span> <span class="st">&quot;Indicators&quot;</span>)</span>
-<span id="cb109-52"><a href="chapter3.html#cb109-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-53"><a href="chapter3.html#cb109-53" aria-hidden="true" tabindex="-1"></a>df_table<span class="sc">$</span>Indicators <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">avg_rGDP =</span> <span class="st">&quot;Real GDP growth&quot;</span>,</span>
-<span id="cb109-54"><a href="chapter3.html#cb109-54" aria-hidden="true" tabindex="-1"></a>                         <span class="at">avg_cons =</span> <span class="st">&quot;Growth contribution of private consumption&quot;</span>,</span>
-<span id="cb109-55"><a href="chapter3.html#cb109-55" aria-hidden="true" tabindex="-1"></a>                         <span class="at">avg_gov =</span> <span class="st">&quot;Growth contribution of public consumption&quot;</span>,</span>
-<span id="cb109-56"><a href="chapter3.html#cb109-56" aria-hidden="true" tabindex="-1"></a>                         <span class="at">avg_inv =</span> <span class="st">&quot; Growth contribution of gross capital formation&quot;</span>,</span>
-<span id="cb109-57"><a href="chapter3.html#cb109-57" aria-hidden="true" tabindex="-1"></a>                         <span class="at">avg_nx =</span> <span class="st">&quot;Growth contribution of net exports&quot;</span>)</span>
-<span id="cb109-58"><a href="chapter3.html#cb109-58" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb109-59"><a href="chapter3.html#cb109-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the table using kableExtra</span></span>
-<span id="cb109-60"><a href="chapter3.html#cb109-60" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(df_table, </span>
-<span id="cb109-61"><a href="chapter3.html#cb109-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Average annual values for the periods 2001–2009 and 2010–2019, Germany&quot;</span>,    </span>
-<span id="cb109-62"><a href="chapter3.html#cb109-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T,</span>
-<span id="cb109-63"><a href="chapter3.html#cb109-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;c&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb109-64"><a href="chapter3.html#cb109-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">position =</span> <span class="st">&quot;center&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="chapter3.html#cb121-1" aria-hidden="true" tabindex="-1"></a>averages_2001_2009 <span class="ot">&lt;-</span> df_contr <span class="sc">%&gt;%</span> </span>
+<span id="cb121-2"><a href="chapter3.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Y_gr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(Y)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-3"><a href="chapter3.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select the variable of interest</span></span>
+<span id="cb121-4"><a href="chapter3.html#cb121-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Year,</span>
+<span id="cb121-5"><a href="chapter3.html#cb121-5" aria-hidden="true" tabindex="-1"></a>           Y_gr,</span>
+<span id="cb121-6"><a href="chapter3.html#cb121-6" aria-hidden="true" tabindex="-1"></a>           C_contr,</span>
+<span id="cb121-7"><a href="chapter3.html#cb121-7" aria-hidden="true" tabindex="-1"></a>           G_contr,</span>
+<span id="cb121-8"><a href="chapter3.html#cb121-8" aria-hidden="true" tabindex="-1"></a>           I_contr,</span>
+<span id="cb121-9"><a href="chapter3.html#cb121-9" aria-hidden="true" tabindex="-1"></a>           NX_contr) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-10"><a href="chapter3.html#cb121-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter the data for the desired period</span></span>
+<span id="cb121-11"><a href="chapter3.html#cb121-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2001</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2009</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-12"><a href="chapter3.html#cb121-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the averages</span></span>
+<span id="cb121-13"><a href="chapter3.html#cb121-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_rGDP =</span> <span class="fu">mean</span>(Y_gr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb121-14"><a href="chapter3.html#cb121-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_cons =</span> <span class="fu">mean</span>(C_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb121-15"><a href="chapter3.html#cb121-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_gov =</span> <span class="fu">mean</span>(G_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb121-16"><a href="chapter3.html#cb121-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_inv =</span> <span class="fu">mean</span>(I_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb121-17"><a href="chapter3.html#cb121-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_nx =</span> <span class="fu">mean</span>(NX_contr)) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-18"><a href="chapter3.html#cb121-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Round the values of all columns to 2 digits</span></span>
+<span id="cb121-19"><a href="chapter3.html#cb121-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">everything</span>(), round, <span class="at">digits =</span> <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-20"><a href="chapter3.html#cb121-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We pivot the data</span></span>
+<span id="cb121-21"><a href="chapter3.html#cb121-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), </span>
+<span id="cb121-22"><a href="chapter3.html#cb121-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Indicators&quot;</span>, </span>
+<span id="cb121-23"><a href="chapter3.html#cb121-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;2001-2009&quot;</span>)</span>
+<span id="cb121-24"><a href="chapter3.html#cb121-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-25"><a href="chapter3.html#cb121-25" aria-hidden="true" tabindex="-1"></a>averages_2010_2019 <span class="ot">&lt;-</span> df_contr <span class="sc">%&gt;%</span> </span>
+<span id="cb121-26"><a href="chapter3.html#cb121-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Y_gr =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(Y)) <span class="sc">/</span> <span class="fu">lag</span>(Y) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-27"><a href="chapter3.html#cb121-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select the variable of interest</span></span>
+<span id="cb121-28"><a href="chapter3.html#cb121-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Year,</span>
+<span id="cb121-29"><a href="chapter3.html#cb121-29" aria-hidden="true" tabindex="-1"></a>           Y_gr,</span>
+<span id="cb121-30"><a href="chapter3.html#cb121-30" aria-hidden="true" tabindex="-1"></a>           C_contr,</span>
+<span id="cb121-31"><a href="chapter3.html#cb121-31" aria-hidden="true" tabindex="-1"></a>           G_contr,</span>
+<span id="cb121-32"><a href="chapter3.html#cb121-32" aria-hidden="true" tabindex="-1"></a>           I_contr,</span>
+<span id="cb121-33"><a href="chapter3.html#cb121-33" aria-hidden="true" tabindex="-1"></a>           NX_contr) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-34"><a href="chapter3.html#cb121-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter the data for the desired period</span></span>
+<span id="cb121-35"><a href="chapter3.html#cb121-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> Year <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-36"><a href="chapter3.html#cb121-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the averages</span></span>
+<span id="cb121-37"><a href="chapter3.html#cb121-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_rGDP =</span> <span class="fu">mean</span>(Y_gr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb121-38"><a href="chapter3.html#cb121-38" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_cons =</span> <span class="fu">mean</span>(C_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb121-39"><a href="chapter3.html#cb121-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_gov =</span> <span class="fu">mean</span>(G_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb121-40"><a href="chapter3.html#cb121-40" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_inv =</span> <span class="fu">mean</span>(I_contr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb121-41"><a href="chapter3.html#cb121-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">avg_nx =</span> <span class="fu">mean</span>(NX_contr)) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-42"><a href="chapter3.html#cb121-42" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Round the values of all columns to 2 digits</span></span>
+<span id="cb121-43"><a href="chapter3.html#cb121-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">everything</span>(), round, <span class="at">digits =</span> <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb121-44"><a href="chapter3.html#cb121-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We pivot the data</span></span>
+<span id="cb121-45"><a href="chapter3.html#cb121-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), </span>
+<span id="cb121-46"><a href="chapter3.html#cb121-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Indicators&quot;</span>, </span>
+<span id="cb121-47"><a href="chapter3.html#cb121-47" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;2010-2019&quot;</span>)</span>
+<span id="cb121-48"><a href="chapter3.html#cb121-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-49"><a href="chapter3.html#cb121-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Join data sets</span></span>
+<span id="cb121-50"><a href="chapter3.html#cb121-50" aria-hidden="true" tabindex="-1"></a>df_table <span class="ot">&lt;-</span> averages_2001_2009 <span class="sc">%&gt;%</span> </span>
+<span id="cb121-51"><a href="chapter3.html#cb121-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(averages_2010_2019, <span class="at">by =</span> <span class="st">&quot;Indicators&quot;</span>)</span>
+<span id="cb121-52"><a href="chapter3.html#cb121-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-53"><a href="chapter3.html#cb121-53" aria-hidden="true" tabindex="-1"></a>df_table<span class="sc">$</span>Indicators <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">avg_rGDP =</span> <span class="st">&quot;Real GDP growth&quot;</span>,</span>
+<span id="cb121-54"><a href="chapter3.html#cb121-54" aria-hidden="true" tabindex="-1"></a>                         <span class="at">avg_cons =</span> <span class="st">&quot;Growth contribution of private consumption&quot;</span>,</span>
+<span id="cb121-55"><a href="chapter3.html#cb121-55" aria-hidden="true" tabindex="-1"></a>                         <span class="at">avg_gov =</span> <span class="st">&quot;Growth contribution of public consumption&quot;</span>,</span>
+<span id="cb121-56"><a href="chapter3.html#cb121-56" aria-hidden="true" tabindex="-1"></a>                         <span class="at">avg_inv =</span> <span class="st">&quot; Growth contribution of gross capital formation&quot;</span>,</span>
+<span id="cb121-57"><a href="chapter3.html#cb121-57" aria-hidden="true" tabindex="-1"></a>                         <span class="at">avg_nx =</span> <span class="st">&quot;Growth contribution of net exports&quot;</span>)</span>
+<span id="cb121-58"><a href="chapter3.html#cb121-58" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb121-59"><a href="chapter3.html#cb121-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the table using kableExtra</span></span>
+<span id="cb121-60"><a href="chapter3.html#cb121-60" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(df_table, </span>
+<span id="cb121-61"><a href="chapter3.html#cb121-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Average annual values for the periods 2001–2009 and 2010–2019, Germany&quot;</span>,    </span>
+<span id="cb121-62"><a href="chapter3.html#cb121-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> T,</span>
+<span id="cb121-63"><a href="chapter3.html#cb121-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;c&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb121-64"><a href="chapter3.html#cb121-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">position =</span> <span class="st">&quot;center&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-72">Table 3.1: </span>Average annual values for the periods 2001–2009 and 2010–2019, Germany
+<span id="tab:unnamed-chunk-80">Table 3.1: </span>Average annual values for the periods 2001–2009 and 2010–2019, Germany
 </caption>
 <thead>
 <tr>

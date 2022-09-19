@@ -412,17 +412,36 @@ What would have been the alternative? The alternative would have been to repeat 
 
 ## Simple functions
 
-Small but important digression. The word `function` is a reserved word. A reserved word is a word that you cannot use to give names to your objects. You may find a list of reserved words in the R Documentation. Take a look [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) if you want.^[Short story. One time my model was giving strange results and I couldn't understand why. Then I realized that I was using the word `pi` to name the inflation variable. Try to type `pi` in the console. It is the mathematical constant $\pi$. The tricky thing here is that you can temporarily assign other values to the object `pi` because it is not a reserved word, strictly speaking. It is rather a pre-stored constant. But you should never use name that are already assigned to name your own variables, e.g. never use `T` or `F`!]
+What is a function? A function is a set of operations to achieve a particular outcome that you can use simply by calling the function. A function takes some inputs and return an output. In R, there are many pre-programmed functions some of which we have already seen in previous sections. One example is the `max()` function which takes some input values and return the maximum. In this section, we want to focus on user-defined functions. First, we want to understand when it makes sense to write a function, and then we want to see how to write a simple function. When does it make sense to write a function? The primary goal of a function should be to make your code less complex and possibly shorter. If you find yourself performing the same set of operations over and over again, this is the sign that you need to write a function. If, for example, you find yourself working with some messy databases where you need to clean and filter the data before you actually start to work with the data (as it happens to me sometimes), you might decide to write a function. Let's go step by step.
+
+What are the components of a function? In general, a function will have a name, it will have some arguments, it will have operations to perform that are listed in what is called the body of the function, and it will have a value that will be the output of the function. A very simple example is a function that takes a numeric input, i.e. a number, and return the square of that number. In the following example, `my_fun` is the name of the function, `x` will be its argument, `square <- x^2` is the operations that we want our function to perform and finally `return(square)` is the result of the function. 
 
 ```{r}
-my_fun <- function(x, y) x^y 
-
-my_fun(x = 5, y = 2)
+my_fun <- function(x) {
+  square <- x^2
+  return(square)
+}
 ```
 
-Putting everything together
+The function `my_fun()` is now stored in the environment. We call the function using the number 5 as input.
 
-Let us now try to write a function that put together all the things we did in the previous paragraphs, which is creating the placeholder, running the loop and generating the plot.
+```{r}
+my_fun(x = 5)
+```
+
+Small but important digression. The word `function` is a reserved word. A reserved word is a word that you cannot use to give names to your objects. You may find a list of reserved words in the R Documentation. Take a look [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) if you want.^[Short story. One time my model was giving strange results and I couldn't understand why. Then I realized that I was using the word `pi` to name the inflation variable. Try to type `pi` in the console. It is the mathematical constant $\pi$. The tricky thing here is that you can temporarily assign other values to the object `pi` because it is not a reserved word, strictly speaking. It is rather a pre-stored constant. But you should never use name that are already assigned to name your own variables, e.g. never use `T` or `F`!] Our function `my_fun()` can be simplified. This is why I have used the expression "in general" at the beginning of the previous paragraph.
+
+```{r}
+my_fun_alternative <- function(x) x^2
+```
+
+As we can see from the code chunk above, the function is now stripped down to its bare minimum. The body of the function has been written in the same line of the function definition and the `return()` call is missing. However, the function provides the same result. This means that simple functions like this can be written using a very minimal amount of code.
+
+```{r}
+my_fun_alternative(x = 5)
+```
+
+We could formulate many more examples and progressively more complex. Instead, now I want to show how to combine the things that we have seen above within a single function. Specifically, we now want to write a function that puts together all the things that we did when we were simulating compound interests. That is, the function must create a placeholder, it has to run the loop to calculate the compounding interests and it has to generate the final plot. This type of function can be called a "wrapper" function because it bundles together different (and already existing) functions into a single and more convenient (for this particular case, of course) function.
 
 ```{r}
 
@@ -459,12 +478,16 @@ my_fun <- function(time, scenarios) {
 
 ```
 
-Let us now test our function `my_fun()`. We assume that the investment lasts for 10 years. We also assume different values of the interest rate from 1\% to 5\%. We use the `seq()` function to generate the numbers of the interest rates.  
+As you can see above, we did not specify the output of the function using `return()`. The last argument in the body of the function, in our case the plot, will be automatically returned. We now test our function `my_fun()`. We assume that the investment lasts for 10 years and that the interest rate is 1\%.
 
 ```{r}
+my_fun(time = 10, scenarios = 0.01)
+```
 
+Now, we test our function using different assumptions about the interest rate. Our function is flexible enough to accept multiple values for the interest rate. We assume different values of the interest rate from 1\% to 5\%. We use the `seq()` function to generate the numbers for the interest rates.
+
+```{r}
 my_fun(time = 10, scenarios = seq(0.01, 0.05, 0.01))
-
 ```
 
 Pretty cool, isn't it?

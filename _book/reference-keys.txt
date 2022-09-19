@@ -5,7 +5,7 @@ fig:image5
 eq:eq1
 fig:image1
 fig:image2
-tab:unnamed-chunk-72
+tab:unnamed-chunk-80
 chapter1
 why-r
 r-and-rstudio

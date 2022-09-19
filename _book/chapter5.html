@@ -23,7 +23,7 @@
 <meta name="author" content="Alessandro Bramucci" />
 
 
-<meta name="date" content="2022-09-16" />
+<meta name="date" content="2022-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -253,203 +253,203 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 5</span> Fundamental concepts in statistics<a href="chapter5.html#chapter5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="mean-and-median" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Mean and median<a href="chapter5.html#mean-and-median" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="chapter5.html#cb112-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">5</span>)</span>
-<span id="cb112-2"><a href="chapter5.html#cb112-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb112-3"><a href="chapter5.html#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="chapter5.html#cb124-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">5</span>)</span>
+<span id="cb124-2"><a href="chapter5.html#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-3"><a href="chapter5.html#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="chapter5.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="chapter5.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="chapter5.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the weighted arithmetic mean</span></span>
-<span id="cb116-2"><a href="chapter5.html#cb116-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-3"><a href="chapter5.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Values of z</span></span>
-<span id="cb116-4"><a href="chapter5.html#cb116-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">70</span>,<span class="dv">90</span>,<span class="dv">85</span>)</span>
-<span id="cb116-5"><a href="chapter5.html#cb116-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-6"><a href="chapter5.html#cb116-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Weights</span></span>
-<span id="cb116-7"><a href="chapter5.html#cb116-7" aria-hidden="true" tabindex="-1"></a>wt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>)</span>
-<span id="cb116-8"><a href="chapter5.html#cb116-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-9"><a href="chapter5.html#cb116-9" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(z, wt)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="chapter5.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the weighted arithmetic mean</span></span>
+<span id="cb128-2"><a href="chapter5.html#cb128-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-3"><a href="chapter5.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Values of z</span></span>
+<span id="cb128-4"><a href="chapter5.html#cb128-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">70</span>,<span class="dv">90</span>,<span class="dv">85</span>)</span>
+<span id="cb128-5"><a href="chapter5.html#cb128-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-6"><a href="chapter5.html#cb128-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Weights</span></span>
+<span id="cb128-7"><a href="chapter5.html#cb128-7" aria-hidden="true" tabindex="-1"></a>wt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb128-8"><a href="chapter5.html#cb128-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-9"><a href="chapter5.html#cb128-9" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(z, wt)</span></code></pre></div>
 <pre><code>## [1] 83</code></pre>
 <p>A percentile is a point in a distribution at which or below which a given proportion of data is found.
 The k-th percentile divides the data in a way that k-percent of the data lie below the percentile
 and (100 - k)-percent lie above the percentile. It is also common to hear about quantiles.
 Quantiles is a more generic terms which indicates values partitioning data in equally spaced groups.
 Specific types of quantiles are percentiles (see above), deciles, quartiles, etc.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="chapter5.html#cb118-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">18</span>)</span>
-<span id="cb118-2"><a href="chapter5.html#cb118-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-3"><a href="chapter5.html#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Find the values existing at the Q_1, Q_2, Q_3 and Q_4, where Q stands for quartile</span></span>
-<span id="cb118-4"><a href="chapter5.html#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(a, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="chapter5.html#cb130-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">18</span>)</span>
+<span id="cb130-2"><a href="chapter5.html#cb130-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-3"><a href="chapter5.html#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Find the values existing at the Q_1, Q_2, Q_3 and Q_4, where Q stands for quartile</span></span>
+<span id="cb130-4"><a href="chapter5.html#cb130-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(a, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>##   25%   50%   75%  100% 
 ##  3.75  8.00 12.25 18.00</code></pre>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="chapter5.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Do we obtain the same results using the nearest rank method?</span></span>
-<span id="cb120-2"><a href="chapter5.html#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-3"><a href="chapter5.html#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="co"># n = P / 100 * N</span></span>
-<span id="cb120-4"><a href="chapter5.html#cb120-4" aria-hidden="true" tabindex="-1"></a><span class="co"># n &lt;- ordinal rank</span></span>
-<span id="cb120-5"><a href="chapter5.html#cb120-5" aria-hidden="true" tabindex="-1"></a><span class="co"># P &lt;- percentile of interest</span></span>
-<span id="cb120-6"><a href="chapter5.html#cb120-6" aria-hidden="true" tabindex="-1"></a><span class="co"># N &lt;- number of values in the set</span></span>
-<span id="cb120-7"><a href="chapter5.html#cb120-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-8"><a href="chapter5.html#cb120-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Q_1, Q_2, Q_3 and Q_4</span></span>
-<span id="cb120-9"><a href="chapter5.html#cb120-9" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb120-10"><a href="chapter5.html#cb120-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-11"><a href="chapter5.html#cb120-11" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">length</span>(a)</span>
-<span id="cb120-12"><a href="chapter5.html#cb120-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-13"><a href="chapter5.html#cb120-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ranks of the values at Q_1, Q_2, Q_3 and Q_4</span></span>
-<span id="cb120-14"><a href="chapter5.html#cb120-14" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> P <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> N</span>
-<span id="cb120-15"><a href="chapter5.html#cb120-15" aria-hidden="true" tabindex="-1"></a>n</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="chapter5.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Do we obtain the same results using the nearest rank method?</span></span>
+<span id="cb132-2"><a href="chapter5.html#cb132-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-3"><a href="chapter5.html#cb132-3" aria-hidden="true" tabindex="-1"></a><span class="co"># n = P / 100 * N</span></span>
+<span id="cb132-4"><a href="chapter5.html#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="co"># n &lt;- ordinal rank</span></span>
+<span id="cb132-5"><a href="chapter5.html#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="co"># P &lt;- percentile of interest</span></span>
+<span id="cb132-6"><a href="chapter5.html#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="co"># N &lt;- number of values in the set</span></span>
+<span id="cb132-7"><a href="chapter5.html#cb132-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-8"><a href="chapter5.html#cb132-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Q_1, Q_2, Q_3 and Q_4</span></span>
+<span id="cb132-9"><a href="chapter5.html#cb132-9" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb132-10"><a href="chapter5.html#cb132-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-11"><a href="chapter5.html#cb132-11" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">length</span>(a)</span>
+<span id="cb132-12"><a href="chapter5.html#cb132-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-13"><a href="chapter5.html#cb132-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ranks of the values at Q_1, Q_2, Q_3 and Q_4</span></span>
+<span id="cb132-14"><a href="chapter5.html#cb132-14" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> P <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> N</span>
+<span id="cb132-15"><a href="chapter5.html#cb132-15" aria-hidden="true" tabindex="-1"></a>n</span></code></pre></div>
 <pre><code>## [1]  5 10 15 20</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="chapter5.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The values at the th percentile</span></span>
-<span id="cb122-2"><a href="chapter5.html#cb122-2" aria-hidden="true" tabindex="-1"></a>a[n]</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="chapter5.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The values at the th percentile</span></span>
+<span id="cb134-2"><a href="chapter5.html#cb134-2" aria-hidden="true" tabindex="-1"></a>a[n]</span></code></pre></div>
 <pre><code>## [1]  3  8 12 18</code></pre>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="chapter5.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) the percentile of value 4 and value 15</span></span>
-<span id="cb124-2"><a href="chapter5.html#cb124-2" aria-hidden="true" tabindex="-1"></a>percentile <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(a)</span>
-<span id="cb124-3"><a href="chapter5.html#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="fu">percentile</span>(<span class="dv">4</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="chapter5.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) the percentile of value 4 and value 15</span></span>
+<span id="cb136-2"><a href="chapter5.html#cb136-2" aria-hidden="true" tabindex="-1"></a>percentile <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(a)</span>
+<span id="cb136-3"><a href="chapter5.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="fu">percentile</span>(<span class="dv">4</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] 30</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="chapter5.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percentile</span>(<span class="dv">15</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="chapter5.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percentile</span>(<span class="dv">15</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] 90</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="chapter5.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s use again the nearest rank method instead of the in-built ecdf function</span></span>
-<span id="cb128-2"><a href="chapter5.html#cb128-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-3"><a href="chapter5.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="co"># P = n / N * 100</span></span>
-<span id="cb128-4"><a href="chapter5.html#cb128-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-5"><a href="chapter5.html#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s first find the rank (n) of the value 4 and 15 by looking at the original set</span></span>
-<span id="cb128-6"><a href="chapter5.html#cb128-6" aria-hidden="true" tabindex="-1"></a>P_new <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">18</span>) <span class="sc">/</span> N <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb128-7"><a href="chapter5.html#cb128-7" aria-hidden="true" tabindex="-1"></a>P_new</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="chapter5.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s use again the nearest rank method instead of the in-built ecdf function</span></span>
+<span id="cb140-2"><a href="chapter5.html#cb140-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-3"><a href="chapter5.html#cb140-3" aria-hidden="true" tabindex="-1"></a><span class="co"># P = n / N * 100</span></span>
+<span id="cb140-4"><a href="chapter5.html#cb140-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-5"><a href="chapter5.html#cb140-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s first find the rank (n) of the value 4 and 15 by looking at the original set</span></span>
+<span id="cb140-6"><a href="chapter5.html#cb140-6" aria-hidden="true" tabindex="-1"></a>P_new <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">18</span>) <span class="sc">/</span> N <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb140-7"><a href="chapter5.html#cb140-7" aria-hidden="true" tabindex="-1"></a>P_new</span></code></pre></div>
 <pre><code>## [1] 30 90</code></pre>
 </div>
 <div id="boxplot" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Boxplot<a href="chapter5.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="chapter5.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(a, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-76-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="chapter5.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear the workspace</span></span>
-<span id="cb131-2"><a href="chapter5.html#cb131-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb131-3"><a href="chapter5.html#cb131-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb131-4"><a href="chapter5.html#cb131-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Outliers in boxplots</span></span>
-<span id="cb131-5"><a href="chapter5.html#cb131-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb131-6"><a href="chapter5.html#cb131-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
-<span id="cb131-7"><a href="chapter5.html#cb131-7" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">18</span>)</span>
-<span id="cb131-8"><a href="chapter5.html#cb131-8" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">30</span>)</span>
-<span id="cb131-9"><a href="chapter5.html#cb131-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb131-10"><a href="chapter5.html#cb131-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the boxplot of a and b</span></span>
-<span id="cb131-11"><a href="chapter5.html#cb131-11" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(a, b,</span>
-<span id="cb131-12"><a href="chapter5.html#cb131-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>),</span>
-<span id="cb131-13"><a href="chapter5.html#cb131-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-77-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="chapter5.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the boundaries for the identification of an outlier in the boxplot</span></span>
-<span id="cb132-2"><a href="chapter5.html#cb132-2" aria-hidden="true" tabindex="-1"></a>lower_limit <span class="ot">&lt;-</span> <span class="fu">quantile</span>(b, <span class="at">prob =</span> <span class="fl">0.25</span>) <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(b)</span>
-<span id="cb132-3"><a href="chapter5.html#cb132-3" aria-hidden="true" tabindex="-1"></a>lower_limit</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="chapter5.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(a, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-84-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="chapter5.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear the workspace</span></span>
+<span id="cb143-2"><a href="chapter5.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb143-3"><a href="chapter5.html#cb143-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-4"><a href="chapter5.html#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Outliers in boxplots</span></span>
+<span id="cb143-5"><a href="chapter5.html#cb143-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-6"><a href="chapter5.html#cb143-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb143-7"><a href="chapter5.html#cb143-7" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">18</span>)</span>
+<span id="cb143-8"><a href="chapter5.html#cb143-8" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">30</span>)</span>
+<span id="cb143-9"><a href="chapter5.html#cb143-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-10"><a href="chapter5.html#cb143-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the boxplot of a and b</span></span>
+<span id="cb143-11"><a href="chapter5.html#cb143-11" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(a, b,</span>
+<span id="cb143-12"><a href="chapter5.html#cb143-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>),</span>
+<span id="cb143-13"><a href="chapter5.html#cb143-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-85-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="chapter5.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the boundaries for the identification of an outlier in the boxplot</span></span>
+<span id="cb144-2"><a href="chapter5.html#cb144-2" aria-hidden="true" tabindex="-1"></a>lower_limit <span class="ot">&lt;-</span> <span class="fu">quantile</span>(b, <span class="at">prob =</span> <span class="fl">0.25</span>) <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(b)</span>
+<span id="cb144-3"><a href="chapter5.html#cb144-3" aria-hidden="true" tabindex="-1"></a>lower_limit</span></code></pre></div>
 <pre><code>## 25% 
 ##  -9</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="chapter5.html#cb134-1" aria-hidden="true" tabindex="-1"></a>upper_limit <span class="ot">&lt;-</span> <span class="fu">quantile</span>(b, <span class="at">prob =</span> <span class="fl">0.75</span>) <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(b)</span>
-<span id="cb134-2"><a href="chapter5.html#cb134-2" aria-hidden="true" tabindex="-1"></a>upper_limit</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="chapter5.html#cb146-1" aria-hidden="true" tabindex="-1"></a>upper_limit <span class="ot">&lt;-</span> <span class="fu">quantile</span>(b, <span class="at">prob =</span> <span class="fl">0.75</span>) <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(b)</span>
+<span id="cb146-2"><a href="chapter5.html#cb146-2" aria-hidden="true" tabindex="-1"></a>upper_limit</span></code></pre></div>
 <pre><code>## 75% 
 ##  25</code></pre>
 </div>
 <div id="expected-value" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Expected value<a href="chapter5.html#expected-value" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="chapter5.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean the workspace</span></span>
-<span id="cb136-2"><a href="chapter5.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb136-3"><a href="chapter5.html#cb136-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-4"><a href="chapter5.html#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2)</span></span>
-<span id="cb136-5"><a href="chapter5.html#cb136-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-6"><a href="chapter5.html#cb136-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">5</span>)</span>
-<span id="cb136-7"><a href="chapter5.html#cb136-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-8"><a href="chapter5.html#cb136-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample mean</span></span>
-<span id="cb136-9"><a href="chapter5.html#cb136-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="chapter5.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean the workspace</span></span>
+<span id="cb148-2"><a href="chapter5.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb148-3"><a href="chapter5.html#cb148-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-4"><a href="chapter5.html#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2)</span></span>
+<span id="cb148-5"><a href="chapter5.html#cb148-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-6"><a href="chapter5.html#cb148-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">5</span>)</span>
+<span id="cb148-7"><a href="chapter5.html#cb148-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-8"><a href="chapter5.html#cb148-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample mean</span></span>
+<span id="cb148-9"><a href="chapter5.html#cb148-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
 <pre><code>## [1] 4.333333</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="chapter5.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected value</span></span>
-<span id="cb138-2"><a href="chapter5.html#cb138-2" aria-hidden="true" tabindex="-1"></a>die <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb138-3"><a href="chapter5.html#cb138-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-4"><a href="chapter5.html#cb138-4" aria-hidden="true" tabindex="-1"></a>E_die <span class="ot">&lt;-</span> <span class="fu">sum</span>(die <span class="sc">*</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>,<span class="dv">6</span>))</span>
-<span id="cb138-5"><a href="chapter5.html#cb138-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-6"><a href="chapter5.html#cb138-6" aria-hidden="true" tabindex="-1"></a>E_die</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="chapter5.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected value</span></span>
+<span id="cb150-2"><a href="chapter5.html#cb150-2" aria-hidden="true" tabindex="-1"></a>die <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb150-3"><a href="chapter5.html#cb150-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-4"><a href="chapter5.html#cb150-4" aria-hidden="true" tabindex="-1"></a>E_die <span class="ot">&lt;-</span> <span class="fu">sum</span>(die <span class="sc">*</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>,<span class="dv">6</span>))</span>
+<span id="cb150-5"><a href="chapter5.html#cb150-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-6"><a href="chapter5.html#cb150-6" aria-hidden="true" tabindex="-1"></a>E_die</span></code></pre></div>
 <pre><code>## [1] 3.5</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="chapter5.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3)</span></span>
-<span id="cb140-2"><a href="chapter5.html#cb140-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-3"><a href="chapter5.html#cb140-3" aria-hidden="true" tabindex="-1"></a>pays <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">20</span>)</span>
-<span id="cb140-4"><a href="chapter5.html#cb140-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-5"><a href="chapter5.html#cb140-5" aria-hidden="true" tabindex="-1"></a>E_pays <span class="ot">&lt;-</span> <span class="fu">sum</span>(pays <span class="sc">*</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>,<span class="dv">6</span>))</span>
-<span id="cb140-6"><a href="chapter5.html#cb140-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-7"><a href="chapter5.html#cb140-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected pay of the game</span></span>
-<span id="cb140-8"><a href="chapter5.html#cb140-8" aria-hidden="true" tabindex="-1"></a>E_pays</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="chapter5.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3)</span></span>
+<span id="cb152-2"><a href="chapter5.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="chapter5.html#cb152-3" aria-hidden="true" tabindex="-1"></a>pays <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">20</span>)</span>
+<span id="cb152-4"><a href="chapter5.html#cb152-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-5"><a href="chapter5.html#cb152-5" aria-hidden="true" tabindex="-1"></a>E_pays <span class="ot">&lt;-</span> <span class="fu">sum</span>(pays <span class="sc">*</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>,<span class="dv">6</span>))</span>
+<span id="cb152-6"><a href="chapter5.html#cb152-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-7"><a href="chapter5.html#cb152-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected pay of the game</span></span>
+<span id="cb152-8"><a href="chapter5.html#cb152-8" aria-hidden="true" tabindex="-1"></a>E_pays</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="chapter5.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4)</span></span>
-<span id="cb142-2"><a href="chapter5.html#cb142-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-3"><a href="chapter5.html#cb142-3" aria-hidden="true" tabindex="-1"></a>tickets <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
-<span id="cb142-4"><a href="chapter5.html#cb142-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-5"><a href="chapter5.html#cb142-5" aria-hidden="true" tabindex="-1"></a>pays_lottery <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">25</span>, <span class="dv">100</span>, <span class="dv">10000</span>)</span>
-<span id="cb142-6"><a href="chapter5.html#cb142-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-7"><a href="chapter5.html#cb142-7" aria-hidden="true" tabindex="-1"></a>probabilities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">200</span><span class="sc">/</span>tickets, <span class="dv">20</span><span class="sc">/</span>tickets, <span class="dv">5</span><span class="sc">/</span>tickets, <span class="dv">1</span><span class="sc">/</span>tickets)</span>
-<span id="cb142-8"><a href="chapter5.html#cb142-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-9"><a href="chapter5.html#cb142-9" aria-hidden="true" tabindex="-1"></a>E_pays_lottery <span class="ot">&lt;-</span> <span class="fu">sum</span>(pays_lottery <span class="sc">*</span> probabilities)</span>
-<span id="cb142-10"><a href="chapter5.html#cb142-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-11"><a href="chapter5.html#cb142-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fair price for a ticket</span></span>
-<span id="cb142-12"><a href="chapter5.html#cb142-12" aria-hidden="true" tabindex="-1"></a>E_pays_lottery</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="chapter5.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4)</span></span>
+<span id="cb154-2"><a href="chapter5.html#cb154-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-3"><a href="chapter5.html#cb154-3" aria-hidden="true" tabindex="-1"></a>tickets <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb154-4"><a href="chapter5.html#cb154-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-5"><a href="chapter5.html#cb154-5" aria-hidden="true" tabindex="-1"></a>pays_lottery <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">25</span>, <span class="dv">100</span>, <span class="dv">10000</span>)</span>
+<span id="cb154-6"><a href="chapter5.html#cb154-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-7"><a href="chapter5.html#cb154-7" aria-hidden="true" tabindex="-1"></a>probabilities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">200</span><span class="sc">/</span>tickets, <span class="dv">20</span><span class="sc">/</span>tickets, <span class="dv">5</span><span class="sc">/</span>tickets, <span class="dv">1</span><span class="sc">/</span>tickets)</span>
+<span id="cb154-8"><a href="chapter5.html#cb154-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-9"><a href="chapter5.html#cb154-9" aria-hidden="true" tabindex="-1"></a>E_pays_lottery <span class="ot">&lt;-</span> <span class="fu">sum</span>(pays_lottery <span class="sc">*</span> probabilities)</span>
+<span id="cb154-10"><a href="chapter5.html#cb154-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-11"><a href="chapter5.html#cb154-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fair price for a ticket</span></span>
+<span id="cb154-12"><a href="chapter5.html#cb154-12" aria-hidden="true" tabindex="-1"></a>E_pays_lottery</span></code></pre></div>
 <pre><code>## [1] 0.12</code></pre>
 <p>Simulation of the expected value of the fair die/dice. This exercise is taken from the book Hands-On Programming with R by Garrett Grolemund.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="chapter5.html#cb144-1" aria-hidden="true" tabindex="-1"></a>roll_function <span class="ot">&lt;-</span> <span class="cf">function</span>(nr_of_die) {</span>
-<span id="cb144-2"><a href="chapter5.html#cb144-2" aria-hidden="true" tabindex="-1"></a>  die <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb144-3"><a href="chapter5.html#cb144-3" aria-hidden="true" tabindex="-1"></a>  roll <span class="ot">&lt;-</span> <span class="fu">sample</span>(die, </span>
-<span id="cb144-4"><a href="chapter5.html#cb144-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> nr_of_die, </span>
-<span id="cb144-5"><a href="chapter5.html#cb144-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb144-6"><a href="chapter5.html#cb144-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">prob =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>, <span class="dv">6</span>))</span>
-<span id="cb144-7"><a href="chapter5.html#cb144-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb144-8"><a href="chapter5.html#cb144-8" aria-hidden="true" tabindex="-1"></a>  sum_roll <span class="ot">&lt;-</span> <span class="fu">sum</span>(roll)</span>
-<span id="cb144-9"><a href="chapter5.html#cb144-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb144-10"><a href="chapter5.html#cb144-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sum_roll)</span>
-<span id="cb144-11"><a href="chapter5.html#cb144-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb144-12"><a href="chapter5.html#cb144-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-13"><a href="chapter5.html#cb144-13" aria-hidden="true" tabindex="-1"></a>throws <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">10000</span>, <span class="fu">roll_function</span>(<span class="at">nr_of_die =</span> <span class="dv">2</span>))</span>
-<span id="cb144-14"><a href="chapter5.html#cb144-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-15"><a href="chapter5.html#cb144-15" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(throws,</span>
-<span id="cb144-16"><a href="chapter5.html#cb144-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">binwidth =</span> <span class="dv">1</span>,</span>
-<span id="cb144-17"><a href="chapter5.html#cb144-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab =</span> <span class="st">&quot;Frequency&quot;</span>,</span>
-<span id="cb144-18"><a href="chapter5.html#cb144-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">&quot;Numbers&quot;</span>) <span class="sc">+</span></span>
-<span id="cb144-19"><a href="chapter5.html#cb144-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(throws))) <span class="sc">+</span></span>
-<span id="cb144-20"><a href="chapter5.html#cb144-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">500</span>,</span>
-<span id="cb144-21"><a href="chapter5.html#cb144-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> <span class="fu">mean</span>(throws),</span>
-<span id="cb144-22"><a href="chapter5.html#cb144-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="fu">mean</span>(throws))) <span class="sc">+</span></span>
-<span id="cb144-23"><a href="chapter5.html#cb144-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-79-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="chapter5.html#cb156-1" aria-hidden="true" tabindex="-1"></a>roll_function <span class="ot">&lt;-</span> <span class="cf">function</span>(nr_of_die) {</span>
+<span id="cb156-2"><a href="chapter5.html#cb156-2" aria-hidden="true" tabindex="-1"></a>  die <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb156-3"><a href="chapter5.html#cb156-3" aria-hidden="true" tabindex="-1"></a>  roll <span class="ot">&lt;-</span> <span class="fu">sample</span>(die, </span>
+<span id="cb156-4"><a href="chapter5.html#cb156-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> nr_of_die, </span>
+<span id="cb156-5"><a href="chapter5.html#cb156-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb156-6"><a href="chapter5.html#cb156-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">prob =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb156-7"><a href="chapter5.html#cb156-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb156-8"><a href="chapter5.html#cb156-8" aria-hidden="true" tabindex="-1"></a>  sum_roll <span class="ot">&lt;-</span> <span class="fu">sum</span>(roll)</span>
+<span id="cb156-9"><a href="chapter5.html#cb156-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb156-10"><a href="chapter5.html#cb156-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sum_roll)</span>
+<span id="cb156-11"><a href="chapter5.html#cb156-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb156-12"><a href="chapter5.html#cb156-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-13"><a href="chapter5.html#cb156-13" aria-hidden="true" tabindex="-1"></a>throws <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">10000</span>, <span class="fu">roll_function</span>(<span class="at">nr_of_die =</span> <span class="dv">2</span>))</span>
+<span id="cb156-14"><a href="chapter5.html#cb156-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-15"><a href="chapter5.html#cb156-15" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(throws,</span>
+<span id="cb156-16"><a href="chapter5.html#cb156-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">binwidth =</span> <span class="dv">1</span>,</span>
+<span id="cb156-17"><a href="chapter5.html#cb156-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab =</span> <span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb156-18"><a href="chapter5.html#cb156-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">&quot;Numbers&quot;</span>) <span class="sc">+</span></span>
+<span id="cb156-19"><a href="chapter5.html#cb156-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(throws))) <span class="sc">+</span></span>
+<span id="cb156-20"><a href="chapter5.html#cb156-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">500</span>,</span>
+<span id="cb156-21"><a href="chapter5.html#cb156-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> <span class="fu">mean</span>(throws),</span>
+<span id="cb156-22"><a href="chapter5.html#cb156-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="fu">mean</span>(throws))) <span class="sc">+</span></span>
+<span id="cb156-23"><a href="chapter5.html#cb156-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-87-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="variance" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Variance<a href="chapter5.html#variance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Find variance and standard deviation</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="chapter5.html#cb145-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>)</span>
-<span id="cb145-2"><a href="chapter5.html#cb145-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb145-3"><a href="chapter5.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="chapter5.html#cb157-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>)</span>
+<span id="cb157-2"><a href="chapter5.html#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-3"><a href="chapter5.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(b)</span></code></pre></div>
 <pre><code>## [1] 3.466667</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="chapter5.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="chapter5.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b)</span></code></pre></div>
 <pre><code>## [1] 1.861899</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="chapter5.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b) <span class="sc">==</span> <span class="fu">sqrt</span>(<span class="fu">var</span>(b))</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="chapter5.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b) <span class="sc">==</span> <span class="fu">sqrt</span>(<span class="fu">var</span>(b))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="chapter5.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Add 10 to data</span></span>
-<span id="cb151-2"><a href="chapter5.html#cb151-2" aria-hidden="true" tabindex="-1"></a>b_plus_10 <span class="ot">&lt;-</span> b <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb151-3"><a href="chapter5.html#cb151-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-4"><a href="chapter5.html#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(b_plus_10)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="chapter5.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Add 10 to data</span></span>
+<span id="cb163-2"><a href="chapter5.html#cb163-2" aria-hidden="true" tabindex="-1"></a>b_plus_10 <span class="ot">&lt;-</span> b <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb163-3"><a href="chapter5.html#cb163-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-4"><a href="chapter5.html#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(b_plus_10)</span></code></pre></div>
 <pre><code>## [1] 3.466667</code></pre>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="chapter5.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b_plus_10)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="chapter5.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b_plus_10)</span></code></pre></div>
 <pre><code>## [1] 1.861899</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="chapter5.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Multiply data by 10</span></span>
-<span id="cb155-2"><a href="chapter5.html#cb155-2" aria-hidden="true" tabindex="-1"></a>b_times_10 <span class="ot">&lt;-</span> b <span class="sc">*</span> <span class="dv">10</span></span>
-<span id="cb155-3"><a href="chapter5.html#cb155-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-4"><a href="chapter5.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(b_times_10)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="chapter5.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Multiply data by 10</span></span>
+<span id="cb167-2"><a href="chapter5.html#cb167-2" aria-hidden="true" tabindex="-1"></a>b_times_10 <span class="ot">&lt;-</span> b <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb167-3"><a href="chapter5.html#cb167-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-4"><a href="chapter5.html#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(b_times_10)</span></code></pre></div>
 <pre><code>## [1] 346.6667</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="chapter5.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b_times_10)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="chapter5.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b_times_10)</span></code></pre></div>
 <pre><code>## [1] 18.61899</code></pre>
 </div>
 <div id="correlation" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Correlation<a href="chapter5.html#correlation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>With this short exercise we want to see how the Pearson correlation coefficient is a measure of linear correlation between two variables.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="chapter5.html#cb159-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
-<span id="cb159-2"><a href="chapter5.html#cb159-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.5</span>)</span>
-<span id="cb159-3"><a href="chapter5.html#cb159-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-4"><a href="chapter5.html#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span>
-<span id="cb159-5"><a href="chapter5.html#cb159-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x))</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-81-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="chapter5.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="chapter5.html#cb171-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
+<span id="cb171-2"><a href="chapter5.html#cb171-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.5</span>)</span>
+<span id="cb171-3"><a href="chapter5.html#cb171-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-4"><a href="chapter5.html#cb171-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span>
+<span id="cb171-5"><a href="chapter5.html#cb171-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x))</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-89-1.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="chapter5.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span></code></pre></div>
 <pre><code>## [1] -0.114539</code></pre>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="chapter5.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Pearson correlation coefficient is also symmetric</span></span>
-<span id="cb162-2"><a href="chapter5.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y) <span class="sc">==</span> <span class="fu">cor</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="chapter5.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Pearson correlation coefficient is also symmetric</span></span>
+<span id="cb174-2"><a href="chapter5.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y) <span class="sc">==</span> <span class="fu">cor</span>(x, y)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="chapter5.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="chapter5.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -461,15 +461,15 @@ Specific types of quantiles are percentiles (see above), deciles, quartiles, etc
 ## sample estimates:
 ##       cor 
 ## -0.114539</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="chapter5.html#cb166-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
-<span id="cb166-2"><a href="chapter5.html#cb166-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb166-3"><a href="chapter5.html#cb166-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb166-4"><a href="chapter5.html#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a,b)</span>
-<span id="cb166-5"><a href="chapter5.html#cb166-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(b <span class="sc">~</span> a))</span></code></pre></div>
-<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-81-2.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="chapter5.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(a, b)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="chapter5.html#cb178-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
+<span id="cb178-2"><a href="chapter5.html#cb178-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb178-3"><a href="chapter5.html#cb178-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-4"><a href="chapter5.html#cb178-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a,b)</span>
+<span id="cb178-5"><a href="chapter5.html#cb178-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(b <span class="sc">~</span> a))</span></code></pre></div>
+<p><img src="Intro_to_quant_methods_files/figure-html/unnamed-chunk-89-2.png" width="80%" height="30%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="chapter5.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(a, b)</span></code></pre></div>
 <pre><code>## [1] 0.9506898</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="chapter5.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(a, b)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="chapter5.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(a, b)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -482,36 +482,36 @@ Specific types of quantiles are percentiles (see above), deciles, quartiles, etc
 ##       cor 
 ## 0.9506898</code></pre>
 <p>Programming challenge. Program a function that takes two inputs, x and y, and returns the correlation coefficient between x and y.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="chapter5.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb171-2"><a href="chapter5.html#cb171-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-3"><a href="chapter5.html#cb171-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb171-4"><a href="chapter5.html#cb171-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
-<span id="cb171-5"><a href="chapter5.html#cb171-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-6"><a href="chapter5.html#cb171-6" aria-hidden="true" tabindex="-1"></a>my_corr_function <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb171-7"><a href="chapter5.html#cb171-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb171-8"><a href="chapter5.html#cb171-8" aria-hidden="true" tabindex="-1"></a>  numerator <span class="ot">&lt;-</span> <span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">*</span> (y <span class="sc">-</span> <span class="fu">mean</span>(y)))</span>
-<span id="cb171-9"><a href="chapter5.html#cb171-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb171-10"><a href="chapter5.html#cb171-10" aria-hidden="true" tabindex="-1"></a>  denominator <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>((y <span class="sc">-</span> <span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb171-11"><a href="chapter5.html#cb171-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb171-12"><a href="chapter5.html#cb171-12" aria-hidden="true" tabindex="-1"></a>  correl <span class="ot">&lt;-</span> numerator <span class="sc">/</span> denominator</span>
-<span id="cb171-13"><a href="chapter5.html#cb171-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb171-14"><a href="chapter5.html#cb171-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(correl)</span>
-<span id="cb171-15"><a href="chapter5.html#cb171-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb171-16"><a href="chapter5.html#cb171-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb171-17"><a href="chapter5.html#cb171-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-18"><a href="chapter5.html#cb171-18" aria-hidden="true" tabindex="-1"></a><span class="fu">my_corr_function</span>(<span class="at">a =</span> x, <span class="at">b =</span> y)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="chapter5.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb183-2"><a href="chapter5.html#cb183-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-3"><a href="chapter5.html#cb183-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb183-4"><a href="chapter5.html#cb183-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb183-5"><a href="chapter5.html#cb183-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-6"><a href="chapter5.html#cb183-6" aria-hidden="true" tabindex="-1"></a>my_corr_function <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb183-7"><a href="chapter5.html#cb183-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb183-8"><a href="chapter5.html#cb183-8" aria-hidden="true" tabindex="-1"></a>  numerator <span class="ot">&lt;-</span> <span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">*</span> (y <span class="sc">-</span> <span class="fu">mean</span>(y)))</span>
+<span id="cb183-9"><a href="chapter5.html#cb183-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb183-10"><a href="chapter5.html#cb183-10" aria-hidden="true" tabindex="-1"></a>  denominator <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>((y <span class="sc">-</span> <span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb183-11"><a href="chapter5.html#cb183-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb183-12"><a href="chapter5.html#cb183-12" aria-hidden="true" tabindex="-1"></a>  correl <span class="ot">&lt;-</span> numerator <span class="sc">/</span> denominator</span>
+<span id="cb183-13"><a href="chapter5.html#cb183-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb183-14"><a href="chapter5.html#cb183-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(correl)</span>
+<span id="cb183-15"><a href="chapter5.html#cb183-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb183-16"><a href="chapter5.html#cb183-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb183-17"><a href="chapter5.html#cb183-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-18"><a href="chapter5.html#cb183-18" aria-hidden="true" tabindex="-1"></a><span class="fu">my_corr_function</span>(<span class="at">a =</span> x, <span class="at">b =</span> y)</span></code></pre></div>
 <pre><code>## [1] 0.1042097</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="chapter5.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x,y)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="chapter5.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x,y)</span></code></pre></div>
 <pre><code>## [1] 0.1042097</code></pre>
 </div>
 <div id="covariance" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> Covariance<a href="chapter5.html#covariance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Find covariance and Pearson’s correlation coefficient between the variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="chapter5.html#cb175-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)  </span>
-<span id="cb175-2"><a href="chapter5.html#cb175-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">50</span>)  </span>
-<span id="cb175-3"><a href="chapter5.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(X, Y)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="chapter5.html#cb187-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)  </span>
+<span id="cb187-2"><a href="chapter5.html#cb187-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">50</span>)  </span>
+<span id="cb187-3"><a href="chapter5.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(X, Y)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="chapter5.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(X, Y)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="chapter5.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(X, Y)</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 </div>
 <div id="expected-value-variance-and-covariance-rules" class="section level2 hasAnchor" number="5.7">
