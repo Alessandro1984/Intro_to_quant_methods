@@ -1,8 +1,75 @@
 # (PART) Review of math and statistics {-}
 
-# Basic math elements {#chapter4}
+# Basic mathematical tools {#chapter4}
 
-## Derivative rules
+## The summation operator {.unnumbered}
+
+## Exponents {.unnumbered}
+
+## Equations {.unnumbered}
+
+## Simultaneous equations {.unnumbered}
+
+R can perform standard matrix algebra operations. We can use matrix algebra functions in R to solve our problem from class.
+
+$$
+7x + 5y - 3z = 16 \\
+3x -5y +2z	= -8 \\
+5x +3y -7z = 0
+$$
+
+First, we rewrite the system using matrix and vector notation:
+
+$$
+\mathbf{A} = \left[\begin{array}
+{rrr}
+7 & 5 & -3 \\
+3 & -5 & 2 \\
+5 & 3 & -7 \\
+\end{array}\right]
+\mathbf{b} = \left[\begin{array}
+{rrr}
+x \\
+y \\
+z \\
+\end{array}\right]
+\mathbf{r} = \left[\begin{array}
+{rrr}
+16 \\
+-8 \\
+0 \\
+\end{array}\right]
+$$
+
+In order to obtain the result vector *b*, we have to rearrange the model performing some simple matrix algebra operations.
+
+$$
+\mathbf{A}^{-1}\mathbf{A}\mathbf{b} = \mathbf{A}^{-1}\mathbf{r} \\
+\text{remember that} \space \mathbf{A}^{-1}\mathbf{A} = \mathbf{I} \\
+\mathbf{b} = \mathbf{A}^{-1}\mathbf{r}
+$$ 
+
+We are now ready to solve our system of equations using R:
+
+```{r}
+data <- c(7, 5, -3, 3, -5, 2, 5, 3, -7)
+
+A <- matrix(data, nrow = 3, ncol = 3, byrow = TRUE)
+
+r <- c(16, -8, 0)
+
+b <- solve(A) %*% r
+
+b
+```
+
+## Logarithms {.unnumbered}
+
+## Derivatives {.unnumbered}
+
+## Optimization {.unnumbered}
+
+## Derivative rules {.unnumbered}
 
 **The rules for sums and differences**
 
@@ -69,58 +136,3 @@ Given $f(x) = cos(x)$, the derivative is given by:
 \begin{equation}
 f'(x) = -sin(x)
 \end{equation}
-
-## Matrix operations
-
-R can perform standard matrix algebra operations. We can use matrix algebra functions in R to solve our problem from class.
-
-$$
-7x + 5y - 3z = 16 \\
-3x -5y +2z	= -8 \\
-5x +3y -7z = 0
-$$
-
-First, we rewrite the system using matrix and vector notation:
-
-$$
-\mathbf{A} = \left[\begin{array}
-{rrr}
-7 & 5 & -3 \\
-3 & -5 & 2 \\
-5 & 3 & -7 \\
-\end{array}\right]
-\mathbf{b} = \left[\begin{array}
-{rrr}
-x \\
-y \\
-z \\
-\end{array}\right]
-\mathbf{r} = \left[\begin{array}
-{rrr}
-16 \\
--8 \\
-0 \\
-\end{array}\right]
-$$
-
-In order to obtain the result vector *b*, we have to rearrange the model performing some simple matrix algebra operations.
-
-$$
-\mathbf{A}^{-1}\mathbf{A}\mathbf{b} = \mathbf{A}^{-1}\mathbf{r} \\
-\text{remember that} \space \mathbf{A}^{-1}\mathbf{A} = \mathbf{I} \\
-\mathbf{b} = \mathbf{A}^{-1}\mathbf{r}
-$$ 
-
-We are now ready to solve our system of equations using R:
-
-```{r}
-data <- c(7, 5, -3, 3, -5, 2, 5, 3, -7)
-
-A <- matrix(data, nrow = 3, ncol = 3, byrow = TRUE)
-
-r <- c(16, -8, 0)
-
-b <- solve(A) %*% r
-
-b
-```

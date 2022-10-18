@@ -8,7 +8,7 @@ install.packages("wooldridge")
 
 After having installed the package, we must load it into the library.
 
-```{r, echo = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 library(wooldridge)
 ```
 

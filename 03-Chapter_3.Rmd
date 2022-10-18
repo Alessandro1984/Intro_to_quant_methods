@@ -88,7 +88,7 @@ df_M <- filter_function(series = "AMECO/OMGS/DEU.1.1.0.0.OMGS",
                         name = "M")
 ```
 
-We finally join the single data sets into a larger one called `df`.
+We finally join the single data sets into a larger data frame called `df`.
 
 ```{r}
 df <- df_Y %>%
@@ -101,7 +101,7 @@ df <- df_Y %>%
 
 ## Calculation of the growth contributions
 
-We are now ready to calculate the growth contributions. To do this we will use the formula we saw in the initial section, e.g. $\widehat{G}_{t, contr} = \Delta G_t / Y_{t-1}$.^[An earlier version of this exercise used the first formula presented in the initial section. The current version is quicker and clearer. Growth rates of aggregate demand components will not be needed anymore.] We now calculate the contributions of the individual components of aggregate demand.
+We are now ready to calculate the growth contributions. To do this we will use the formula we saw in the initial section, e.g. $\widehat{G}_{t, contr} = \Delta G_t / Y_{t-1}$. We now calculate the contributions of the individual components of aggregate demand.
 
 ```{r, warning=FALSE}
 df_contr <- df %>% 

@@ -1,25 +1,38 @@
-# Fundamental concepts in statistics {#chapter5}
+# Fundamentals of statistics {#chapter5}
 
-## Mean and median
+## Measures of central tendencies
+
+### The arithmetic mean {.unnumbered}
 
 ```{r}
 x <- c(3,5,2,6,5,9,5,2,8,5)
 
 mean(x)
 
+```
+
+### The median {.unnumbered}
+
+```{r}
 median(x)
+```
 
-## Find the weighted arithmetic mean
+### The weighted arithmetic mean {.unnumbered}
 
-# Values of z
+Find the weighted arithmetic mean. Values of z. Weights.
+
+```{r}
 z <- c(70,90,85)
 
-# Weights
 wt <- c(1,1,3)
 
 weighted.mean(z, wt)
 
 ```
+
+What happens if the weights are the same? Easy. We have a simple arithmetic mean!
+
+## Quantiles
 
 A percentile is a point in a distribution at which or below which a given proportion of data is found. 
 The k-th percentile divides the data in a way that k-percent of the data lie below the percentile
@@ -27,18 +40,22 @@ and (100 - k)-percent lie above the percentile. It is also common to hear about 
 Quantiles is a more generic terms which indicates values partitioning data in equally spaced groups.
 Specific types of quantiles are percentiles (see above), deciles, quartiles, etc.
 
+### Percentiles and quartiles
+
 ```{r}
 a <- c(1,2,3,3,3,4,5,5,6,8,8,9,10,12,12,13,14,15,16,18)
 
 # 1) Find the values existing at the Q_1, Q_2, Q_3 and Q_4, where Q stands for quartile
 quantile(a, probs = c(0.25, 0.50, 0.75, 1))
+```
 
-# Do we obtain the same results using the nearest rank method?
+Do we obtain the same results using the nearest rank method?
+n = P / 100 * N
+n <- ordinal rank
+P <- percentile of interest
+N <- number of values in the set
 
-# n = P / 100 * N
-# n <- ordinal rank
-# P <- percentile of interest
-# N <- number of values in the set
+```{r}
 
 # Q_1, Q_2, Q_3 and Q_4
 P <- c(0.25, 0.50, 0.75, 1) * 100
@@ -52,30 +69,32 @@ n
 # The values at the th percentile
 a[n]
 
-# 2) the percentile of value 4 and value 15
+
+```
+
+the percentile of value 4 and value 15
+
+```{r}
 percentile <- ecdf(a)
 percentile(4)*100
 percentile(15)*100
+```
 
-# Let's use again the nearest rank method instead of the in-built ecdf function
 
-# P = n / N * 100
+Let's use again the nearest rank method instead of the in-built ecdf function. P = n / N * 100. Let's first find the rank (n) of the value 4 and 15 by looking at the original set.
 
-# Let's first find the rank (n) of the value 4 and 15 by looking at the original set
+```{r}
 P_new <- c(6, 18) / N * 100
 P_new
 ```
 
-## Boxplot
+### The boxplot
 
 ```{r}
 boxplot(a, horizontal = TRUE)
 ```
 
 ```{r}
-# Clear the workspace
-rm(list = ls())
-
 # Outliers in boxplots
 
 # Data
@@ -93,6 +112,146 @@ lower_limit
 
 upper_limit <- quantile(b, prob = 0.75) + 1.5 * IQR(b)
 upper_limit
+```
+
+## Measures of dispersion
+
+### Variance
+
+Find variance and standard deviation
+
+```{r}
+b <- c(2, 5, 3, 1, 6, 3)
+
+var(b)
+
+```
+
+Add 10 to data.
+
+```{r}
+b_plus_10 <- b + 10
+
+var(b_plus_10)
+```
+
+Multiply data by 10.
+
+```{r}
+b_times_10 <- b * 10
+
+var(b_times_10)
+```
+
+### Standard deviation
+
+Find the standard deviation
+
+```{r}
+sd(b)
+```
+
+We can verify that the standard deviation is indeed the square root of the variance.
+
+```{r}
+sd(b) == sqrt(var(b))
+```
+
+Add 10 to the data.
+
+```{r}
+b_plus_10 <- b + 10
+
+sd(b_plus_10)
+```
+
+Multiply data by 10
+
+```{r}
+b_times_10 <- b * 10
+
+sd(b_times_10)
+```
+
+## Correlation
+
+### Covariance
+
+Find covariance and Pearson's correlation coefficient between the variables $X$ and $Y$.
+
+```{r}
+X <- c(2, 1, 3)  
+Y <- c(10, 30, 50)  
+cov(X, Y)
+```
+
+## Correlation coefficient
+
+Find the Pearson's correlation coefficient between the variables $X$ and $Y$.
+ 
+```{r}
+cor(X, Y)
+```
+
+The Pearson correlation coefficient is also symmetric.
+
+```{r}
+cor(x, y) == cor(x, y)
+```
+
+With this short exercise, we want to see how the Pearson correlation coefficient is a measure of linear correlation between two variables. As we can see from the plot below, we have two variables, x and y, which are connected by some kind of relationship. 
+
+```{r}
+x <- runif(100, min = 0, max = 10)
+y <- sin(x) + rnorm(100, mean = 0, sd = 0.5)
+
+plot(x,y)
+abline(lm(y ~ x))
+
+cor(x, y)
+
+cor.test(x, y)
+```
+
+
+```{r}
+
+a <- runif(100, min = 0, max = 10)
+b <- a + rnorm(100, mean = 0, sd = 1)
+
+plot(a,b)
+abline(lm(b ~ a))
+
+cor(a, b)
+
+cor.test(a, b)
+
+```
+
+Programming challenge. Program a function that takes two inputs, x and y, and returns the correlation coefficient between x and y.
+
+```{r}
+
+set.seed(12345)
+
+x <- rnorm(100, mean = 0, sd = 1)
+y <- rnorm(100, mean = 0, sd = 5)
+
+my_corr_function <- function(a, b) {
+  
+  numerator <- sum((x - mean(x)) * (y - mean(y)))
+    
+  denominator <- sqrt(sum((x - mean(x))^2) * sum((y - mean(y))^2))
+    
+  correl <- numerator / denominator
+  
+  return(correl)
+  
+}
+
+my_corr_function(a = x, b = y)
+
+cor(x,y)
 ```
 
 ## Expected value
@@ -166,101 +325,6 @@ qplot(throws,
                 label = mean(throws))) +
   theme_minimal()
 
-```
-
-## Variance
-
-Find variance and standard deviation
-
-```{r}
-b <- c(2, 5, 3, 1, 6, 3)
-
-var(b)
-
-sd(b)
-
-sd(b) == sqrt(var(b))
-
-# 2) Add 10 to data
-b_plus_10 <- b + 10
-
-var(b_plus_10)
-
-sd(b_plus_10)
-
-# 3) Multiply data by 10
-b_times_10 <- b * 10
-
-var(b_times_10)
-sd(b_times_10)
-```
-
-## Correlation
-
-With this short exercise we want to see how the Pearson correlation coefficient is a measure of linear correlation between two variables.
-
-```{r}
-
-x <- runif(100, min = 0, max = 10)
-y <- sin(x) + rnorm(100, mean = 0, sd = 0.5)
-
-plot(x,y)
-abline(lm(y ~ x))
-
-cor(x, y)
-
-# The Pearson correlation coefficient is also symmetric
-cor(x, y) == cor(x, y)
-
-cor.test(x, y)
-
-a <- runif(100, min = 0, max = 10)
-b <- a + rnorm(100, mean = 0, sd = 1)
-
-plot(a,b)
-abline(lm(b ~ a))
-
-cor(a, b)
-
-cor.test(a, b)
-
-```
-
-Programming challenge. Program a function that takes two inputs, x and y, and returns the correlation coefficient between x and y.
-
-```{r}
-
-set.seed(12345)
-
-x <- rnorm(100, mean = 0, sd = 1)
-y <- rnorm(100, mean = 0, sd = 5)
-
-my_corr_function <- function(a, b) {
-  
-  numerator <- sum((x - mean(x)) * (y - mean(y)))
-    
-  denominator <- sqrt(sum((x - mean(x))^2) * sum((y - mean(y))^2))
-    
-  correl <- numerator / denominator
-  
-  return(correl)
-  
-}
-
-my_corr_function(a = x, b = y)
-
-cor(x,y)
-```
-
-## Covariance
-
-Find covariance and Pearson's correlation coefficient between the variables $X$ and $Y$.
- 
-```{r}
-X <- c(2, 1, 3)  
-Y <- c(10, 30, 50)  
-cov(X, Y)
-cor(X, Y)
 ```
 
 ## Expected value, variance and covariance rules
